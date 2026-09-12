@@ -1,2 +1,2 @@
-"""Заглушка импорта оракулов."""
-print("TODO: import_oracles — подготовьте content/oracles/*.json (пересказ своими словами, не копипаст)")
+"""Заглушка імпорту оракулів."""
+print("TODO: import_oracles — підготуйте Database/raw/oracles/*.json (переказ своїми словами, не копіпаст)")

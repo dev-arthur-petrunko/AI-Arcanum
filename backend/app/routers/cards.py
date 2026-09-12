@@ -55,7 +55,7 @@ def card_of_day(deck_id: int | None = None, db: Session = Depends(get_db)):
     cards = db.scalars(stmt).all()
     if not cards:
         return None
-    # deterministic by date so "карта дня" is stable within a day
+    # детерміновано за датою, щоб «карта дня» не змінювалась протягом доби
     import datetime
     seed = int(datetime.date.today().strftime("%Y%m%d"))
     return random.Random(seed).choice(cards)

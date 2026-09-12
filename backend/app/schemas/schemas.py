@@ -8,7 +8,7 @@ class LocalizedMixin(BaseModel):
     translations: dict | None = None
 
     def localized(self, lang: str, *fields: str) -> dict:
-        """Return RU base overlaid with translations[lang] for given fields."""
+        """Повертає базові UK-поля, перекриті translations[lang] для вказаних полів."""
         data = self.model_dump()
         tr = (data.get("translations") or {}).get(lang, {}) if isinstance(data.get("translations"), dict) else {}
         for f in fields:
@@ -79,4 +79,14 @@ class QuizAnswerIn(BaseModel):
 class QuizQuestionOut(BaseModel):
     card: CardOut
     choices: list[str]
-    answer_index: int | None = None  # only returned in study mode, not in test mode
+    answer_index: int | None = None  # повертається лише в навчальному режимі, не в тестовому
+
+
+class ArticleOut(LocalizedMixin):
+    id: int
+    slug: str
+    title: str
+    system: str | None = None
+    lang: str = "ru"
+    body: str | None = None
+    source_reference: str | None = None

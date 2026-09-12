@@ -1,11 +1,15 @@
 import { useState } from "react";
+import { API } from "../lib/api";
 
-const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
-
-/** QuizModule: флеш-карты — вопрос с /quiz/question, ответ POST /quiz/answer. */
-export default function QuizModule({ deckId }) {
+/** Квіз-флешкартки: питання GET /quiz/question, відповідь POST /quiz/answer (Python-бекенд). */
+export default function QuizModule({ deckId, lang = "uk" }) {
   const [q, setQ] = useState(null);
   const [result, setResult] = useState(null);
+  const L = {
+    ru: { next: "Следующий вопрос", hint: "Подсказка", ok: "✅ Верно!", no: "❌ Мимо — открой карточку карты и повтори" },
+    uk: { next: "Наступне питання", hint: "Підказка", ok: "✅ Правильно!", no: "❌ Мимо — відкрий картку карти й повтори" },
+    en: { next: "Next question", hint: "Hint", ok: "✅ Correct!", no: "❌ Miss — open the card and retry" },
+  }[lang];
 
   async function next() {
     setResult(null);
@@ -15,20 +19,19 @@ export default function QuizModule({ deckId }) {
 
   async function answer(choice) {
     const ok = choice.id === q.answer_id;
-    setResult(ok ? "✅ Верно!" : "❌ Мимо — смотри подсказку и карточку карты");
-    await fetch(`${API}/quiz/answer`, {
+    setResult(ok ? L.ok : L.no);
+    fetch(`${API}/quiz/answer`, {
       method: "POST", headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ user_id: 0, card_id: q.card_id, correct: ok }),
-    });
+    }).catch(() => {});
   }
 
   return (
-    <div style={{ border: "1px solid #2a2f55", borderRadius: 12, padding: 16, background: "#12162e" }}>
-      <h3>🧠 Квиз — запомни значения</h3>
-      <button onClick={next}>Следующий вопрос</button>
-      {q && q.choices && (
+    <div className="quiz-box">
+      <button className="quiz-next" onClick={next}>🧠 {L.next}</button>
+      {q?.choices && (
         <>
-          <p style={{ opacity: 0.8 }}>Подсказка: {q.hint}</p>
+          <p style={{ opacity: 0.8 }}>{L.hint}: {q.hint}</p>
           <div style={{ display: "grid", gap: 8 }}>
             {q.choices.map((c) => (
               <button key={c.id} onClick={() => answer(c)}>{c.name}</button>
@@ -36,7 +39,7 @@ export default function QuizModule({ deckId }) {
           </div>
         </>
       )}
-      {result && <p>{result}</p>}
+      {result && <p style={{ fontSize: 17 }}>{result}</p>}
     </div>
   );
 }

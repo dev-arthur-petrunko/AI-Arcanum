@@ -1,17 +1,17 @@
-"""import_from_csv.py — ручной редакторский импорт (для современных источников).
+"""import_from_csv.py — ручний редакторський імпорт (для сучасних джерел).
 
-Процесс: прочитать источник → переписать СВОИМИ СЛОВАМИ → заполнить CSV →
-импортировать сюда. Массовый скрейпинг авторских сайтов запрещён.
+Процес: прочитати джерело → переписати СВОЇМИ СЛОВАМИ → заповнити CSV →
+імпортувати сюди. Масовий скрейпінг авторських сайтів заборонено.
 
 CSV-колонки: deck, number, name, meaning_general[, meaning_love, meaning_career,
 keywords_upright, keywords_reversed, symbolism, source_reference, lang]
-  - deck: точное имя колоды (должна существовать) или "System | Deck" для автосоздания.
-  - source_reference: обязательна (URL/книга для атрибуции).
-  - lang: ru (по умолчанию) | uk | en — для uk/en пишет в translations, не затирая RU.
+  - deck: точна назва колоди (має існувати) або "System | Deck" для автостворення.
+  - source_reference: обовʼязкове (URL/книга для атрибуції).
+  - lang: ru (за замовчуванням, збігається з базовими колонками БД) | uk | en — для uk/en пише в translations, не затираючи базу.
 
 Запуск (из папки backend/):
-    python scripts/import_from_csv.py content/oracles/my_deck.csv --dry-run
-    python scripts/import_from_csv.py content/oracles/my_deck.csv
+    python scripts/import_from_csv.py Database/raw/oracles/my_deck.csv --dry-run
+    python scripts/import_from_csv.py Database/raw/oracles/my_deck.csv
 """
 from __future__ import annotations
 
@@ -41,7 +41,7 @@ def get_or_create_deck(db, spec: str) -> Deck:
         db.add(deck)
         db.flush()
         return deck
-    raise ValueError(f"Колода '{spec}' не найдена (или укажите 'Система | Колода')")
+    raise ValueError(f"Колоди '{spec}' не знайдено (або вкажіть 'Система | Колода')")
 
 
 def main() -> None:
@@ -57,7 +57,7 @@ def main() -> None:
         with open(args.csv_path, encoding="utf-8-sig") as f:
             for row in csv.DictReader(f):
                 if not row.get("source_reference"):
-                    raise ValueError(f"Нет source_reference в строке: {row.get('name')}")
+                    raise ValueError(f"Немає source_reference у рядку: {row.get('name')}")
                 deck = get_or_create_deck(db, row["deck"].strip())
                 lang = (row.get("lang") or "ru").strip().lower()
                 number = (row.get("number") or "").strip() or None
@@ -82,7 +82,7 @@ def main() -> None:
                     card.symbolism = ((card.symbolism or "") + f"\nИсточник: {row['source_reference']}").strip()
                 else:
                     if not card:
-                        raise ValueError(f"Для {lang}-перевода карточка должна существовать: {row['name']}")
+                        raise ValueError(f"Для {lang}-перекладу картка має існувати: {row['name']}")
                     tr = dict(card.translations or {})
                     block = dict(tr.get(lang, {}))
                     block.update({k: v for k, v in fields.items() if v})
@@ -92,7 +92,7 @@ def main() -> None:
                     updated += 1
         if args.dry_run:
             db.rollback()
-            print(f"[dry-run] было бы: added={added} updated={updated}")
+            print(f"[dry-run] було б: added={added} updated={updated}")
         else:
             db.commit()
             print(f"[OK] added={added} updated={updated}")

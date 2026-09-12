@@ -24,10 +24,10 @@ def quiz_question(deck_id: int | None = None, choices: int = 4, db: Session = De
     random.shuffle(options)
     return {
         "card_id": card.id,
-        "prompt": "Что означает эта карта в прямом положении?",
+        "prompt": "Що означає ця карта в прямому положенні?",
         "image_path": card.image_path,
         "choices": [{"id": c.id, "name": c.name} for c in options],
-        # correct hidden in real test mode; returned here for study mode simplicity
+        # правильна відповідь прихована у справжньому тестовому режимі; тут — для простоти навчання
         "answer_id": card.id,
         "hint": (card.keywords_upright or "")[:120],
     }

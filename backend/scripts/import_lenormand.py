@@ -1,5 +1,5 @@
-"""Импорт Ленорман-36 из content/lenormand/lenormand36.json. Идемпотентный (по deck+number).
-Запуск: python scripts/import_lenormand.py  (из папки backend/)
+"""Імпорт Ленорман-36 з Database/cards/lenormand36.json. Ідемпотентний (за deck+number).
+Запуск: python scripts/import_lenormand.py  (з папки backend/)
 """
 import json
 import sys
@@ -10,7 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from app.core.database import Base, SessionLocal, engine
 from app.models import Card, Deck, System
 
-SRC = Path(__file__).resolve().parents[2] / "content" / "lenormand" / "lenormand36.json"
+SRC = Path(__file__).resolve().parents[1] / "Database" / "cards" / "lenormand36.json"
 
 
 def run():
@@ -53,7 +53,7 @@ def run():
             added += 1
         db.commit()
         total = db.query(Card).filter_by(deck_id=deck.id).count()
-        print(f"Lenormand: added {added}, total in deck {total}")
+        print(f"Lenormand: додано {added}, всього в колоді {total}")
     finally:
         db.close()
 

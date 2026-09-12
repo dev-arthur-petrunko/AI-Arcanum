@@ -1,4 +1,4 @@
-"""Импорт Таро из content/tarot/*.md|.json в БД. Формат: см. content/tarot/README."""
+"""Імпорт Таро з Database/raw/tarot/*.md|.json у БД. Формат: див. Database/raw/tarot/README."""
 import json, sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -13,7 +13,7 @@ def run(path: str, deck_id: int):
         for item in data:
             db.add(Card(deck_id=deck_id, **item))
         db.commit()
-        print(f"Imported {len(data)} cards from {path}")
+        print(f"Імпортовано {len(data)} карт з {path}")
     finally:
         db.close()
 

@@ -1,6 +1,6 @@
-"""Seed: systems + RWS deck (78 карт) + базовые расклады. RU base + UK/EN в translations.
-Запуск: python scripts/seed_db.py  (из папки backend/)
-Источники значений: общественное достояние (Waite 1911, пересказ) + собственные формулировки.
+"""Seed: systems + колода RWS (78 карт) + базові розклади. UK-база + RU/EN у translations.
+Запуск: python scripts/seed_db.py  (з папки backend/)
+Джерела значень: суспільне надбання (Waite 1911, переказ) + власні формулювання.
 """
 import sys
 from pathlib import Path
@@ -51,7 +51,7 @@ def seed():
     db = SessionLocal()
     try:
         if db.query(System).count():
-            print("Already seeded, skip. Use --reseed to refill.")
+            print("Already seeded, skip. Use --reseed to refill. (Вже засідовано, пропуск.)")
             return
         tarot = System(
             name="Таро",
@@ -102,7 +102,7 @@ def seed():
         db.add(rws)
         db.flush()
 
-        # --- Major Arcana ---
+        # --- Старші аркани ---
         for number, ru, uk, en, element, planet, zodiac, kw_up, kw_rev in MAJOR:
             db.add(Card(
                 deck_id=rws.id, number=number, name=ru, arcana_type="Старший аркан",
@@ -115,12 +115,12 @@ def seed():
                 translations={"uk": {"name": uk}, "en": {"name": en}},
             ))
 
-        # --- Minor Arcana (programmatic, educational stubs) ---
+        # --- Молодші аркани (програмно, навчальні заготовки) ---
         for suit_ru, suit_en, suit_uk, element in SUITS:
             for i, (rank_ru, rank_uk, rank_en) in enumerate(zip(RANKS, RANKS_UK, RANKS_EN)):
                 numerology = 1 if i == 0 else (i + 1 if i < 10 else None)
                 name_ru = f"{rank_ru} {suit_ru.lower()}" if suit_ru != "Жезлы" else f"{rank_ru} жезлов"
-                # normalize names
+                # нормалізація назв
                 suit_gen = {"Жезлы": "жезлов", "Кубки": "кубков", "Мечи": "мечей", "Пентакли": "пентаклей"}[suit_ru]
                 name_ru = f"{rank_ru} {suit_gen}"
                 db.add(Card(
@@ -134,7 +134,7 @@ def seed():
                     translations={"uk": {"name": f"{rank_uk} {suit_uk.lower()}"}, "en": {"name": f"{rank_en} of {suit_en}"}},
                 ))
 
-        # --- Spreads ---
+        # --- Розклади ---
         s1 = Spread(system_id=tarot.id, name="Три карты", positions_count=3,
                     description="Прошлое — настоящее — будущее. Базовый учебный расклад.",
                     translations={"uk": {"name": "Три карти"}, "en": {"name": "Three Cards"}})
@@ -154,7 +154,7 @@ def seed():
             db.add(SpreadPosition(spread_id=s2.id, position_number=n, position_meaning=m))
 
         db.commit()
-        print(f"Seeded: systems={db.query(System).count()} decks={db.query(Deck).count()} cards={db.query(Card).count()}")
+        print(f"Засідовано: systems={db.query(System).count()} decks={db.query(Deck).count()} cards={db.query(Card).count()}")
     finally:
         db.close()
 

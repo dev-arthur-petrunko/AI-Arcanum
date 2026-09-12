@@ -23,4 +23,4 @@ npm run dev
 ```
 
 ## Структура
-См. ТЗ в `docs/`. RWS 1909 — public domain; современные колоды — только пересказ + атрибуция в `content/sources_log.md`.
+См. ТЗ в `docs/`. RWS 1909 — public domain; современные колоды — только пересказ + атрибуция в `backend/Database/sources_log.md`. Все данные проекта — в папке `backend/Database/`.

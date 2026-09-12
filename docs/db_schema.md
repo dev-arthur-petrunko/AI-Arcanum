@@ -8,4 +8,5 @@
 - `quiz_progress(user_id, card_id, correct_count, last_reviewed)`
 
 Поиск: сейчас LIKE + fallback по translations в Python; апгрейд → SQLite FTS5 / Postgres tsvector.
-Миграции: Alembic (папка `backend/database/migrations`), старт — `Base.metadata.create_all`.
+Миграции: Alembic (папка `backend/Database/migrations`), старт — `Base.metadata.create_all`.
+Файл БД: `backend/Database/fortune_cards.db`. Все данные (JSON, статьи, кэш, sources_log) — в `backend/Database/`.

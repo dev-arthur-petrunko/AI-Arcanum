@@ -1,5 +1,5 @@
-"""FTS5-поиск по картам (SQLite) с LIKE-фолбэком + фильтры.
-Таблица cards_fts пересоздаётся из cards; триггеры держат её в синхроне.
+"""FTS5-пошук картками (SQLite) з LIKE-фолбеком + фільтри.
+Таблиця cards_fts перебудовується з cards; тригери тримають її в синхроні.
 """
 from fastapi import APIRouter, Depends, Query
 from sqlalchemy import select, text

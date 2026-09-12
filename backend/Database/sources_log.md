@@ -7,7 +7,7 @@
 
 ## Автоматический импорт (scripts/import_public_domain_sources.py, проверено 2026-09-12)
 - Waite 1911, EN-текст старших арканов → `translations.en.meaning_general_waite1911`:
-  archive.org/download/A.EWaiteThePictorialKeyToTheTarot (OCR, 1 запрос, кэш content/_pd_cache/).
+  archive.org/download/A.EWaiteThePictorialKeyToTheTarot (OCR, 1 запрос, кэш backend/Database/_pd_cache/).
   ВНИМАНИЕ: sacred-texts pktNN.htm мертвы (404, сайт стал SPA); Gutenberg #43548 — это де Лоранс 1918, НЕ Уэйт.
 - RWS-сканы (PD): Commons API, категория "Rider-Waite-Smith tarot deck (TaionWC)", файлы "RWS Tarot NN …".
   upload.wikimedia.org требует браузерный UA (ботовий даёт 403).

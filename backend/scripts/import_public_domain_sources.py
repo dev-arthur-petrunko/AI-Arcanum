@@ -1,24 +1,24 @@
 """import_public_domain_sources.py
-Скрипт наполнения БД материалами в ОБЩЕСТВЕННОМ ДОСТОЯНИИ.
+Скрипт наповнення БД матеріалами у СУСПІЛЬНОМУ НАДБАННІ.
 
-Источники (проверены 2026-09-12, все public domain):
-  1. A.E. Waite "The Pictorial Key to the Tarot" (1911) — полный OCR-текст ОДНИМ
-     запросом с archive.org (старого шаблона sacred-texts pktNN.htm больше нет — 404,
-     сайт переехал на SPA; Gutenberg #43548 — это НЕ Уэйт, а де Лоранс 1918, не использовать).
-  2. Сканы колоды Rider-Waite-Smith (1909/1910, PD) — Commons API, файлы "RWS Tarot NN ...".
-  3. И-Цзин, перевод James Legge (1899) — sacred-texts /ich/icNN.htm (legacy .htm ещё отдаются).
-  4. Англосаксонская руническая поэма (оригинал + пер. Bruce Dickins, 1915) — Wikisource.
+Джерела (перевірено 2026-09-12, усі public domain):
+  1. A.E. Waite "The Pictorial Key to the Tarot" (1911) — повний OCR-текст ОДНИМ
+     запитом з archive.org (старого шаблону sacred-texts pktNN.htm більше нема — 404,
+     сайт переїхав на SPA; Gutenberg #43548 — це НЕ Уейт, а де Лоранс 1918, не використовувати).
+  2. Скани колоди Rider-Waite-Smith (1909/1910, PD) — Commons API, файли "RWS Tarot NN ...".
+  3. І-Цзин, переклад James Legge (1899) — sacred-texts /ich/icNN.htm (legacy .htm ще віддаються).
+  4. Англосаксонська рунічна поема (оригінал + пер. Bruce Dickins, 1915) — Wikisource.
 
-НЕ скачивается автоматически: современные авторские сайты (Labyrinthos, Biddy Tarot,
-astro.com и т.д.) — см. import_modern_source_manually() и scripts/import_from_csv.py.
+НЕ завантажується автоматично: сучасні авторські сайти (Labyrinthos, Biddy Tarot,
+astro.com тощо) — див. import_modern_source_manually() і scripts/import_from_csv.py.
 
-Запуск (из папки backend/):
+Запуск (з папки backend/):
     pip install -r requirements.txt
     python scripts/import_public_domain_sources.py --only waite --dry-run
     python scripts/import_public_domain_sources.py --only runes
     python scripts/import_public_domain_sources.py --only iching --limit 3
     python scripts/import_public_domain_sources.py --only images --limit 5
-    python scripts/import_public_domain_sources.py   # всё целиком (78 картинок + 64 гексаграммы)
+    python scripts/import_public_domain_sources.py   # все цілком (78 картинок + 64 гексаграми)
 """
 from __future__ import annotations
 
@@ -44,20 +44,20 @@ HEADERS = {
     "User-Agent": "FortuneCardsEncyclopediaBot/1.0 "
                   "(educational, non-commercial; contact: admin@example.com)"
 }
-# Бинарные файлы upload.wikimedia.org режут ботовьи UA (403) — для самих картинок
-# обычный браузерный UA (задержка DELAY сохраняется, нагрузка та же).
+# Бінарні файли upload.wikimedia.org ріжуть ботовий UA (403) — для самих картинок
+# звичайний браузерний UA (затримка DELAY зберігається, навантаження те саме).
 IMAGE_HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                   "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36"
 }
 DELAY = 1.5
 
-try:  # Windows-консоль (cp1251) падает на â/ê/— вне ASCII: переключаем stdout на UTF-8
+try:  # Windows-консоль (cp1251) падає на â/ê/— поза ASCII: перемикаємо stdout на UTF-8
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 except Exception:
     pass
 
-CACHE_DIR = ROOT / "content" / "_pd_cache"
+CACHE_DIR = BACKEND / "Database" / "_pd_cache"
 IMAGES_DIR = ROOT / "frontend" / "src" / "assets" / "card_images" / "rws"
 
 WAITE_TXT_URL = (
@@ -69,7 +69,7 @@ LEGGE_REF = "James Legge, The Yi King (Sacred Books of the East, 1899), public d
 RUNE_REF = ("Bruce Dickins, Runic and Heroic Poems of the Old Teutonic Peoples (1915), "
             "public domain (via Wikisource); Old English original 8th–9th c.")
 
-# Порядок маркеров в §3 ч.III Уэйта ("Greater Arcana and their Divinatory Meanings").
+# Порядок маркерів у §3 ч.III Уейта ("Greater Arcana and their Divinatory Meanings").
 WAITE_MARKERS = [
     ("0", "Шут", ["THE FOOL"]),
     ("I", "Маг", ["THE MAGICIAN", "THE MAGUS"]),
@@ -110,7 +110,7 @@ def get(url: str, timeout: int = 30, binary: bool = False) -> requests.Response:
 
 
 def soup_text(url: str) -> tuple[str, str]:
-    """Возвращает (title, plain_text) для legacy-страницы sacred-texts."""
+    """Повертає (title, plain_text) для legacy-сторінки sacred-texts."""
     html = get(url).text
     soup = BeautifulSoup(html, "html.parser")
     for tag in soup.select("nav, header, footer, script, style"):
@@ -121,7 +121,7 @@ def soup_text(url: str) -> tuple[str, str]:
     return title, "\n\n".join(p for p in paras if len(p) > 40)
 
 
-# ---------------------------------------------------------------- 1. Уэйт
+# ---------------------------------------------------------------- 1. Уейт
 def fetch_waite_text(cache: Path) -> str:
     cache.parent.mkdir(parents=True, exist_ok=True)
     if cache.exists():
@@ -135,9 +135,9 @@ def fetch_waite_text(cache: Path) -> str:
 
 
 def split_waite_majors(full: str) -> dict[str, str]:
-    """Режет текст на 22 фрагмента по ordered-маркерам (устойчиво к OCR-шуму)."""
+    """Ріже текст на 22 фрагменти за ordered-маркерами (стійко до OCR-шуму)."""
     upper = re.sub(r"\s+", " ", full.upper())
-    # работаем только с дивинаторной секцией, если она находится
+    # працюємо лише з дивінаторною секцією, якщо вона знаходиться
     start = upper.find("DIVINATORY MEANINGS")
     section = upper[start:] if start != -1 else upper
     positions: list[tuple[int, str]] = []
@@ -159,7 +159,7 @@ def save_waite_to_db(fragments: dict[str, str], dry_run: bool = False) -> tuple[
         deck = db.query(Deck).filter(Deck.name.contains("Уэйта")).first() \
             or db.query(Deck).filter(Deck.name.contains("Waite")).first()
         if not deck:
-            print("[WARN] колода Уэйта-Смит не найдена — сначала python scripts/seed_db.py")
+            print("[WARN] колоду Уейта-Сміт не знайдено — спочатку python scripts/seed_db.py")
             return 0, 0
         updated = matched = 0
         for number, _ru, _v in WAITE_MARKERS:
@@ -184,11 +184,11 @@ def save_waite_to_db(fragments: dict[str, str], dry_run: bool = False) -> tuple[
         db.close()
 
 
-# ---------------------------------------------------------------- 2. RWS-сканы
+# ---------------------------------------------------------------- 2. RWS-скани
 def fetch_rws_images(limit: int | None = None, dry_run: bool = False) -> list[dict]:
     IMAGES_DIR.mkdir(parents=True, exist_ok=True)
     api = "https://commons.wikimedia.org/w/api.php"
-    # Канонический PD-набор; при пустом — сканируем категорию по regex.
+    # Канонічний PD-набір; як порожній — скануємо категорію за regex.
     category = "Category:Rider-Waite-Smith tarot deck (TaionWC)"
     params = {"action": "query", "list": "categorymembers", "cmtitle": category,
               "cmtype": "file", "cmlimit": "500", "format": "json"}
@@ -196,7 +196,7 @@ def fetch_rws_images(limit: int | None = None, dry_run: bool = False) -> list[di
         members = requests.get(api, params=params, headers=HEADERS, timeout=30).json() \
             .get("query", {}).get("categorymembers", [])
     except Exception as e:
-        print(f"[WARN] категория {category}: {e}; пробую Rider-Waite tarot deck")
+        print(f"[WARN] категорія {category}: {e}; пробую Rider-Waite tarot deck")
         params["cmtitle"] = "Category:Rider-Waite tarot deck"
         members = requests.get(api, params=params, headers=HEADERS, timeout=30).json() \
             .get("query", {}).get("categorymembers", [])
@@ -205,7 +205,7 @@ def fetch_rws_images(limit: int | None = None, dry_run: bool = False) -> list[di
               if re.search(r"RWS Tarot \d+", m["title"], re.I)]
     if limit:
         wanted = wanted[:limit]
-    print(f"[images] кандидатов: {len(wanted)}")
+    print(f"[images] кандидатів: {len(wanted)}")
     downloaded = []
     for title in wanted:
         info = requests.get(api, params={"action": "query", "titles": title, "prop": "imageinfo",
@@ -229,7 +229,7 @@ def fetch_rws_images(limit: int | None = None, dry_run: bool = False) -> list[di
             print(f"[OK] {fname}")
             downloaded.append({"title": title, "local_path": str(dest)})
             time.sleep(DELAY)
-    # Привязка majors по номеру в имени файла
+    # Привʼязка majors за номером в імені файлу
     if not dry_run:
         link_rws_images_to_cards()
     return downloaded
@@ -248,7 +248,7 @@ def link_rws_images_to_cards() -> int:
                 continue
             num = int(m.group(1))
             if num > 21:
-                continue  # младшие арканы маппятся вручную (см. docs)
+                continue  # молодші аркани мапляться вручну (див. docs)
             number = ["0", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X",
                       "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX",
                       "XX", "XXI"][num]
@@ -257,13 +257,13 @@ def link_rws_images_to_cards() -> int:
                 card.image_path = f"/assets/card_images/rws/{f.name}"
                 linked += 1
         db.commit()
-        print(f"[images] привязано старших арканов: {linked}/22")
+        print(f"[images] привʼязано старших арканів: {linked}/22")
         return linked
     finally:
         db.close()
 
 
-# ---------------------------------------------------------------- 3. И-Цзин
+# ---------------------------------------------------------------- 3. І-Цзин
 def fetch_iching(limit: int | None = None) -> list[dict]:
     out = []
     n = limit or 64
@@ -272,10 +272,10 @@ def fetch_iching(limit: int | None = None) -> list[dict]:
         try:
             title, text = soup_text(url)
         except Exception as e:
-            print(f"[WARN] гексаграмма {i}: {e}")
+            print(f"[WARN] гексаграма {i}: {e}")
             continue
         out.append({"hexagram_number": i, "title": title, "text": text, "source_url": url})
-        print(f"[OK] гексаграмма {i}: {title[:60]}")
+        print(f"[OK] гексаграма {i}: {title[:60]}")
         time.sleep(DELAY)
     return out
 
@@ -286,7 +286,7 @@ def save_iching_to_db(items: list[dict], dry_run: bool = False) -> int:
         system = db.query(System).filter_by(name="И-Цзин").first()
         if not system:
             if dry_run:
-                print("[dry-run] создал бы System И-Цзин")
+                print("[dry-run] створив би System І-Цзин")
                 return 0
             system = System(name="И-Цзин", category="гадательные",
                             description="64 гексаграммы Книги Перемен; карточная адаптация для изучения.",
@@ -298,7 +298,7 @@ def save_iching_to_db(items: list[dict], dry_run: bool = False) -> int:
         deck = db.query(Deck).filter_by(name="И-Цзин (Легг, 1899)").first()
         if not deck:
             if dry_run:
-                print("[dry-run] создал бы Deck И-Цзин (Легг, 1899)")
+                print("[dry-run] створив би Deck І-Цзин (Легг, 1899)")
                 return 0
             deck = Deck(system_id=system.id, name="И-Цзин (Легг, 1899)",
                         author="James Legge (перевод, 1899, public domain)",
@@ -321,17 +321,17 @@ def save_iching_to_db(items: list[dict], dry_run: bool = False) -> int:
             added += 1
         if not dry_run:
             db.commit()
-        print(f"[iching] новых: {added}")
+        print(f"[iching] нових: {added}")
         return added
     finally:
         db.close()
 
 
-# ---------------------------------------------------------------- 4. Руны
-# Источник: Wikisource, Dickins 1915 (PD). Структура страницы: древнеанглийские
-# строфы с нумерованными заголовками (<номер строки> + имя руны), затем английский
-# перевод Диккинса в том же порядке (29 строф). SPA sacred-texts для этого не годится
-# (контент подгружается JS, в статике пусто — проверено 2026-09-12).
+# ---------------------------------------------------------------- 4. Руни
+# Джерело: Wikisource, Dickins 1915 (PD). Структура сторінки: давньоанглійські
+# строфи з нумерованими заголовками (<номер рядка> + імʼя руни), далі англійський
+# переклад Діккінса в тому самому порядку (29 строф). SPA sacred-texts для цього не годиться
+# (контент підвантажується JS, у статиці порожньо — перевірено 2026-09-12).
 RUNE_WIKI_URL = ("https://en.wikisource.org/wiki/Runic_and_Heroic_Poems_of_the_Old_Teutonic_Peoples/"
                  "The_Runic_Poems/The_Anglo-Saxon_Runic_Poem")
 
@@ -359,10 +359,10 @@ def fetch_rune_poem() -> list[dict]:
     body = soup.select_one("div.mw-parser-output")
     lines = body.get_text("\n").splitlines()
 
-    # --- древнеанглийские строфы: два формата заголовков ---
-    #   A: "<число>" + "<Имя>" (+ "[n]"); B: "<число> <Имя> <начало стиха>" в одной строке.
-    # Имена НЕ матчим строго (в тексте варианты Wenne, Eolh-sec) — порядок строф
-    # фиксирован (Feoh→Ear), имена/переводы берём по индексу.
+    # --- давньоанглійські строфи: два формати заголовків ---
+    #   A: "<число>" + "<Імʼя>" (+ "[n]"); B: "<число> <Імʼя> <початок вірша>" в одному рядку.
+    # Імена НЕ матчимо строго (у тексті варіанти Wenne, Eolh-sec) — порядок строф
+    # фіксований (Feoh→Ear), імена/переклади беремо за індексом.
     oe: list[str] = []
     NAME = r"[A-ZÆÐÞ][A-Za-zæøþðÆØÞÐ]{1,11}"
     SKIP = re.compile(r"^(\[\s*\d+\s*\]|\d{1,3}\s*|\[|\]|​)\s*$")
@@ -370,7 +370,7 @@ def fetch_rune_poem() -> list[dict]:
     HEAD_NEXT = re.compile(r"(" + NAME + r")(?:-.*)?\b\s*(.*)")
 
     def is_head_at(j: int) -> re.Match | None:
-        """Заголовок строфы в позиции j (форматы A/B/C), иначе None."""
+        """Заголовок строфи в позиції j (формати A/B/C), інакше None."""
         if j >= len(lines):
             return None
         cur = lines[j] or ""
@@ -382,8 +382,8 @@ def fetch_rune_poem() -> list[dict]:
         return HEAD_INLINE.match(cur)
 
     def glue(frags: list[str]) -> str:
-        """Склейка букв, разорванных per-letter <span> (o/ð/rum → oðrum)."""
-        tokens: list[tuple[str, bool]] = []  # (текст, приклеить к предыдущему через пробел)
+        """Склейка літер, розірваних per-letter <span> (o/ð/rum → oðrum)."""
+        tokens: list[tuple[str, bool]] = []  # (текст, приклеїти до попереднього через пробіл)
         buf = ""
         for v in frags:
             if len(v) == 1:
@@ -420,7 +420,7 @@ def fetch_rune_poem() -> list[dict]:
         else:
             i += 1
         if i < len(lines) and re.fullmatch(r"\[\s*\d+\s*\]", (lines[i] or "").strip()):
-            i += 1  # сноска-номер "[n]"
+            i += 1  # виноска-номер "[n]"
         verse = [m.group(2).strip()] if m.group(2).strip() else []
         while i < len(lines) and len(verse) < 14:
             if is_head_at(i):
@@ -433,7 +433,7 @@ def fetch_rune_poem() -> list[dict]:
         if len(text) > 20:
             oe.append(text[:4000])
 
-    # --- перевод Диккинса: идёт после 2-го "THE ANGLO-SAXON RUNIC POEM", те же 29 по порядку ---
+    # --- переклад Діккінса: йде після 2-го "THE ANGLO-SAXON RUNIC POEM", ті самі 29 по порядку ---
     title_hits = [n for n, l in enumerate(lines) if l.strip() == "THE ANGLO-SAXON RUNIC POEM"]
     en: list[str] = []
     if len(title_hits) >= 2:
@@ -443,7 +443,7 @@ def fetch_rune_poem() -> list[dict]:
         for ln in region:
             s = ln.strip()
             if not s or s.startswith("↑") or len(s) > 600:
-                continue  # сноски и примечания
+                continue  # виноски й примітки
             if heads.match(s) and cur:
                 en.append(" ".join(cur)[:4000])
                 cur = [s]
@@ -472,7 +472,7 @@ def save_runes_to_db(stanzas: list[dict], dry_run: bool = False) -> int:
         system = db.query(System).filter_by(name="Руны").first()
         if not system:
             if dry_run:
-                print("[dry-run] создал бы System Руны")
+                print("[dry-run] створив би System Руни")
                 return 0
             system = System(name="Руны", category="гадательные",
                             description="Рунические системы: англосаксонский футорк (поэма VIII–IX вв.), Старший Футарк.",
@@ -483,7 +483,7 @@ def save_runes_to_db(stanzas: list[dict], dry_run: bool = False) -> int:
         deck = db.query(Deck).filter_by(name="Англосаксонская руническая поэма").first()
         if not deck:
             if dry_run:
-                print("[dry-run] создал бы Deck рунической поэмы")
+                print("[dry-run] створив би Deck рунічної поеми")
                 return 0
             deck = Deck(system_id=system.id, name="Англосаксонская руническая поэма",
                         author="аноним VIII–IX вв.; пер. Bruce Dickins (1915), public domain",
@@ -494,7 +494,7 @@ def save_runes_to_db(stanzas: list[dict], dry_run: bool = False) -> int:
             db.add(deck)
             db.flush()
         else:
-            # чистка legacy-карточки из первой (неудачной) итерации парсера
+            # чистка legacy-картки з першої (невдалої) ітерації парсера
             for junk in db.query(Card).filter_by(deck_id=deck.id).filter(Card.name.like("Строфа %")).all():
                 db.delete(junk)
             db.flush()
@@ -520,33 +520,33 @@ def save_runes_to_db(stanzas: list[dict], dry_run: bool = False) -> int:
             added += 1
         if not dry_run:
             db.commit()
-        print(f"[runes] новых: {added}")
+        print(f"[runes] нових: {added}")
         return added
     finally:
         db.close()
 
 
-# ---------------------------------------------------------------- 5. Современные источники — только вручную
+# ---------------------------------------------------------------- 5. Сучасні джерела — лише вручну
 def import_modern_source_manually(*_a, **_kw):
-    """См. docstring: массовый скрейпинг авторских сайтов запрещён их ToS и копирайтом."""
+    """Див. docstring: масовий скрейпінг авторських сайтів заборонений їхніми ToS і копірайтом."""
     raise NotImplementedError(
-        "Современные источники — вручную: прочитать → переписать своими словами → "
+        "Сучасні джерела — вручну: прочитати → переписати своїми словами → "
         "CSV (name, meaning_general, source_reference) → python scripts/import_from_csv.py"
     )
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="Импорт public-domain источников (см. docstring).")
+    ap = argparse.ArgumentParser(description="Імпорт public-domain джерел (див. docstring).")
     ap.add_argument("--only", choices=["waite", "images", "iching", "runes", "all"], default="all")
-    ap.add_argument("--limit", type=int, default=None, help="Ограничить число страниц/файлов (для проверки).")
-    ap.add_argument("--dry-run", action="store_true", help="Не писать в БД и не качать файлы.")
+    ap.add_argument("--limit", type=int, default=None, help="Обмежити число сторінок/файлів (для перевірки).")
+    ap.add_argument("--dry-run", action="store_true", help="Не писати в БД і не качати файли.")
     args = ap.parse_args()
 
     Base.metadata.create_all(bind=engine)
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
     if args.only in ("waite", "all"):
-        print("=== 1. Уэйт (archive.org, 1 запрос) ===")
+        print("=== 1. Уейт (archive.org, 1 запит) ===")
         try:
             full = fetch_waite_text(CACHE_DIR / "waite_pkt_djvu.txt")
             frags = split_waite_majors(full)
@@ -555,21 +555,21 @@ def main() -> None:
             print(f"[WARN] waite: {e}")
 
     if args.only in ("images", "all"):
-        print("\n=== 2. RWS-сканы (Wikimedia Commons API) ===")
+        print("\n=== 2. RWS-скани (Wikimedia Commons API) ===")
         try:
             fetch_rws_images(limit=args.limit, dry_run=args.dry_run)
         except Exception as e:
             print(f"[WARN] images: {e}")
 
     if args.only in ("iching", "all"):
-        print("\n=== 3. И-Цзин Легга (sacred-texts /ich/) ===")
+        print("\n=== 3. І-Цзин Легга (sacred-texts /ich/) ===")
         try:
             save_iching_to_db(fetch_iching(limit=args.limit), dry_run=args.dry_run)
         except Exception as e:
             print(f"[WARN] iching: {e}")
 
     if args.only in ("runes", "all") and not args.limit:
-        print("\n=== 4. Руническая поэма (Wikisource Dickins 1915, 1 запрос) ===")
+        print("\n=== 4. Рунічна поема (Wikisource Dickins 1915, 1 запит) ===")
         try:
             save_runes_to_db(fetch_rune_poem(), dry_run=args.dry_run)
         except Exception as e:

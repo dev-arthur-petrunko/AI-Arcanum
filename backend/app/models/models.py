@@ -1,4 +1,4 @@
-"""SQLAlchemy models. Base RU fields + `translations` JSON {uk: {...}, en: {...}} for trilingual UI."""
+"""Моделі SQLAlchemy. Базові поля + `translations` JSON {uk: {...}, en: {...}, ru: {...}} для тримовного UI."""
 from sqlalchemy import JSON, DateTime, ForeignKey, Integer, String, Text, func
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from ..core.database import Base
@@ -8,7 +8,7 @@ class System(Base):
     __tablename__ = "systems"
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    name: Mapped[str] = mapped_column(String(128), nullable=False)  # RU default
+    name: Mapped[str] = mapped_column(String(128), nullable=False)  # базова мова (сідовано RU); переклади — у translations
     category: Mapped[str | None] = mapped_column(String(64), nullable=True)
     description: Mapped[str | None] = mapped_column(Text, nullable=True)
     history: Mapped[str | None] = mapped_column(Text, nullable=True)
@@ -106,3 +106,18 @@ class QuizProgress(Base):
     card_id: Mapped[int | None] = mapped_column(ForeignKey("cards.id"), nullable=True)
     correct_count: Mapped[int] = mapped_column(Integer, default=0)
     last_reviewed: Mapped[DateTime | None] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=True)
+
+
+class Article(Base):
+    """Стаття енциклопедії (markdown з Database/articles/, front-matter → колонки)."""
+
+    __tablename__ = "articles"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    slug: Mapped[str] = mapped_column(String(128), unique=True, nullable=False)
+    title: Mapped[str] = mapped_column(String(256), nullable=False)
+    system: Mapped[str | None] = mapped_column(String(128), nullable=True)
+    lang: Mapped[str] = mapped_column(String(8), default="ru")
+    body: Mapped[str | None] = mapped_column(Text, nullable=True)
+    source_reference: Mapped[str | None] = mapped_column(Text, nullable=True)
+    translations: Mapped[dict | None] = mapped_column(JSON, nullable=True)

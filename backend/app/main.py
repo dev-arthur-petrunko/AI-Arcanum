@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .core.database import Base, engine
-from .models import System, Deck, Card, CardCorrespondence, Spread, SpreadPosition, QuizProgress  # noqa: F401 (register)
-from .routers import systems, decks, cards, search, quiz, spreads, reference
+from .models import Article, System, Deck, Card, CardCorrespondence, Spread, SpreadPosition, QuizProgress  # noqa: F401 (реєстрація моделей)
+from .routers import systems, decks, cards, search, quiz, spreads, reference, articles
 
 app = FastAPI(title="Fortune-telling Cards API", version="0.1.0")
 
@@ -32,3 +32,4 @@ app.include_router(search.router)
 app.include_router(quiz.router)
 app.include_router(spreads.router)
 app.include_router(reference.router)
+app.include_router(articles.router)

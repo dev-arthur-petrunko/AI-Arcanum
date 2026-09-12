@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.db
+*.db-journal
+alembic.ini.bak
+
+# Node / Next
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/dist/
+
+# Env
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Media (large, keep placeholders)
+!**/.gitkeep

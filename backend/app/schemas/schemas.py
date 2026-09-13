@@ -53,6 +53,8 @@ class CardOut(LocalizedMixin):
     element_code: str | None = None
     zodiac_sign_code: str | None = None
     planet_code: str | None = None
+    category: str | None = None
+    theme: str | None = None
     numerology: int | None = None
     keywords_upright: str | None = None
     keywords_reversed: str | None = None

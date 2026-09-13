@@ -16,7 +16,8 @@ from app.models import Card, Deck, System
 CARD_FIELDS = ("number", "name", "arcana_type", "suit", "element", "zodiac_sign",
                "planet", "numerology", "keywords_upright", "keywords_reversed",
                "meaning_general", "meaning_love", "meaning_career", "meaning_health",
-               "symbolism", "image_path", "model_3d_path", "translations")
+               "symbolism", "image_path", "model_3d_path", "translations",
+               "category", "theme")
 
 
 def run(path: str) -> int:

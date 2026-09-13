@@ -5,6 +5,8 @@ Database/
 ├── fortune_cards.db      # SQLite: системы, колоды, карты, расклады, статьи, квиз-прогресс
 ├── migrations/           # Alembic-миграции (при росте — PostgreSQL)
 ├── cards/                # готові JSON: lenormand36, elder_futhark24, moon_oracle8, mak_archetypes12, astro_oracle26, shaman_totems12
+├── images/               # фотоархів: rws/ (78 PD-сканів) + згенеровані 01–15 (340, див. scripts/generate_deck_images.py)
+├── backups/              # ротація копій БД (scripts/backup_db.py, останні 10)
 ├── articles/             # статьи энциклопедии (markdown + импорт в таблицу articles)
 ├── raw/                  # сырые материалы до импорта: tarot/ lenormand/ oracles/ mak/ astrology_decks/
 ├── _pd_cache/            # кэш public-domain текстов (Waite OCR с archive.org)

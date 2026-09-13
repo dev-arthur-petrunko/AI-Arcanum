@@ -16,8 +16,14 @@
 - Waite 1911, EN-текст старших арканов → `translations.en.meaning_general_waite1911`:
   archive.org/download/A.EWaiteThePictorialKeyToTheTarot (OCR, 1 запрос, кэш backend/Database/_pd_cache/).
   УВАГА: sacred-texts pktNN.htm мертві (404, сайт став SPA); Gutenberg #43548 — це де Лоранс 1918, НЕ Уейт.
-- RWS-сканы (PD): Commons API, категория "Rider-Waite-Smith tarot deck (TaionWC)", файлы "RWS Tarot NN …".
-  upload.wikimedia.org требует браузерный UA (ботовий даёт 403).
+- RWS-скани (PD): Commons API, категорія "Rider-Waite-Smith tarot deck (TaionWC)", файли "RWS Tarot NN …".
+  upload.wikimedia.org вимагає браузерний UA (ботовий дає 403); тротлінг 429 лікується паузою+ретраєм.
+- Процедурні ілюстрації (`scripts/generate_deck_images.py`, власний код, не фото):
+  гексаграми — лінії розібрано з тексту Легга (NINE/SIX, перевірено якорі 111111/000000);
+  руни (Segoe UI Historic)/астрознаки/масті (Segoe UI Symbol, Arial) — системні шрифти;
+  фази місяця, нумерали мая, кольори печаток — автентичні умовні позначення.
+  340 файлів, покриття БД 418/418. Історичного PD-сету Ленорман на Commons нема
+  (лише 3 розрізнені файли) — тому Ленорман теж процедурний: номер + гральна відповідність.
 - И-Цзин, пер. James Legge (1899), 64 гексаграммы: sacred-texts.com/ich/icNN.htm (legacy .htm живы).
 - Англосаксонская руническая поэма, 29 строф (OE + пер. Bruce Dickins, 1915, PD):
   en.wikisource.org/wiki/Runic_and_Heroic_Poems…/The_Anglo-Saxon_Runic_Poem

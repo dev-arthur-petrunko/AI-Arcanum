@@ -20,6 +20,10 @@ const T = {
     articles: "Статьи", articlesSub: "Гайды энциклопедии — GET /articles.",
     gloss: "Глоссарий", glossSub: "Термины энциклопедии.",
     quiz: "Проверь себя", quizSub: "Отдельная страница: выбор колоды и счёт.", quizGo: "Открыть квиз →",
+    method: "Методика COPE · BASIC Ph", methodSub: "Шесть ресурсных каналов — рамка колоды COPE (О. Аялон, OH Cards Institute).",
+    caveat: "Честно: в COPE нет готовых «значений» 88 карт, как в Таро. Есть 6 категорий, к которым терапевт относит образ в работе.",
+    srcDocs: "Официальные источники методики", openDeck: "Открыть колоду COPE →",
+    pdfLabel: "Методичка О. Аялон (PDF, OH Institute)",
     foot: "RWS 1909 и Уэйт 1911 — общественное достояние. Современные трактовки — только пересказ своими словами.",
     cardsIn: "карт", decksIn: "колод", open: "Открыть →",
   },
@@ -38,6 +42,10 @@ const T = {
     articles: "Статті", articlesSub: "Гайди енциклопедії — GET /articles.",
     gloss: "Глосарій", glossSub: "Терміни енциклопедії.",
     quiz: "Перевір себе", quizSub: "Окрема сторінка: вибір колоди й рахунок.", quizGo: "Відкрити квіз →",
+    method: "Методика COPE · BASIC Ph", methodSub: "Шість ресурсних каналів — рамка колоди COPE (О. Аялон, OH Cards Institute).",
+    caveat: "Чесно: у COPE нема готових «значень» 88 карт, як у Таро. Є 6 категорій, до яких терапевт відносить образ у роботі.",
+    srcDocs: "Офіційні джерела методики", openDeck: "Відкрити колоду COPE →",
+    pdfLabel: "Методичка О. Аялон (PDF, OH Institute)",
     foot: "RWS 1909 і Уейт 1911 — суспільне надбання.",
     cardsIn: "карт", decksIn: "колод", open: "Відкрити →",
   },
@@ -56,6 +64,10 @@ const T = {
     articles: "Articles", articlesSub: "Encyclopedia guides — GET /articles.",
     gloss: "Glossary", glossSub: "Encyclopedia terms.",
     quiz: "Test yourself", quizSub: "Separate page: deck picker and score.", quizGo: "Open quiz →",
+    method: "COPE method · BASIC Ph", methodSub: "Six resource channels — the frame of the COPE deck (O. Ayalon, OH Cards Institute).",
+    caveat: "Honest note: COPE has no ready-made “meanings” for its 88 cards like Tarot does. There are 6 categories a therapist maps an image to.",
+    srcDocs: "Official method sources", openDeck: "Open the COPE deck →",
+    pdfLabel: "O. Ayalon manual (PDF, OH Institute)",
     foot: "RWS 1909 & Waite 1911 — public domain.",
     cardsIn: "cards", decksIn: "decks", open: "Open →",
   },
@@ -72,6 +84,8 @@ export default function HomeClient({ initialCounts, initialDecks, initialSystems
   const [spreads, setSpreads] = useState([]);
   const [articles, setArticles] = useState([]);
   const [systems, setSystems] = useState(initialSystems || []);
+  const [cope, setCope] = useState([]);
+  const [copeDeckId, setCopeDeckId] = useState(null);
   const [counts, setCounts] = useState(initialCounts || { cards: 418, systems: 13 });
   const [theme, setTheme] = useState("dark");
   const [progress, setProgress] = useState(0);
@@ -109,6 +123,14 @@ export default function HomeClient({ initialCounts, initialDecks, initialSystems
     getJSON("/glossary").then(setGlossary).catch(() => {});
     getJSON("/spreads").then((d) => Array.isArray(d) && setSpreads(d)).catch(() => {});
     getJSON("/articles").then((d) => Array.isArray(d) && setArticles(d)).catch(() => {});
+    getJSON("/decks").then((ds) => {
+      if (!Array.isArray(ds)) return;
+      const found = ds.find((d) => (d.name || "").includes("COPE"));
+      if (found) {
+        setCopeDeckId(found.id);
+        getJSON(`/cards?deck_id=${found.id}&limit=50`).then((cs) => Array.isArray(cs) && setCope(cs)).catch(() => {});
+      }
+    }).catch(() => {});
     getJSON("/stats").then((s) => {
       if (!s) return;
       setCounts({ cards: s.cards, systems: s.systems });
@@ -288,9 +310,38 @@ export default function HomeClient({ initialCounts, initialDecks, initialSystems
 
         <Reveal>
           <div className="divider">✦ ✦ ✦</div>
-          <section id="glossary" className="section">
+          <section id="method" className="section">
             <div className="section-head">
               <span className="num">06</span>
+              <div><h2>{t.method}</h2><p>{t.methodSub}</p></div>
+            </div>
+            <p style={{ color: "var(--muted)", maxWidth: 760, lineHeight: 1.7 }}>⚖ {t.caveat}</p>
+            <div className="sys-grid">
+              {cope.map((c) => (
+                <div key={c.id} className="sys-card">
+                  <div className="cat">{c.category}</div>
+                  <b>{cardName(c, lang)}</b>
+                  <p style={{ fontSize: 13, color: "var(--gold-soft)" }}>◈ {pick(c, lang, "theme").theme || c.theme}</p>
+                  <p style={{ fontSize: 13, color: "var(--muted)", lineHeight: 1.6 }}>{c.meaning_general}</p>
+                </div>
+              ))}
+            </div>
+            <p style={{ marginTop: 16, color: "var(--muted)", fontSize: 13 }}>📚 {t.srcDocs}:</p>
+            <div className="chips">
+              <a className="chip" href="https://www.oh-cards-institute.org/wp-content/uploads/2012/06/Ofra-Ayalon-Healing-Trauma-with-Metaphoric-Cards.pdf" target="_blank" rel="noreferrer">📄 {t.pdfLabel}</a>
+              <a className="chip" href="https://oh-cards.com/cope/" target="_blank" rel="noreferrer">oh-cards.com/cope</a>
+              <a className="chip" href="https://www.theohcards.com/ohcards/cope-cards" target="_blank" rel="noreferrer">theohcards.com</a>
+              <a className="chip" href="http://projective-cards.ru/cope/" target="_blank" rel="noreferrer">projective-cards.ru</a>
+            </div>
+            {copeDeckId && <a className="btn btn-gold" href={`/decks/${copeDeckId}`} style={{ display: "inline-block", marginTop: 8 }}>{t.openDeck}</a>}
+          </section>
+        </Reveal>
+
+        <Reveal>
+          <div className="divider">✦ ✦ ✦</div>
+          <section id="glossary" className="section">
+            <div className="section-head">
+              <span className="num">07</span>
               <div><h2>{t.gloss}</h2><p>{t.glossSub}</p></div>
             </div>
             <div className="gloss-grid">
@@ -308,7 +359,7 @@ export default function HomeClient({ initialCounts, initialDecks, initialSystems
           <div className="divider">✦ ✦ ✦</div>
           <section id="quiz-teaser" className="section">
             <div className="section-head">
-              <span className="num">07</span>
+              <span className="num">08</span>
               <div><h2>{t.quiz}</h2><p>{t.quizSub}</p></div>
             </div>
             <a className="btn btn-gold" href="/quiz" style={{ display: "inline-block" }}>{t.quizGo}</a>

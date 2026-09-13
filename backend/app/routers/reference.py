@@ -1,4 +1,8 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
+from sqlalchemy import func, select
+from sqlalchemy.orm import Session
+from ..core.database import get_db
+from ..models import Card, Deck, System
 
 router = APIRouter(tags=["reference"])
 
@@ -26,3 +30,13 @@ def glossary():
 @router.get("/timeline")
 def timeline():
     return TIMELINE
+
+
+@router.get("/stats")
+def stats(db: Session = Depends(get_db)):
+    """Живі лічильники для hero-секції фронтенду."""
+    return {
+        "systems": db.scalar(select(func.count()).select_from(System)),
+        "decks": db.scalar(select(func.count()).select_from(Deck)),
+        "cards": db.scalar(select(func.count()).select_from(Card)),
+    }

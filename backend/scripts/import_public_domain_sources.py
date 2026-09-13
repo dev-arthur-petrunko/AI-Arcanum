@@ -50,7 +50,7 @@ IMAGE_HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                   "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36"
 }
-DELAY = 1.5
+DELAY = 3.0  # Wikimedia тротлить при частих запитах — не поспішаємо
 
 try:  # Windows-консоль (cp1251) падає на â/ê/— поза ASCII: перемикаємо stdout на UTF-8
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -58,7 +58,7 @@ except Exception:
     pass
 
 CACHE_DIR = BACKEND / "Database" / "_pd_cache"
-IMAGES_DIR = ROOT / "frontend" / "src" / "assets" / "card_images" / "rws"
+IMAGES_DIR = ROOT / "frontend" / "public" / "assets" / "card_images" / "rws"
 
 WAITE_TXT_URL = (
     "https://archive.org/download/A.EWaiteThePictorialKeyToTheTarot/"
@@ -202,7 +202,7 @@ def fetch_rws_images(limit: int | None = None, dry_run: bool = False) -> list[di
             .get("query", {}).get("categorymembers", [])
     time.sleep(DELAY)
     wanted = [m["title"] for m in members
-              if re.search(r"RWS Tarot \d+", m["title"], re.I)]
+              if re.search(r"(RWS Tarot \d+|(Wands|Cups|Swords|Pents)\d{2}\.jpg)", m["title"], re.I)]
     if limit:
         wanted = wanted[:limit]
     print(f"[images] кандидатів: {len(wanted)}")
@@ -225,7 +225,15 @@ def fetch_rws_images(limit: int | None = None, dry_run: bool = False) -> list[di
             if dry_run:
                 downloaded.append({"title": title, "local_path": str(dest), "skipped": "dry-run"})
                 continue
-            dest.write_bytes(get(url, timeout=60, binary=True).content)
+            try:
+                dest.write_bytes(get(url, timeout=60, binary=True).content)
+            except requests.HTTPError as e:
+                if e.response is not None and e.response.status_code == 429:
+                    print("[WARN] 429 — пауза 90 с і повтор")
+                    time.sleep(90)
+                    dest.write_bytes(get(url, timeout=60, binary=True).content)
+                else:
+                    raise
             print(f"[OK] {fname}")
             downloaded.append({"title": title, "local_path": str(dest)})
             time.sleep(DELAY)
@@ -241,24 +249,33 @@ def link_rws_images_to_cards() -> int:
         deck = db.query(Deck).filter(Deck.name.contains("Уэйта")).first()
         if not deck:
             return 0
-        linked = 0
+        linked = minors = 0
+        suit_map = {"wands": "Wands", "cups": "Cups", "swords": "Swords", "pents": "Pentacles"}
         for f in sorted(IMAGES_DIR.glob("*")):
             m = re.search(r"RWS[_\s]?Tarot[_\s]?(\d{1,2})", f.name, re.I)
-            if not m:
+            if m:
+                num = int(m.group(1))
+                if num > 21:
+                    continue
+                number = ["0", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X",
+                          "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX",
+                          "XX", "XXI"][num]
+                card = db.query(Card).filter_by(deck_id=deck.id, number=number).first()
+                if card:
+                    card.image_path = f"/assets/card_images/rws/{f.name}"
+                    linked += 1
                 continue
-            num = int(m.group(1))
-            if num > 21:
-                continue  # молодші аркани мапляться вручну (див. docs)
-            number = ["0", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X",
-                      "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX",
-                      "XX", "XXI"][num]
-            card = db.query(Card).filter_by(deck_id=deck.id, number=number).first()
-            if card:
-                card.image_path = f"/assets/card_images/rws/{f.name}"
-                linked += 1
+            m2 = re.match(r"(Wands|Cups|Swords|Pents)(\d{2})\.jpg$", f.name, re.I)
+            if m2:
+                suit_en = suit_map[m2.group(1).lower()]
+                number = f"{suit_en}-{m2.group(2)}"
+                card = db.query(Card).filter_by(deck_id=deck.id, number=number).first()
+                if card:
+                    card.image_path = f"/assets/card_images/rws/{f.name}"
+                    minors += 1
         db.commit()
-        print(f"[images] привʼязано старших арканів: {linked}/22")
-        return linked
+        print(f"[images] привʼязано: старших {linked}/22, молодших {minors}/56")
+        return linked + minors
     finally:
         db.close()
 
@@ -469,7 +486,7 @@ def fetch_rune_poem() -> list[dict]:
 def save_runes_to_db(stanzas: list[dict], dry_run: bool = False) -> int:
     db = SessionLocal()
     try:
-        system = db.query(System).filter_by(name="Руны").first()
+        system = db.query(System).filter_by(name="Руни").first() or db.query(System).filter_by(name="Руны").first()
         if not system:
             if dry_run:
                 print("[dry-run] створив би System Руни")

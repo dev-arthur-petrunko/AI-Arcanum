@@ -9,6 +9,21 @@ from ..schemas import CardOut
 router = APIRouter(prefix="/cards", tags=["cards"])
 
 
+LOCALIZABLE = ("name", "keywords_upright", "keywords_reversed", "meaning_general",
+                 "meaning_love", "meaning_career", "meaning_health", "symbolism")
+
+
+def localize(card: Card, lang: str | None) -> Card:
+    """Накладає translations[lang] поверх базових полів для видачі (?lang=uk|ru|en)."""
+    if not lang or lang not in ("uk", "ru", "en"):
+        return card
+    block = (card.translations or {}).get(lang, {})
+    for f in LOCALIZABLE:
+        if block.get(f):
+            setattr(card, f, block[f])
+    return card
+
+
 @router.get("", response_model=list[CardOut])
 def list_cards(
     deck_id: int | None = None,
@@ -18,6 +33,7 @@ def list_cards(
     planet: str | None = None,
     zodiac_sign: str | None = None,
     q: str | None = None,
+    lang: str | None = None,
     limit: int = Query(50, le=200),
     offset: int = 0,
     db: Session = Depends(get_db),
@@ -44,11 +60,11 @@ def list_cards(
             | (Card.symbolism.ilike(like))
         )
     stmt = stmt.offset(offset).limit(limit)
-    return db.scalars(stmt).all()
+    return [localize(c, lang) for c in db.scalars(stmt).all()]
 
 
 @router.get("/daily", response_model=CardOut)
-def card_of_day(deck_id: int | None = None, db: Session = Depends(get_db)):
+def card_of_day(deck_id: int | None = None, lang: str | None = None, db: Session = Depends(get_db)):
     stmt = select(Card)
     if deck_id is not None:
         stmt = stmt.where(Card.deck_id == deck_id)
@@ -58,9 +74,10 @@ def card_of_day(deck_id: int | None = None, db: Session = Depends(get_db)):
     # детерміновано за датою, щоб «карта дня» не змінювалась протягом доби
     import datetime
     seed = int(datetime.date.today().strftime("%Y%m%d"))
-    return random.Random(seed).choice(cards)
+    return localize(random.Random(seed).choice(cards), lang)
 
 
 @router.get("/{card_id}", response_model=CardOut)
-def get_card(card_id: int, db: Session = Depends(get_db)):
-    return db.get(Card, card_id)
+def get_card(card_id: int, lang: str | None = None, db: Session = Depends(get_db)):
+    card = db.get(Card, card_id)
+    return localize(card, lang) if card else None

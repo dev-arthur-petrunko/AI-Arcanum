@@ -96,7 +96,7 @@ export default function Page() {
     getJSON("/cards/daily").then(setDaily).catch(() => {});
     getJSON("/timeline").then(setTimeline).catch(() => {});
     getJSON("/glossary").then(setGlossary).catch(() => {});
-    getJSON("/cards?limit=200").then((d) => Array.isArray(d) && setCounts((c) => ({ ...c, cards: d.length }))).catch(() => {});
+    getJSON("/stats").then((s) => s && setCounts({ cards: s.cards, systems: s.systems })).catch(() => {});
     // Lenis smooth scroll (прогресивне покращення)
     import("lenis").then(({ default: Lenis }) => {
       try { new Lenis({ autoRaf: true, lerp: 0.09 }); } catch {}

@@ -4,7 +4,7 @@
 Database/
 ├── fortune_cards.db      # SQLite: системы, колоды, карты, расклады, статьи, квиз-прогресс
 ├── migrations/           # Alembic-миграции (при росте — PostgreSQL)
-├── cards/                # готовые JSON для импорта (lenormand36.json, …)
+├── cards/                # готові JSON: lenormand36, elder_futhark24, moon_oracle8, mak_archetypes12, astro_oracle26, shaman_totems12
 ├── articles/             # статьи энциклопедии (markdown + импорт в таблицу articles)
 ├── raw/                  # сырые материалы до импорта: tarot/ lenormand/ oracles/ mak/ astrology_decks/
 ├── _pd_cache/            # кэш public-domain текстов (Waite OCR с archive.org)

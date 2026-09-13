@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { API } from "../lib/api";
 
-// Лейбли — українською; value — як у БД (RU), інакше фільтр API нічого не знайде.
+// Лейбли — українською; value — мовно-незалежні коди (element_code в БД).
 const ELEMENTS = [
   { label: "✦", value: "" },
-  { label: "Вогонь", value: "Огонь" },
-  { label: "Вода", value: "Вода" },
-  { label: "Повітря", value: "Воздух" },
-  { label: "Земля", value: "Земля" },
+  { label: "Вогонь", value: "fire" },
+  { label: "Вода", value: "water" },
+  { label: "Повітря", value: "air" },
+  { label: "Земля", value: "earth" },
 ];
 
 export default function SearchPanel({ lang = "uk", onResults }) {

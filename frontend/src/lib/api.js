@@ -1,4 +1,9 @@
-export const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+/** У браузері — завжди same-origin /api (проксі Next, без CORS і зашитих хостів).
+    На сервері (SSR) — абсолютний URL бекенда. */
+export const API =
+  typeof window === "undefined"
+    ? (process.env.NEXT_PUBLIC_API_URL || "http://localhost:8001").trim()
+    : "/api";
 
 export async function getJSON(path) {
   const r = await fetch(`${API}${path}`);

@@ -8,13 +8,13 @@ import { backTexture, frontFallbackTexture } from "../lib/textures";
  * Одна карта: товстий бокс, лице (скан RWS або процедурна заглушка),
  * сорочка (процедурна), переворот по кліку, паріння й підсвітка при наведенні.
  */
-export default function TarotCard({ card, position, rotationY = 0, phase = 0, label, onSelect }) {
+export default function TarotCard({ card, position, rotationY = 0, phase = 0, label, initialFlipped = false, onSelect }) {
   const mesh = useRef();
   const glow = useRef();
-  const [flipped, setFlipped] = useState(false);
+  const [flipped, setFlipped] = useState(initialFlipped);
   const [hovered, setHovered] = useState(false);
   const [photo, setPhoto] = useState(null);
-  const rot = useRef(rotationY);
+  const rot = useRef(rotationY + (initialFlipped ? Math.PI : 0));
   const lift = useRef(0);
 
   const back = useMemo(() => backTexture(), []);

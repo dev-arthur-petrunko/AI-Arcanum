@@ -34,9 +34,25 @@ def timeline():
 
 @router.get("/stats")
 def stats(db: Session = Depends(get_db)):
-    """Живі лічильники для hero-секції фронтенду."""
+    """Живі лічильники для hero-секції фронтенду + розбивка по системах."""
+    systems = []
+    deck_rows = []
+    for s in db.scalars(select(System).order_by(System.id)).all():
+        decks = db.scalars(select(Deck).where(Deck.system_id == s.id)).all()
+        deck_ids = [d.id for d in decks]
+        n_cards = db.scalar(select(func.count()).select_from(Card).where(Card.deck_id.in_(deck_ids))) if deck_ids else 0
+        nm = s.translations.get("uk", {}).get("name") if isinstance(s.translations, dict) else None
+        for d in decks:
+            dn = d.translations.get("uk", {}).get("name") if isinstance(d.translations, dict) else None
+            deck_rows.append({"id": d.id, "system_id": s.id, "name": dn or d.name,
+                              "system": nm or s.name,
+                              "cards": db.scalar(select(func.count()).select_from(Card).where(Card.deck_id == d.id))})
+        systems.append({"id": s.id, "name": nm or s.name, "category": s.category,
+                        "decks": len(deck_ids), "cards": n_cards})
     return {
-        "systems": db.scalar(select(func.count()).select_from(System)),
+        "systems": len(systems),
         "decks": db.scalar(select(func.count()).select_from(Deck)),
         "cards": db.scalar(select(func.count()).select_from(Card)),
+        "by_system": systems,
+        "by_deck": deck_rows,
     }

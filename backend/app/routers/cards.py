@@ -13,6 +13,13 @@ LOCALIZABLE = ("name", "keywords_upright", "keywords_reversed", "meaning_general
                  "meaning_love", "meaning_career", "meaning_health", "symbolism")
 
 
+def _either(col, code_col, value: str | None):
+    """Фільтр приймає і код (fire), і текст (Огонь/Вогонь) — для зворотної сумісності."""
+    if not value:
+        return None
+    return (col == value) | (code_col == value)
+
+
 def localize(card: Card, lang: str | None) -> Card:
     """Накладає translations[lang] поверх базових полів для видачі (?lang=uk|ru|en)."""
     if not lang or lang not in ("uk", "ru", "en"):
@@ -43,14 +50,12 @@ def list_cards(
         stmt = stmt.where(Card.deck_id == deck_id)
     if arcana_type:
         stmt = stmt.where(Card.arcana_type == arcana_type)
-    if suit:
-        stmt = stmt.where(Card.suit == suit)
-    if element:
-        stmt = stmt.where(Card.element == element)
-    if planet:
-        stmt = stmt.where(Card.planet == planet)
-    if zodiac_sign:
-        stmt = stmt.where(Card.zodiac_sign == zodiac_sign)
+    for cond in (_either(Card.suit, Card.suit_code, suit),
+                 _either(Card.element, Card.element_code, element),
+                 _either(Card.planet, Card.planet_code, planet),
+                 _either(Card.zodiac_sign, Card.zodiac_sign_code, zodiac_sign)):
+        if cond is not None:
+            stmt = stmt.where(cond)
     if q:
         like = f"%{q}%"
         stmt = stmt.where(
@@ -61,6 +66,18 @@ def list_cards(
         )
     stmt = stmt.offset(offset).limit(limit)
     return [localize(c, lang) for c in db.scalars(stmt).all()]
+
+
+@router.get("/random", response_model=CardOut)
+def random_card(deck_id: int | None = None, db: Session = Depends(get_db)):
+    """Випадкова карта (для «Мені пощастить»); deck_id звужує до колоди."""
+    stmt = select(Card)
+    if deck_id is not None:
+        stmt = stmt.where(Card.deck_id == deck_id)
+    ids = db.scalars(stmt.with_only_columns(Card.id)).all()
+    if not ids:
+        return None
+    return db.get(Card, random.choice(ids))
 
 
 @router.get("/daily", response_model=CardOut)

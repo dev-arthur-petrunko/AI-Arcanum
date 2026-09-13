@@ -7,8 +7,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="uk">
+    <html lang="uk" data-theme="dark">
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "try{document.documentElement.dataset.theme=localStorage.getItem('arcanum-theme')||'dark'}catch(e){}",
+          }}
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link

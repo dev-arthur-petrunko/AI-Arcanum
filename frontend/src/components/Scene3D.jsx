@@ -1,7 +1,7 @@
 "use client";
 import { Suspense, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { ContactShadows, OrbitControls, Sparkles, Stars } from "@react-three/drei";
+import { ContactShadows, Environment, OrbitControls, Sparkles, Stars } from "@react-three/drei";
 import { EffectComposer, Bloom, Vignette } from "@react-three/postprocessing";
 import * as THREE from "three";
 import TarotCard from "./TarotCard";
@@ -81,6 +81,9 @@ export default function Scene3D({ cards, lang, onSelect }) {
           <directionalLight position={[4, 7, 5]} intensity={1.15} color="#fff3d6" />
           <pointLight position={[0, 3.4, 2.5]} intensity={14} distance={16} color="#b9a7ff" />
           <Suspense fallback={null}>
+            <Environment preset="night" />
+          </Suspense>
+          <Suspense fallback={null}>
             <Stars radius={70} depth={40} count={4200} factor={4} saturation={0.4} fade speed={0.6} />
             <Sparkles count={130} scale={[11, 5, 6]} position={[0, 1.4, -1]} size={3.2} speed={0.35} color="#e8c87a" opacity={0.7} />
             <Moon />
@@ -93,6 +96,7 @@ export default function Scene3D({ cards, lang, onSelect }) {
                 position={[layout[i].x, 0.35, layout[i].z]}
                 rotationY={layout[i].ry}
                 phase={i * 0.9}
+                initialFlipped={i === Math.floor(fan.length / 2)}
                 onSelect={onSelect}
               />
             ))}

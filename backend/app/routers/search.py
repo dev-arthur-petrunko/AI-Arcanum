@@ -33,6 +33,12 @@ def ensure_fts(db: Session):
     _FTS_READY = True
 
 
+def _either(col, code_col, value: str | None):
+    if not value:
+        return None
+    return (col == value) | (code_col == value)
+
+
 def _matches_translations(card: Card, q: str) -> bool:
     ql = q.lower()
     for lang_block in (card.translations or {}).values():
@@ -63,32 +69,43 @@ def search(
         ids = [r[0] for r in rows]
     except Exception:
         ids = []
-    stmt = select(Card)
+    conds = [c for c in (_either(Card.suit, Card.suit_code, suit),
+                          _either(Card.element, Card.element_code, element),
+                          _either(Card.planet, Card.planet_code, planet),
+                          _either(Card.zodiac_sign, Card.zodiac_sign_code, zodiac_sign))
+             if c is not None]
+    base: list[Card] = []
     if ids:
-        stmt = stmt.where(Card.id.in_(ids))
+        stmt = select(Card).where(Card.id.in_(ids))
+        for cond in conds:
+            stmt = stmt.where(cond)
+        base = list(db.scalars(stmt.limit(limit * 2)).all())
+        # топ-ап з перекладів (FTS індексує базові поля; translations — ні)
+        if len(base) < limit:
+            seen = {c.id for c in base}
+            for c in db.scalars(select(Card)).all():
+                if c.id not in seen and _matches_translations(c, q):
+                    base.append(c)
+                if len(base) >= limit:
+                    break
     else:
-        like = f"%{q}%"
-        stmt = stmt.where(
-            (Card.name.ilike(like)) | (Card.keywords_upright.ilike(like))
-            | (Card.keywords_reversed.ilike(like)) | (Card.meaning_general.ilike(like))
-            | (Card.symbolism.ilike(like)) | (Card.planet.ilike(like))
-            | (Card.zodiac_sign.ilike(like)) | (Card.element.ilike(like))
-        )
-    if element:
-        stmt = stmt.where(Card.element == element)
-    if planet:
-        stmt = stmt.where(Card.planet == planet)
-    if zodiac_sign:
-        stmt = stmt.where(Card.zodiac_sign == zodiac_sign)
-    if suit:
-        stmt = stmt.where(Card.suit == suit)
-    base = list(db.scalars(stmt.limit(limit * 2)).all())
-    if len(base) < limit:
-        extra = db.scalars(select(Card).limit(500)).all()
-        seen = {c.id for c in base}
-        for c in extra:
-            if c.id not in seen and _matches_translations(c, q):
+        # SQLite LIKE/ILIKE не вміє Cyrillic-casefold — скануємо в Python (БД мала)
+        needle = q.casefold()
+        wants = {"suit": suit, "element": element, "planet": planet, "zodiac_sign": zodiac_sign}
+        for c in db.scalars(select(Card)).all():
+            hay = " ".join(x for x in (
+                c.name, c.keywords_upright, c.keywords_reversed,
+                c.meaning_general, c.symbolism, c.planet,
+                c.zodiac_sign, c.element) if x).casefold()
+            if needle not in hay and not _matches_translations(c, q):
+                continue
+            ok = True
+            for field, want in wants.items():
+                if want and want != getattr(c, field) and want != getattr(c, f"{field}_code", None):
+                    ok = False
+                    break
+            if ok:
                 base.append(c)
-            if len(base) >= limit:
+            if len(base) >= limit * 2:
                 break
     return base[:limit]

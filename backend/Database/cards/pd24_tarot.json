@@ -1,0 +1,3167 @@
+{
+ "system": {
+  "name": "Таро",
+  "category": "гадательні",
+  "description": "Загальносвітова система гадальних карт зі Старшими та Молодшими арканами.",
+  "history": "XV ст., Італія → Франція → світ.",
+  "origin_country": "Італія / Франція",
+  "approx_year": 1450,
+  "translations": {
+   "ru": {
+    "name": "Таро"
+   },
+   "en": {
+    "name": "Tarot"
+   },
+   "uk": {
+    "name": "Таро"
+   }
+  }
+ },
+ "deck": {
+  "name": "Tarot de Marseille",
+  "author": "Традиція (навчальний переказ)",
+  "year": null,
+  "card_count": 78,
+  "cover_image": "/assets/24/0.jpg",
+  "description": "Канон французького Таро XVII–XVIII ст. Навчальна модель з переказом Уейта.",
+  "translations": {
+   "uk": {
+    "name": "Tarot de Marseille",
+    "description": "Канон французького Таро XVII–XVIII ст. Навчальна модель з переказом Уейта."
+   },
+   "ru": {
+    "name": "Tarot de Marseille",
+    "description": "Канон французского Таро XVII–XVIII вв."
+   }
+  }
+ },
+ "cards": [
+  {
+   "number": "0",
+   "name": "Шут",
+   "arcana_type": "Старший аркан",
+   "suit": null,
+   "element": "Воздух",
+   "zodiac_sign": null,
+   "planet": "Уран",
+   "numerology": null,
+   "suit_code": null,
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "новые начинания, спонтанность, доверие",
+   "keywords_reversed": "безрассудство, риск, легкомыслие",
+   "meaning_general": "Шут: учебное значение (пересказ по Уэйту, 1911). Прямо — новые начинания, спонтанность, доверие. Перевёрнуто — безрассудство, риск, легкомыслие.",
+   "meaning_love": "Любовь: новые начинания, спонтанность, доверие.",
+   "meaning_career": "Карьера: новые начинания, спонтанность, доверие.",
+   "meaning_health": "Самочувствие: умеренность и внимание к сигналам.",
+   "symbolism": "Символика RWS разбирается по изображению (цвета, жесты, фон) — поле для расширения.\nИсточник EN: A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+   "image_path": "/assets/24/0.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Дурень",
+     "keywords_upright": "нові починання, спонтанність, довіра",
+     "keywords_reversed": "безглуздя, ризик, легковажність",
+     "meaning_general": "Початок шляху з відкритим серцем. Прямо — довіра життю; перевернуто — необачний ризик."
+    },
+    "en": {
+     "name": "The Fool",
+     "meaning_general_waite1911": "THE FOOLISHNESS OF THIS WORLD MAKES IN ANY SENSE FOR DIVINE WISDOM; SO NEITHER THE SCHOLARS IN THE ORDINARY CLASSES NOR THE PEDAGOGUES IN THE SEATS OF THE MIGHTY WILL BE QUICK TO PERCEIVE THE LIKELIHOOD OR EVEN THE POSSIBILITY OF THIS PROPOSITION. THE SUBJECT HAS BEEN IN THE HANDS OF CARTOMANCISTS AS PART OF THE STOCK-IN-TRADE OF THEIR INDUSTRY; I DO NOT SEEK TO PERSUADE ANY ONE OUTSIDE MY OWN CIRCLES THAT THIS IS OF MUCH OR OF NO CONSEQUENCE; BUT ON THE HISTORICAL AND INTERPRETATIVE SIDES IT HAS NOT FARED BETTER; IT HAS BEEN THERE IN THE HANDS OF EXPONENTS WHO HAVE BROUGHT IT INTO UTTER CONTEMPT FOR THOSE PEOPLE WHO POSSESS PHILOSOPHICAL INSIGHT OR FACULTIES FOR THE APPRECIATION OF EVIDENCE. IT IS TIME THAT IT SHOULD BE RESCUED, AND THIS I PROPOSE TO UNDERTAKE ONCE AND FOR ALL, THAT I MAY HAVE DONE WITH THE SIDE ISSUES WHICH DISTRACT FROM THE TERM. AS POETRY IS THE MOST BEAUTIFUL EXPRESSION OF THE THINGS THAT ARE OF ALL MOST BEAUTIFUL, SO IS SYMBOLISM THE MOST CATHOLIC EXPRESSION IN CONCEALMENT OF THINGS THAT ARE MOST PROFOUND IN THE SANCTUARY AND THAT HAVE NOT BEEN DECLARED OUTSIDE IT WITH THE SAME FULNESS BY MEANS OF THE SPOKEN WORD. THE JUSTIFICATION OF THE RULE OF SILENCE IS NO PART OF MY PRESENT CONCERN, BUT I HAVE PUT ON RECORD ELSEWHERE, AND QUITE RECENTLY, WHAT IT IS POSSIBLE TO SAY ON THIS SUBJECT. HTTP://WWW.SACRED-TEXTS.COM/TAROT/PKTINTR.HTM (1 OF 3) [13/10/2002 14:24:26] INTRODUCTION THE LITTLE TREATISE WHICH FOLLOWS IS DIVIDED INTO THREE PARTS, IN THE FIRST OF WHICH I HAVE DEALT WITH THE ANTIQUITIES OF THE SUBJECT AND A FEW THINGS THAT ARISE FROM AND CONNECT THEREWITH. IT SHOULD BE UNDERSTOOD THAT IT IS NOT PUT FORWARD AS A CONTRIBUTION TO THE HISTORY OF PLAYING CARDS, ABOUT WHICH I KNOW AND CARE NOTHING; IT IS A CONSIDERATION DEDICATED AND ADDRESSED TO A CERTAIN SCHOOL OF OCCULTISM, MORE ESPECIALLY IN FRANCE, AS TO THE SOURCE AND CENTRE OF ALL THE PHANTASMAGORIA WHICH HAS ENTERED INTO EXPRESSION DURING THE LAST FIFTY YEARS UNDER THE PRETENCE OF CONSIDERING TAROT CARDS HISTORICALLY. IN THE SECOND PART, I HAVE DEALT WITH THE SYMBOLISM ACCORDING TO SOME OF ITS HIGHER ASPECTS, AND THIS ALSO SERVES TO INTRODUCE THE COMPLETE AND RECTIFIED TAROT, WHICH IS AVAILABLE SEPARATELY, IN THE FORM OF COLOURED CARDS, THE DESIGNS OF WHICH ARE ADDED TO THE PRESENT TEXT IN BLACK AND WHITE. THEY HAVE BEEN PREPARED UNDER MY SUPERVISION-IN RESPECT OF THE ATTRIBUTIONS AND MEANINGS-BY A LADY WHO HAS HIGH CLAIMS AS AN ARTIST. REGARDING THE DIVINATORY PART, BY WHICH MY THESIS IS TERMINATED, I CONSIDER IT PERSONALLY AS A FACT IN THE HISTORY OF THE TAROT - AS SUCH, I HAVE DRAWN, FROM ALL PUBLISHED SOURCES, A HARMONY OF THE MEANINGS WHICH HAVE BEEN ATTACHED TO THE VARIOUS CARDS, AND I HAVE GIVEN PROMINENCE TO ONE METHOD OF WORKING THAT HAS NOT BEEN PUBLISHED PREVIOUSLY; HAVING THE MERIT OF SIMPLICITY, WHILE IT IS ALSO OF UNIVERSAL APPLICATION, IT MAY BE HELD TO REPLACE THE CUMBROUS AND INVOLVED SYSTEMS OF THE LARGER HAND-BOOKS. THE CONTENTS PREFACE AN EXPLANATION OF THE PERSONAL KIND— AN ILLUSTRATION FROM MYSTIC LITERATURE— A SUBJECT WHICH CALLS TO BE RESCUED— LIMITS AND INTENTION OF THE WORK. PARTI THE VEIL AND ITS SYMBOLS L— INTRODUCTORY AND GENERAL. 2. -CLASS I. THE TRUMPS MAJOR, OTHERWISE GREATER ARCANA. 3. -CLASS II. THE FOUR SUITS, OTHERWISE LESSER ARCANA. 4. — THE TAROT IN HISTORY. PART II THE DOCTRINE BEHIND THE VEIL L— THE TAROT AND SECRET TRADITION. 2. -THE TRUMPS MAJOR AND THEIR INNER SYMBOLISM. 3. CONCLUSION AS TO THE GREATER KEYS. PART III THE OUTER METHOD OF THE ORACLES. 1. -DISTINCTION BETWEEN THE GREATER AND LESSER ARCANA. 2. -THE LESSER ARCANA, OTHERWISE, THE FOUR SUITS OF TAROT CARDS THE SUIT OF WANDS. THE SUIT OF CUPS. THE SUIT OF SWORDS. THE SUIT OF PENTACLES. 3. — THE GREATER ARCANA AND THEIR DIVINATORY MEANINGS. 4. — SOME ADDITIONAL MEANINGS OF THE LESSER ARCANA. HTTP://WWW.SACRED-TEXTS.COM/TAROT/PKTINTR.HTM (2 OF 3) [13/10/2002 14:24:26] INTRODUCTION § 5.— THE RECURRENCE OF CARDS IN DEALING. § 6.— THE ART OF TAROT DIVINATION. § 7.— AN ANCIENT CELTIC METHOD OF DIVINATION. § 8.— AN ALTERNATIVE METHOD OF READING THE TAROT CARDS. § 9.— THE METHOD OF READING BY MEANS OF THIRTY-FIVE CARDS. BIBLIOGRAPHY A CONCISE BIBLIOGRAPHY OF THE CHIEF WORKS DEALING WITH THE TAROT AND ITS CONNEXIONS HTTP://WWW.SACRED-TEXTS.COM/TAROT/PKTINTR.HTM (3 OF 3) [13/10/2002 14:24:26] 1.1 THE VEIL AND ITS SYMBOLS, INTRODUCTION SACRED-TEXTS WAITE INDEX PREVIOUS NEXT PARTI THE VEIL AND ITS SYMBOLS §1 INTRODUCTORY AND GENERAL THE PATHOLOGY OF THE POET SAYS THAT \"THE UNDEVOUT ASTRONOMER IS MAD\"; THE PATHOLOGY OF THE VERY PLAIN MAN SAYS THAT GENIUS IS MAD; AND BETWEEN THESE EXTREMES, WHICH STAND FOR TEN THOUSAND ANALOGOUS EXCESSES, THE SOVEREIGN REASON TAKES THE PART OF A MODERATOR AND DOES WHAT IT CAN. I DO NOT THINK THAT THERE IS A PATHOLOGY OF THE OCCULT DEDICATIONS, BUT ABOUT THEIR EXTRAVAGANCES NO ONE CAN QUESTION, AND IT IS NOT LESS DIFFICULT THAN THANKLESS TO ACT AS A MODERATOR REGARDING THEM. MOREOVER, THE PATHOLOGY, IF IT EXISTED, WOULD PROBABLY BE AN EMPIRICISM RATHER THAN A DIAGNOSIS, AND WOULD OFFER NO CRITERION. NOW, OCCULTISM IS NOT LIKE MYSTIC FACULTY, AND IT VERY SELDOM WORKS IN HARMONY EITHER WITH BUSINESS APTITUDE IN THE THINGS OF ORDINARY LIFE OR WITH A KNOWLEDGE OF THE CANONS OF EVIDENCE IN ITS OWN SPHERE. I KNOW THAT FOR THE HIGH ART OF RIBALDRY THERE ARE FEW THINGS MORE DULL THAN THE CRITICISM WHICH MAINTAINS THAT A THESIS IS UNTRUE, AND CANNOT UNDERSTAND THAT IT IS DECORATIVE. I KNOW ALSO THAT AFTER LONG DEALING WITH DOUBTFUL DOCTRINE OR WITH DIFFICULT RESEARCH IT IS ALWAYS REFRESHING, IN THE DOMAIN OF THIS ART, TO MEET WITH WHAT IS OBVIOUSLY OF FRAUD OR AT LEAST OF COMPLETE UNREASON. BUT THE ASPECTS OF HISTORY, AS SEEN THROUGH THE LENS OF OCCULTISM, ARE NOT AS A RULE DECORATIVE, AND HAVE FEW GIFTS OF REFRESHMENT TO HEAL THE LACERATIONS WHICH THEY INFLICT ON THE LOGICAL UNDERSTANDING. IT ALMOST REQUIRES A FRATER SAPIENS DOMINABITUR ASTRIS IN THE FELLOWSHIP OF THE ROSY CROSS TO HAVE THE PATIENCE WHICH IS NOT LOST AMIDST CLOUDS OF FOLLY WHEN THE CONSIDERATION OF THE TAROT IS UNDERTAKEN IN ACCORDANCE WITH THE HIGHER LAW OF SYMBOLISM. THE TRUE TAROT IS SYMBOLISM; IT SPEAKS NO OTHER LANGUAGE AND OFFERS NO OTHER SIGNS. GIVEN THE INWARD MEANING OF ITS EMBLEMS, THEY DO BECOME A KIND OF ALPHABET WHICH IS CAPABLE OF INDEFINITE COMBINATIONS AND MAKES TRUE SENSE IN ALL. ON THE HIGHEST PLANE IT OFFERS A KEY TO THE MYSTERIES, IN A MANNER WHICH IS NOT ARBITRARY AND HAS NOT BEEN READ IN, BUT THE WRONG SYMBOLICAL STORIES HAVE BEEN TOLD CONCERNING IT, AND THE WRONG HISTORY HAS BEEN GIVEN IN EVERY PUBLISHED WORK WHICH SO FAR HAS DEALT WITH THE SUBJECT. IT HAS BEEN INTIMATED BY TWO OR THREE WRITERS THAT, AT LEAST IN RESPECT OF THE MEANINGS, THIS IS UNAVOIDABLY THE CASE, BECAUSE FEW ARE ACQUAINTED WITH THEM, WHILE THESE FEW HOLD BY TRANSMISSION UNDER PLEDGES AND CANNOT BETRAY THEIR TRUST. THE SUGGESTION IS FANTASTIC ON THE SURFACE FOR THERE SEEMS A CERTAIN ANTI-CLIMAX IN THE PROPOSITION THAT A PARTICULAR INTERPRETATION OF FORTUNE- TELLING— TART DE TIRER LES CARTES— CAN BE RESERVED FOR SONS OF THE DOCTRINE. THE FACT REMAINS, NOTWITHSTANDING, THAT A SECRET TRADITION EXISTS REGARDING THE TAROT, AND AS THERE IS ALWAYS THE POSSIBILITY THAT SOME MINOR ARCANA OF THE MYSTERIES MAY BE MADE PUBLIC WITH A FLOURISH OF TRUMPETS, IT WILL BE AS WELL TO GO BEFORE THE EVENT AND TO WARN THOSE WHO ARE CURIOUS IN SUCH MATTERS THAT ANY REVELATION WILL CONTAIN ONLY A THIRD PART OF THE EARTH AND SEA AND A THIRD PART OF",
+     "source_reference": "A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+     "keywords_upright": "new beginnings, spontaneity, trust",
+     "keywords_reversed": "recklessness, risk, naivety",
+     "meaning_general": "A path begins with an open heart. Upright — trust life; reversed — reckless risk."
+    }
+   }
+  },
+  {
+   "number": "I",
+   "name": "Маг",
+   "arcana_type": "Старший аркан",
+   "suit": null,
+   "element": "Воздух",
+   "zodiac_sign": null,
+   "planet": "Меркурий",
+   "numerology": null,
+   "suit_code": null,
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "воля, мастерство, концентрация",
+   "keywords_reversed": "манипуляция, нерешительность",
+   "meaning_general": "Маг: учебное значение (пересказ по Уэйту, 1911). Прямо — воля, мастерство, концентрация. Перевёрнуто — манипуляция, нерешительность.",
+   "meaning_love": "Любовь: воля, мастерство, концентрация.",
+   "meaning_career": "Карьера: воля, мастерство, концентрация.",
+   "meaning_health": "Самочувствие: умеренность и внимание к сигналам.",
+   "symbolism": "Символика RWS разбирается по изображению (цвета, жесты, фон) — поле для расширения.\nИсточник EN: A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+   "image_path": "/assets/24/I.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Маг",
+     "keywords_upright": "воля, майстерність, концентрація",
+     "keywords_reversed": "маніпуляція, нерішучість",
+     "meaning_general": "Маг перетворює задум на дію: усі інструменти вже на столі."
+    },
+    "en": {
+     "name": "The Magician",
+     "meaning_general_waite1911": "THE MAGUS, MAGICIAN, OR JUGGLER, THE CASTER OF THE DICE AND MOUNTEBANK, IN THE WORLD OF VULGAR TRICKERY. THIS IS THE COLPORTAGE INTERPRETATION, AND IT HAS THE SAME CORRESPONDENCE WITH THE REAL SYMBOLICAL MEANING THAT THE USE OF THE TAROT IN FORTUNE- TELLING HAS WITH ITS MYSTIC CONSTRUCTION ACCORDING TO THE SECRET SCIENCE OF SYMBOLISM. I SHOULD ADD THAT MANY INDEPENDENT STUDENTS OF THE SUBJECT, FOLLOWING THEIR OWN LIGHTS, HAVE PRODUCED INDIVIDUAL SEQUENCES OF MEANING IN RESPECT OF THE TRUMPS MAJOR, AND THEIR LIGHTS ARE SOMETIMES SUGGESTIVE, BUT THEY ARE NOT THE TRUE LIGHTS. FOR EXAMPLE, ELIPHAS LEVI SAYS THAT THE MAGUS SIGNIFIES THAT UNITY WHICH IS THE MOTHER OF NUMBERS; OTHERS SAY THAT IT IS THE DIVINE UNITY; AND ONE OF THE LATEST FRENCH COMMENTATORS CONSIDERS THAT IN ITS GENERAL SENSE IT IS THE WILL. 2. THE HIGH PRIESTESS, THE POPE JOAN, OR FEMALE PONTIFF; EARLY EXPOSITORS HAVE SOUGHT TO TERM THIS CARD THE MOTHER, OR POPE'S WIFE, WHICH IS OPPOSED TO THE SYMBOLISM. IT IS SOMETIMES HELD TO REPRESENT THE DIVINE LAW AND THE GNOSIS, IN WHICH CASE THE PRIESTESS CORRESPONDS TO THE IDEA OF THE SHEKINAH. SHE IS THE SECRET TRADITION AND THE HIGHER SENSE OF THE INSTITUTED MYSTERIES. 3.",
+     "source_reference": "A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+     "keywords_upright": "will, mastery, focus",
+     "keywords_reversed": "manipulation, indecision",
+     "meaning_general": "The Magician turns intent into action: all tools are already on the table."
+    }
+   }
+  },
+  {
+   "number": "II",
+   "name": "Верховная Жрица",
+   "arcana_type": "Старший аркан",
+   "suit": null,
+   "element": "Вода",
+   "zodiac_sign": null,
+   "planet": "Луна",
+   "numerology": null,
+   "suit_code": null,
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "интуиция, тайна, внутреннее знание",
+   "keywords_reversed": "подавленная интуиция, скрытые мотивы",
+   "meaning_general": "Верховная Жрица: учебное значение (пересказ по Уэйту, 1911). Прямо — интуиция, тайна, внутреннее знание. Перевёрнуто — подавленная интуиция, скрытые мотивы.",
+   "meaning_love": "Любовь: интуиция, тайна, внутреннее знание.",
+   "meaning_career": "Карьера: интуиция, тайна, внутреннее знание.",
+   "meaning_health": "Самочувствие: умеренность и внимание к сигналам.",
+   "symbolism": "Символика RWS разбирается по изображению (цвета, жесты, фон) — поле для расширения.\nИсточник EN: A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+   "image_path": "/assets/24/II.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Верховна Жриця",
+     "keywords_upright": "інтуїція, таємниця, внутрішнє знання",
+     "keywords_reversed": "приглушена інтуїція, приховані мотиви",
+     "meaning_general": "Жриця слухає тишу за словами. Відповідь — усередині, не зовні."
+    },
+    "en": {
+     "name": "The High Priestess",
+     "meaning_general_waite1911": "HIGH PRIESTESS AS REPRESENTING THE ALBIGENSIAN CHURCH ITSELF; AND THINK OF",
+     "source_reference": "A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+     "keywords_upright": "intuition, mystery, inner knowledge",
+     "keywords_reversed": "muted intuition, hidden motives",
+     "meaning_general": "The Priestess hears the silence behind words. The answer is within, not outside."
+    }
+   }
+  },
+  {
+   "number": "III",
+   "name": "Императрица",
+   "arcana_type": "Старший аркан",
+   "suit": null,
+   "element": "Земля",
+   "zodiac_sign": null,
+   "planet": "Венера",
+   "numerology": null,
+   "suit_code": null,
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "изобилие, забота, природа",
+   "keywords_reversed": "зависимость, творческий блок",
+   "meaning_general": "Императрица: учебное значение (пересказ по Уэйту, 1911). Прямо — изобилие, забота, природа. Перевёрнуто — зависимость, творческий блок.",
+   "meaning_love": "Любовь: изобилие, забота, природа.",
+   "meaning_career": "Карьера: изобилие, забота, природа.",
+   "meaning_health": "Самочувствие: умеренность и внимание к сигналам.",
+   "symbolism": "Символика RWS разбирается по изображению (цвета, жесты, фон) — поле для расширения.\nИсточник EN: A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+   "image_path": "/assets/24/III.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Імператриця",
+     "keywords_upright": "достаток, турбота, природа",
+     "keywords_reversed": "залежність, творчий блок",
+     "meaning_general": "Імператриця плекає: проєкти, людей, тіло. Дозволь собі рости."
+    },
+    "en": {
+     "name": "The Empress",
+     "meaning_general_waite1911": "THE EMPRESS, WHO IS SOMETIMES REPRESENTED WITH FULL FACE, WHILE HER CORRESPONDENCE,",
+     "source_reference": "A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+     "keywords_upright": "abundance, care, nature",
+     "keywords_reversed": "dependence, creative block",
+     "meaning_general": "The Empress nurtures: projects, people, body. Allow yourself to grow."
+    }
+   }
+  },
+  {
+   "number": "IV",
+   "name": "Император",
+   "arcana_type": "Старший аркан",
+   "suit": null,
+   "element": "Огонь",
+   "zodiac_sign": "Овен",
+   "planet": "Овен",
+   "numerology": null,
+   "suit_code": null,
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "структура, власть, стабильность",
+   "keywords_reversed": "ригидность, контроль",
+   "meaning_general": "Император: учебное значение (пересказ по Уэйту, 1911). Прямо — структура, власть, стабильность. Перевёрнуто — ригидность, контроль.",
+   "meaning_love": "Любовь: структура, власть, стабильность.",
+   "meaning_career": "Карьера: структура, власть, стабильность.",
+   "meaning_health": "Самочувствие: умеренность и внимание к сигналам.",
+   "symbolism": "Символика RWS разбирается по изображению (цвета, жесты, фон) — поле для расширения.\nИсточник EN: A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+   "image_path": "/assets/24/IV.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Імператор",
+     "keywords_upright": "структура, влада, стабільність",
+     "keywords_reversed": "ригідність, контроль",
+     "meaning_general": "Імператор тримає форму: правила й межі, що захищають справу."
+    },
+    "en": {
+     "name": "The Emperor",
+     "meaning_general_waite1911": "THE EMPEROR, IS IN PROFILE. AS THERE HAS BEEN SOME TENDENCY TO ASCRIBE A SYMBOLICAL SIGNIFICANCE TO THIS DISTINCTION, IT SEEMS DESIRABLE TO SAY THAT IT CARRIES NO INNER MEANING. THE EMPRESS HAS BEEN CONNECTED WITH THE IDEAS OF UNIVERSAL FECUNDITY AND IN A GENERAL SENSE WITH ACTIVITY. 4. THE EMPEROR, BY IMPUTATION THE SPOUSE OF THE FORMER. HE IS OCCASIONALLY REPRESENTED AS WEARING, IN ADDITION TO HIS PERSONAL INSIGNIA, THE STARS OR RIBBONS OF SOME ORDER OF CHIVALRY. I MENTION THIS TO SHEW THAT THE CARDS ARE A MEDLEY OF OLD AND NEW EMBLEMS. THOSE WHO INSIST UPON THE EVIDENCE OF THE ONE MAY DEAL, IF THEY CAN, WITH THE OTHER. NO EFFECTUAL ARGUMENT FOR THE ANTIQUITY OF A PARTICULAR DESIGN CAN BE DRAWN FROM THE FACT THAT IT INCORPORATES OLD MATERIAL; BUT THERE IS ALSO NONE WHICH CAN BE BASED ON SPORADIC NOVELTIES, THE INTERVENTION OF WHICH MAY SIGNIFY ONLY THE UNINTELLIGENT HAND OF AN EDITOR OR OF A LATE DRAUGHTSMAN. 5. THE HIGH PRIEST OR HIEROPHANT, CALLED ALSO SPIRITUAL FATHER, AND MORE COMMONLY AND OBVIOUSLY THE POPE. IT SEEMS EVEN TO HAVE BEEN NAMED THE ABBOT, AND THEN ITS CORRESPONDENCE, THE HIGH PRIESTESS, WAS THE ABBESS OR MOTHER OF THE CONVENT. BOTH ARE ARBITRARY NAMES. THE INSIGNIA OF THE FIGURES ARE PAPAL, AND IN SUCH CASE THE HIGH PRIESTESS IS AND CAN BE ONLY THE CHURCH, TO WHOM POPE AND PRIESTS ARE MARRIED BY THE SPIRITUAL RITE OF ORDINATION. I THINK, HOWEVER, THAT IN ITS PRIMITIVE FORM THIS CARD DID NOT REPRESENT THE ROMAN PONTIFF. 6.",
+     "source_reference": "A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+     "keywords_upright": "structure, authority, stability",
+     "keywords_reversed": "rigidity, control",
+     "meaning_general": "The Emperor holds the frame: rules and borders that protect the work."
+    }
+   }
+  },
+  {
+   "number": "V",
+   "name": "Иерофант",
+   "arcana_type": "Старший аркан",
+   "suit": null,
+   "element": "Земля",
+   "zodiac_sign": "Телец",
+   "planet": "Венера",
+   "numerology": null,
+   "suit_code": null,
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "традиция, наставничество, вера",
+   "keywords_reversed": "догматизм, бунт против правил",
+   "meaning_general": "Иерофант: учебное значение (пересказ по Уэйту, 1911). Прямо — традиция, наставничество, вера. Перевёрнуто — догматизм, бунт против правил.",
+   "meaning_love": "Любовь: традиция, наставничество, вера.",
+   "meaning_career": "Карьера: традиция, наставничество, вера.",
+   "meaning_health": "Самочувствие: умеренность и внимание к сигналам.",
+   "symbolism": "Символика RWS разбирается по изображению (цвета, жесты, фон) — поле для расширения.\nИсточник EN: A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+   "image_path": "/assets/24/V.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Ієрофант",
+     "keywords_upright": "традиція, наставництво, віра",
+     "keywords_reversed": "догматизм, бунт проти правил",
+     "meaning_general": "Ієрофант передає перевірене знання. Шануй школу — або свідомо йди геть."
+    },
+    "en": {
+     "name": "The Hierophant",
+     "meaning_general_waite1911": "HIEROPHANT, IN CONNEXION WITH THE NOTION OF A SECRET ALBIGENSIAN PATRIARCH, OF WHICH MR. BAYLEY HAS FOUND IN THESE SAME WATERMARKS SO MUCH MATERIAL TO HIS PURPOSE. THINK ONLY FOR A MOMENT ABOUT THE CARD OF THE",
+     "source_reference": "A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+     "keywords_upright": "tradition, mentorship, faith",
+     "keywords_reversed": "dogmatism, rebellion",
+     "meaning_general": "The Hierophant passes proven knowledge. Honor the school — or leave it consciously."
+    }
+   }
+  },
+  {
+   "number": "VI",
+   "name": "Влюблённые",
+   "arcana_type": "Старший аркан",
+   "suit": null,
+   "element": "Воздух",
+   "zodiac_sign": "Близнецы",
+   "planet": "Меркурий",
+   "numerology": null,
+   "suit_code": null,
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "выбор сердцем, союз, гармония",
+   "keywords_reversed": "дисгармония, неверный выбор",
+   "meaning_general": "Влюблённые: учебное значение (пересказ по Уэйту, 1911). Прямо — выбор сердцем, союз, гармония. Перевёрнуто — дисгармония, неверный выбор.",
+   "meaning_love": "Любовь: выбор сердцем, союз, гармония.",
+   "meaning_career": "Карьера: выбор сердцем, союз, гармония.",
+   "meaning_health": "Самочувствие: умеренность и внимание к сигналам.",
+   "symbolism": "Символика RWS разбирается по изображению (цвета, жесты, фон) — поле для расширения.\nИсточник EN: A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+   "image_path": "/assets/24/VI.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Закохані",
+     "keywords_upright": "вибір серцем, союз, гармонія",
+     "keywords_reversed": "дисгармонія, хибний вибір",
+     "meaning_general": "Закохані — це вибір цінностей, не лише людей. Серце вже знає."
+    },
+    "en": {
+     "name": "The Lovers",
+     "meaning_general_waite1911": "THE LOVERS OR MARRIAGE. THIS SYMBOL HAS UNDERGONE MANY VARIATIONS, AS MIGHT BE EXPECTED FROM ITS SUBJECT. IN THE EIGHTEENTH CENTURY FORM, BY WHICH IT FIRST BECAME KNOWN TO THE WORLD OF ARCHAEOLOGICAL RESEARCH, IT IS REALLY A CARD OF MARRIED LIFE, SHEWING FATHER AND MOTHER, WITH THEIR CHILD PLACED BETWEEN THEM; AND THE PAGAN CUPID ABOVE, IN THE ACT OF FLYING HIS SHAFT, IS, OF COURSE, A MISAPPLIED EMBLEM. THE CUPID IS OF LOVE BEGINNING RATHER THAN OF LOVE IN ITS FULNESS, GUARDING THE FRUIT THEREOF. THE CARD IS SAID TO HAVE BEEN ENTITLED SIMULACYUM FIDEI, THE SYMBOL OF CONJUGAL HTTP://WWW.SACRED-TEXTS.COM/TAROT/PKT0102.HTM (1 OF 5) [13/10/2002 14:24:35] 1.2 CLASS I. THE TRUMPS MAJOR FAITH, FOR WHICH THE RAINBOW AS A SIGN OF THE COVENANT WOULD HAVE BEEN A MORE APPROPRIATE CONCOMITANT. THE FIGURES ARE ALSO HELD TO HAVE SIGNIFIED TRUTH, HONOUR AND LOVE, BUT I SUSPECT THAT THIS WAS, SO TO SPEAK, THE GLOSS OF A COMMENTATOR MORALIZING. IT HAS THESE, BUT IT HAS OTHER AND HIGHER ASPECTS. 7.",
+     "source_reference": "A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+     "keywords_upright": "heartfelt choice, union, harmony",
+     "keywords_reversed": "disharmony, wrong choice",
+     "meaning_general": "The Lovers mean a choice of values, not only of people. The heart already knows."
+    }
+   }
+  },
+  {
+   "number": "VII",
+   "name": "Колесница",
+   "arcana_type": "Старший аркан",
+   "suit": null,
+   "element": "Вода",
+   "zodiac_sign": "Рак",
+   "planet": "Луна",
+   "numerology": null,
+   "suit_code": null,
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "движение, победа, самоконтроль",
+   "keywords_reversed": "потеря направления, агрессия",
+   "meaning_general": "Колесница: учебное значение (пересказ по Уэйту, 1911). Прямо — движение, победа, самоконтроль. Перевёрнуто — потеря направления, агрессия.",
+   "meaning_love": "Любовь: движение, победа, самоконтроль.",
+   "meaning_career": "Карьера: движение, победа, самоконтроль.",
+   "meaning_health": "Самочувствие: умеренность и внимание к сигналам.",
+   "symbolism": "Символика RWS разбирается по изображению (цвета, жесты, фон) — поле для расширения.\nИсточник EN: A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+   "image_path": "/assets/24/VII.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Колісниця",
+     "keywords_upright": "рух, перемога, самоконтроль",
+     "keywords_reversed": "втрата напряму, агресія",
+     "meaning_general": "Колісниця їде, коли протилежності тягнуть в один бік. Тримай віжки."
+    },
+    "en": {
+     "name": "The Chariot",
+     "meaning_general_waite1911": "THE CHARIOT. THIS IS REPRESENTED IN SOME EXTANT CODICES AS BEING DRAWN BY TWO SPHINXES, AND THE DEVICE IS IN CONSONANCE WITH THE SYMBOLISM, BUT IT MUST NOT BE SUPPOSED THAT SUCH WAS ITS ORIGINAL FORM; THE VARIATION WAS INVENTED TO SUPPORT A PARTICULAR HISTORICAL HYPOTHESIS. IN THE EIGHTEENTH CENTURY WHITE HORSES WERE YOKED TO THE CAR. AS REGARDS ITS USUAL NAME, THE LESSER STANDS FOR THE GREATER; IT IS REALLY THE KING IN HIS TRIUMPH, TYPIFYING, HOWEVER, THE VICTORY WHICH CREATES KINGSHIP AS ITS NATURAL CONSEQUENCE AND NOT THE VESTED ROYALTY OF THE FOURTH CARD. M. COURT DE GEBELIN SAID THAT IT WAS OSIRIS TRIUMPHING, THE CONQUERING SUN IN SPRING-TIME HAVING VANQUISHED THE OBSTACLES OF WINTER. WE KNOW NOW THAT OSIRIS RISING FROM THE DEAD IS NOT REPRESENTED BY SUCH OBVIOUS SYMBOLISM. OTHER ANIMALS THAN HORSES HAVE ALSO BEEN USED TO DRAW THE CURRUS TRIUMPHALIS, AS, FOR EXAMPLE, A LION AND A LEOPARD. 8.",
+     "source_reference": "A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+     "keywords_upright": "motion, victory, self-control",
+     "keywords_reversed": "lost direction, aggression",
+     "meaning_general": "The Chariot moves when opposites pull together. Hold the reins."
+    }
+   }
+  },
+  {
+   "number": "VIII",
+   "name": "Справедливость",
+   "arcana_type": "Старший аркан",
+   "suit": null,
+   "element": "Воздух",
+   "zodiac_sign": "Весы",
+   "planet": "Венера",
+   "numerology": null,
+   "suit_code": null,
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "честность, баланс, ответственность",
+   "keywords_reversed": "несправедливость, предвзятость",
+   "meaning_general": "Справедливость: учебное значение (пересказ по Уэйту, 1911). Прямо — честность, баланс, ответственность. Перевёрнуто — несправедливость, предвзятость.",
+   "meaning_love": "Любовь: честность, баланс, ответственность.",
+   "meaning_career": "Карьера: честность, баланс, ответственность.",
+   "meaning_health": "Самочувствие: умеренность и внимание к сигналам.",
+   "symbolism": "Символика RWS разбирается по изображению (цвета, жесты, фон) — поле для расширения.\nИсточник EN: A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+   "image_path": "/assets/24/VIII.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Справедливість",
+     "keywords_upright": "чесність, баланс, відповідальність",
+     "keywords_reversed": "несправедливість, упередженість",
+     "meaning_general": "Справедливість зважує вчинки, не наміри. Відповідай за свій бік терезів."
+    },
+    "en": {
+     "name": "Justice",
+     "meaning_general_waite1911": "JUSTICE WHICH HAS PRECEDED HIM ON THE WAY. BUT THIS IS A CARD OF ATTAINMENT, AS WE SHALL SEE LATER, RATHER THAN A CARD OF QUEST. IT IS SAID ALSO THAT HIS LANTERN CONTAINS THE LIGHT OF OCCULT SCIENCE AND THAT HIS STAFF IS A MAGIC WAND. THESE INTERPRETATIONS ARE COMPARABLE IN EVERY RESPECT TO THE DIVINATORY AND FORTUNE-TELLING MEANINGS WITH WHICH I SHALL HAVE TO DEAL IN THEIR TURN. THE DIABOLISM OF BOTH IS THAT THEY ARE TRUE AFTER THEIR OWN MANNER, BUT THAT THEY MISS ALL THE HIGH THINGS TO WHICH THE GREATER ARCANA SHOULD BE ALLOCATED. IT IS AS IF A MAN WHO KNOWS IN HIS HEART THAT ALL ROADS LEAD TO THE HEIGHTS, AND THAT GOD IS AT THE GREAT HEIGHT OF ALL, SHOULD / CHOOSE THE WAY OF PERDITION OR THE WAY OF FOLLY AS THE PATH OF HIS OWN ATTAINMENT. ELIPHAS LEVI HAS ALLOCATED THIS CARD TO PRUDENCE, BUT IN SO DOING HE HAS BEEN ACTUATED BY THE WISH TO FILL A GAP WHICH WOULD OTHERWISE OCCUR IN THE SYMBOLISM. THE FOUR CARDINAL VIRTUES ARE NECESSARY TO AN IDEALOGICAL SEQUENCE LIKE THE TRUMPS MAJOR, BUT THEY MUST NOT BE TAKEN ONLY IN THAT FIRST SENSE WHICH EXISTS FOR THE USE AND CONSOLATION OF HIM WHO IN THESE DAYS OF HALFPENNY JOURNALISM IS CALLED THE MAN IN THE STREET. IN THEIR PROPER UNDERSTANDING THEY ARE THE CORRELATIVES OF THE COUNSELS OF PERFECTION WHEN THESE HAVE BEEN SIMILARLY RE-EXPRESSED, AND THEY READ AS FOLLOWS: (A) TRANSCENDENTAL JUSTICE, THE COUNTER-EQUILIBRIUM OF THE SCALES, WHEN THEY HAVE BEEN OVERWEIGHTED SO THAT THEY DIP HEAVILY ON THE SIDE OF GOD. THE CORRESPONDING COUNSEL IS TO USE LOADED DICE WHEN YOU PLAY FOR HIGH STAKES WITH DIABOLUS. THE AXIOM IS AUT DEUS, AUT NIHIL, (B) DIVINE ECSTACY, AS A COUNTERPOISE TO SOMETHING CALLED",
+     "source_reference": "A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+     "keywords_upright": "honesty, balance, accountability",
+     "keywords_reversed": "injustice, bias",
+     "meaning_general": "Justice weighs deeds, not intentions. Answer for your side of the scales."
+    },
+    "ru": {
+     "name": "Справедливость"
+    }
+   }
+  },
+  {
+   "number": "IX",
+   "name": "Отшельник",
+   "arcana_type": "Старший аркан",
+   "suit": null,
+   "element": "Земля",
+   "zodiac_sign": "Дева",
+   "planet": "Меркурий",
+   "numerology": null,
+   "suit_code": null,
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "поиск, мудрость, уединение",
+   "keywords_reversed": "изоляция, застой",
+   "meaning_general": "Отшельник: учебное значение (пересказ по Уэйту, 1911). Прямо — поиск, мудрость, уединение. Перевёрнуто — изоляция, застой.",
+   "meaning_love": "Любовь: поиск, мудрость, уединение.",
+   "meaning_career": "Карьера: поиск, мудрость, уединение.",
+   "meaning_health": "Самочувствие: умеренность и внимание к сигналам.",
+   "symbolism": "Символика RWS разбирается по изображению (цвета, жесты, фон) — поле для расширения.\nИсточник EN: A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+   "image_path": "/assets/24/IX.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Відлюдник",
+     "keywords_upright": "пошук, мудрість, усамітнення",
+     "keywords_reversed": "ізоляція, застій",
+     "meaning_general": "Відлюдник світить ліхтарем усередину. Побудь наодинці — відповідь дозріє."
+    },
+    "en": {
+     "name": "The Hermit",
+     "meaning_general_waite1911": "THE HERMIT, AS HE IS TERMED IN COMMON PARLANCE, STANDS NEXT ON THE LIST; HE IS ALSO THE CAPUCHIN, AND IN MORE PHILOSOPHICAL LANGUAGE THE SAGE. HE IS SAID TO BE IN SEARCH OF THAT TRUTH WHICH IS LOCATED FAR OFF IN THE SEQUENCE, AND OF",
+     "source_reference": "A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+     "keywords_upright": "quest, wisdom, solitude",
+     "keywords_reversed": "isolation, stagnation",
+     "meaning_general": "The Hermit turns the lantern inward. Be alone a while — the answer will ripen."
+    }
+   }
+  },
+  {
+   "number": "X",
+   "name": "Колесо Фортуны",
+   "arcana_type": "Старший аркан",
+   "suit": null,
+   "element": "Огонь",
+   "zodiac_sign": null,
+   "planet": "Юпитер",
+   "numerology": null,
+   "suit_code": null,
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "перемены, цикл, удача",
+   "keywords_reversed": "неудачный период, сопротивление переменам",
+   "meaning_general": "Колесо Фортуны: учебное значение (пересказ по Уэйту, 1911). Прямо — перемены, цикл, удача. Перевёрнуто — неудачный период, сопротивление переменам.",
+   "meaning_love": "Любовь: перемены, цикл, удача.",
+   "meaning_career": "Карьера: перемены, цикл, удача.",
+   "meaning_health": "Самочувствие: умеренность и внимание к сигналам.",
+   "symbolism": "Символика RWS разбирается по изображению (цвета, жесты, фон) — поле для расширения.\nИсточник EN: A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+   "image_path": "/assets/24/X.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Колесо Фортуни",
+     "keywords_upright": "зміни, цикл, вдача",
+     "keywords_reversed": "невдалий період, опір змінам",
+     "meaning_general": "Колесо крутиться: підйоми й спади — сезони, а не вирок."
+    },
+    "en": {
+     "name": "Wheel of Fortune",
+     "meaning_general_waite1911": "WHEEL OF FORTUNE. THERE IS A CURRENT MANUAL OF CARTOMANCY WHICH HAS OBTAINED A CONSIDERABLE VOGUE IN ENGLAND, AND AMIDST A GREAT SCATTERMEAL OF CURIOUS THINGS TO NO PURPOSE HAS INTERSECTED A FEW SERIOUS SUBJECTS. IN ITS LAST AND LARGEST EDITION IT TREATS IN ONE SECTION OF THE TAROT; WHICH— IF I INTERPRET THE AUTHOR RIGHTLY— IT REGARDS FROM BEGINNING TO END AS THE WHEEL OF FORTUNE, THIS EXPRESSION BEING UNDERSTOOD IN MY OWN SENSE. I HAVE NO OBJECTION TO SUCH AN INCLUSIVE THOUGH CONVENTIONAL DESCRIPTION; IT OBTAINS IN ALL THE WORLDS, AND I WONDER THAT IT HAS NOT BEEN ADOPTED PREVIOUSLY AS THE MOST APPROPRIATE NAME ON THE SIDE OF COMMON FORTUNE-TELLING. IT IS ALSO THE TITLE OF ONE OF THE TRUMPS MAJOR— THAT INDEED OF OUR CONCERN AT THE MOMENT, AS MY SUB-TITLE SHEWS. OF RECENT YEARS THIS HAS SUFFERED MANY FANTASTIC PRESENTATIONS AND ONE HYPOTHETICAL RECONSTRUCTION WHICH IS SUGGESTIVE IN ITS SYMBOLISM. THE WHEEL HAS SEVEN RADII; IN THE EIGHTEENTH CENTURY THE ASCENDING AND DESCENDING ANIMALS WERE REALLY OF NONDESCRIPT CHARACTER, ONE OF THEM HAVING A HUMAN HEAD. AT THE SUMMIT WAS ANOTHER MONSTER WITH THE BODY OF AN INDETERMINATE BEAST, WINGS ON SHOULDERS AND A CROWN ON HEAD. IT CARRIED TWO WANDS IN ITS CLAWS. THESE ARE REPLACED IN THE RECONSTRUCTION BY A HERMANUBIS RISING WITH THE WHEEL, A SPHINX COUCHANT AT THE SUMMIT AND A TYPHON ON THE DESCENDING SIDE. HERE IS ANOTHER INSTANCE OF AN INVENTION IN SUPPORT OF A HYPOTHESIS; BUT IF THE LATTER BE SET ASIDE THE GROUPING IS SYMBOLICALLY CORRECT AND CAN PASS AS SUCH. 11. JUSTICE. THAT THE TAROT, THOUGH IT IS OF ALL REASONABLE ANTIQUITY, IS NOT OF TIME IMMEMORIAL, IS SHEWN BY THIS CARD, WHICH COULD HAVE BEEN PRESENTED IN A MUCH MORE ARCHAIC MANNER. THOSE, HOWEVER, WHO HAVE GIFTS OF DISCERNMENT IN MATTERS OF THIS KIND WILL NOT NEED TO BE TOLD THAT AGE IS IN NO SENSE OF THE ESSENCE OF THE CONSIDERATION; THE RITE OF CLOSING THE LODGE IN THE THIRD CRAFT GRADE OF MASONRY MAY BELONG TO THE LATE EIGHTEENTH CENTURY, BUT THE FACT SIGNIFIES NOTHING; IT IS STILL THE SUMMARY OF ALL THE INSTITUTED AND OFFICIAL MYSTERIES. THE FEMALE FIGURE OF THE ELEVENTH CARD IS SAID TO BE ASTRAEA, WHO PERSONIFIED THE SAME VIRTUE AND IS REPRESENTED BY THE SAME SYMBOLS. THIS GODDESS NOTWITHSTANDING, AND NOTWITHSTANDING THE VULGARIAN CUPID, THE TAROT IS NOT OF ROMAN MYTHOLOGY, OR OF GREEK EITHER. ITS PRESENTATION OF JUSTICE IS SUPPOSED TO BE ONE OF THE FOUR CARDINAL VIRTUES INCLUDED IN THE SEQUENCE OF GREATER ARCANA; BUT, AS IT SO HAPPENS, THE FOURTH EMBLEM IS WANTING, AND IT BECAME NECESSARY FOR THE COMMENTATORS TO DISCOVER IT AT ALL COSTS. THEY DID WHAT IT WAS POSSIBLE TO DO, AND YET THE LAWS OF RESEARCH HAVE NEVER SUCCEEDED IN EXTRICATING THE MISSING PERSEPHONE UNDER THE FORM OF PRUDENCE. COURT DE GEBELIN ATTEMPTED TO SOLVE THE DIFFICULTY BY A TOUR DE FORCE, AND BELIEVED THAT HE HAD EXTRACTED WHAT HE WANTED FROM THE SYMBOL OF THE",
+     "source_reference": "A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+     "keywords_upright": "change, cycles, fortune",
+     "keywords_reversed": "rough patch, resisting change",
+     "meaning_general": "The Wheel turns: ups and downs are seasons, not sentences."
+    }
+   }
+  },
+  {
+   "number": "XI",
+   "name": "Сила",
+   "arcana_type": "Старший аркан",
+   "suit": null,
+   "element": "Огонь",
+   "zodiac_sign": "Лев",
+   "planet": "Солнце",
+   "numerology": null,
+   "suit_code": null,
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "мужество, терпение, мягкая сила",
+   "keywords_reversed": "сомнения, выгорание",
+   "meaning_general": "Сила: учебное значение (пересказ по Уэйту, 1911). Прямо — мужество, терпение, мягкая сила. Перевёрнуто — сомнения, выгорание.",
+   "meaning_love": "Любовь: мужество, терпение, мягкая сила.",
+   "meaning_career": "Карьера: мужество, терпение, мягкая сила.",
+   "meaning_health": "Самочувствие: умеренность и внимание к сигналам.",
+   "symbolism": "Символика RWS разбирается по изображению (цвета, жесты, фон) — поле для расширения.\nИсточник EN: A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+   "image_path": "/assets/24/XI.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Сила",
+     "keywords_upright": "мужність, терпіння, мʼяка сила",
+     "keywords_reversed": "сумніви, вигоряння",
+     "meaning_general": "Сила — це лагідність, що приборкує лева. Терпіння сильніше за тиск."
+    },
+    "en": {
+     "name": "Strength",
+     "meaning_general_waite1911": "FORTITUDE. THIS IS ONE OF THE CARDINAL VIRTUES, OF WHICH I SHALL SPEAK LATER. THE FEMALE FIGURE IS USUALLY REPRESENTED AS CLOSING THE MOUTH OF A LION. IN THE EARLIER FORM WHICH IS PRINTED BY COURT DE GEBELIN, SHE IS OBVIOUSLY OPENING IT. THE FIRST ALTERNATIVE IS BETTER SYMBOLICALLY, BUT EITHER IS AN INSTANCE OF STRENGTH IN ITS CONVENTIONAL UNDERSTANDING, AND CONVEYS THE IDEA OF MASTERY. IT HAS BEEN SAID THAT THE FIGURE REPRESENTS ORGANIC FORCE, MORAL FORCE AND THE PRINCIPLE OF ALL FORCE. 9.",
+     "source_reference": "A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+     "keywords_upright": "courage, patience, gentle strength",
+     "keywords_reversed": "doubt, burnout",
+     "meaning_general": "Strength is gentleness taming the lion. Patience beats pressure."
+    },
+    "ru": {
+     "name": "Сила"
+    }
+   }
+  },
+  {
+   "number": "XII",
+   "name": "Повешенный",
+   "arcana_type": "Старший аркан",
+   "suit": null,
+   "element": "Вода",
+   "zodiac_sign": null,
+   "planet": "Нептун",
+   "numerology": null,
+   "suit_code": null,
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "пауза, смена视角, жертва ради прозрения",
+   "keywords_reversed": "застревание, бессмысленная жертва",
+   "meaning_general": "Повешенный: учебное значение (пересказ по Уэйту, 1911). Прямо — пауза, смена视角, жертва ради прозрения. Перевёрнуто — застревание, бессмысленная жертва.",
+   "meaning_love": "Любовь: пауза, смена视角, жертва ради прозрения.",
+   "meaning_career": "Карьера: пауза, смена视角, жертва ради прозрения.",
+   "meaning_health": "Самочувствие: умеренность и внимание к сигналам.",
+   "symbolism": "Символика RWS разбирается по изображению (цвета, жесты, фон) — поле для расширения.\nИсточник EN: A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+   "image_path": "/assets/24/XII.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Повішений",
+     "keywords_upright": "пауза, зміна ракурсу, прозріння",
+     "keywords_reversed": "застрягання, марна жертва",
+     "meaning_general": "Повішений бачить світ догори дриґом — і саме так знаходить сенс. Зупинись."
+    },
+    "en": {
+     "name": "The Hanged Man",
+     "meaning_general_waite1911": "HANGED MAN— WHEREIN HE DECEIVED HIMSELF. THE TAROT HAS, THEREFORE, ITS JUSTICE, ITS TEMPERANCE ALSO AND ITS FORTITUDE, BUT-OWING TO A CURIOUS OMISSION— IT DOES NOT OFFER US ANY TYPE OF PRUDENCE, THOUGH IT MAY BE ADMITTED THAT, IN SOME RESPECTS, THE ISOLATION OF THE HERMIT, PURSUING A SOLITARY PATH BY THE LIGHT OF HIS OWN LAMP, GIVES, TO THOSE WHO CAN RECEIVE IT, A CERTAIN HIGH COUNSEL IN RESPECT OF THE VIA PRUDENTICE. 12. THE HANGED MAN. THIS IS THE SYMBOL WHICH IS SUPPOSED TO REPRESENT PRUDENCE, AND ELIPHAS LEVI SAYS, IN HIS MOST SHALLOW AND PLAUSIBLE MANNER, THAT IT IS THE ADEPT BOUND BY HIS ENGAGEMENTS. THE FIGURE OF A MAN IS SUSPENDED HEAD- DOWNWARDS FROM A GIBBET, TO WHICH HE IS ATTACHED BY A ROPE ABOUT ONE OF HIS ANKLES. THE ARMS ARE BOUND BEHIND HIM, AND ONE LEG IS CROSSED OVER THE OTHER. ACCORDING TO ANOTHER, AND INDEED THE PREVAILING INTERPRETATION, HE SIGNIFIES SACRIFICE, BUT ALL CURRENT MEANINGS ATTRIBUTED TO THIS CARD ARE CARTOMANCISTS' INTUITIONS, APART FROM ANY REAL VALUE ON THE SYMBOLICAL SIDE. THE FORTUNE-TELLERS OF THE EIGHTEENTH CENTURY WHO CIRCULATED TAROTS, DEPICT A SEMI- FEMININE YOUTH IN JERKIN, POISED ERECT ON ONE FOOT AND LOOSELY ATTACHED TO A SHORT STAKE DRIVEN INTO THE GROUND. 13. DEATH. THE METHOD OF PRESENTATION IS ALMOST INVARIABLE, AND EMBODIES A BOURGEOIS FORM OF SYMBOLISM. THE SCENE IS THE FIELD OF LIFE, AND AMIDST ORDINARY RANK VEGETATION THERE ARE LIVING ARMS HTTP://WWW.SACRED-TEXTS.COM/TAROT/PKT0102.HTM (3 OF 5) [13/10/2002 14:24:35] 1.2 CLASS I. THE TRUMPS MAJOR AND HEADS PROTRUDING FROM THE GROUND. ONE OF THE HEADS IS CROWNED, AND A SKELETON WITH A GREAT SCYTHE IS IN THE ACT OF MOWING IT. THE TRANSPARENT AND UNESCAPABLE MEANING IS DEATH, BUT THE ALTERNATIVES ALLOCATED TO THE SYMBOL ARE CHANGE AND TRANSFORMATION. OTHER HEADS HAVE BEEN SWEPT FROM THEIR PLACE PREVIOUSLY, BUT IT IS, IN ITS CURRENT AND PATENT MEANING, MORE ESPECIALLY A CARD OF THE DEATH OF KINGS. IN THE EXOTIC SENSE IT HAS BEEN SAID TO SIGNIFY THE ASCENT OF THE SPIRIT IN THE DIVINE SPHERES, CREATION AND DESTRUCTION, PERPETUAL MOVEMENT, AND SO FORTH. 14. TEMPERANCE. THE WINGED FIGURE OF A FEMALE— WHO, IN OPPOSITION TO ALL DOCTRINE CONCERNING THE HIERARCHY OF ANGELS, IS USUALLY ALLOCATED TO THIS ORDER OF MINISTERING SPIRITS— IS POURING LIQUID FROM ONE PITCHER TO ANOTHER. IN HIS LAST WORK ON THE TAROT, DR. PAPUS ABANDONS THE TRADITIONAL FORM AND DEPICTS A WOMAN WEARING AN EGYPTIAN HEAD-DRESS. THE FIRST THING WHICH SEEMS CLEAR ON THE SURFACE IS THAT THE ENTIRE SYMBOL HAS NO ESPECIAL CONNEXION WITH TEMPERANCE, AND THE FACT THAT THIS DESIGNATION HAS ALWAYS OBTAINED FOR THE CARD OFFERS A VERY OBVIOUS INSTANCE OF A MEANING BEHIND MEANING, WHICH IS THE TITLE IN CHIEF TO CONSIDERATION IN RESPECT OF THE TAROT AS A WHOLE. 15.",
+     "source_reference": "A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+     "keywords_upright": "pause, new angle, insight",
+     "keywords_reversed": "stuck, vain sacrifice",
+     "meaning_general": "The Hanged Man sees the world upside down — and finds meaning. Pause."
+    }
+   }
+  },
+  {
+   "number": "XIII",
+   "name": "Смерть",
+   "arcana_type": "Старший аркан",
+   "suit": null,
+   "element": "Вода",
+   "zodiac_sign": "Скорпион",
+   "planet": "Плутон",
+   "numerology": null,
+   "suit_code": null,
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "трансформация, завершение, обновление",
+   "keywords_reversed": "сопротивление концу, застой",
+   "meaning_general": "Смерть: учебное значение (пересказ по Уэйту, 1911). Прямо — трансформация, завершение, обновление. Перевёрнуто — сопротивление концу, застой.",
+   "meaning_love": "Любовь: трансформация, завершение, обновление.",
+   "meaning_career": "Карьера: трансформация, завершение, обновление.",
+   "meaning_health": "Самочувствие: умеренность и внимание к сигналам.",
+   "symbolism": "Символика RWS разбирается по изображению (цвета, жесты, фон) — поле для расширения.\nИсточник EN: A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+   "image_path": "/assets/24/XIII.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Смерть",
+     "keywords_upright": "трансформація, завершення, оновлення",
+     "keywords_reversed": "опір кінцю, застій",
+     "meaning_general": "Смерть зрізає відмерле, щоб живе росло. Відпусти — місце звільниться."
+    },
+    "en": {
+     "name": "Death",
+     "meaning_general_waite1911": "DEATH, BUT HE MUST BE CERTAIN THAT HIS SACRIFICE SHALL BE-OF ANY OPEN COURSE-THE BEST THAT WILL ENSURE HIS END. THE AXIOM IS THAT THE STRENGTH WHICH IS RAISED TO SUCH A DEGREE THAT A MAN DARES LOSE HIMSELF SHALL SHEW HIM HOW GOD IS FOUND, AND AS TO SUCH REFUGE— DARE THEREFORE AND LEARN, (D) PRUDENCE IS THE ECONOMY WHICH FOLLOWS THE LINE OF LEAST RESISTANCE, THAT THE SOUL MAY GET BACK WHENCE IT CAME. IT IS A DOCTRINE OF DIVINE PARSIMONY AND CONSERVATION OF ENERGY, BECAUSE OF THE STRESS, THE TERROR AND THE MANIFEST IMPERTINENCES OF THIS LIFE. THE CORRESPONDING COUNSEL IS THAT TRUE PRUDENCE IS CONCERNED WITH THE ONE THING NEEDFUL, AND THE AXIOM IS: WASTE NOT, WANT NOT. THE CONCLUSION OF THE WHOLE MATTER IS A BUSINESS PROPOSITION FOUNDED ON THE LAW OF EXCHANGE: YOU CANNOT HELP GETTING WHAT YOU SEEK IN RESPECT OF THE THINGS HTTP://WWW.SACRED-TEXTS.COM/TAROT/PKT0102.HTM (2 OF 5) [13/10/2002 14:24:35] 1.2 CLASS I. THE TRUMPS MAJOR THAT ARE DIVINE: IT IS THE LAW OF SUPPLY AND DEMAND. I HAVE MENTIONED THESE FEW MATTERS AT THIS POINT FOR TWO SIMPLE REASONS: (A) BECAUSE IN PROPORTION TO THE IMPARTIALITY OF THE MIND IT SEEMS SOMETIMES MORE DIFFICULT TO DETERMINE WHETHER IT IS VICE OR VULGARITY WHICH LAYS WASTE THE PRESENT WORLD MORE PITEOUSLY; (B) BECAUSE IN ORDER TO REMEDY THE IMPERFECTIONS OF THE OLD NOTIONS IT IS HIGHLY NEEDFUL, ON OCCASION, TO EMPTY TERMS AND PHRASES OF THEIR ACCEPTED SIGNIFICANCE, THAT THEY MAY RECEIVE A NEW AND MORE ADEQUATE MEANING. 10. THE",
+     "source_reference": "A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+     "keywords_upright": "transformation, ending, renewal",
+     "keywords_reversed": "resisting closure, stagnation",
+     "meaning_general": "Death cuts the withered so the living grows. Let go — space will free up."
+    }
+   }
+  },
+  {
+   "number": "XIV",
+   "name": "Умеренность",
+   "arcana_type": "Старший аркан",
+   "suit": null,
+   "element": "Огонь",
+   "zodiac_sign": "Стрелец",
+   "planet": "Солнце",
+   "numerology": null,
+   "suit_code": null,
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "баланс, алхимия, умеренность",
+   "keywords_reversed": "крайности, дисбаланс",
+   "meaning_general": "Умеренность: учебное значение (пересказ по Уэйту, 1911). Прямо — баланс, алхимия, умеренность. Перевёрнуто — крайности, дисбаланс.",
+   "meaning_love": "Любовь: баланс, алхимия, умеренность.",
+   "meaning_career": "Карьера: баланс, алхимия, умеренность.",
+   "meaning_health": "Самочувствие: умеренность и внимание к сигналам.",
+   "symbolism": "Символика RWS разбирается по изображению (цвета, жесты, фон) — поле для расширения.\nИсточник EN: A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+   "image_path": "/assets/24/XIV.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Помірність",
+     "keywords_upright": "баланс, алхімія, помірність",
+     "keywords_reversed": "крайнощі, дисбаланс",
+     "meaning_general": "Помірність змішує вогонь і воду в золото. Малі дози щодня."
+    },
+    "en": {
+     "name": "Temperance",
+     "meaning_general_waite1911": "TEMPERANCE, THE SIGN OF WHICH IS, I BELIEVE, THE EXTINCTION OF LIGHTS IN THE TAVERN. THE CORRESPONDING COUNSEL IS TO DRINK ONLY OF NEW WINE IN THE KINGDOM OF THE FATHER, BECAUSE GOD IS ALL IN ALL. THE AXIOM IS THAT MAN BEING A REASONABLE BEING MUST GET INTOXICATED WITH GOD; THE IMPUTED CASE IN POINT IS SPINOZA, (C) THE STATE OF ROYAL FORTITUDE, WHICH IS THE STATE OF A TOWER OF IVORY AND A HOUSE OF GOLD, BUT IT IS GOD AND NOT THE MAN WHO HAS BECOME TURRIS FORTITUDINIS A FACIE INIMICI, AND OUT OF THAT HOUSE THE ENEMY HAS BEEN CAST. THE CORRESPONDING COUNSEL IS THAT A MAN MUST NOT SPARE HIMSELF EVEN IN THE PRESENCE OF",
+     "source_reference": "A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+     "keywords_upright": "balance, alchemy, temperance",
+     "keywords_reversed": "extremes, imbalance",
+     "meaning_general": "Temperance blends fire and water into gold. Small doses daily."
+    }
+   }
+  },
+  {
+   "number": "XV",
+   "name": "Дьявол",
+   "arcana_type": "Старший аркан",
+   "suit": null,
+   "element": "Земля",
+   "zodiac_sign": "Козерог",
+   "planet": "Сатурн",
+   "numerology": null,
+   "suit_code": null,
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "привязанность, тень, искушение",
+   "keywords_reversed": "освобождение, разрыв цепей",
+   "meaning_general": "Дьявол: учебное значение (пересказ по Уэйту, 1911). Прямо — привязанность, тень, искушение. Перевёрнуто — освобождение, разрыв цепей.",
+   "meaning_love": "Любовь: привязанность, тень, искушение.",
+   "meaning_career": "Карьера: привязанность, тень, искушение.",
+   "meaning_health": "Самочувствие: умеренность и внимание к сигналам.",
+   "symbolism": "Символика RWS разбирается по изображению (цвета, жесты, фон) — поле для расширения.\nИсточник EN: A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+   "image_path": "/assets/24/XV.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Диявол",
+     "keywords_upright": "привʼязаність, тінь, спокуса",
+     "keywords_reversed": "звільнення, розрив ланцюгів",
+     "meaning_general": "Диявол показує ланцюги, які ти сам тримаєш. Назви залежність — і вона слабне."
+    },
+    "en": {
+     "name": "The Devil",
+     "meaning_general_waite1911": "THE DEVIL. IN THE EIGHTEENTH CENTURY THIS CARD SEEMS TO HAVE BEEN RATHER A SYMBOL OF MERELY ANIMAL IMPUDICITY. EXCEPT FOR A FANTASTIC HEAD-DRESS, THE CHIEF FIGURE IS ENTIRELY NAKED; IT HAS BAT- LIKE WINGS, AND THE HANDS AND FEET ARE REPRESENTED BY THE CLAWS OF A BIRD. IN THE RIGHT HAND THERE IS A SCEPTRE TERMINATING IN A SIGN WHICH HAS BEEN THOUGHT TO REPRESENT FIRE. THE FIGURE AS A WHOLE IS NOT PARTICULARLY EVIL; IT HAS NO TAIL, AND THE COMMENTATORS WHO HAVE SAID THAT THE CLAWS ARE THOSE OF A HARPY HAVE SPOKEN AT RANDOM. THERE IS NO BETTER GROUND FOR THE ALTERNATIVE SUGGESTION THAT THEY ARE EAGLE'S CLAWS. ATTACHED, BY A CORD DEPENDING FROM THEIR COLLARS, TO THE PEDESTAL ON WHICH THE FIGURE IS MOUNTED, ARE TWO SMALL DEMONS, PRESUMABLY MALE AND FEMALE. THESE ARE TAILED, BUT NOT WINGED. S SINCE 1856 THE INFLUENCE OF ELIPHAS LEVI AND HIS DOCTRINE OF OCCULTISM HAS CHANGED THE FACE OF THIS CARD, AND IT NOW APPEARS AS A PSEUDO-BAPHOMETIC FIGURE WITH THE HEAD OF A GOAT AND A GREAT TORCH BETWEEN THE HORNS; IT IS SEATED INSTEAD OF ERECT, AND IN PLACE OF THE GENERATIVE ORGANS THERE IS THE HERMETIC CADUCEUS. IN LE TAROT DIVINATOIRE OF PAPUS THE SMALL DEMONS ARE REPLACED BY NAKED HUMAN BEINGS, MALE AND FEMALE ' WHO ARE YOKED ONLY TO EACH OTHER. THE AUTHOR MAY BE FELICITATED ON THIS IMPROVED SYMBOLISM. 16. THE TOWER STRUCK BY LIGHTNING. ITS ALTERNATIVE TITLES ARE: CASTLE OF PLUTUS, GOD'S HOUSE AND THE TOWER OF BABEL. IN THE LAST CASE, THE FIGURES FALLING THEREFROM ARE HELD TO BE NIMROD AND HIS MINISTER. IT IS ASSUREDLY A CARD OF CONFUSION, AND THE DESIGN CORRESPONDS, BROADLY SPEAKING, TO ANY OF THE DESIGNATIONS EXCEPT MAISON DIEU, UNLESS WE ARE TO UNDERSTAND THAT THE HOUSE OF GOD HAS BEEN ABANDONED AND THE VEIL OF THE TEMPLE RENT. IT IS A LITTLE SURPRISING THAT THE DEVICE HAS NOT SO FAR BEEN ALLOCATED TO THE DESTRUCTION OF SOLOMON'S TEMPLE, WHEN THE LIGHTNING WOULD SYMBOLIZE THE FIRE AND SWORD WITH WHICH THAT EDIFICE WAS VISITED BY THE KING OF THE CHALDEES. 17. THE STAR, DOG-STAR, OR SIRIUS, ALSO CALLED FANTASTICALLY THE STAR OF THE MAGI. GROUPED ABOUT IT ARE SEVEN MINOR LUMINARIES, AND BENEATH IT IS A NAKED FEMALE FIGURE, WITH HER LEFT KNEE UPON THE EARTH AND HER RIGHT FOOT UPON THE WATER. SHE IS IN THE ACT OF POURING FLUIDS FROM TWO VESSELS. A BIRD IS PERCHED ON A TREE NEAR HER; FOR THIS A BUTTERFLY ON A ROSE HAS BEEN SUBSTITUTED IN SOME LATER CARDS. SO ALSO THE STAR HAS BEEN CALLED THAT OF HOPE. THIS IS ONE OF THE CARDS WHICH COURT DE GEBELIN DESCRIBES AS WHOLLY EGYPTIAN-THAT IS TO SAY, IN HIS OWN REVERIE. 18.",
+     "source_reference": "A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+     "keywords_upright": "attachment, shadow, temptation",
+     "keywords_reversed": "liberation, breaking chains",
+     "meaning_general": "The Devil shows the chains you hold yourself. Name the dependence — it weakens."
+    }
+   }
+  },
+  {
+   "number": "XVI",
+   "name": "Башня",
+   "arcana_type": "Старший аркан",
+   "suit": null,
+   "element": "Огонь",
+   "zodiac_sign": null,
+   "planet": "Марс",
+   "numerology": null,
+   "suit_code": null,
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "внезапные перемены, прозрение, разрушение иллюзий",
+   "keywords_reversed": "затяжной кризис, страх перемен",
+   "meaning_general": "Башня: учебное значение (пересказ по Уэйту, 1911). Прямо — внезапные перемены, прозрение, разрушение иллюзий. Перевёрнуто — затяжной кризис, страх перемен.",
+   "meaning_love": "Любовь: внезапные перемены, прозрение, разрушение иллюзий.",
+   "meaning_career": "Карьера: внезапные перемены, прозрение, разрушение иллюзий.",
+   "meaning_health": "Самочувствие: умеренность и внимание к сигналам.",
+   "symbolism": "Символика RWS разбирается по изображению (цвета, жесты, фон) — поле для расширения.\nИсточник EN: A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+   "image_path": "/assets/24/XVI.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Вежа",
+     "keywords_upright": "раптові зміни, прозріння, крах ілюзій",
+     "keywords_reversed": "затяжна криза, страх змін",
+     "meaning_general": "Вежа бʼє блискавкою по хибному. Те, що вціліє, — справжнє."
+    },
+    "en": {
+     "name": "The Tower",
+     "meaning_general_waite1911": "THE TOWER STRUCK BY LIGHTNING AS TYPIFYING THE DESIRED DESTRUCTION OF PAPAL ROME, THE CITY ON THE SEVEN HILLS, WITH THE PONTIFF AND HIS TEMPORAL POWER CAST DOWN FROM THE SPIRITUAL EDIFICE WHEN IT IS RIVEN BY THE WRATH OF GOD. THE POSSIBILITIES ARE SO NUMEROUS AND PERSUASIVE THAT THEY ALMOST DECEIVE IN THEIR EXPRESSION ONE OF THE ELECT WHO HAS INVENTED THEM. BUT THERE IS MORE EVEN THAN THIS, THOUGH I SCARCELY DARE TO CITE IT. WHEN THE TIME CAME FOR THE TAROT CARDS TO BE THE SUBJECT OF THEIR FIRST FORMAL EXPLANATION, THE ARCHAEOLOGIST COURT DE GEBELIN REPRODUCED SOME OF THEIR MOST IMPORTANT EMBLEMS, AND— IF I MAY SO TERM IT— THE CODEX WHICH HE USED HAS SERVED— BY MEANS OF HIS ENGRAVED PLATES-AS A BASIS OF REFERENCE FOR MANY SETS THAT HAVE BEEN ISSUED SUBSEQUENTLY. THE FIGURES ARE VERY PRIMITIVE AND DIFFER AS SUCH FROM THE CARDS OF ETTEILLA, THE MARSEILLES TAROT, AND OTHERS STILL CURRENT IN LRANCE. I AM NOT A GOOD JUDGE IN SUCH MATTERS, BUT THE FACT THAT EVERY ONE OF THE TRUMPS MAJOR MIGHT HAVE ANSWERED FOR WATERMARK PURPOSES IS SHEWN BY THE CASES WHICH I HAVE QUOTED AND BY ONE MOST REMARKABLE EXAMPLE OF THE ACE OF CUPS. I SHOULD CALL IT AN EUCHARISTIC EMBLEM AFTER THE MANNER OF A CIBORIUM, BUT THIS DOES NOT SIGNIFY AT THE MOMENT. THE POINT IS THAT MR. HAROLD BAYLEY GIVES SIX ANALOGOUS DEVICES IN HIS NEW LIGHT ON THE RENAISSANCE, BEING WATERMARKS ON PAPER OF THE SEVENTEENTH CENTURY, WHICH HE CLAIMS TO BE OF ALBIGENSIAN ORIGIN AND TO REPRESENT SACRAMENTAL AND GRAAL EMBLEMS. HAD HE ONLY HEARD OF THE TAROT, HAD HE KNOWN THAT THESE CARDS OF HTTP://WWW.SACRED-TEXTS.COM/TAROT/PKT0101.HTM (2 OF 3) [13/10/2002 14:24:30] 1.1 THE VEIL AND ITS SYMBOLS, INTRODUCTION DIVINATION, CARDS OF FORTUNE, CARDS OF ALL VAGRANT ARTS, WERE PERHAPS CURRENT AT THE PERIOD IN THE SOUTH OF FRANCE, I THINK THAT HIS ENCHANTING BUT ALL TOO FANTASTIC HYPOTHESIS MIGHT HAVE DILATED STILL MORE LARGELY IN THE ATMOSPHERE OF HIS DREAM. WE SHOULD NO DOUBT HAVE HAD A VISION OF CHRISTIAN GNOSTICISM, MANICHAEANISM, AND ALL THAT HE UNDERSTANDS BY PURE PRIMITIVE GOSPEL, SHINING BEHIND THE PICTURES. I DO NOT LOOK THROUGH SUCH GLASSES, AND I CAN ONLY COMMEND THE SUBJECT TO HIS ATTENTION AT A LATER PERIOD; IT IS MENTIONED HERE THAT I MAY INTRODUCE WITH AN UNHEARD-OF WONDER THE MARVELS OF ARBITRARY SPECULATION AS TO THE HISTORY OF THE CARDS. WITH REFERENCE TO THEIR FORM AND NUMBER, IT SHOULD SCARCELY BE NECESSARY TO ENUMERATE THEM, FOR THEY MUST BE ALMOST COMMONLY FAMILIAR, BUT AS IT IS PRECARIOUS TO ASSUME ANYTHING, AND AS THERE ARE ALSO OTHER REASONS, I WILL TABULATE THEM BRIEFLY AS FOLLOWS:— HTTP://WWW.SACRED-TEXTS.COM/TAROT/PKT0101.HTM (3 OF 3) [13/10/2002 14:24:30] 1.2 CLASS I. THE TRUMPS MAJOR SACRED-TEXTS WAITE INDEX PREVIOUS NEXT CLASS I §2 TRUMPS MAJOR OTHERWISE, GREATER ARCANA 1 .",
+     "source_reference": "A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+     "keywords_upright": "sudden change, insight, falling illusions",
+     "keywords_reversed": "lingering crisis, fear of change",
+     "meaning_general": "The Tower strikes the false. What survives is real."
+    }
+   }
+  },
+  {
+   "number": "XVII",
+   "name": "Звезда",
+   "arcana_type": "Старший аркан",
+   "suit": null,
+   "element": "Воздух",
+   "zodiac_sign": "Водолей",
+   "planet": "Венера",
+   "numerology": null,
+   "suit_code": null,
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "надежда, вдохновение, исцеление",
+   "keywords_reversed": "потеря веры, уныние",
+   "meaning_general": "Звезда: учебное значение (пересказ по Уэйту, 1911). Прямо — надежда, вдохновение, исцеление. Перевёрнуто — потеря веры, уныние.",
+   "meaning_love": "Любовь: надежда, вдохновение, исцеление.",
+   "meaning_career": "Карьера: надежда, вдохновение, исцеление.",
+   "meaning_health": "Самочувствие: умеренность и внимание к сигналам.",
+   "symbolism": "Символика RWS разбирается по изображению (цвета, жесты, фон) — поле для расширения.\nИсточник EN: A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+   "image_path": "/assets/24/XVII.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Зірка",
+     "keywords_upright": "надія, натхнення, зцілення",
+     "keywords_reversed": "втрата віри, зневіра",
+     "meaning_general": "Зірка світить після бурі: тиха надія й повільне зцілення."
+    },
+    "en": {
+     "name": "The Star",
+     "meaning_general_waite1911": "THE STARS OF HEAVEN IN RESPECT OF THE SYMBOLISM. THIS IS FOR THE SIMPLE REASON THAT NEITHER IN ROOT- MATTER NOR IN DEVELOPMENT HAS MORE BEEN PUT INTO WRITING, SO THAT MUCH WILL REMAIN TO BE SAID AFTER ANY PRETENDED UNVEILING. THE GUARDIANS OF CERTAIN TEMPLES OF INITIATION WHO KEEP WATCH OVER MYSTERIES OF THIS ORDER HAVE THEREFORE NO CAUSE FOR ALARM. IN MY PREFACE TO THE TAROT OF THE BOHEMIANS, WHICH, RATHER BY AN ACCIDENT OF THINGS, HAS RECENTLY COME TO BE RE-ISSUED AFTER A LONG PERIOD, I HAVE SAID WHAT WAS THEN POSSIBLE OR SEEMED MOST NECESSARY. THE PRESENT WORK IS DESIGNED MORE ESPECIALLY— AS I HAVE INTIMATED— TO INTRODUCE A RECTIFIED SET OF THE CARDS THEMSELVES AND TO TELL THE UNADORNED TRUTH CONCERNING THEM, SO FAR AS THIS IS POSSIBLE IN THE OUTER CIRCLES. AS REGARDS THE SEQUENCE OF GREATER SYMBOLS, THEIR ULTIMATE AND HTTP://WWW.SACRED-TEXTS.COM/TAROT/PKT0101.HTM (1 OF 3) [13/10/2002 14:24:30] 1.1 THE VEIL AND ITS SYMBOLS, INTRODUCTION HIGHEST MEANING LIES DEEPER THAN THE COMMON LANGUAGE OF PICTURE OR HIEROGLYPH. THIS WILL BE UNDERSTOOD BY THOSE WHO HAVE RECEIVED SOME PART OF THE SECRET TRADITION. AS REGARDS THE VERBAL MEANINGS ALLOCATED HERE TO THE MORE IMPORTANT TRUMP CARDS, THEY ARE DESIGNED TO SET ASIDE THE FOLLIES AND IMPOSTURES OF PAST ATTRIBUTIONS, TO PUT THOSE WHO HAVE THE GIFT OF INSIGHT ON THE RIGHT TRACK, AND TO TAKE CARE, WITHIN THE LIMITS OF MY POSSIBILITIES, THAT THEY ARE THE TRUTH SO FAR AS THEY GO. IT IS REGRETTABLE IN SEVERAL RESPECTS THAT I MUST CONFESS TO CERTAIN RESERVATIONS, BUT THERE IS A QUESTION OF HONOUR AT ISSUE. FURTHERMORE, BETWEEN THE FOLLIES ON THE ONE SIDE OF THOSE WHO KNOW NOTHING OF THE TRADITION, YET ARE IN THEIR OWN OPINION THE EXPONENTS OF SOMETHING CALLED OCCULT SCIENCE AND PHILOSOPHY, AND ON THE OTHER SIDE BETWEEN THE MAKE-BELIEVE OF A FEW WRITERS WHO HAVE RECEIVED PART OF THE TRADITION AND THINK THAT IT CONSTITUTES A LEGAL TITLE TO SCATTER DUST IN THE EYES OF",
+     "source_reference": "A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+     "keywords_upright": "hope, inspiration, healing",
+     "keywords_reversed": "lost faith, gloom",
+     "meaning_general": "The Star shines after the storm: quiet hope and slow healing."
+    }
+   }
+  },
+  {
+   "number": "XVIII",
+   "name": "Луна",
+   "arcana_type": "Старший аркан",
+   "suit": null,
+   "element": "Вода",
+   "zodiac_sign": "Рыбы",
+   "planet": "Луна",
+   "numerology": null,
+   "suit_code": null,
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "иллюзии, сны, подсознание",
+   "keywords_reversed": "прояснение, выход из тумана",
+   "meaning_general": "Луна: учебное значение (пересказ по Уэйту, 1911). Прямо — иллюзии, сны, подсознание. Перевёрнуто — прояснение, выход из тумана.",
+   "meaning_love": "Любовь: иллюзии, сны, подсознание.",
+   "meaning_career": "Карьера: иллюзии, сны, подсознание.",
+   "meaning_health": "Самочувствие: умеренность и внимание к сигналам.",
+   "symbolism": "Символика RWS разбирается по изображению (цвета, жесты, фон) — поле для расширения.\nИсточник EN: A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+   "image_path": "/assets/24/XVIII.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Місяць",
+     "keywords_upright": "ілюзії, сни, підсвідоме",
+     "keywords_reversed": "прояснення, вихід з туману",
+     "meaning_general": "Місяць плете тіні: не все те, чим здається. Перевіряй факти."
+    },
+    "en": {
+     "name": "The Moon",
+     "meaning_general_waite1911": "THE MOON. SOME EIGHTEENTH- CENTURY CARDS SHEW THE LUMINARY ON ITS WANING SIDE; IN THE DEBASED EDITION OF ETTEILLA, IT IS THE MOON AT NIGHT IN HER PLENITUDE, SET IN A HEAVEN OF STARS; OF RECENT YEARS THE MOON IS SHEWN ON THE SIDE OF HER INCREASE. IN NEARLY ALL PRESENTATIONS SHE IS SHINING BRIGHTLY AND SHEDDING THE MOISTURE OF FERTILIZING DEW IN GREAT DROPS. BENEATH THERE ARE TWO TOWERS, BETWEEN WHICH A PATH WINDS TO THE VERGE OF THE HORIZON. TWO DOGS, OR ALTERNATIVELY A WOLF AND DOG, ARE BAYING AT THE MOON, AND IN THE FOREGROUND THERE IS WATER, THROUGH WHICH A CRAYFISH MOVES TOWARDS THE LAND. 19.",
+     "source_reference": "A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+     "keywords_upright": "illusions, dreams, subconscious",
+     "keywords_reversed": "clearing, out of fog",
+     "meaning_general": "The Moon weaves shadows: not all is as it seems. Check the facts."
+    }
+   }
+  },
+  {
+   "number": "XIX",
+   "name": "Солнце",
+   "arcana_type": "Старший аркан",
+   "suit": null,
+   "element": "Огонь",
+   "zodiac_sign": null,
+   "planet": "Солнце",
+   "numerology": null,
+   "suit_code": null,
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "радость, ясность, успех",
+   "keywords_reversed": "временное затмение, переоценённый оптимизм",
+   "meaning_general": "Солнце: учебное значение (пересказ по Уэйту, 1911). Прямо — радость, ясность, успех. Перевёрнуто — временное затмение, переоценённый оптимизм.",
+   "meaning_love": "Любовь: радость, ясность, успех.",
+   "meaning_career": "Карьера: радость, ясность, успех.",
+   "meaning_health": "Самочувствие: умеренность и внимание к сигналам.",
+   "symbolism": "Символика RWS разбирается по изображению (цвета, жесты, фон) — поле для расширения.\nИсточник EN: A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+   "image_path": "/assets/24/XIX.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Сонце",
+     "keywords_upright": "радість, ясність, успіх",
+     "keywords_reversed": "тимчасове затемнення",
+     "meaning_general": "Сонце гріє всіх: ясність, здоровʼя, заслужений успіх."
+    },
+    "en": {
+     "name": "The Sun",
+     "meaning_general_waite1911": "THE SUN. THE LUMINARY IS DISTINGUISHED IN OLDER CARDS BY CHIEF RAYS THAT ARE WAVED AND SALIENT ALTERNATELY AND BY SECONDARY SALIENT RAYS. IT APPEARS TO SHED ITS INFLUENCE ON EARTH NOT ONLY BY LIGHT HTTP://WWW.SACRED-TEXTS.COM/TAROT/PKT0102.HTM (4 OF 5) [13/10/2002 14:24:35] 1.2 CLASS I. THE TRUMPS MAJOR AND HEAT, BUT-LIKE THE MOON-BY DROPS OF DEW. COURT DE GEBELIN TERMED THESE TEARS OF GOLD AND OF PEARL, JUST AS HE IDENTIFIED THE LUNAR DEW WITH THE TEARS OF ISIS. BENEATH THE DOG- STAR THERE IS A WALL SUGGESTING AN ENCLOSURE-AS IT MIGHT BE, A WALLED GARDEN- WHEREIN ARE TWO CHILDREN, EITHER NAKED OR / LIGHTLY CLOTHED, FACING A WATER, AND GAMBOLLING, OR RUNNING HAND IN HAND. ELIPHAS LEVI SAYS THAT THESE ARE SOMETIMES REPLACED BY A SPINNER UNWINDING DESTINIES, AND OTHERWISE BY A MUCH BETTER SYMBOL-A NAKED CHILD MOUNTED ON A WHITE HORSE AND DISPLAYING A SCARLET STANDARD. 20. THE LAST",
+     "source_reference": "A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+     "keywords_upright": "joy, clarity, success",
+     "keywords_reversed": "brief eclipse",
+     "meaning_general": "The Sun warms all: clarity, health, earned success."
+    }
+   }
+  },
+  {
+   "number": "XX",
+   "name": "Суд",
+   "arcana_type": "Старший аркан",
+   "suit": null,
+   "element": "Огонь",
+   "zodiac_sign": null,
+   "planet": "Плутон",
+   "numerology": null,
+   "suit_code": null,
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "пробуждение, прощение, призвание",
+   "keywords_reversed": "самобичевание, упущенный зов",
+   "meaning_general": "Суд: учебное значение (пересказ по Уэйту, 1911). Прямо — пробуждение, прощение, призвание. Перевёрнуто — самобичевание, упущенный зов.",
+   "meaning_love": "Любовь: пробуждение, прощение, призвание.",
+   "meaning_career": "Карьера: пробуждение, прощение, призвание.",
+   "meaning_health": "Самочувствие: умеренность и внимание к сигналам.",
+   "symbolism": "Символика RWS разбирается по изображению (цвета, жесты, фон) — поле для расширения.\nИсточник EN: A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+   "image_path": "/assets/24/XX.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Суд",
+     "keywords_upright": "пробудження, прощення, покликання",
+     "keywords_reversed": "самобичування, втрачений поклик",
+     "meaning_general": "Суд будить: підсумуй минуле й підіймайся. Другий шанс — зараз."
+    },
+    "en": {
+     "name": "Judgement",
+     "meaning_general_waite1911": "JUDGMENT. I HAVE SPOKEN OF THIS SYMBOL ALREADY, THE FORM OF WHICH IS ESSENTIALLY INVARIABLE, EVEN IN THE ETTEILLA SET. AN ANGEL SOUNDS HIS TRUMPET PER SEPULCHRA REGIONUM, AND THE DEAD ARISE. IT MATTERS LITTLE THAT ETTEILLA OMITS THE ANGEL, OR THAT DR. PAPUS SUBSTITUTES A RIDICULOUS FIGURE, WHICH IS, HOWEVER, IN CONSONANCE WITH THE GENERAL MOTIVE OF THAT TAROT SET WHICH ACCOMPANIES HIS LATEST WORK. BEFORE REJECTING THE TRANSPARENT INTERPRETATION OF THE SYMBOLISM WHICH IS CONVEYED BY THE NAME OF THE CARD AND BY THE PICTURE WHICH IT PRESENTS TO THE EYE, WE SHOULD FEEL VERY SURE OF OUR GROUND. ON THE SURFACE, AT LEAST, IT IS AND CAN BE ONLY THE RESURRECTION OF THAT TRIAD— FATHER, MOTHER, CHILD- WHOM WE HAVE MET WITH ALREADY IN THE EIGHTH CARD. M. BOURGEAT HAZARDS THE SUGGESTION THAT ESOTERICALLY IT IS THE SYMBOL OF EVOLUTION— OF WHICH IT CARRIES NONE OF THE SIGNS. OTHERS SAY THAT IT SIGNIFIES RENEWAL, WHICH IS OBVIOUS ENOUGH; THAT IT IS THE TRIAD OF HUMAN LIFE; THAT IT IS THE \"GENERATIVE FORCE OF THE EARTH... AND ETERNAL LIFE.\" COURT DE GEBELIN MAKES HIMSELF IMPOSSIBLE AS USUAL, AND POINTS OUT THAT IF THE GRAVE-STONES WERE REMOVED IT COULD BE ACCEPTED AS A SYMBOL OF CREATION. 21— WHICH, HOWEVER, IN MOST OF THE ARRANGEMENTS IS THE CIPHER CARD, NUMBER NOTHING— THE FOOL, MATE, OR UNWISE MAN. COURT DE GEBELIN PLACES IT AT THE HEAD OF THE WHOLE SERIES AS THE ZERO OR NEGATIVE WHICH IS PRESUPPOSED BY NUMERATION, AND AS THIS IS A SIMPLER SO ALSO IT IS A BETTER ARRANGEMENT. IT HAS BEEN ABANDONED BECAUSE IN LATER TIMES THE CARDS HAVE BEEN ATTRIBUTED TO THE LETTERS OF THE HEBREW ALPHABET, AND THERE HAS BEEN APPARENTLY SOME DIFFICULTY ABOUT ALLOCATING THE ZERO SYMBOL SATISFACTORILY IN A SEQUENCE OF LETTERS ALL OF WHICH SIGNIFY NUMBERS. IN THE PRESENT REFERENCE OF THE CARD TO THE LETTER SHIN, WHICH CORRESPONDS TO 200, THE DIFFICULTY OR THE UNREASON REMAINS. THE TRUTH IS THAT THE REAL ARRANGEMENT OF THE CARDS HAS NEVER TRANSPIRED. THE FOOL CARRIES A WALLET; HE IS LOOKING OVER HIS SHOULDER AND DOES NOT KNOW THAT HE IS ON THE BRINK OF A PRECIPICE; BUT A DOG OR OTHER ANIMAL— SOME CALL IT A TIGER— IS ATTACKING HIM FROM BEHIND, AND HE IS HURRIED TO HIS DESTRUCTION UNAWARES. ETTEILLA HAS GIVEN A JUSTIFIABLE VARIATION OF THIS CARD— AS GENERALLY UNDERSTOOD- IN THE FORM OF A COURT JESTER, WITH CAP, BELLS AND MOTLEY GARB. THE OTHER DESCRIPTIONS SAY THAT THE WALLET CONTAINS THE BEARER'S FOLLIES AND VICES, WHICH SEEMS BOURGEOIS AND ARBITRARY. 22. THE WORLD, THE UNIVERSE, OR TIME. THE FOUR LIVING CREATURES OF THE APOCALYPSE AND EZEKIEL'S VISION, ATTRIBUTED TO THE EVANGELISTS IN CHRISTIAN SYMBOLISM, ARE GROUPED ABOUT AN ELLIPTIC GARLAND, AS IF IT WERE A CHAIN OF FLOWERS INTENDED TO SYMBOLIZE ALL SENSIBLE THINGS; WITHIN THIS GARLAND THERE IS THE FIGURE OF A WOMAN, WHOM THE WIND HAS GIRT ABOUT THE LOINS WITH A LIGHT SCARF, AND THIS IS ALL HER VESTURE. SHE IS IN THE ACT OF DANCING, AND HAS A WAND IN EITHER HAND. IT IS ELOQUENT AS AN IMAGE OF THE SWIRL OF THE SENSITIVE LIFE, OF JOY ATTAINED IN THE BODY, OF THE SOUL'S INTOXICATION IN THE EARTHLY PARADISE, BUT STILL GUARDED BY THE DIVINE WATCHERS, AS IF BY THE POWERS AND THE GRACES OF THE HOLY NAME, TETRAGAMMATON, JVHV— THOSE FOUR INEFFABLE LETTERS WHICH ARE SOMETIMES ATTRIBUTED TO THE MYSTICAL BEASTS. ELIPHAS LEVI CALLS THE GARLAND A CROWN, AND REPORTS THAT THE FIGURE REPRESENTS TRUTH. DR. PAPUS CONNECTS IT WITH THE ABSOLUTE AND THE REALIZATION OF THE GREAT WORK; FOR YET OTHERS IT IS A SYMBOL OF HUMANITY AND THE ETERNAL REWARD OF A LIFE THAT HAS BEEN SPENT WELL. IT SHOULD BE NOTED THAT IN THE FOUR QUARTERS OF THE GARLAND THERE ARE FOUR FLOWERS DISTINCTIVELY MARKED. ACCORDING TO P. / CHRISTIAN, THE GARLAND SHOULD BE FORMED OF ROSES, AND THIS IS THE KIND OF CHAIN WHICH ELIPHAS LEVI SAYS IS LESS EASILY BROKEN THAN A CHAIN OF IRON. PERHAPS BY ANTITHESIS, BUT FOR THE SAME REASON, THE IRON CROWN OF PETER MAY HE MORE LIGHTLY ON THE HEADS OF SOVEREIGN PONTIFFS THAN THE CROWN OF GOLD ON KINGS. HTTP://WWW.SACRED-TEXTS.COM/TAROT/PKT0102.HTM (5 OF 5) [13/10/2002 14:24:35] 1.3 CLASS II. THE FOUR SUITES SACRED-TEXTS WAITE INDEX PREVIOUS NEXT CLASS II §3 THE FOUR SUITS OTHERWISE, LESSER ARCANA THE RESOURCES OF INTERPRETATION HAVE BEEN LAVISHED, IF NOT EXHAUSTED, ON THE TWENTY-TWO TRUMPS MAJOR, THE SYMBOLISM OF WHICH IS UNQUESTIONABLE. THERE REMAIN THE FOUR SUITS, BEING WANDS OR SCEPTRES— EX HYPOTHESI, IN THE ARCHAEOLOGY OF THE SUBJECT, THE ANTECEDENTS OF DIAMONDS IN MODERN CARDS: CUPS, CORRESPONDING TO HEARTS; SWORDS, WHICH ANSWER TO CLUBS, AS THE WEAPON OF CHIVALRY IS IN RELATION TO THE PEASANT'S QUARTER-STAFF OR THE ALSATIAN BLUDGEON; AND, FINALLY, PENTACLES— CALLED ALSO DENIERS AND MONEY— WHICH ARE THE PROTOTYPES OF SPADES, IN THE OLD AS IN THE NEW SUITS, THERE ARE TEN NUMBERED CARDS, BUT IN THE TAROT THERE ARE FOUR COURT CARDS ALLOCATED TO EACH SUIT, OR A KNIGHT IN ADDITION TO KING, QUEEN AND KNAVE. THE KNAVE IS A PAGE, VALET, OR DAMOISEAU; MOST CORRECTLY, HE IS AN ESQUIRE, PRESUMABLY IN THE SERVICE OF THE KNIGHT; BUT THERE ARE CERTAIN RARE SETS IN WHICH THE PAGE BECOMES A MAID OF HONOUR, THUS PAIRING THE SEXES IN THE TETRAD OF THE COURT CARDS. THERE ARE NATURALLY DISTINCTIVE FEATURES IN RESPECT OF THE SEVERAL PICTURES, BY WHICH I MEAN THAT THE KING OF WANDS IS NOT EXACTLY THE SAME PERSONAGE AS THE KING OF CUPS, EVEN AFTER ALLOWANCE HAS BEEN MADE FOR THE DIFFERENT EMBLEMS THAT THEY BEAR; BUT THE SYMBOLISM RESIDES IN THEIR RANK AND IN THE SUIT TO WHICH THEY BELONG. SO ALSO THE SMALLER CARDS, WHICH— UNTIL NOW-HAVE NEVER BEEN ISSUED PICTORIALLY IN THESE OUR MODEM DAYS, DEPEND ON THE PARTICULAR MEANING ATTACHING TO THEIR NUMBERS IN CONNEXION WITH THE PARTICULAR SUIT. I RESERVE, THEREFORE, THE DETAILS OF THE LESSER ARCANA, TILL I COME TO SPEAK IN THE SECOND PART OF THE RECTIFIED AND PERFECTED TAROT WHICH ACCOMPANIES THIS WORK. THE CONSENSUS OF DIVINATORY MEANINGS ATTACHED BOTH TO THE GREATER AND LESSER SYMBOLS BELONGS TO THE THIRD PART. HTTP://WWW.SACRED-TEXTS.COM/TAROT/PKT01 03.HTM [1 3/1 0/2002 1 4:24:37] 1.4 THE TAROT IN HISTORY SACRED-TEXTS WAITE INDEX PREVIOUS NEXT §4 THE TAROT IN HISTORY OUR IMMEDIATE NEXT CONCERN IS TO SPEAK OF THE CARDS IN THEIR HISTORY, SO THAT THE SPECULATIONS AND REVERIES WHICH HAVE BEEN PERPETUATED AND MULTIPLIED IN THE SCHOOLS OF OCCULT RESEARCH MAY BE DISPOSED OF ONCE AND FOR ALL, AS INTIMATED IN THE PREFACE HERETO. LET IT BE UNDERSTOOD AT THE BEGINNING OF THIS POINT THAT THERE ARE SEVERAL SETS OR SEQUENCES OF ANCIENT CARDS WHICH ARE ONLY IN PART OF OUR CONCERN. THE TAROT OF THE BOHEMIANS, BY PAPUS, WHICH I HAVE RECENTLY CARRIED THROUGH THE PRESS, REVISING THE IMPERFECT RENDERING, HAS SOME USEFUL INFORMATION IN THIS CONNEXION, AND, EXCEPT FOR THE OMISSION OF DATES AND OTHER EVIDENCES OF THE ARCHAEOLOGICAL SENSE, IT WILL SERVE THE PURPOSE OF THE GENERAL READER. I DO NOT PROPOSE TO EXTEND IT IN THE PRESENT PLACE IN ANY MANNER THAT CAN BE CALLED CONSIDERABLE, BUT CERTAIN ADDITIONS ARE DESIRABLE AND SO ALSO IS A DISTINCT MODE OF PRESENTATION. AMONG ANCIENT CARDS WHICH ARE MENTIONED IN CONNEXION WITH THE TAROT, THERE ARE FIRSTLY THOSE OF BALDINI, WHICH ARE THE CELEBRATED SET ATTRIBUTED BY TRADITION TO ANDREA MANTEGNA, THOUGH THIS VIEW IS NOW GENERALLY REJECTED. THEIR DATE IS SUPPOSED TO BE ABOUT 1470, AND IT IS THOUGHT THAT THERE ARE NOT MORE THAN FOUR COLLECTIONS EXTANT IN EUROPE. A COPY OR REPRODUCTION REFERRED TO 1485 IS PERHAPS EQUALLY RARE. A COMPLETE SET CONTAINS FIFTY NUMBERS, DIVIDED INTO FIVE DENARIES OR SEQUENCES OF TEN CARDS EACH. THERE SEEMS TO BE NO RECORD THAT THEY WERE USED FOR THE PURPOSES OF A GAME, WHETHER OF CHANCE OR SKILL; THEY COULD SCARCELY HAVE LENT THEMSELVES TO DIVINATION OR ANY FORM OF FORTUNE- TELLING; WHILE IT WOULD BE MORE THAN IDLE TO IMPUTE A PROFOUND SYMBOLICAL MEANING TO THEIR OBVIOUS EMBLEMATIC DESIGNS. THE FIRST DENARY EMBODIES CONDITIONS OF LIFE, AS FOLLOWS: (I) THE BEGGAR, (2) THE KNAVE, (3) THE ARTISAN, (4) THE MERCHANT, (5) THE NOBLE, (6) THE KNIGHT, (7) THE DOGE, (8) THE KING, (9) THE",
+     "source_reference": "A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+     "keywords_upright": "awakening, forgiveness, calling",
+     "keywords_reversed": "self-blame, missed call",
+     "meaning_general": "Judgement wakes: sum up the past and rise. The second chance is now."
+    }
+   }
+  },
+  {
+   "number": "XXI",
+   "name": "Мир",
+   "arcana_type": "Старший аркан",
+   "suit": null,
+   "element": "Земля",
+   "zodiac_sign": null,
+   "planet": "Сатурн",
+   "numerology": null,
+   "suit_code": null,
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "завершение цикла, целостность, триумф",
+   "keywords_reversed": "незавершённость, фрагментарность",
+   "meaning_general": "Мир: учебное значение (пересказ по Уэйту, 1911). Прямо — завершение цикла, целостность, триумф. Перевёрнуто — незавершённость, фрагментарность.",
+   "meaning_love": "Любовь: завершение цикла, целостность, триумф.",
+   "meaning_career": "Карьера: завершение цикла, целостность, триумф.",
+   "meaning_health": "Самочувствие: умеренность и внимание к сигналам.",
+   "symbolism": "Символика RWS разбирается по изображению (цвета, жесты, фон) — поле для расширения.\nИсточник EN: A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+   "image_path": "/assets/24/XXI.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Світ",
+     "keywords_upright": "завершення циклу, цілісність, тріумф",
+     "keywords_reversed": "незавершеність",
+     "meaning_general": "Світ замикає коло: справа доведена до кінця. Святкуй і починай нове."
+    },
+    "en": {
+     "name": "The World",
+     "meaning_general_waite1911": "THE WORLD WITHOUT, I FEEL THAT THE TIME HAS COME TO SAY WHAT IT IS POSSIBLE TO SAY, SO THAT THE EFFECT OF CURRENT CHARLATANISM AND UNINTELLIGENCE MAY BE REDUCED TO A MINIMUM. WE SHALL SEE IN DUE COURSE THAT THE HISTORY OF TAROT CARDS IS LARGELY OF A NEGATIVE KIND, AND THAT, WHEN THE ISSUES ARE CLEARED BY THE DISSIPATION OF REVERIES AND GRATUITOUS SPECULATIONS EXPRESSED IN THE TERMS OF CERTITUDE, THERE IS IN FACT NO HISTORY PRIOR TO THE FOURTEENTH CENTURY. THE DECEPTION AND SELF-DECEPTION REGARDING THEIR ORIGIN IN EGYPT, INDIA OR CHINA PUT A LYING SPIRIT INTO THE MOUTHS OF THE FIRST EXPOSITORS, AND THE LATER OCCULT WRITERS HAVE DONE LITTLE MORE THAN REPRODUCE THE FIRST FALSE TESTIMONY IN THE GOOD FAITH OF AN INTELLIGENCE UNAWAKENED TO THE ISSUES OF RESEARCH. AS IT SO HAPPENS, ALL EXPOSITIONS HAVE WORKED WITHIN A VERY NARROW RANGE, AND OWE, COMPARATIVELY SPEAKING, LITTLE TO THE INVENTIVE FACULTY. ONE BRILLIANT OPPORTUNITY HAS AT LEAST BEEN MISSED, FOR IT HAS NOT SO FAR OCCURRED TO ANY ONE THAT THE TAROT MIGHT PERHAPS HAVE DONE DUTY AND EVEN ORIGINATED AS A SECRET SYMBOLICAL LANGUAGE OF THE ALBIGENSIAN SECTS. I COMMEND THIS SUGGESTION TO THE LINEAL DESCENDANTS IN THE SPIRIT OF GABRIELE ROSSETTI AND EUGENE AROUX, TO MR. HAROLD BAYLEY AS ANOTHER NEW LIGHT ON THE RENAISSANCE, AND AS A TAPER AT LEAST IN THE DARKNESS WHICH, WITH GREAT RESPECT, MIGHT BE SERVICEABLE TO THE ZEALOUS AND ALL-SEARCHING MIND OF MRS. COOPER- OAKLEY. THINK ONLY WHAT THE SUPPOSED TESTIMONY OF WATERMARKS ON PAPER MIGHT GAIN FROM THE TAROT CARD OF THE POPE OR",
+     "source_reference": "A.E. Waite, The Pictorial Key to the Tarot (1911), public domain (via Internet Archive)",
+     "keywords_upright": "completion, wholeness, triumph",
+     "keywords_reversed": "loose ends",
+     "meaning_general": "The World closes the circle: work brought to completion. Celebrate, begin anew."
+    }
+   }
+  },
+  {
+   "number": "Wands-01",
+   "name": "Туз жезлов",
+   "arcana_type": "Младший аркан",
+   "suit": "Жезлы",
+   "element": "Огонь",
+   "zodiac_sign": null,
+   "planet": null,
+   "numerology": 1,
+   "suit_code": "wands",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Туз жезлов (прямо)",
+   "keywords_reversed": "учебное значение Туз жезлов (перевёрнуто)",
+   "meaning_general": "Туз жезлов: младший аркан, масть Жезлы (стихия Огонь). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Жезлы ↔ стихия Огонь.",
+   "image_path": "/assets/24/wands-01.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Туз жезли",
+     "keywords_upright": "навчальне значення Туз жезли (прямо)",
+     "keywords_reversed": "навчальне значення Туз жезли (перевернуто)",
+     "meaning_general": "Туз жезли: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: пристрасть веде — не дай вогню згаснути чи спалити.",
+     "meaning_career": "Карʼєра: новий старт — бери ініціативу."
+    },
+    "en": {
+     "name": "Ace of Wands",
+     "keywords_upright": "study meaning of Ace of Wands (upright)",
+     "keywords_reversed": "study meaning of Ace of Wands (reversed)",
+     "meaning_general": "Ace of Wands: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Wands-02",
+   "name": "Двойка жезлов",
+   "arcana_type": "Младший аркан",
+   "suit": "Жезлы",
+   "element": "Огонь",
+   "zodiac_sign": "Овен",
+   "planet": "Марс",
+   "numerology": 2,
+   "suit_code": "wands",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Двойка жезлов (прямо)",
+   "keywords_reversed": "учебное значение Двойка жезлов (перевёрнуто)",
+   "meaning_general": "Двойка жезлов: младший аркан, масть Жезлы (стихия Огонь). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Жезлы ↔ стихия Огонь.",
+   "image_path": "/assets/24/wands-02.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Двійка жезли",
+     "keywords_upright": "навчальне значення Двійка жезли (прямо)",
+     "keywords_reversed": "навчальне значення Двійка жезли (перевернуто)",
+     "meaning_general": "Двійка жезли: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: пристрасть веде — не дай вогню згаснути чи спалити.",
+     "meaning_career": "Карʼєра: вибір напряму — зваж два шляхи."
+    },
+    "en": {
+     "name": "Two of Wands",
+     "keywords_upright": "study meaning of Two of Wands (upright)",
+     "keywords_reversed": "study meaning of Two of Wands (reversed)",
+     "meaning_general": "Two of Wands: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Wands-03",
+   "name": "Тройка жезлов",
+   "arcana_type": "Младший аркан",
+   "suit": "Жезлы",
+   "element": "Огонь",
+   "zodiac_sign": "Овен",
+   "planet": "Солнце",
+   "numerology": 3,
+   "suit_code": "wands",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Тройка жезлов (прямо)",
+   "keywords_reversed": "учебное значение Тройка жезлов (перевёрнуто)",
+   "meaning_general": "Тройка жезлов: младший аркан, масть Жезлы (стихия Огонь). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Жезлы ↔ стихия Огонь.",
+   "image_path": "/assets/24/wands-03.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Трійка жезли",
+     "keywords_upright": "навчальне значення Трійка жезли (прямо)",
+     "keywords_reversed": "навчальне значення Трійка жезли (перевернуто)",
+     "meaning_general": "Трійка жезли: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: пристрасть веде — не дай вогню згаснути чи спалити.",
+     "meaning_career": "Карʼєра: перші плоди — покажи результат."
+    },
+    "en": {
+     "name": "Three of Wands",
+     "keywords_upright": "study meaning of Three of Wands (upright)",
+     "keywords_reversed": "study meaning of Three of Wands (reversed)",
+     "meaning_general": "Three of Wands: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Wands-04",
+   "name": "Четвёрка жезлов",
+   "arcana_type": "Младший аркан",
+   "suit": "Жезлы",
+   "element": "Огонь",
+   "zodiac_sign": "Овен",
+   "planet": "Венера",
+   "numerology": 4,
+   "suit_code": "wands",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Четвёрка жезлов (прямо)",
+   "keywords_reversed": "учебное значение Четвёрка жезлов (перевёрнуто)",
+   "meaning_general": "Четвёрка жезлов: младший аркан, масть Жезлы (стихия Огонь). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Жезлы ↔ стихия Огонь.",
+   "image_path": "/assets/24/wands-04.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Четвірка жезли",
+     "keywords_upright": "навчальне значення Четвірка жезли (прямо)",
+     "keywords_reversed": "навчальне значення Четвірка жезли (перевернуто)",
+     "meaning_general": "Четвірка жезли: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: пристрасть веде — не дай вогню згаснути чи спалити.",
+     "meaning_career": "Карʼєра: закріпи позиції — наведи лад."
+    },
+    "en": {
+     "name": "Four of Wands",
+     "keywords_upright": "study meaning of Four of Wands (upright)",
+     "keywords_reversed": "study meaning of Four of Wands (reversed)",
+     "meaning_general": "Four of Wands: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Wands-05",
+   "name": "Пятёрка жезлов",
+   "arcana_type": "Младший аркан",
+   "suit": "Жезлы",
+   "element": "Огонь",
+   "zodiac_sign": "Лев",
+   "planet": "Сатурн",
+   "numerology": 5,
+   "suit_code": "wands",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Пятёрка жезлов (прямо)",
+   "keywords_reversed": "учебное значение Пятёрка жезлов (перевёрнуто)",
+   "meaning_general": "Пятёрка жезлов: младший аркан, масть Жезлы (стихия Огонь). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Жезлы ↔ стихия Огонь.",
+   "image_path": "/assets/24/wands-05.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "П'ятірка жезли",
+     "keywords_upright": "навчальне значення П'ятірка жезли (прямо)",
+     "keywords_reversed": "навчальне значення П'ятірка жезли (перевернуто)",
+     "meaning_general": "П'ятірка жезли: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: пристрасть веде — не дай вогню згаснути чи спалити.",
+     "meaning_career": "Карʼєра: турбулентність — тримай курс."
+    },
+    "en": {
+     "name": "Five of Wands",
+     "keywords_upright": "study meaning of Five of Wands (upright)",
+     "keywords_reversed": "study meaning of Five of Wands (reversed)",
+     "meaning_general": "Five of Wands: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Wands-06",
+   "name": "Шестёрка жезлов",
+   "arcana_type": "Младший аркан",
+   "suit": "Жезлы",
+   "element": "Огонь",
+   "zodiac_sign": "Лев",
+   "planet": "Юпитер",
+   "numerology": 6,
+   "suit_code": "wands",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Шестёрка жезлов (прямо)",
+   "keywords_reversed": "учебное значение Шестёрка жезлов (перевёрнуто)",
+   "meaning_general": "Шестёрка жезлов: младший аркан, масть Жезлы (стихия Огонь). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Жезлы ↔ стихия Огонь.",
+   "image_path": "/assets/24/wands-06.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Шістка жезли",
+     "keywords_upright": "навчальне значення Шістка жезли (прямо)",
+     "keywords_reversed": "навчальне значення Шістка жезли (перевернуто)",
+     "meaning_general": "Шістка жезли: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: пристрасть веде — не дай вогню згаснути чи спалити.",
+     "meaning_career": "Карʼєра: визнання — прийми й віддяч."
+    },
+    "en": {
+     "name": "Six of Wands",
+     "keywords_upright": "study meaning of Six of Wands (upright)",
+     "keywords_reversed": "study meaning of Six of Wands (reversed)",
+     "meaning_general": "Six of Wands: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Wands-07",
+   "name": "Семёрка жезлов",
+   "arcana_type": "Младший аркан",
+   "suit": "Жезлы",
+   "element": "Огонь",
+   "zodiac_sign": "Лев",
+   "planet": "Марс",
+   "numerology": 7,
+   "suit_code": "wands",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Семёрка жезлов (прямо)",
+   "keywords_reversed": "учебное значение Семёрка жезлов (перевёрнуто)",
+   "meaning_general": "Семёрка жезлов: младший аркан, масть Жезлы (стихия Огонь). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Жезлы ↔ стихия Огонь.",
+   "image_path": "/assets/24/wands-07.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Сімка жезли",
+     "keywords_upright": "навчальне значення Сімка жезли (прямо)",
+     "keywords_reversed": "навчальне значення Сімка жезли (перевернуто)",
+     "meaning_general": "Сімка жезли: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: пристрасть веде — не дай вогню згаснути чи спалити.",
+     "meaning_career": "Карʼєра: оборона позицій — стій на своєму."
+    },
+    "en": {
+     "name": "Seven of Wands",
+     "keywords_upright": "study meaning of Seven of Wands (upright)",
+     "keywords_reversed": "study meaning of Seven of Wands (reversed)",
+     "meaning_general": "Seven of Wands: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Wands-08",
+   "name": "Восьмёрка жезлов",
+   "arcana_type": "Младший аркан",
+   "suit": "Жезлы",
+   "element": "Огонь",
+   "zodiac_sign": "Стрелец",
+   "planet": "Меркурий",
+   "numerology": 8,
+   "suit_code": "wands",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Восьмёрка жезлов (прямо)",
+   "keywords_reversed": "учебное значение Восьмёрка жезлов (перевёрнуто)",
+   "meaning_general": "Восьмёрка жезлов: младший аркан, масть Жезлы (стихия Огонь). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Жезлы ↔ стихия Огонь.",
+   "image_path": "/assets/24/wands-08.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Вісімка жезли",
+     "keywords_upright": "навчальне значення Вісімка жезли (прямо)",
+     "keywords_reversed": "навчальне значення Вісімка жезли (перевернуто)",
+     "meaning_general": "Вісімка жезли: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: пристрасть веде — не дай вогню згаснути чи спалити.",
+     "meaning_career": "Карʼєра: швидкий рух — лови темп."
+    },
+    "en": {
+     "name": "Eight of Wands",
+     "keywords_upright": "study meaning of Eight of Wands (upright)",
+     "keywords_reversed": "study meaning of Eight of Wands (reversed)",
+     "meaning_general": "Eight of Wands: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Wands-09",
+   "name": "Девятка жезлов",
+   "arcana_type": "Младший аркан",
+   "suit": "Жезлы",
+   "element": "Огонь",
+   "zodiac_sign": "Стрелец",
+   "planet": "Луна",
+   "numerology": 9,
+   "suit_code": "wands",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Девятка жезлов (прямо)",
+   "keywords_reversed": "учебное значение Девятка жезлов (перевёрнуто)",
+   "meaning_general": "Девятка жезлов: младший аркан, масть Жезлы (стихия Огонь). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Жезлы ↔ стихия Огонь.",
+   "image_path": "/assets/24/wands-09.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Дев'ятка жезли",
+     "keywords_upright": "навчальне значення Дев'ятка жезли (прямо)",
+     "keywords_reversed": "навчальне значення Дев'ятка жезли (перевернуто)",
+     "meaning_general": "Дев'ятка жезли: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: пристрасть веде — не дай вогню згаснути чи спалити.",
+     "meaning_career": "Карʼєра: майже фініш — доведи до кінця."
+    },
+    "en": {
+     "name": "Nine of Wands",
+     "keywords_upright": "study meaning of Nine of Wands (upright)",
+     "keywords_reversed": "study meaning of Nine of Wands (reversed)",
+     "meaning_general": "Nine of Wands: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Wands-10",
+   "name": "Десятка жезлов",
+   "arcana_type": "Младший аркан",
+   "suit": "Жезлы",
+   "element": "Огонь",
+   "zodiac_sign": "Стрелец",
+   "planet": "Сатурн",
+   "numerology": 10,
+   "suit_code": "wands",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Десятка жезлов (прямо)",
+   "keywords_reversed": "учебное значение Десятка жезлов (перевёрнуто)",
+   "meaning_general": "Десятка жезлов: младший аркан, масть Жезлы (стихия Огонь). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Жезлы ↔ стихия Огонь.",
+   "image_path": "/assets/24/wands-10.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Десятка жезли",
+     "keywords_upright": "навчальне значення Десятка жезли (прямо)",
+     "keywords_reversed": "навчальне значення Десятка жезли (перевернуто)",
+     "meaning_general": "Десятка жезли: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: пристрасть веде — не дай вогню згаснути чи спалити.",
+     "meaning_career": "Карʼєра: завершення циклу — підбий підсумки."
+    },
+    "en": {
+     "name": "Ten of Wands",
+     "keywords_upright": "study meaning of Ten of Wands (upright)",
+     "keywords_reversed": "study meaning of Ten of Wands (reversed)",
+     "meaning_general": "Ten of Wands: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Wands-11",
+   "name": "Паж жезлов",
+   "arcana_type": "Младший аркан",
+   "suit": "Жезлы",
+   "element": "Огонь",
+   "zodiac_sign": null,
+   "planet": null,
+   "numerology": null,
+   "suit_code": "wands",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Паж жезлов (прямо)",
+   "keywords_reversed": "учебное значение Паж жезлов (перевёрнуто)",
+   "meaning_general": "Паж жезлов: младший аркан, масть Жезлы (стихия Огонь). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Жезлы ↔ стихия Огонь.",
+   "image_path": "/assets/24/wands-11.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Паж жезли",
+     "keywords_upright": "навчальне значення Паж жезли (прямо)",
+     "keywords_reversed": "навчальне значення Паж жезли (перевернуто)",
+     "meaning_general": "Паж жезли: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: пристрасть веде — не дай вогню згаснути чи спалити.",
+     "meaning_career": "Карʼєра: навчання — стань учнем."
+    },
+    "en": {
+     "name": "Page of Wands",
+     "keywords_upright": "study meaning of Page of Wands (upright)",
+     "keywords_reversed": "study meaning of Page of Wands (reversed)",
+     "meaning_general": "Page of Wands: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Wands-12",
+   "name": "Рыцарь жезлов",
+   "arcana_type": "Младший аркан",
+   "suit": "Жезлы",
+   "element": "Огонь",
+   "zodiac_sign": null,
+   "planet": null,
+   "numerology": null,
+   "suit_code": "wands",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Рыцарь жезлов (прямо)",
+   "keywords_reversed": "учебное значение Рыцарь жезлов (перевёрнуто)",
+   "meaning_general": "Рыцарь жезлов: младший аркан, масть Жезлы (стихия Огонь). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Жезлы ↔ стихия Огонь.",
+   "image_path": "/assets/24/wands-12.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Лицар жезли",
+     "keywords_upright": "навчальне значення Лицар жезли (прямо)",
+     "keywords_reversed": "навчальне значення Лицар жезли (перевернуто)",
+     "meaning_general": "Лицар жезли: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: пристрасть веде — не дай вогню згаснути чи спалити.",
+     "meaning_career": "Карʼєра: ривок — дій рішуче."
+    },
+    "en": {
+     "name": "Knight of Wands",
+     "keywords_upright": "study meaning of Knight of Wands (upright)",
+     "keywords_reversed": "study meaning of Knight of Wands (reversed)",
+     "meaning_general": "Knight of Wands: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Wands-13",
+   "name": "Королева жезлов",
+   "arcana_type": "Младший аркан",
+   "suit": "Жезлы",
+   "element": "Огонь",
+   "zodiac_sign": null,
+   "planet": null,
+   "numerology": null,
+   "suit_code": "wands",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Королева жезлов (прямо)",
+   "keywords_reversed": "учебное значение Королева жезлов (перевёрнуто)",
+   "meaning_general": "Королева жезлов: младший аркан, масть Жезлы (стихия Огонь). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Жезлы ↔ стихия Огонь.",
+   "image_path": "/assets/24/wands-13.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Королева жезли",
+     "keywords_upright": "навчальне значення Королева жезли (прямо)",
+     "keywords_reversed": "навчальне значення Королева жезли (перевернуто)",
+     "meaning_general": "Королева жезли: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: пристрасть веде — не дай вогню згаснути чи спалити.",
+     "meaning_career": "Карʼєра: майстерність — веди за собою."
+    },
+    "en": {
+     "name": "Queen of Wands",
+     "keywords_upright": "study meaning of Queen of Wands (upright)",
+     "keywords_reversed": "study meaning of Queen of Wands (reversed)",
+     "meaning_general": "Queen of Wands: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Wands-14",
+   "name": "Король жезлов",
+   "arcana_type": "Младший аркан",
+   "suit": "Жезлы",
+   "element": "Огонь",
+   "zodiac_sign": null,
+   "planet": null,
+   "numerology": null,
+   "suit_code": "wands",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Король жезлов (прямо)",
+   "keywords_reversed": "учебное значение Король жезлов (перевёрнуто)",
+   "meaning_general": "Король жезлов: младший аркан, масть Жезлы (стихия Огонь). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Жезлы ↔ стихия Огонь.",
+   "image_path": "/assets/24/wands-14.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Король жезли",
+     "keywords_upright": "навчальне значення Король жезли (прямо)",
+     "keywords_reversed": "навчальне значення Король жезли (перевернуто)",
+     "meaning_general": "Король жезли: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: пристрасть веде — не дай вогню згаснути чи спалити.",
+     "meaning_career": "Карʼєра: лідерство — відповідай за напрям."
+    },
+    "en": {
+     "name": "King of Wands",
+     "keywords_upright": "study meaning of King of Wands (upright)",
+     "keywords_reversed": "study meaning of King of Wands (reversed)",
+     "meaning_general": "King of Wands: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Cups-01",
+   "name": "Туз кубков",
+   "arcana_type": "Младший аркан",
+   "suit": "Кубки",
+   "element": "Вода",
+   "zodiac_sign": null,
+   "planet": null,
+   "numerology": 1,
+   "suit_code": "cups",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Туз кубков (прямо)",
+   "keywords_reversed": "учебное значение Туз кубков (перевёрнуто)",
+   "meaning_general": "Туз кубков: младший аркан, масть Кубки (стихия Вода). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Кубки ↔ стихия Вода.",
+   "image_path": "/assets/24/cups-01.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Туз кубки",
+     "keywords_upright": "навчальне значення Туз кубки (прямо)",
+     "keywords_reversed": "навчальне значення Туз кубки (перевернуто)",
+     "meaning_general": "Туз кубки: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: почуття глибшають — говори про них уголос.",
+     "meaning_career": "Карʼєра: новий старт — бери ініціативу."
+    },
+    "en": {
+     "name": "Ace of Cups",
+     "keywords_upright": "study meaning of Ace of Cups (upright)",
+     "keywords_reversed": "study meaning of Ace of Cups (reversed)",
+     "meaning_general": "Ace of Cups: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Cups-02",
+   "name": "Двойка кубков",
+   "arcana_type": "Младший аркан",
+   "suit": "Кубки",
+   "element": "Вода",
+   "zodiac_sign": "Рак",
+   "planet": "Венера",
+   "numerology": 2,
+   "suit_code": "cups",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Двойка кубков (прямо)",
+   "keywords_reversed": "учебное значение Двойка кубков (перевёрнуто)",
+   "meaning_general": "Двойка кубков: младший аркан, масть Кубки (стихия Вода). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Кубки ↔ стихия Вода.",
+   "image_path": "/assets/24/cups-02.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Двійка кубки",
+     "keywords_upright": "навчальне значення Двійка кубки (прямо)",
+     "keywords_reversed": "навчальне значення Двійка кубки (перевернуто)",
+     "meaning_general": "Двійка кубки: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: почуття глибшають — говори про них уголос.",
+     "meaning_career": "Карʼєра: вибір напряму — зваж два шляхи."
+    },
+    "en": {
+     "name": "Two of Cups",
+     "keywords_upright": "study meaning of Two of Cups (upright)",
+     "keywords_reversed": "study meaning of Two of Cups (reversed)",
+     "meaning_general": "Two of Cups: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Cups-03",
+   "name": "Тройка кубков",
+   "arcana_type": "Младший аркан",
+   "suit": "Кубки",
+   "element": "Вода",
+   "zodiac_sign": "Рак",
+   "planet": "Меркурий",
+   "numerology": 3,
+   "suit_code": "cups",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Тройка кубков (прямо)",
+   "keywords_reversed": "учебное значение Тройка кубков (перевёрнуто)",
+   "meaning_general": "Тройка кубков: младший аркан, масть Кубки (стихия Вода). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Кубки ↔ стихия Вода.",
+   "image_path": "/assets/24/cups-03.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Трійка кубки",
+     "keywords_upright": "навчальне значення Трійка кубки (прямо)",
+     "keywords_reversed": "навчальне значення Трійка кубки (перевернуто)",
+     "meaning_general": "Трійка кубки: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: почуття глибшають — говори про них уголос.",
+     "meaning_career": "Карʼєра: перші плоди — покажи результат."
+    },
+    "en": {
+     "name": "Three of Cups",
+     "keywords_upright": "study meaning of Three of Cups (upright)",
+     "keywords_reversed": "study meaning of Three of Cups (reversed)",
+     "meaning_general": "Three of Cups: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Cups-04",
+   "name": "Четвёрка кубков",
+   "arcana_type": "Младший аркан",
+   "suit": "Кубки",
+   "element": "Вода",
+   "zodiac_sign": "Рак",
+   "planet": "Луна",
+   "numerology": 4,
+   "suit_code": "cups",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Четвёрка кубков (прямо)",
+   "keywords_reversed": "учебное значение Четвёрка кубков (перевёрнуто)",
+   "meaning_general": "Четвёрка кубков: младший аркан, масть Кубки (стихия Вода). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Кубки ↔ стихия Вода.",
+   "image_path": "/assets/24/cups-04.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Четвірка кубки",
+     "keywords_upright": "навчальне значення Четвірка кубки (прямо)",
+     "keywords_reversed": "навчальне значення Четвірка кубки (перевернуто)",
+     "meaning_general": "Четвірка кубки: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: почуття глибшають — говори про них уголос.",
+     "meaning_career": "Карʼєра: закріпи позиції — наведи лад."
+    },
+    "en": {
+     "name": "Four of Cups",
+     "keywords_upright": "study meaning of Four of Cups (upright)",
+     "keywords_reversed": "study meaning of Four of Cups (reversed)",
+     "meaning_general": "Four of Cups: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Cups-05",
+   "name": "Пятёрка кубков",
+   "arcana_type": "Младший аркан",
+   "suit": "Кубки",
+   "element": "Вода",
+   "zodiac_sign": "Скорпион",
+   "planet": "Марс",
+   "numerology": 5,
+   "suit_code": "cups",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Пятёрка кубков (прямо)",
+   "keywords_reversed": "учебное значение Пятёрка кубков (перевёрнуто)",
+   "meaning_general": "Пятёрка кубков: младший аркан, масть Кубки (стихия Вода). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Кубки ↔ стихия Вода.",
+   "image_path": "/assets/24/cups-05.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "П'ятірка кубки",
+     "keywords_upright": "навчальне значення П'ятірка кубки (прямо)",
+     "keywords_reversed": "навчальне значення П'ятірка кубки (перевернуто)",
+     "meaning_general": "П'ятірка кубки: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: почуття глибшають — говори про них уголос.",
+     "meaning_career": "Карʼєра: турбулентність — тримай курс."
+    },
+    "en": {
+     "name": "Five of Cups",
+     "keywords_upright": "study meaning of Five of Cups (upright)",
+     "keywords_reversed": "study meaning of Five of Cups (reversed)",
+     "meaning_general": "Five of Cups: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Cups-06",
+   "name": "Шестёрка кубков",
+   "arcana_type": "Младший аркан",
+   "suit": "Кубки",
+   "element": "Вода",
+   "zodiac_sign": "Скорпион",
+   "planet": "Солнце",
+   "numerology": 6,
+   "suit_code": "cups",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Шестёрка кубков (прямо)",
+   "keywords_reversed": "учебное значение Шестёрка кубков (перевёрнуто)",
+   "meaning_general": "Шестёрка кубков: младший аркан, масть Кубки (стихия Вода). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Кубки ↔ стихия Вода.",
+   "image_path": "/assets/24/cups-06.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Шістка кубки",
+     "keywords_upright": "навчальне значення Шістка кубки (прямо)",
+     "keywords_reversed": "навчальне значення Шістка кубки (перевернуто)",
+     "meaning_general": "Шістка кубки: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: почуття глибшають — говори про них уголос.",
+     "meaning_career": "Карʼєра: визнання — прийми й віддяч."
+    },
+    "en": {
+     "name": "Six of Cups",
+     "keywords_upright": "study meaning of Six of Cups (upright)",
+     "keywords_reversed": "study meaning of Six of Cups (reversed)",
+     "meaning_general": "Six of Cups: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Cups-07",
+   "name": "Семёрка кубков",
+   "arcana_type": "Младший аркан",
+   "suit": "Кубки",
+   "element": "Вода",
+   "zodiac_sign": "Скорпион",
+   "planet": "Венера",
+   "numerology": 7,
+   "suit_code": "cups",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Семёрка кубков (прямо)",
+   "keywords_reversed": "учебное значение Семёрка кубков (перевёрнуто)",
+   "meaning_general": "Семёрка кубков: младший аркан, масть Кубки (стихия Вода). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Кубки ↔ стихия Вода.",
+   "image_path": "/assets/24/cups-07.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Сімка кубки",
+     "keywords_upright": "навчальне значення Сімка кубки (прямо)",
+     "keywords_reversed": "навчальне значення Сімка кубки (перевернуто)",
+     "meaning_general": "Сімка кубки: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: почуття глибшають — говори про них уголос.",
+     "meaning_career": "Карʼєра: оборона позицій — стій на своєму."
+    },
+    "en": {
+     "name": "Seven of Cups",
+     "keywords_upright": "study meaning of Seven of Cups (upright)",
+     "keywords_reversed": "study meaning of Seven of Cups (reversed)",
+     "meaning_general": "Seven of Cups: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Cups-08",
+   "name": "Восьмёрка кубков",
+   "arcana_type": "Младший аркан",
+   "suit": "Кубки",
+   "element": "Вода",
+   "zodiac_sign": "Рыбы",
+   "planet": "Сатурн",
+   "numerology": 8,
+   "suit_code": "cups",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Восьмёрка кубков (прямо)",
+   "keywords_reversed": "учебное значение Восьмёрка кубков (перевёрнуто)",
+   "meaning_general": "Восьмёрка кубков: младший аркан, масть Кубки (стихия Вода). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Кубки ↔ стихия Вода.",
+   "image_path": "/assets/24/cups-08.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Вісімка кубки",
+     "keywords_upright": "навчальне значення Вісімка кубки (прямо)",
+     "keywords_reversed": "навчальне значення Вісімка кубки (перевернуто)",
+     "meaning_general": "Вісімка кубки: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: почуття глибшають — говори про них уголос.",
+     "meaning_career": "Карʼєра: швидкий рух — лови темп."
+    },
+    "en": {
+     "name": "Eight of Cups",
+     "keywords_upright": "study meaning of Eight of Cups (upright)",
+     "keywords_reversed": "study meaning of Eight of Cups (reversed)",
+     "meaning_general": "Eight of Cups: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Cups-09",
+   "name": "Девятка кубков",
+   "arcana_type": "Младший аркан",
+   "suit": "Кубки",
+   "element": "Вода",
+   "zodiac_sign": "Рыбы",
+   "planet": "Юпитер",
+   "numerology": 9,
+   "suit_code": "cups",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Девятка кубков (прямо)",
+   "keywords_reversed": "учебное значение Девятка кубков (перевёрнуто)",
+   "meaning_general": "Девятка кубков: младший аркан, масть Кубки (стихия Вода). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Кубки ↔ стихия Вода.",
+   "image_path": "/assets/24/cups-09.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Дев'ятка кубки",
+     "keywords_upright": "навчальне значення Дев'ятка кубки (прямо)",
+     "keywords_reversed": "навчальне значення Дев'ятка кубки (перевернуто)",
+     "meaning_general": "Дев'ятка кубки: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: почуття глибшають — говори про них уголос.",
+     "meaning_career": "Карʼєра: майже фініш — доведи до кінця."
+    },
+    "en": {
+     "name": "Nine of Cups",
+     "keywords_upright": "study meaning of Nine of Cups (upright)",
+     "keywords_reversed": "study meaning of Nine of Cups (reversed)",
+     "meaning_general": "Nine of Cups: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Cups-10",
+   "name": "Десятка кубков",
+   "arcana_type": "Младший аркан",
+   "suit": "Кубки",
+   "element": "Вода",
+   "zodiac_sign": "Рыбы",
+   "planet": "Марс",
+   "numerology": 10,
+   "suit_code": "cups",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Десятка кубков (прямо)",
+   "keywords_reversed": "учебное значение Десятка кубков (перевёрнуто)",
+   "meaning_general": "Десятка кубков: младший аркан, масть Кубки (стихия Вода). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Кубки ↔ стихия Вода.",
+   "image_path": "/assets/24/cups-10.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Десятка кубки",
+     "keywords_upright": "навчальне значення Десятка кубки (прямо)",
+     "keywords_reversed": "навчальне значення Десятка кубки (перевернуто)",
+     "meaning_general": "Десятка кубки: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: почуття глибшають — говори про них уголос.",
+     "meaning_career": "Карʼєра: завершення циклу — підбий підсумки."
+    },
+    "en": {
+     "name": "Ten of Cups",
+     "keywords_upright": "study meaning of Ten of Cups (upright)",
+     "keywords_reversed": "study meaning of Ten of Cups (reversed)",
+     "meaning_general": "Ten of Cups: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Cups-11",
+   "name": "Паж кубков",
+   "arcana_type": "Младший аркан",
+   "suit": "Кубки",
+   "element": "Вода",
+   "zodiac_sign": null,
+   "planet": null,
+   "numerology": null,
+   "suit_code": "cups",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Паж кубков (прямо)",
+   "keywords_reversed": "учебное значение Паж кубков (перевёрнуто)",
+   "meaning_general": "Паж кубков: младший аркан, масть Кубки (стихия Вода). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Кубки ↔ стихия Вода.",
+   "image_path": "/assets/24/cups-11.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Паж кубки",
+     "keywords_upright": "навчальне значення Паж кубки (прямо)",
+     "keywords_reversed": "навчальне значення Паж кубки (перевернуто)",
+     "meaning_general": "Паж кубки: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: почуття глибшають — говори про них уголос.",
+     "meaning_career": "Карʼєра: навчання — стань учнем."
+    },
+    "en": {
+     "name": "Page of Cups",
+     "keywords_upright": "study meaning of Page of Cups (upright)",
+     "keywords_reversed": "study meaning of Page of Cups (reversed)",
+     "meaning_general": "Page of Cups: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Cups-12",
+   "name": "Рыцарь кубков",
+   "arcana_type": "Младший аркан",
+   "suit": "Кубки",
+   "element": "Вода",
+   "zodiac_sign": null,
+   "planet": null,
+   "numerology": null,
+   "suit_code": "cups",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Рыцарь кубков (прямо)",
+   "keywords_reversed": "учебное значение Рыцарь кубков (перевёрнуто)",
+   "meaning_general": "Рыцарь кубков: младший аркан, масть Кубки (стихия Вода). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Кубки ↔ стихия Вода.",
+   "image_path": "/assets/24/cups-12.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Лицар кубки",
+     "keywords_upright": "навчальне значення Лицар кубки (прямо)",
+     "keywords_reversed": "навчальне значення Лицар кубки (перевернуто)",
+     "meaning_general": "Лицар кубки: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: почуття глибшають — говори про них уголос.",
+     "meaning_career": "Карʼєра: ривок — дій рішуче."
+    },
+    "en": {
+     "name": "Knight of Cups",
+     "keywords_upright": "study meaning of Knight of Cups (upright)",
+     "keywords_reversed": "study meaning of Knight of Cups (reversed)",
+     "meaning_general": "Knight of Cups: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Cups-13",
+   "name": "Королева кубков",
+   "arcana_type": "Младший аркан",
+   "suit": "Кубки",
+   "element": "Вода",
+   "zodiac_sign": null,
+   "planet": null,
+   "numerology": null,
+   "suit_code": "cups",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Королева кубков (прямо)",
+   "keywords_reversed": "учебное значение Королева кубков (перевёрнуто)",
+   "meaning_general": "Королева кубков: младший аркан, масть Кубки (стихия Вода). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Кубки ↔ стихия Вода.",
+   "image_path": "/assets/24/cups-13.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Королева кубки",
+     "keywords_upright": "навчальне значення Королева кубки (прямо)",
+     "keywords_reversed": "навчальне значення Королева кубки (перевернуто)",
+     "meaning_general": "Королева кубки: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: почуття глибшають — говори про них уголос.",
+     "meaning_career": "Карʼєра: майстерність — веди за собою."
+    },
+    "en": {
+     "name": "Queen of Cups",
+     "keywords_upright": "study meaning of Queen of Cups (upright)",
+     "keywords_reversed": "study meaning of Queen of Cups (reversed)",
+     "meaning_general": "Queen of Cups: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Cups-14",
+   "name": "Король кубков",
+   "arcana_type": "Младший аркан",
+   "suit": "Кубки",
+   "element": "Вода",
+   "zodiac_sign": null,
+   "planet": null,
+   "numerology": null,
+   "suit_code": "cups",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Король кубков (прямо)",
+   "keywords_reversed": "учебное значение Король кубков (перевёрнуто)",
+   "meaning_general": "Король кубков: младший аркан, масть Кубки (стихия Вода). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Кубки ↔ стихия Вода.",
+   "image_path": "/assets/24/cups-14.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Король кубки",
+     "keywords_upright": "навчальне значення Король кубки (прямо)",
+     "keywords_reversed": "навчальне значення Король кубки (перевернуто)",
+     "meaning_general": "Король кубки: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: почуття глибшають — говори про них уголос.",
+     "meaning_career": "Карʼєра: лідерство — відповідай за напрям."
+    },
+    "en": {
+     "name": "King of Cups",
+     "keywords_upright": "study meaning of King of Cups (upright)",
+     "keywords_reversed": "study meaning of King of Cups (reversed)",
+     "meaning_general": "King of Cups: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Swords-01",
+   "name": "Туз мечей",
+   "arcana_type": "Младший аркан",
+   "suit": "Мечи",
+   "element": "Воздух",
+   "zodiac_sign": null,
+   "planet": null,
+   "numerology": 1,
+   "suit_code": "swords",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Туз мечей (прямо)",
+   "keywords_reversed": "учебное значение Туз мечей (перевёрнуто)",
+   "meaning_general": "Туз мечей: младший аркан, масть Мечи (стихия Воздух). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Мечи ↔ стихия Воздух.",
+   "image_path": "/assets/24/swords-01.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Туз мечі",
+     "keywords_upright": "навчальне значення Туз мечі (прямо)",
+     "keywords_reversed": "навчальне значення Туз мечі (перевернуто)",
+     "meaning_general": "Туз мечі: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: ясність слів — домовляйтеся, а не здогадуйтеся.",
+     "meaning_career": "Карʼєра: новий старт — бери ініціативу."
+    },
+    "en": {
+     "name": "Ace of Swords",
+     "keywords_upright": "study meaning of Ace of Swords (upright)",
+     "keywords_reversed": "study meaning of Ace of Swords (reversed)",
+     "meaning_general": "Ace of Swords: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Swords-02",
+   "name": "Двойка мечей",
+   "arcana_type": "Младший аркан",
+   "suit": "Мечи",
+   "element": "Воздух",
+   "zodiac_sign": "Весы",
+   "planet": "Луна",
+   "numerology": 2,
+   "suit_code": "swords",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Двойка мечей (прямо)",
+   "keywords_reversed": "учебное значение Двойка мечей (перевёрнуто)",
+   "meaning_general": "Двойка мечей: младший аркан, масть Мечи (стихия Воздух). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Мечи ↔ стихия Воздух.",
+   "image_path": "/assets/24/swords-02.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Двійка мечі",
+     "keywords_upright": "навчальне значення Двійка мечі (прямо)",
+     "keywords_reversed": "навчальне значення Двійка мечі (перевернуто)",
+     "meaning_general": "Двійка мечі: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: ясність слів — домовляйтеся, а не здогадуйтеся.",
+     "meaning_career": "Карʼєра: вибір напряму — зваж два шляхи."
+    },
+    "en": {
+     "name": "Two of Swords",
+     "keywords_upright": "study meaning of Two of Swords (upright)",
+     "keywords_reversed": "study meaning of Two of Swords (reversed)",
+     "meaning_general": "Two of Swords: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Swords-03",
+   "name": "Тройка мечей",
+   "arcana_type": "Младший аркан",
+   "suit": "Мечи",
+   "element": "Воздух",
+   "zodiac_sign": "Весы",
+   "planet": "Сатурн",
+   "numerology": 3,
+   "suit_code": "swords",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Тройка мечей (прямо)",
+   "keywords_reversed": "учебное значение Тройка мечей (перевёрнуто)",
+   "meaning_general": "Тройка мечей: младший аркан, масть Мечи (стихия Воздух). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Мечи ↔ стихия Воздух.",
+   "image_path": "/assets/24/swords-03.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Трійка мечі",
+     "keywords_upright": "навчальне значення Трійка мечі (прямо)",
+     "keywords_reversed": "навчальне значення Трійка мечі (перевернуто)",
+     "meaning_general": "Трійка мечі: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: ясність слів — домовляйтеся, а не здогадуйтеся.",
+     "meaning_career": "Карʼєра: перші плоди — покажи результат."
+    },
+    "en": {
+     "name": "Three of Swords",
+     "keywords_upright": "study meaning of Three of Swords (upright)",
+     "keywords_reversed": "study meaning of Three of Swords (reversed)",
+     "meaning_general": "Three of Swords: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Swords-04",
+   "name": "Четвёрка мечей",
+   "arcana_type": "Младший аркан",
+   "suit": "Мечи",
+   "element": "Воздух",
+   "zodiac_sign": "Весы",
+   "planet": "Юпитер",
+   "numerology": 4,
+   "suit_code": "swords",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Четвёрка мечей (прямо)",
+   "keywords_reversed": "учебное значение Четвёрка мечей (перевёрнуто)",
+   "meaning_general": "Четвёрка мечей: младший аркан, масть Мечи (стихия Воздух). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Мечи ↔ стихия Воздух.",
+   "image_path": "/assets/24/swords-04.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Четвірка мечі",
+     "keywords_upright": "навчальне значення Четвірка мечі (прямо)",
+     "keywords_reversed": "навчальне значення Четвірка мечі (перевернуто)",
+     "meaning_general": "Четвірка мечі: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: ясність слів — домовляйтеся, а не здогадуйтеся.",
+     "meaning_career": "Карʼєра: закріпи позиції — наведи лад."
+    },
+    "en": {
+     "name": "Four of Swords",
+     "keywords_upright": "study meaning of Four of Swords (upright)",
+     "keywords_reversed": "study meaning of Four of Swords (reversed)",
+     "meaning_general": "Four of Swords: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Swords-05",
+   "name": "Пятёрка мечей",
+   "arcana_type": "Младший аркан",
+   "suit": "Мечи",
+   "element": "Воздух",
+   "zodiac_sign": "Водолей",
+   "planet": "Венера",
+   "numerology": 5,
+   "suit_code": "swords",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Пятёрка мечей (прямо)",
+   "keywords_reversed": "учебное значение Пятёрка мечей (перевёрнуто)",
+   "meaning_general": "Пятёрка мечей: младший аркан, масть Мечи (стихия Воздух). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Мечи ↔ стихия Воздух.",
+   "image_path": "/assets/24/swords-05.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "П'ятірка мечі",
+     "keywords_upright": "навчальне значення П'ятірка мечі (прямо)",
+     "keywords_reversed": "навчальне значення П'ятірка мечі (перевернуто)",
+     "meaning_general": "П'ятірка мечі: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: ясність слів — домовляйтеся, а не здогадуйтеся.",
+     "meaning_career": "Карʼєра: турбулентність — тримай курс."
+    },
+    "en": {
+     "name": "Five of Swords",
+     "keywords_upright": "study meaning of Five of Swords (upright)",
+     "keywords_reversed": "study meaning of Five of Swords (reversed)",
+     "meaning_general": "Five of Swords: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Swords-06",
+   "name": "Шестёрка мечей",
+   "arcana_type": "Младший аркан",
+   "suit": "Мечи",
+   "element": "Воздух",
+   "zodiac_sign": "Водолей",
+   "planet": "Меркурий",
+   "numerology": 6,
+   "suit_code": "swords",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Шестёрка мечей (прямо)",
+   "keywords_reversed": "учебное значение Шестёрка мечей (перевёрнуто)",
+   "meaning_general": "Шестёрка мечей: младший аркан, масть Мечи (стихия Воздух). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Мечи ↔ стихия Воздух.",
+   "image_path": "/assets/24/swords-06.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Шістка мечі",
+     "keywords_upright": "навчальне значення Шістка мечі (прямо)",
+     "keywords_reversed": "навчальне значення Шістка мечі (перевернуто)",
+     "meaning_general": "Шістка мечі: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: ясність слів — домовляйтеся, а не здогадуйтеся.",
+     "meaning_career": "Карʼєра: визнання — прийми й віддяч."
+    },
+    "en": {
+     "name": "Six of Swords",
+     "keywords_upright": "study meaning of Six of Swords (upright)",
+     "keywords_reversed": "study meaning of Six of Swords (reversed)",
+     "meaning_general": "Six of Swords: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Swords-07",
+   "name": "Семёрка мечей",
+   "arcana_type": "Младший аркан",
+   "suit": "Мечи",
+   "element": "Воздух",
+   "zodiac_sign": "Водолей",
+   "planet": "Луна",
+   "numerology": 7,
+   "suit_code": "swords",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Семёрка мечей (прямо)",
+   "keywords_reversed": "учебное значение Семёрка мечей (перевёрнуто)",
+   "meaning_general": "Семёрка мечей: младший аркан, масть Мечи (стихия Воздух). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Мечи ↔ стихия Воздух.",
+   "image_path": "/assets/24/swords-07.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Сімка мечі",
+     "keywords_upright": "навчальне значення Сімка мечі (прямо)",
+     "keywords_reversed": "навчальне значення Сімка мечі (перевернуто)",
+     "meaning_general": "Сімка мечі: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: ясність слів — домовляйтеся, а не здогадуйтеся.",
+     "meaning_career": "Карʼєра: оборона позицій — стій на своєму."
+    },
+    "en": {
+     "name": "Seven of Swords",
+     "keywords_upright": "study meaning of Seven of Swords (upright)",
+     "keywords_reversed": "study meaning of Seven of Swords (reversed)",
+     "meaning_general": "Seven of Swords: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Swords-08",
+   "name": "Восьмёрка мечей",
+   "arcana_type": "Младший аркан",
+   "suit": "Мечи",
+   "element": "Воздух",
+   "zodiac_sign": "Близнецы",
+   "planet": "Юпитер",
+   "numerology": 8,
+   "suit_code": "swords",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Восьмёрка мечей (прямо)",
+   "keywords_reversed": "учебное значение Восьмёрка мечей (перевёрнуто)",
+   "meaning_general": "Восьмёрка мечей: младший аркан, масть Мечи (стихия Воздух). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Мечи ↔ стихия Воздух.",
+   "image_path": "/assets/24/swords-08.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Вісімка мечі",
+     "keywords_upright": "навчальне значення Вісімка мечі (прямо)",
+     "keywords_reversed": "навчальне значення Вісімка мечі (перевернуто)",
+     "meaning_general": "Вісімка мечі: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: ясність слів — домовляйтеся, а не здогадуйтеся.",
+     "meaning_career": "Карʼєра: швидкий рух — лови темп."
+    },
+    "en": {
+     "name": "Eight of Swords",
+     "keywords_upright": "study meaning of Eight of Swords (upright)",
+     "keywords_reversed": "study meaning of Eight of Swords (reversed)",
+     "meaning_general": "Eight of Swords: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Swords-09",
+   "name": "Девятка мечей",
+   "arcana_type": "Младший аркан",
+   "suit": "Мечи",
+   "element": "Воздух",
+   "zodiac_sign": "Близнецы",
+   "planet": "Марс",
+   "numerology": 9,
+   "suit_code": "swords",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Девятка мечей (прямо)",
+   "keywords_reversed": "учебное значение Девятка мечей (перевёрнуто)",
+   "meaning_general": "Девятка мечей: младший аркан, масть Мечи (стихия Воздух). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Мечи ↔ стихия Воздух.",
+   "image_path": "/assets/24/swords-09.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Дев'ятка мечі",
+     "keywords_upright": "навчальне значення Дев'ятка мечі (прямо)",
+     "keywords_reversed": "навчальне значення Дев'ятка мечі (перевернуто)",
+     "meaning_general": "Дев'ятка мечі: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: ясність слів — домовляйтеся, а не здогадуйтеся.",
+     "meaning_career": "Карʼєра: майже фініш — доведи до кінця."
+    },
+    "en": {
+     "name": "Nine of Swords",
+     "keywords_upright": "study meaning of Nine of Swords (upright)",
+     "keywords_reversed": "study meaning of Nine of Swords (reversed)",
+     "meaning_general": "Nine of Swords: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Swords-10",
+   "name": "Десятка мечей",
+   "arcana_type": "Младший аркан",
+   "suit": "Мечи",
+   "element": "Воздух",
+   "zodiac_sign": "Близнецы",
+   "planet": "Солнце",
+   "numerology": 10,
+   "suit_code": "swords",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Десятка мечей (прямо)",
+   "keywords_reversed": "учебное значение Десятка мечей (перевёрнуто)",
+   "meaning_general": "Десятка мечей: младший аркан, масть Мечи (стихия Воздух). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Мечи ↔ стихия Воздух.",
+   "image_path": "/assets/24/swords-10.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Десятка мечі",
+     "keywords_upright": "навчальне значення Десятка мечі (прямо)",
+     "keywords_reversed": "навчальне значення Десятка мечі (перевернуто)",
+     "meaning_general": "Десятка мечі: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: ясність слів — домовляйтеся, а не здогадуйтеся.",
+     "meaning_career": "Карʼєра: завершення циклу — підбий підсумки."
+    },
+    "en": {
+     "name": "Ten of Swords",
+     "keywords_upright": "study meaning of Ten of Swords (upright)",
+     "keywords_reversed": "study meaning of Ten of Swords (reversed)",
+     "meaning_general": "Ten of Swords: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Swords-11",
+   "name": "Паж мечей",
+   "arcana_type": "Младший аркан",
+   "suit": "Мечи",
+   "element": "Воздух",
+   "zodiac_sign": null,
+   "planet": null,
+   "numerology": null,
+   "suit_code": "swords",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Паж мечей (прямо)",
+   "keywords_reversed": "учебное значение Паж мечей (перевёрнуто)",
+   "meaning_general": "Паж мечей: младший аркан, масть Мечи (стихия Воздух). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Мечи ↔ стихия Воздух.",
+   "image_path": "/assets/24/swords-11.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Паж мечі",
+     "keywords_upright": "навчальне значення Паж мечі (прямо)",
+     "keywords_reversed": "навчальне значення Паж мечі (перевернуто)",
+     "meaning_general": "Паж мечі: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: ясність слів — домовляйтеся, а не здогадуйтеся.",
+     "meaning_career": "Карʼєра: навчання — стань учнем."
+    },
+    "en": {
+     "name": "Page of Swords",
+     "keywords_upright": "study meaning of Page of Swords (upright)",
+     "keywords_reversed": "study meaning of Page of Swords (reversed)",
+     "meaning_general": "Page of Swords: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Swords-12",
+   "name": "Рыцарь мечей",
+   "arcana_type": "Младший аркан",
+   "suit": "Мечи",
+   "element": "Воздух",
+   "zodiac_sign": null,
+   "planet": null,
+   "numerology": null,
+   "suit_code": "swords",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Рыцарь мечей (прямо)",
+   "keywords_reversed": "учебное значение Рыцарь мечей (перевёрнуто)",
+   "meaning_general": "Рыцарь мечей: младший аркан, масть Мечи (стихия Воздух). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Мечи ↔ стихия Воздух.",
+   "image_path": "/assets/24/swords-12.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Лицар мечі",
+     "keywords_upright": "навчальне значення Лицар мечі (прямо)",
+     "keywords_reversed": "навчальне значення Лицар мечі (перевернуто)",
+     "meaning_general": "Лицар мечі: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: ясність слів — домовляйтеся, а не здогадуйтеся.",
+     "meaning_career": "Карʼєра: ривок — дій рішуче."
+    },
+    "en": {
+     "name": "Knight of Swords",
+     "keywords_upright": "study meaning of Knight of Swords (upright)",
+     "keywords_reversed": "study meaning of Knight of Swords (reversed)",
+     "meaning_general": "Knight of Swords: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Swords-13",
+   "name": "Королева мечей",
+   "arcana_type": "Младший аркан",
+   "suit": "Мечи",
+   "element": "Воздух",
+   "zodiac_sign": null,
+   "planet": null,
+   "numerology": null,
+   "suit_code": "swords",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Королева мечей (прямо)",
+   "keywords_reversed": "учебное значение Королева мечей (перевёрнуто)",
+   "meaning_general": "Королева мечей: младший аркан, масть Мечи (стихия Воздух). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Мечи ↔ стихия Воздух.",
+   "image_path": "/assets/24/swords-13.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Королева мечі",
+     "keywords_upright": "навчальне значення Королева мечі (прямо)",
+     "keywords_reversed": "навчальне значення Королева мечі (перевернуто)",
+     "meaning_general": "Королева мечі: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: ясність слів — домовляйтеся, а не здогадуйтеся.",
+     "meaning_career": "Карʼєра: майстерність — веди за собою."
+    },
+    "en": {
+     "name": "Queen of Swords",
+     "keywords_upright": "study meaning of Queen of Swords (upright)",
+     "keywords_reversed": "study meaning of Queen of Swords (reversed)",
+     "meaning_general": "Queen of Swords: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Swords-14",
+   "name": "Король мечей",
+   "arcana_type": "Младший аркан",
+   "suit": "Мечи",
+   "element": "Воздух",
+   "zodiac_sign": null,
+   "planet": null,
+   "numerology": null,
+   "suit_code": "swords",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Король мечей (прямо)",
+   "keywords_reversed": "учебное значение Король мечей (перевёрнуто)",
+   "meaning_general": "Король мечей: младший аркан, масть Мечи (стихия Воздух). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Мечи ↔ стихия Воздух.",
+   "image_path": "/assets/24/swords-14.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Король мечі",
+     "keywords_upright": "навчальне значення Король мечі (прямо)",
+     "keywords_reversed": "навчальне значення Король мечі (перевернуто)",
+     "meaning_general": "Король мечі: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: ясність слів — домовляйтеся, а не здогадуйтеся.",
+     "meaning_career": "Карʼєра: лідерство — відповідай за напрям."
+    },
+    "en": {
+     "name": "King of Swords",
+     "keywords_upright": "study meaning of King of Swords (upright)",
+     "keywords_reversed": "study meaning of King of Swords (reversed)",
+     "meaning_general": "King of Swords: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Pentacles-01",
+   "name": "Туз пентаклей",
+   "arcana_type": "Младший аркан",
+   "suit": "Пентакли",
+   "element": "Земля",
+   "zodiac_sign": null,
+   "planet": null,
+   "numerology": 1,
+   "suit_code": "pentacles",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Туз пентаклей (прямо)",
+   "keywords_reversed": "учебное значение Туз пентаклей (перевёрнуто)",
+   "meaning_general": "Туз пентаклей: младший аркан, масть Пентакли (стихия Земля). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Пентакли ↔ стихия Земля.",
+   "image_path": "/assets/24/pentacles-01.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Туз пентаклі",
+     "keywords_upright": "навчальне значення Туз пентаклі (прямо)",
+     "keywords_reversed": "навчальне значення Туз пентаклі (перевернуто)",
+     "meaning_general": "Туз пентаклі: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: турбота справами — надійність понад обіцянки.",
+     "meaning_career": "Карʼєра: новий старт — бери ініціативу."
+    },
+    "en": {
+     "name": "Ace of Pentacles",
+     "keywords_upright": "study meaning of Ace of Pentacles (upright)",
+     "keywords_reversed": "study meaning of Ace of Pentacles (reversed)",
+     "meaning_general": "Ace of Pentacles: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Pentacles-02",
+   "name": "Двойка пентаклей",
+   "arcana_type": "Младший аркан",
+   "suit": "Пентакли",
+   "element": "Земля",
+   "zodiac_sign": "Козерог",
+   "planet": "Юпитер",
+   "numerology": 2,
+   "suit_code": "pentacles",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Двойка пентаклей (прямо)",
+   "keywords_reversed": "учебное значение Двойка пентаклей (перевёрнуто)",
+   "meaning_general": "Двойка пентаклей: младший аркан, масть Пентакли (стихия Земля). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Пентакли ↔ стихия Земля.",
+   "image_path": "/assets/24/pentacles-02.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Двійка пентаклі",
+     "keywords_upright": "навчальне значення Двійка пентаклі (прямо)",
+     "keywords_reversed": "навчальне значення Двійка пентаклі (перевернуто)",
+     "meaning_general": "Двійка пентаклі: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: турбота справами — надійність понад обіцянки.",
+     "meaning_career": "Карʼєра: вибір напряму — зваж два шляхи."
+    },
+    "en": {
+     "name": "Two of Pentacles",
+     "keywords_upright": "study meaning of Two of Pentacles (upright)",
+     "keywords_reversed": "study meaning of Two of Pentacles (reversed)",
+     "meaning_general": "Two of Pentacles: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Pentacles-03",
+   "name": "Тройка пентаклей",
+   "arcana_type": "Младший аркан",
+   "suit": "Пентакли",
+   "element": "Земля",
+   "zodiac_sign": "Козерог",
+   "planet": "Марс",
+   "numerology": 3,
+   "suit_code": "pentacles",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Тройка пентаклей (прямо)",
+   "keywords_reversed": "учебное значение Тройка пентаклей (перевёрнуто)",
+   "meaning_general": "Тройка пентаклей: младший аркан, масть Пентакли (стихия Земля). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Пентакли ↔ стихия Земля.",
+   "image_path": "/assets/24/pentacles-03.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Трійка пентаклі",
+     "keywords_upright": "навчальне значення Трійка пентаклі (прямо)",
+     "keywords_reversed": "навчальне значення Трійка пентаклі (перевернуто)",
+     "meaning_general": "Трійка пентаклі: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: турбота справами — надійність понад обіцянки.",
+     "meaning_career": "Карʼєра: перші плоди — покажи результат."
+    },
+    "en": {
+     "name": "Three of Pentacles",
+     "keywords_upright": "study meaning of Three of Pentacles (upright)",
+     "keywords_reversed": "study meaning of Three of Pentacles (reversed)",
+     "meaning_general": "Three of Pentacles: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Pentacles-04",
+   "name": "Четвёрка пентаклей",
+   "arcana_type": "Младший аркан",
+   "suit": "Пентакли",
+   "element": "Земля",
+   "zodiac_sign": "Козерог",
+   "planet": "Солнце",
+   "numerology": 4,
+   "suit_code": "pentacles",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Четвёрка пентаклей (прямо)",
+   "keywords_reversed": "учебное значение Четвёрка пентаклей (перевёрнуто)",
+   "meaning_general": "Четвёрка пентаклей: младший аркан, масть Пентакли (стихия Земля). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Пентакли ↔ стихия Земля.",
+   "image_path": "/assets/24/pentacles-04.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Четвірка пентаклі",
+     "keywords_upright": "навчальне значення Четвірка пентаклі (прямо)",
+     "keywords_reversed": "навчальне значення Четвірка пентаклі (перевернуто)",
+     "meaning_general": "Четвірка пентаклі: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: турбота справами — надійність понад обіцянки.",
+     "meaning_career": "Карʼєра: закріпи позиції — наведи лад."
+    },
+    "en": {
+     "name": "Four of Pentacles",
+     "keywords_upright": "study meaning of Four of Pentacles (upright)",
+     "keywords_reversed": "study meaning of Four of Pentacles (reversed)",
+     "meaning_general": "Four of Pentacles: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Pentacles-05",
+   "name": "Пятёрка пентаклей",
+   "arcana_type": "Младший аркан",
+   "suit": "Пентакли",
+   "element": "Земля",
+   "zodiac_sign": "Телец",
+   "planet": "Меркурий",
+   "numerology": 5,
+   "suit_code": "pentacles",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Пятёрка пентаклей (прямо)",
+   "keywords_reversed": "учебное значение Пятёрка пентаклей (перевёрнуто)",
+   "meaning_general": "Пятёрка пентаклей: младший аркан, масть Пентакли (стихия Земля). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Пентакли ↔ стихия Земля.",
+   "image_path": "/assets/24/pentacles-05.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "П'ятірка пентаклі",
+     "keywords_upright": "навчальне значення П'ятірка пентаклі (прямо)",
+     "keywords_reversed": "навчальне значення П'ятірка пентаклі (перевернуто)",
+     "meaning_general": "П'ятірка пентаклі: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: турбота справами — надійність понад обіцянки.",
+     "meaning_career": "Карʼєра: турбулентність — тримай курс."
+    },
+    "en": {
+     "name": "Five of Pentacles",
+     "keywords_upright": "study meaning of Five of Pentacles (upright)",
+     "keywords_reversed": "study meaning of Five of Pentacles (reversed)",
+     "meaning_general": "Five of Pentacles: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Pentacles-06",
+   "name": "Шестёрка пентаклей",
+   "arcana_type": "Младший аркан",
+   "suit": "Пентакли",
+   "element": "Земля",
+   "zodiac_sign": "Телец",
+   "planet": "Луна",
+   "numerology": 6,
+   "suit_code": "pentacles",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Шестёрка пентаклей (прямо)",
+   "keywords_reversed": "учебное значение Шестёрка пентаклей (перевёрнуто)",
+   "meaning_general": "Шестёрка пентаклей: младший аркан, масть Пентакли (стихия Земля). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Пентакли ↔ стихия Земля.",
+   "image_path": "/assets/24/pentacles-06.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Шістка пентаклі",
+     "keywords_upright": "навчальне значення Шістка пентаклі (прямо)",
+     "keywords_reversed": "навчальне значення Шістка пентаклі (перевернуто)",
+     "meaning_general": "Шістка пентаклі: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: турбота справами — надійність понад обіцянки.",
+     "meaning_career": "Карʼєра: визнання — прийми й віддяч."
+    },
+    "en": {
+     "name": "Six of Pentacles",
+     "keywords_upright": "study meaning of Six of Pentacles (upright)",
+     "keywords_reversed": "study meaning of Six of Pentacles (reversed)",
+     "meaning_general": "Six of Pentacles: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Pentacles-07",
+   "name": "Семёрка пентаклей",
+   "arcana_type": "Младший аркан",
+   "suit": "Пентакли",
+   "element": "Земля",
+   "zodiac_sign": "Телец",
+   "planet": "Сатурн",
+   "numerology": 7,
+   "suit_code": "pentacles",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Семёрка пентаклей (прямо)",
+   "keywords_reversed": "учебное значение Семёрка пентаклей (перевёрнуто)",
+   "meaning_general": "Семёрка пентаклей: младший аркан, масть Пентакли (стихия Земля). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Пентакли ↔ стихия Земля.",
+   "image_path": "/assets/24/pentacles-07.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Сімка пентаклі",
+     "keywords_upright": "навчальне значення Сімка пентаклі (прямо)",
+     "keywords_reversed": "навчальне значення Сімка пентаклі (перевернуто)",
+     "meaning_general": "Сімка пентаклі: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: турбота справами — надійність понад обіцянки.",
+     "meaning_career": "Карʼєра: оборона позицій — стій на своєму."
+    },
+    "en": {
+     "name": "Seven of Pentacles",
+     "keywords_upright": "study meaning of Seven of Pentacles (upright)",
+     "keywords_reversed": "study meaning of Seven of Pentacles (reversed)",
+     "meaning_general": "Seven of Pentacles: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Pentacles-08",
+   "name": "Восьмёрка пентаклей",
+   "arcana_type": "Младший аркан",
+   "suit": "Пентакли",
+   "element": "Земля",
+   "zodiac_sign": "Дева",
+   "planet": "Венера",
+   "numerology": 8,
+   "suit_code": "pentacles",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Восьмёрка пентаклей (прямо)",
+   "keywords_reversed": "учебное значение Восьмёрка пентаклей (перевёрнуто)",
+   "meaning_general": "Восьмёрка пентаклей: младший аркан, масть Пентакли (стихия Земля). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Пентакли ↔ стихия Земля.",
+   "image_path": "/assets/24/pentacles-08.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Вісімка пентаклі",
+     "keywords_upright": "навчальне значення Вісімка пентаклі (прямо)",
+     "keywords_reversed": "навчальне значення Вісімка пентаклі (перевернуто)",
+     "meaning_general": "Вісімка пентаклі: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: турбота справами — надійність понад обіцянки.",
+     "meaning_career": "Карʼєра: швидкий рух — лови темп."
+    },
+    "en": {
+     "name": "Eight of Pentacles",
+     "keywords_upright": "study meaning of Eight of Pentacles (upright)",
+     "keywords_reversed": "study meaning of Eight of Pentacles (reversed)",
+     "meaning_general": "Eight of Pentacles: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Pentacles-09",
+   "name": "Девятка пентаклей",
+   "arcana_type": "Младший аркан",
+   "suit": "Пентакли",
+   "element": "Земля",
+   "zodiac_sign": "Дева",
+   "planet": "Меркурий",
+   "numerology": 9,
+   "suit_code": "pentacles",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Девятка пентаклей (прямо)",
+   "keywords_reversed": "учебное значение Девятка пентаклей (перевёрнуто)",
+   "meaning_general": "Девятка пентаклей: младший аркан, масть Пентакли (стихия Земля). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Пентакли ↔ стихия Земля.",
+   "image_path": "/assets/24/pentacles-09.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Дев'ятка пентаклі",
+     "keywords_upright": "навчальне значення Дев'ятка пентаклі (прямо)",
+     "keywords_reversed": "навчальне значення Дев'ятка пентаклі (перевернуто)",
+     "meaning_general": "Дев'ятка пентаклі: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: турбота справами — надійність понад обіцянки.",
+     "meaning_career": "Карʼєра: майже фініш — доведи до кінця."
+    },
+    "en": {
+     "name": "Nine of Pentacles",
+     "keywords_upright": "study meaning of Nine of Pentacles (upright)",
+     "keywords_reversed": "study meaning of Nine of Pentacles (reversed)",
+     "meaning_general": "Nine of Pentacles: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Pentacles-10",
+   "name": "Десятка пентаклей",
+   "arcana_type": "Младший аркан",
+   "suit": "Пентакли",
+   "element": "Земля",
+   "zodiac_sign": "Дева",
+   "planet": "Юпитер",
+   "numerology": 10,
+   "suit_code": "pentacles",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Десятка пентаклей (прямо)",
+   "keywords_reversed": "учебное значение Десятка пентаклей (перевёрнуто)",
+   "meaning_general": "Десятка пентаклей: младший аркан, масть Пентакли (стихия Земля). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Пентакли ↔ стихия Земля.",
+   "image_path": "/assets/24/pentacles-10.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Десятка пентаклі",
+     "keywords_upright": "навчальне значення Десятка пентаклі (прямо)",
+     "keywords_reversed": "навчальне значення Десятка пентаклі (перевернуто)",
+     "meaning_general": "Десятка пентаклі: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: турбота справами — надійність понад обіцянки.",
+     "meaning_career": "Карʼєра: завершення циклу — підбий підсумки."
+    },
+    "en": {
+     "name": "Ten of Pentacles",
+     "keywords_upright": "study meaning of Ten of Pentacles (upright)",
+     "keywords_reversed": "study meaning of Ten of Pentacles (reversed)",
+     "meaning_general": "Ten of Pentacles: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Pentacles-11",
+   "name": "Паж пентаклей",
+   "arcana_type": "Младший аркан",
+   "suit": "Пентакли",
+   "element": "Земля",
+   "zodiac_sign": null,
+   "planet": null,
+   "numerology": null,
+   "suit_code": "pentacles",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Паж пентаклей (прямо)",
+   "keywords_reversed": "учебное значение Паж пентаклей (перевёрнуто)",
+   "meaning_general": "Паж пентаклей: младший аркан, масть Пентакли (стихия Земля). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Пентакли ↔ стихия Земля.",
+   "image_path": "/assets/24/pentacles-11.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Паж пентаклі",
+     "keywords_upright": "навчальне значення Паж пентаклі (прямо)",
+     "keywords_reversed": "навчальне значення Паж пентаклі (перевернуто)",
+     "meaning_general": "Паж пентаклі: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: турбота справами — надійність понад обіцянки.",
+     "meaning_career": "Карʼєра: навчання — стань учнем."
+    },
+    "en": {
+     "name": "Page of Pentacles",
+     "keywords_upright": "study meaning of Page of Pentacles (upright)",
+     "keywords_reversed": "study meaning of Page of Pentacles (reversed)",
+     "meaning_general": "Page of Pentacles: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Pentacles-12",
+   "name": "Рыцарь пентаклей",
+   "arcana_type": "Младший аркан",
+   "suit": "Пентакли",
+   "element": "Земля",
+   "zodiac_sign": null,
+   "planet": null,
+   "numerology": null,
+   "suit_code": "pentacles",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Рыцарь пентаклей (прямо)",
+   "keywords_reversed": "учебное значение Рыцарь пентаклей (перевёрнуто)",
+   "meaning_general": "Рыцарь пентаклей: младший аркан, масть Пентакли (стихия Земля). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Пентакли ↔ стихия Земля.",
+   "image_path": "/assets/24/pentacles-12.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Лицар пентаклі",
+     "keywords_upright": "навчальне значення Лицар пентаклі (прямо)",
+     "keywords_reversed": "навчальне значення Лицар пентаклі (перевернуто)",
+     "meaning_general": "Лицар пентаклі: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: турбота справами — надійність понад обіцянки.",
+     "meaning_career": "Карʼєра: ривок — дій рішуче."
+    },
+    "en": {
+     "name": "Knight of Pentacles",
+     "keywords_upright": "study meaning of Knight of Pentacles (upright)",
+     "keywords_reversed": "study meaning of Knight of Pentacles (reversed)",
+     "meaning_general": "Knight of Pentacles: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Pentacles-13",
+   "name": "Королева пентаклей",
+   "arcana_type": "Младший аркан",
+   "suit": "Пентакли",
+   "element": "Земля",
+   "zodiac_sign": null,
+   "planet": null,
+   "numerology": null,
+   "suit_code": "pentacles",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Королева пентаклей (прямо)",
+   "keywords_reversed": "учебное значение Королева пентаклей (перевёрнуто)",
+   "meaning_general": "Королева пентаклей: младший аркан, масть Пентакли (стихия Земля). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Пентакли ↔ стихия Земля.",
+   "image_path": "/assets/24/pentacles-13.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Королева пентаклі",
+     "keywords_upright": "навчальне значення Королева пентаклі (прямо)",
+     "keywords_reversed": "навчальне значення Королева пентаклі (перевернуто)",
+     "meaning_general": "Королева пентаклі: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: турбота справами — надійність понад обіцянки.",
+     "meaning_career": "Карʼєра: майстерність — веди за собою."
+    },
+    "en": {
+     "name": "Queen of Pentacles",
+     "keywords_upright": "study meaning of Queen of Pentacles (upright)",
+     "keywords_reversed": "study meaning of Queen of Pentacles (reversed)",
+     "meaning_general": "Queen of Pentacles: a minor arcana card. Basic study meaning."
+    }
+   }
+  },
+  {
+   "number": "Pentacles-14",
+   "name": "Король пентаклей",
+   "arcana_type": "Младший аркан",
+   "suit": "Пентакли",
+   "element": "Земля",
+   "zodiac_sign": null,
+   "planet": null,
+   "numerology": null,
+   "suit_code": "pentacles",
+   "element_code": null,
+   "zodiac_sign_code": null,
+   "planet_code": null,
+   "keywords_upright": "учебное значение Король пентаклей (прямо)",
+   "keywords_reversed": "учебное значение Король пентаклей (перевёрнуто)",
+   "meaning_general": "Король пентаклей: младший аркан, масть Пентакли (стихия Земля). Базовая трактовка для заучивания; детализируйте по изображению RWS.",
+   "meaning_love": null,
+   "meaning_career": null,
+   "meaning_health": null,
+   "symbolism": "Масть Пентакли ↔ стихия Земля.",
+   "image_path": "/assets/24/pentacles-14.jpg",
+   "category": null,
+   "theme": null,
+   "translations": {
+    "uk": {
+     "name": "Король пентаклі",
+     "keywords_upright": "навчальне значення Король пентаклі (прямо)",
+     "keywords_reversed": "навчальне значення Король пентаклі (перевернуто)",
+     "meaning_general": "Король пентаклі: молодший аркан. Базова трактовка для заучування.",
+     "meaning_love": "Кохання: турбота справами — надійність понад обіцянки.",
+     "meaning_career": "Карʼєра: лідерство — відповідай за напрям."
+    },
+    "en": {
+     "name": "King of Pentacles",
+     "keywords_upright": "study meaning of King of Pentacles (upright)",
+     "keywords_reversed": "study meaning of King of Pentacles (reversed)",
+     "meaning_general": "King of Pentacles: a minor arcana card. Basic study meaning."
+    }
+   }
+  }
+ ]
+}

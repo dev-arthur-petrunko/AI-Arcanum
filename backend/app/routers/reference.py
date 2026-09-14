@@ -44,8 +44,15 @@ def stats(db: Session = Depends(get_db)):
         nm = s.translations.get("uk", {}).get("name") if isinstance(s.translations, dict) else None
         for d in decks:
             dn = d.translations.get("uk", {}).get("name") if isinstance(d.translations, dict) else None
+            dd = d.translations.get("uk", {}).get("description") if isinstance(d.translations, dict) else None
+            first = db.scalar(select(Card.image_path).where(Card.deck_id == d.id).order_by(Card.id).limit(1))
             deck_rows.append({"id": d.id, "system_id": s.id, "name": dn or d.name,
-                              "system": nm or s.name,
+                              "system": nm or s.name, "cover": first or d.cover_image,
+                              "author": d.author, "publisher": d.publisher, "year": d.year,
+                              "description": dd or d.description,
+                              "is_reference_only": bool(d.is_reference_only),
+                              "source_url": d.source_url, "buy_url": d.buy_url,
+                              "composition": d.composition, "gallery": d.gallery or [],
                               "cards": db.scalar(select(func.count()).select_from(Card).where(Card.deck_id == d.id))})
         systems.append({"id": s.id, "name": nm or s.name, "category": s.category,
                         "decks": len(deck_ids), "cards": n_cards})

@@ -96,7 +96,7 @@ export default function Scene3D({ cards, lang, onSelect }) {
                 position={[layout[i].x, 0.35, layout[i].z]}
                 rotationY={layout[i].ry}
                 phase={i * 0.9}
-                initialFlipped={i === Math.floor(fan.length / 2)}
+                initialFlipped={true}
                 onSelect={onSelect}
               />
             ))}

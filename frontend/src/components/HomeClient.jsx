@@ -6,18 +6,18 @@ import { cardName, getJSON, pick } from "../lib/api";
 
 const T = {
   ru: {
-    links: [["#decks", "Колоды"], ["#systems", "Системы"], ["#daily", "Карта дня"], ["#spreads", "Расклады"], ["#history", "История"], ["#articles", "Статьи"], ["#glossary", "Глоссарий"], ["/quiz", "Квиз"]],
+    links: [["#decks", "Колоды"], ["#systems", "Системы"], ["#daily", "Карта дня"], ["/spreads", "Расклады"], ["#history", "История"], ["/articles", "Статьи"], ["#glossary", "Глоссарий"], ["/quiz", "Квиз"]],
     eyebrow: "Интерактивная 3D-энциклопедия · backend — 100% Python",
     titleA: "Карты судьбы —", titleB: "живая энциклопедия",
-    sub: "418 карт, 13 систем: сначала выбери колоду — потом листай её в 3D, читай разборы и проверяй себя в квизе.",
+    sub: "424 карты, 13 систем: сначала выбери колоду — потом листай её в 3D, читай разборы и проверяй себя в квизе.",
     cta1: "Выбрать колоду", cta2: "Мне повезёт",
     stats: ["карт в базе", "систем", "языка"],
     decks: "Колоды", decksSub: "Сначала колода — потом всё остальное. Клик ведёт на 3D-витрину колоды.",
     systems: "Системы карт", systemsSub: "Живой склад базы — GET /stats.",
     daily: "Карта дня",
-    spreads: "Расклады", spreadsSub: "Учебные схемы из Python API.",
+    spreads: "Расклады", spreadsSub: "Отдельные страницы: выбор колоды и случайные карты.",
     timeline: "История систем", timelineSub: "От игральных карт XV века до оракулов.",
-    articles: "Статьи", articlesSub: "Гайды энциклопедии — GET /articles.",
+    articles: "Статьи", articlesSub: "Отдельные страницы: гайды энциклопедии — GET /articles.",
     gloss: "Глоссарий", glossSub: "Термины энциклопедии.",
     quiz: "Проверь себя", quizSub: "Отдельная страница: выбор колоды и счёт.", quizGo: "Открыть квиз →",
     method: "Методика COPE · BASIC Ph", methodSub: "Шесть ресурсных каналов — рамка колоды COPE (О. Аялон, OH Cards Institute).",
@@ -26,20 +26,21 @@ const T = {
     pdfLabel: "Методичка О. Аялон (PDF, OH Institute)",
     foot: "RWS 1909 и Уэйт 1911 — общественное достояние. Современные трактовки — только пересказ своими словами.",
     cardsIn: "карт", decksIn: "колод", open: "Открыть →",
+    studyBadge: "навчальна модель",
   },
   uk: {
-    links: [["#decks", "Колоди"], ["#systems", "Системи"], ["#daily", "Карта дня"], ["#spreads", "Розклади"], ["#history", "Історія"], ["#articles", "Статті"], ["#glossary", "Глосарій"], ["/quiz", "Квіз"]],
+    links: [["#decks", "Колоди"], ["#systems", "Системи"], ["#daily", "Карта дня"], ["/spreads", "Розклади"], ["#history", "Історія"], ["/articles", "Статті"], ["#glossary", "Глосарій"], ["/quiz", "Квіз"]],
     eyebrow: "Інтерактивна 3D-енциклопедія · backend — 100% Python",
     titleA: "Карти долі —", titleB: "жива енциклопедія",
-    sub: "418 карт, 13 систем: спочатку обери колоду — потім гортай її в 3D, читай розбори й перевіряй себе у квізі.",
+    sub: "424 карти, 13 систем: спочатку обери колоду — потім гортай її в 3D, читай розбори й перевіряй себе у квізі.",
     cta1: "Обрати колоду", cta2: "Мені пощастить",
     stats: ["карт у базі", "систем", "мови"],
     decks: "Колоди", decksSub: "Спочатку колода — потім усе інше. Клік веде на 3D-вітрину колоди.",
     systems: "Системи карт", systemsSub: "Живий склад бази — GET /stats.",
     daily: "Карта дня",
-    spreads: "Розклади", spreadsSub: "Навчальні схеми з Python API.",
+    spreads: "Розклади", spreadsSub: "Окремі сторінки: вибір колоди й випадкові карти.",
     timeline: "Історія систем", timelineSub: "Від гральних карт XV століття.",
-    articles: "Статті", articlesSub: "Гайди енциклопедії — GET /articles.",
+    articles: "Статті", articlesSub: "Окремі сторінки: гайди енциклопедії — GET /articles.",
     gloss: "Глосарій", glossSub: "Терміни енциклопедії.",
     quiz: "Перевір себе", quizSub: "Окрема сторінка: вибір колоди й рахунок.", quizGo: "Відкрити квіз →",
     method: "Методика COPE · BASIC Ph", methodSub: "Шість ресурсних каналів — рамка колоди COPE (О. Аялон, OH Cards Institute).",
@@ -48,20 +49,21 @@ const T = {
     pdfLabel: "Методичка О. Аялон (PDF, OH Institute)",
     foot: "RWS 1909 і Уейт 1911 — суспільне надбання.",
     cardsIn: "карт", decksIn: "колод", open: "Відкрити →",
+    studyBadge: "навчальна модель",
   },
   en: {
-    links: [["#decks", "Decks"], ["#systems", "Systems"], ["#daily", "Daily card"], ["#spreads", "Spreads"], ["#history", "History"], ["#articles", "Articles"], ["#glossary", "Glossary"], ["/quiz", "Quiz"]],
+    links: [["#decks", "Decks"], ["#systems", "Systems"], ["#daily", "Daily card"], ["/spreads", "Spreads"], ["#history", "History"], ["/articles", "Articles"], ["#glossary", "Glossary"], ["/quiz", "Quiz"]],
     eyebrow: "Interactive 3D encyclopedia · 100% Python backend",
     titleA: "Fortune cards —", titleB: "a living encyclopedia",
-    sub: "418 cards, 13 systems: first pick a deck — then browse it in 3D, read breakdowns, test yourself.",
+    sub: "424 cards, 13 systems: first pick a deck — then browse it in 3D, read breakdowns, test yourself.",
     cta1: "Pick a deck", cta2: "Feeling lucky",
     stats: ["cards in DB", "systems", "languages"],
     decks: "Decks", decksSub: "Deck first — everything else after. Click opens the deck's 3D shelf.",
     systems: "Card systems", systemsSub: "Live DB contents — GET /stats.",
     daily: "Card of the day",
-    spreads: "Spreads", spreadsSub: "Study layouts from the Python API.",
+    spreads: "Spreads", spreadsSub: "Separate pages: deck picker and random cards.",
     timeline: "Systems timeline", timelineSub: "From 15th-century playing cards.",
-    articles: "Articles", articlesSub: "Encyclopedia guides — GET /articles.",
+    articles: "Articles", articlesSub: "Separate pages: encyclopedia guides — GET /articles.",
     gloss: "Glossary", glossSub: "Encyclopedia terms.",
     quiz: "Test yourself", quizSub: "Separate page: deck picker and score.", quizGo: "Open quiz →",
     method: "COPE method · BASIC Ph", methodSub: "Six resource channels — the frame of the COPE deck (O. Ayalon, OH Cards Institute).",
@@ -70,6 +72,7 @@ const T = {
     pdfLabel: "O. Ayalon manual (PDF, OH Institute)",
     foot: "RWS 1909 & Waite 1911 — public domain.",
     cardsIn: "cards", decksIn: "decks", open: "Open →",
+    studyBadge: "study model",
   },
 };
 
@@ -81,12 +84,10 @@ export default function HomeClient({ initialCounts, initialDecks, initialSystems
   const [daily, setDaily] = useState(null);
   const [timeline, setTimeline] = useState([]);
   const [glossary, setGlossary] = useState([]);
-  const [spreads, setSpreads] = useState([]);
-  const [articles, setArticles] = useState([]);
   const [systems, setSystems] = useState(initialSystems || []);
   const [cope, setCope] = useState([]);
   const [copeDeckId, setCopeDeckId] = useState(null);
-  const [counts, setCounts] = useState(initialCounts || { cards: 418, systems: 13 });
+  const [counts, setCounts] = useState(initialCounts || { cards: 424, systems: 13 });
   const [theme, setTheme] = useState("dark");
   const [progress, setProgress] = useState(0);
   const t = T[lang];
@@ -121,8 +122,6 @@ export default function HomeClient({ initialCounts, initialDecks, initialSystems
     getJSON("/cards/daily").then(setDaily).catch(() => {});
     getJSON("/timeline").then(setTimeline).catch(() => {});
     getJSON("/glossary").then(setGlossary).catch(() => {});
-    getJSON("/spreads").then((d) => Array.isArray(d) && setSpreads(d)).catch(() => {});
-    getJSON("/articles").then((d) => Array.isArray(d) && setArticles(d)).catch(() => {});
     getJSON("/decks").then((ds) => {
       if (!Array.isArray(ds)) return;
       const found = ds.find((d) => (d.name || "").includes("COPE"));
@@ -204,6 +203,12 @@ export default function HomeClient({ initialCounts, initialDecks, initialSystems
             <div className="sys-grid">
               {decks.map((d) => (
                 <a key={d.id} className="sys-card" href={`/decks/${d.id}`} style={{ textDecoration: "none", color: "inherit" }}>
+                  <span className="badge badge-study">{t.studyBadge}</span>
+                  {d.cover && (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={d.cover} alt="" onError={(e) => (e.currentTarget.style.display = "none")}
+                      style={{ width: "100%", borderRadius: 10, marginBottom: 10 }} />
+                  )}
                   <div className="cat">{d.system}</div>
                   <b>{d.name}</b>
                   <div className="n">{d.cards}</div>
@@ -220,7 +225,7 @@ export default function HomeClient({ initialCounts, initialDecks, initialSystems
               <div className="daily">
                 <div className="meta" style={{ color: "var(--gold-soft)", letterSpacing: ".2em", fontSize: 12 }}>🃏 {t.daily.toUpperCase()}</div>
                 <h2 className="big">{cardName(daily, lang)}</h2>
-                <p style={{ color: "#d8dcee" }}>{daily.keywords_upright}</p>
+                <p style={{ color: "var(--text2)" }}>{daily.keywords_upright}</p>
                 <button className="btn btn-ghost" onClick={() => router.push(`/decks/${daily.deck_id}?card=${daily.id}`)}>
                   {t.open}
                 </button>
@@ -256,14 +261,8 @@ export default function HomeClient({ initialCounts, initialDecks, initialSystems
               <span className="num">03</span>
               <div><h2>{t.spreads}</h2><p>{t.spreadsSub}</p></div>
             </div>
-            <div className="spread-grid">
-              {spreads.map((s) => (
-                <div key={s.id} className="spread-card">
-                  <b>{s.translations?.[lang]?.name || s.name}</b>
-                  <p>{s.translations?.[lang]?.description || s.description}</p>
-                  <small style={{ color: "var(--muted)" }}>×{s.positions_count}</small>
-                </div>
-              ))}
+            <div className="chips">
+              <a className="chip" href="/spreads">🃏 — {t.spreads} →</a>
             </div>
           </section>
         </Reveal>
@@ -293,18 +292,7 @@ export default function HomeClient({ initialCounts, initialDecks, initialSystems
               <span className="num">05</span>
               <div><h2>{t.articles}</h2><p>{t.articlesSub}</p></div>
             </div>
-            {articles.map((a) => (
-              <details key={a.id} className="article-card">
-                <summary>
-                  <span>{a.translations?.[lang]?.title || a.title}</span>
-                  <span className="sys">{a.system}</span>
-                </summary>
-                <div className="article-body">
-                  {a.body}
-                  {a.source_reference && <div className="src">📜 {a.source_reference}</div>}
-                </div>
-              </details>
-            ))}
+            <a className="btn btn-ghost" href="/articles" style={{ display: "inline-block" }}>✦ — {t.articles} →</a>
           </section>
         </Reveal>
 

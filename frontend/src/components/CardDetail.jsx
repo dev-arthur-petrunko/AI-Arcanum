@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import { pick } from "../lib/api";
 
 const SRC = {
@@ -6,11 +7,22 @@ const SRC = {
   uk: "див. backend/Database/sources_log.md",
   en: "see backend/Database/sources_log.md",
 };
+const MORE = { ru: "Читать далее ↓", uk: "Читати далі ↓", en: "Read more ↓" };
+const LESS = { ru: "Свернуть ↑", uk: "Згорнути ↑", en: "Collapse ↑" };
+const CUT = 600;
 
-/** Розбір однієї карти: назва, ключові слова, значення, звʼязки. */
+/** Розбір однієї карти: ВСІ текстові поля через pick() (поважає lang),
+    довгі тексти — зі згортанням. */
 export default function CardDetail({ card, lang, emptyText }) {
+  const [open, setOpen] = useState(false);
   if (!card) return <p style={{ color: "var(--muted)" }}>{emptyText}</p>;
-  const c = pick(card, lang, "name", "description", "theme");
+  const c = pick(
+    card, lang, "name", "description", "theme",
+    "keywords_upright", "keywords_reversed", "meaning_general",
+    "meaning_love", "meaning_career", "meaning_health", "symbolism"
+  );
+  const long = (c.meaning_general || "").length > CUT;
+  const shown = !long || open ? c.meaning_general : `${c.meaning_general.slice(0, CUT)}…`;
   return (
     <div className="drawer" id="card-detail">
       {card.image_path && card.id > 0 ? (
@@ -21,12 +33,18 @@ export default function CardDetail({ card, lang, emptyText }) {
         <div className="meta">{card.number} · {card.arcana_type || card.category || "—"}</div>
         <h3>{c.name}</h3>
         {c.theme && <p style={{ color: "var(--gold-soft)" }}>◈ {c.theme}</p>}
-        <p>{card.keywords_upright}</p>
-        <p>{card.meaning_general}</p>
-        {card.symbolism && <p style={{ color: "var(--muted)" }}>🔣 {card.symbolism.split("\n")[0]}</p>}
+        <p><b>{c.keywords_upright}</b></p>
+        {c.keywords_reversed && <p style={{ color: "var(--muted)" }}>⇄ {c.keywords_reversed}</p>}
+        <p style={{ whiteSpace: "pre-wrap" }}>{shown}</p>
+        {long && (
+          <button className="btn btn-ghost" style={{ padding: "8px 18px", fontSize: 13 }}
+            onClick={() => { setOpen(!open); }}>
+            {open ? LESS[lang] : MORE[lang]}
+          </button>
+        )}
         <dl className="kv">
-          {!!card.meaning_love && (<><dt>♥</dt><dd>{card.meaning_love}</dd></>)}
-          {!!card.meaning_career && (<><dt>⚒</dt><dd>{card.meaning_career}</dd></>)}
+          {!!c.meaning_love && (<><dt>♥</dt><dd>{c.meaning_love}</dd></>)}
+          {!!c.meaning_career && (<><dt>⚒</dt><dd>{c.meaning_career}</dd></>)}
           {[card.element, card.planet, card.zodiac_sign].some(Boolean) && (
             <><dt>✳</dt><dd>{[card.element, card.planet, card.zodiac_sign].filter(Boolean).join(" · ")}</dd></>
           )}

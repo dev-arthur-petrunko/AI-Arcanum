@@ -1,5 +1,5 @@
 """Моделі SQLAlchemy. Базові поля + `translations` JSON {uk: {...}, en: {...}, ru: {...}} для тримовного UI."""
-from sqlalchemy import JSON, DateTime, ForeignKey, Integer, String, Text, func
+from sqlalchemy import JSON, Boolean, DateTime, ForeignKey, Integer, String, Text, func
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from ..core.database import Base
 
@@ -32,6 +32,12 @@ class Deck(Base):
     cover_image: Mapped[str | None] = mapped_column(String(512), nullable=True)
     description: Mapped[str | None] = mapped_column(Text, nullable=True)
     translations: Mapped[dict | None] = mapped_column(JSON, nullable=True)
+    # Довідковий профіль реального видання (без повного набору карт в БД)
+    is_reference_only: Mapped[bool] = mapped_column(default=False)
+    source_url: Mapped[str | None] = mapped_column(String(512), nullable=True)
+    buy_url: Mapped[str | None] = mapped_column(String(512), nullable=True)
+    composition: Mapped[str | None] = mapped_column(Text, nullable=True)
+    gallery: Mapped[list | None] = mapped_column(JSON, nullable=True)  # превʼю видання (не карти БД)
 
     system: Mapped[System | None] = relationship(back_populates="decks")
     cards: Mapped[list["Card"]] = relationship(back_populates="deck", cascade="all, delete-orphan")

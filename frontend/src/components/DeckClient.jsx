@@ -6,9 +6,9 @@ import CardDetail from "./CardDetail";
 import { cardName, getJSON, pick } from "../lib/api";
 
 const T = {
-  ru: { back: "← Все колоды", searchPh: "Поиск по колоде…", found: "Найдено", pick: "Кликни карту в 3D или в списке ↓", lucky: "🎲 Случайная карта колоды" },
-  uk: { back: "← Усі колоди", searchPh: "Пошук по колоді…", found: "Знайдено", pick: "Клікни карту в 3D або в списку ↓", lucky: "🎲 Випадкова карта колоди" },
-  en: { back: "← All decks", searchPh: "Search this deck…", found: "Found", pick: "Click a card in 3D or in the list ↓", lucky: "🎲 Random card of this deck" },
+  ru: { back: "← Все колоды", searchPh: "Поиск по колоде…", found: "Найдено", pick: "Кликни карту в 3D или в списке ↓", lucky: "🎲 Случайная карта колоды", studyBadge: "навчальна модель" },
+  uk: { back: "← Усі колоди", searchPh: "Пошук по колоді…", found: "Знайдено", pick: "Клікни карту в 3D або в списку ↓", lucky: "🎲 Випадкова карта колоди", studyBadge: "навчальна модель" },
+  en: { back: "← All decks", searchPh: "Search this deck…", found: "Found", pick: "Click a card in 3D or in the list ↓", lucky: "🎲 Random card of this deck", studyBadge: "study model" },
 };
 
 /** Клієнт сторінки колоди: 3D-віяло, пошук усередині колоди, розбір, ?card=підсвітка. */
@@ -57,6 +57,7 @@ export default function DeckClient({ deck, initialCards, lang, setLang }) {
   return (
     <>
       <a className="btn btn-ghost" href="/#decks" style={{ display: "inline-block", marginBottom: 18 }}>{t.back}</a>
+      <div><span className="badge badge-study">{t.studyBadge}</span></div>
       <div className="section-head">
         <span className="num">✦</span>
         <div>
@@ -83,6 +84,11 @@ export default function DeckClient({ deck, initialCards, lang, setLang }) {
             setSelected(c);
             setTimeout(() => document.getElementById("card-detail")?.scrollIntoView({ behavior: "smooth", block: "center" }), 100);
           }}>
+            {c.image_path && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={c.image_path} alt="" onError={(e) => (e.currentTarget.style.display = "none")}
+                style={{ width: "100%", borderRadius: 8, marginBottom: 8 }} />
+            )}
             <b>{cardName(c, lang)}</b>
             <span>{c.number} · {c.arcana_type}</span>
           </div>

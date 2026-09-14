@@ -3,6 +3,7 @@
 Запуск з папки backend/:
     python scripts/import_deck.py Database/cards/elder_futhark24.json
     python scripts/import_deck.py Database/cards/moon_oracle8.json
+    python scripts/import_deck.py Database/cards/moon_oracle8.json --upsert  # оновлює існуючі картки (тільки не-None поля)
 """
 import json
 import sys
@@ -45,14 +46,23 @@ def run(path: str) -> int:
             db.add(deck)
             db.flush()
         added = 0
+        updated = 0
+        upsert = "--upsert" in sys.argv
         for item in data.get("cards", []):
-            if db.query(Card).filter_by(deck_id=deck.id, number=item.get("number")).first():
+            number = item.get("number")
+            card = db.query(Card).filter_by(deck_id=deck.id, number=number).first()
+            if card is None:
+                db.add(Card(deck_id=deck.id, **{k: item.get(k) for k in CARD_FIELDS}))
+                added += 1
                 continue
-            db.add(Card(deck_id=deck.id, **{k: item.get(k) for k in CARD_FIELDS}))
-            added += 1
+            if upsert:
+                for k in CARD_FIELDS:
+                    if item.get(k) is not None:
+                        setattr(card, k, item.get(k))
+                updated += 1
         db.commit()
         total = db.query(Card).filter_by(deck_id=deck.id).count()
-        print(f"[{deck.name}] нових: {added}, всього: {total}")
+        print(f"[{deck.name}] нових: {added}, оновлено: {updated}, всього: {total}")
         return added
     finally:
         db.close()

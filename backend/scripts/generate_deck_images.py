@@ -15,7 +15,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageColor, ImageDraw, ImageFont
 
 try:  # Windows-консоль (cp1251) не вміє ʼ— поза ASCII
     import sys as _sys
@@ -66,11 +66,26 @@ def font(path, size):
     return ImageFont.truetype(path, size)
 
 
-def base_card(bg, fg, frame):
-    img = Image.new("RGB", (W, H), bg)
+def base_card(bg, fg, frame, top=None):
+    if top is not None:  # вертикальний градієнт top→bg (через resize — швидко)
+        strip = Image.new("RGB", (1, H))
+        spx = strip.load()
+        c0 = ImageColor.getrgb(top)
+        c1 = ImageColor.getrgb(bg)
+        for y in range(H):
+            k = y / H
+            spx[0, y] = tuple(int(c0[i] + (c1[i] - c0[i]) * k) for i in range(3))
+        img = strip.resize((W, H))
+    else:
+        img = Image.new("RGB", (W, H), bg)
     g = ImageDraw.Draw(img)
     g.rectangle([14, 14, W - 14, H - 14], outline=frame, width=6)
     g.rectangle([30, 30, W - 30, H - 30], outline=frame, width=2)
+    # кутові ромби-орнаменти
+    for (x, y) in ((14, 14), (W - 14, 14), (14, H - 14), (W - 14, H - 14)):
+        g.polygon([(x, y - 12), (x + 12, y), (x, y + 12), (x - 12, y)], fill=frame)
+    cx0 = W / 2
+    g.polygon([(cx0, 40), (cx0 + 10, 52), (cx0, 64), (cx0 - 10, 52)], fill=frame)
     return img, g
 
 
@@ -124,19 +139,20 @@ def has_glyph(fnt, char):
 
 
 def draw_moon(img, g, cx, cy, r, frac, color):
-    """frac: 0=молодик..1=повня. Освітлено праворуч від термінатора."""
+    """frac: 0=молодик..1=повня. Світло праворуч від термінатора; фон не чіпаємо."""
     import math
     g.ellipse([cx - r, cy - r, cx + r, cy + r], outline=color, width=4)
     if frac <= 0:
         return
-    tx = cx + r * math.cos(math.pi * min(max(frac, 0.0), 1.0))
-    moon = Image.new("RGB", img.size, "#0c1130")
-    mg = ImageDraw.Draw(moon)
-    mg.ellipse([cx - r, cy - r, cx + r, cy + r], fill=color)
-    for px in range(int(max(0, cx - r)), int(min(W, cx + r + 1))):
-        if px <= tx:
-            mg.line([px, cy - r, px, cy + r], fill="#0c1130")
-    img.paste(moon, (0, 0))
+    pad = 6
+    box = (int(cx - r - pad), int(cy - r - pad), int(cx + r + pad), int(cy + r + pad))
+    rgb = ImageColor.getrgb(color)
+    layer = Image.new("RGBA", (box[2] - box[0], box[3] - box[1]), (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer)
+    d.ellipse([pad, pad, layer.width - pad, layer.height - pad], fill=rgb + (255,))
+    tx = pad + r + r * math.cos(math.pi * min(max(frac, 0.0), 1.0))
+    d.rectangle([0, 0, int(tx), layer.height], fill=(0, 0, 0, 0))
+    img.paste(layer, box, layer)
 
 
 def maya_number(g, cx, cy, n, color):
@@ -154,6 +170,294 @@ def maya_number(g, cx, cy, n, color):
 def short_name(card):
     tr = card.translations or {}
     return card.name
+
+
+def star_points(cx, cy, r1, r2, n=5, rot=-90):
+    import math
+    pts = []
+    for i in range(2 * n):
+        r = r1 if i % 2 == 0 else r2
+        a = math.radians(rot + i * 180 / n)
+        pts.append((cx + r * math.cos(a), cy + r * math.sin(a)))
+    return pts
+
+
+def lenormand_icon(g, num, cx, cy, col):
+    """Контурні іконки 36 карт Ленорман (золото на синьому)."""
+    s = 90
+    n = str(num)
+    if n == "1":  # Вершник — стріла
+        g.line([cx - s, cy + 40, cx + s - 20, cy + 40], fill=col, width=10)
+        g.polygon([(cx + s - 20, cy + 10), (cx + s + 20, cy + 40), (cx + s - 20, cy + 70)], fill=col)
+        g.line([cx - s, cy + 40, cx - s + 40, cy - 20], fill=col, width=10)
+    elif n == "2":  # Конюшина
+        for dx, dy in ((0, -38), (-36, 22), (36, 22)):
+            g.ellipse([cx + dx - 30, cy + dy - 30, cx + dx + 30, cy + dy + 30], outline=col, width=9)
+        g.line([cx, cy + 40, cx, cy + 95], fill=col, width=9)
+    elif n == "3":  # Корабель
+        g.polygon([(cx - 95, cy + 30), (cx + 95, cy + 30), (cx + 60, cy + 85), (cx - 60, cy + 85)], outline=col, width=9)
+        g.line([cx, cy + 30, cx, cy - 95], fill=col, width=9)
+        g.polygon([(cx, cy - 95), (cx, cy - 10), (cx + 70, cy - 10)], outline=col, width=8)
+        g.polygon([(cx, cy - 80), (cx, cy - 10), (cx - 60, cy - 10)], outline=col, width=8)
+        for wx in (-70, -20, 30, 80):
+            g.line([cx + wx - 22, cy + 110, cx + wx + 22, cy + 110], fill=col, width=6)
+    elif n == "4":  # Дім
+        g.rectangle([cx - 70, cy - 20, cx + 70, cy + 90], outline=col, width=9)
+        g.polygon([(cx - 90, cy - 20), (cx, cy - 95), (cx + 90, cy - 20)], outline=col, width=9)
+        g.rectangle([cx - 20, cy + 25, cx + 20, cy + 90], outline=col, width=7)
+    elif n == "5":  # Дерево
+        g.polygon([(cx, cy - 100), (cx - 65, cy + 10), (cx + 65, cy + 10)], outline=col, width=9)
+        g.polygon([(cx, cy - 45), (cx - 80, cy + 60), (cx + 80, cy + 60)], outline=col, width=9)
+        g.line([cx, cy + 60, cx, cy + 100], fill=col, width=12)
+    elif n == "6":  # Хмари
+        for ex, ey, er in ((cx - 55, cy + 10, 48), (cx + 5, cy - 20, 58), (cx + 65, cy + 15, 42)):
+            g.ellipse([ex - er, ey - er, ex + er, ey + er], outline=col, width=9)
+        g.line([cx - 100, cy + 62, cx + 100, cy + 62], fill=col, width=9)
+    elif n == "7":  # Змія
+        pts = [(cx - 95 + i * 12, cy + 55 * (-1) ** 0 + 0) for i in range(17)]
+        import math as _m
+        pts = [(cx - 95 + i * 12, cy + 45 * _m.sin(i * 0.85)) for i in range(17)]
+        g.line(pts, fill=col, width=11, joint="curve")
+        g.polygon([(cx + 95, cy - 45), (cx + 125, cy - 10), (cx + 95, cy + 5)], fill=col)
+    elif n == "8":  # Труна
+        g.polygon([(cx - 45, cy - 90), (cx + 45, cy - 90), (cx + 75, cy - 20),
+                   (cx + 75, cy + 90), (cx - 75, cy + 90), (cx - 75, cy - 20)], outline=col, width=10)
+    elif n == "9":  # Букет
+        for dx, dy in ((0, -45), (-42, -5), (42, -5), (-22, 40), (22, 40)):
+            g.ellipse([cx + dx - 22, cy + dy - 22, cx + dx + 22, cy + dy + 22], outline=col, width=8)
+        g.line([cx, cy + 55, cx, cy + 100], fill=col, width=9)
+    elif n == "10":  # Коса
+        g.line([cx + 60, cy - 95, cx - 60, cy + 95], fill=col, width=10)
+        g.arc([cx - 110, cy - 90, cx + 60, cy + 80], start=200, end=350, fill=col, width=10)
+    elif n == "11":  # Мітла/різки
+        g.line([cx - 45, cy - 95, cx + 45, cy + 60], fill=col, width=9)
+        g.line([cx + 45, cy - 95, cx - 45, cy + 60], fill=col, width=9)
+        for dx in (-30, 0, 30):
+            g.line([cx + dx - 14, cy + 60, cx + dx - 14, cy + 100], fill=col, width=7)
+    elif n == "12":  # Птахи
+        for dx in (-55, 55):
+            g.arc([cx + dx - 45, cy - 25, cx + dx + 45, cy + 65], start=200, end=340, fill=col, width=10)
+    elif n == "13":  # Дитина — кулька
+        g.ellipse([cx - 45, cy - 85, cx + 45, cy + 5], outline=col, width=9)
+        g.line([cx, cy + 5, cx + 25, cy + 95], fill=col, width=7)
+    elif n == "14":  # Лис — морда
+        g.polygon([(cx, cy + 80), (cx - 70, cy - 10), (cx + 70, cy - 10)], outline=col, width=9)
+        g.polygon([(cx - 70, cy - 10), (cx - 50, cy - 80), (cx - 15, cy - 25)], fill=col)
+        g.polygon([(cx + 70, cy - 10), (cx + 50, cy - 80), (cx + 15, cy - 25)], fill=col)
+    elif n == "15":  # Ведмідь — голова
+        g.ellipse([cx - 60, cy - 50, cx + 60, cy + 80], outline=col, width=10)
+        g.ellipse([cx - 85, cy - 85, cx - 35, cy - 35], outline=col, width=8)
+        g.ellipse([cx + 35, cy - 85, cx + 85, cy - 35], outline=col, width=8)
+        g.ellipse([cx - 25, cy + 15, cx + 25, cy + 55], outline=col, width=7)
+    elif n == "16":  # Зорі
+        g.polygon(star_points(cx, cy - 30, 70, 28), outline=col, width=8)
+        g.polygon(star_points(cx - 70, cy + 55, 30, 12), outline=col, width=6)
+        g.polygon(star_points(cx + 70, cy + 55, 30, 12), outline=col, width=6)
+    elif n == "17":  # Лелека
+        g.ellipse([cx - 60, cy - 30, cx + 60, cy + 30], outline=col, width=9)
+        g.polygon([(cx + 60, cy - 10), (cx + 110, cy - 25), (cx + 60, cy + 5)], fill=col)
+        g.line([cx - 20, cy + 30, cx - 20, cy + 100], fill=col, width=8)
+        g.line([cx + 20, cy + 30, cx + 20, cy + 100], fill=col, width=8)
+    elif n == "18":  # Собака — кістка
+        for ex in (cx - 70, cx + 70):
+            g.ellipse([ex - 28, cy - 45, ex + 28, cy - 5], fill=col)
+            g.ellipse([ex - 28, cy + 5, ex + 28, cy + 45], fill=col)
+        g.rectangle([cx - 70, cy - 18, cx + 70, cy + 18], fill=col)
+    elif n == "19":  # Вежа
+        g.rectangle([cx - 45, cy - 60, cx + 45, cy + 95], outline=col, width=10)
+        for dx in (-30, 0, 30):
+            g.rectangle([cx + dx - 12, cy - 95, cx + dx + 12, cy - 60], outline=col, width=7)
+        g.rectangle([cx - 16, cy + 35, cx + 16, cy + 95], outline=col, width=7)
+    elif n == "20":  # Сад — паркан
+        for dx in (-80, -40, 0, 40, 80):
+            g.line([cx + dx, cy - 60, cx + dx, cy + 80], fill=col, width=9)
+        g.line([cx - 100, cy - 25, cx + 100, cy - 25], fill=col, width=8)
+        g.line([cx - 100, cy + 35, cx + 100, cy + 35], fill=col, width=8)
+    elif n == "21":  # Гора
+        g.polygon([(cx - 100, cy + 90), (cx - 35, cy - 60), (cx + 30, cy + 90)], outline=col, width=10)
+        g.polygon([(cx - 30, cy + 90), (cx + 40, cy - 20), (cx + 105, cy + 90)], outline=col, width=10)
+    elif n == "22":  # Роздоріжжя
+        g.line([cx, cy + 95, cx, cy], fill=col, width=11)
+        g.line([cx, cy, cx - 75, cy - 70], fill=col, width=11)
+        g.line([cx, cy, cx + 75, cy - 70], fill=col, width=11)
+    elif n == "23":  # Щури — крапля/силует
+        g.ellipse([cx - 45, cy - 10, cx + 45, cy + 70], outline=col, width=9)
+        g.arc([cx + 20, cy - 80, cx + 110, cy + 10], start=270, end=90, fill=col, width=8)
+        g.ellipse([cx - 12, cy + 10, cx + 12, cy + 34], fill=col)
+    elif n == "24":  # Серце
+        g.polygon(star_points(cx, cy + 10, 75, 75, n=2, rot=-90), fill=col)
+        g.ellipse([cx - 62, cy - 55, cx - 2, cy + 5], fill=col)
+        g.ellipse([cx + 2, cy - 55, cx + 62, cy + 5], fill=col)
+        g.polygon([(cx - 58, cy - 10), (cx + 58, cy - 10), (cx, cy + 85)], fill=col)
+    elif n == "25":  # Каблучка
+        g.ellipse([cx - 65, cy - 65, cx + 65, cy + 65], outline=col, width=16)
+        g.polygon(star_points(cx, cy - 95, 26, 11), fill=col)
+    elif n == "26":  # Книга
+        g.polygon([(cx - 80, cy - 60), (cx, cy - 40), (cx, cy + 60), (cx - 80, cy + 40)], outline=col, width=9)
+        g.polygon([(cx + 80, cy - 60), (cx, cy - 40), (cx, cy + 60), (cx + 80, cy + 40)], outline=col, width=9)
+    elif n == "27":  # Лист
+        g.rectangle([cx - 80, cy - 55, cx + 80, cy + 65], outline=col, width=9)
+        g.line([cx - 80, cy - 55, cx, cy + 15], fill=col, width=8)
+        g.line([cx + 80, cy - 55, cx, cy + 15], fill=col, width=8)
+    elif n == "28":  # Чоловік ♂
+        g.ellipse([cx - 45, cy - 30, cx + 45, cy + 60], outline=col, width=11)
+        g.line([cx + 32, cy - 17, cx + 85, cy - 70], fill=col, width=11)
+        g.line([cx + 85, cy - 70, cx + 45, cy - 70], fill=col, width=9)
+        g.line([cx + 85, cy - 70, cx + 85, cy - 30], fill=col, width=9)
+    elif n == "29":  # Жінка ♀
+        g.ellipse([cx - 45, cy - 80, cx + 45, cy + 10], outline=col, width=11)
+        g.line([cx, cy + 10, cx, cy + 95], fill=col, width=11)
+        g.line([cx - 35, cy + 60, cx + 35, cy + 60], fill=col, width=9)
+    elif n == "30":  # Лілії
+        for dx, ang in ((0, 0), (-45, -25), (45, 25)):
+            g.ellipse([cx + dx - 20, cy - 80, cx + dx + 20, cy + 20], outline=col, width=8)
+        g.line([cx, cy + 20, cx, cy + 95], fill=col, width=9)
+    elif n == "31":  # Сонце
+        g.ellipse([cx - 45, cy - 45, cx + 45, cy + 45], outline=col, width=11)
+        import math as _m
+        for i in range(8):
+            a = _m.radians(i * 45)
+            g.line([cx + 60 * _m.cos(a), cy + 60 * _m.sin(a),
+                    cx + 90 * _m.cos(a), cy + 90 * _m.sin(a)], fill=col, width=8)
+    elif n == "32":  # Місяць — півмісяць
+        g.arc([cx - 60, cy - 80, cx + 60, cy + 80], start=70, end=290, fill=col, width=13)
+        g.polygon(star_points(cx + 45, cy - 45, 20, 8), fill=col)
+    elif n == "33":  # Ключ
+        g.ellipse([cx - 40, cy - 90, cx + 40, cy - 10], outline=col, width=11)
+        g.line([cx, cy - 10, cx, cy + 90], fill=col, width=11)
+        g.line([cx, cy + 55, cx + 35, cy + 55], fill=col, width=9)
+        g.line([cx, cy + 90, cx + 35, cy + 90], fill=col, width=9)
+    elif n == "34":  # Риби
+        g.ellipse([cx - 70, cy - 30, cx + 10, cy + 30], outline=col, width=9)
+        g.polygon([(cx + 10, cy - 30), (cx + 70, cy), (cx + 10, cy + 30)], outline=col, width=9)
+        g.ellipse([cx - 50, cy - 12, cx - 38, cy + 0], fill=col)
+    elif n == "35":  # Якір
+        g.ellipse([cx - 18, cy - 95, cx + 18, cy - 59], outline=col, width=9)
+        g.line([cx, cy - 59, cx, cy + 60], fill=col, width=11)
+        g.line([cx - 55, cy - 30, cx + 55, cy - 30], fill=col, width=9)
+        g.arc([cx - 70, cy - 10, cx + 70, cy + 110], start=20, end=160, fill=col, width=11)
+    elif n == "36":  # Хрест
+        g.rectangle([cx - 20, cy - 95, cx + 20, cy + 95], fill=col)
+        g.rectangle([cx - 65, cy - 40, cx + 65, cy + 0], fill=col)
+    else:
+        g.text((cx, cy), "✦", font=font(SYM, 120), fill=col, anchor="mm")
+
+
+def shaman_icon(g, num, cx, cy, col):
+    """12 різних тотемів: кожному своя контурна іконка."""
+    n = str(num)
+    if n == "1":  # Вовк — голова
+        g.polygon([(cx, cy + 70), (cx - 60, cy - 20), (cx + 60, cy - 20)], outline=col, width=10)
+        g.polygon([(cx - 60, cy - 20), (cx - 48, cy - 85), (cx - 12, cy - 30)], fill=col)
+        g.polygon([(cx + 60, cy - 20), (cx + 48, cy - 85), (cx + 12, cy - 30)], fill=col)
+        g.line([cx, cy + 70, cx, cy + 30], fill=col, width=8)
+    elif n == "2":  # Ведмідь — голова з вухами
+        g.ellipse([cx - 60, cy - 50, cx + 60, cy + 80], outline=col, width=10)
+        g.ellipse([cx - 85, cy - 85, cx - 35, cy - 35], outline=col, width=8)
+        g.ellipse([cx + 35, cy - 85, cx + 85, cy - 35], outline=col, width=8)
+        g.ellipse([cx - 25, cy + 15, cx + 25, cy + 55], outline=col, width=7)
+    elif n == "3":  # Орел — крила
+        g.line([cx, cy + 80, cx, cy - 40], fill=col, width=11)
+        g.arc([cx - 150, cy - 60, cx - 10, cy + 80], start=270, end=90, fill=col, width=11)
+        g.arc([cx + 10, cy - 60, cx + 150, cy + 80], start=90, end=270, fill=col, width=11)
+    elif n == "4":  # Крук — дзьоб
+        g.ellipse([cx - 45, cy - 45, cx + 45, cy + 45], outline=col, width=10)
+        g.polygon([(cx + 40, cy - 15), (cx + 105, cy + 10), (cx + 40, cy + 30)], fill=col)
+        g.ellipse([cx - 8, cy - 20, cx + 8, cy - 4], fill=col)
+    elif n == "5":  # Сова — очі
+        g.ellipse([cx - 80, cy - 60, cx - 5, cy + 15], outline=col, width=10)
+        g.ellipse([cx + 5, cy - 60, cx + 80, cy + 15], outline=col, width=10)
+        g.ellipse([cx - 48, cy - 28, cx - 28, cy - 8], fill=col)
+        g.ellipse([cx + 28, cy - 28, cx + 48, cy - 8], fill=col)
+        g.polygon([(cx - 12, cy + 25), (cx + 12, cy + 25), (cx, cy + 50)], fill=col)
+    elif n == "6":  # Змія — хвиля
+        import math as _m
+        pts = [(cx - 90 + i * 12, cy + 50 * _m.sin(i * 0.7)) for i in range(16)]
+        g.line(pts, fill=col, width=12, joint="curve")
+        g.polygon([(cx + 90, cy - 40), (cx + 118, cy - 8), (cx + 90, cy + 8)], fill=col)
+    elif n == "7":  # Олень — роги
+        g.line([cx, cy + 90, cx, cy], fill=col, width=11)
+        for sgn in (-1, 1):
+            g.line([cx, cy + 20, cx + sgn * 55, cy - 40], fill=col, width=9)
+            g.line([cx + sgn * 30, cy - 12, cx + sgn * 30, cy - 75], fill=col, width=8)
+            g.line([cx + sgn * 55, cy - 40, cx + sgn * 85, cy - 60], fill=col, width=8)
+    elif n == "8":  # Лисиця — гостра морда
+        g.polygon([(cx, cy + 85), (cx - 45, cy - 30), (cx + 45, cy - 30)], outline=col, width=10)
+        g.polygon([(cx - 45, cy - 30), (cx - 60, cy - 90), (cx - 5, cy - 45)], fill=col)
+        g.polygon([(cx + 45, cy - 30), (cx + 60, cy - 90), (cx + 5, cy - 45)], fill=col)
+    elif n == "9":  # Кінь — голова
+        g.polygon([(cx - 25, cy - 90), (cx + 35, cy - 70), (cx + 55, cy + 20),
+                   (cx + 20, cy + 90), (cx - 35, cy + 60)], outline=col, width=10)
+        for i, dx in enumerate((-45, -60, -72)):
+            g.line([cx - 25 + dx * 0, cy - 60 + i * 30, cx - 25 + dx, cy - 40 + i * 30], fill=col, width=7)
+    elif n == "10":  # Черепаха — купол
+        g.arc([cx - 90, cy - 40, cx + 90, cy + 120], start=180, end=360, fill=col, width=11)
+        g.line([cx - 90, cy + 40, cx + 90, cy + 40], fill=col, width=9)
+        for dx in (-110, -70, 70, 110):
+            g.line([cx + dx, cy + 30, cx + dx + (12 if dx > 0 else -12), cy + 75], fill=col, width=8)
+        g.ellipse([cx + 95, cy + 10, cx + 125, cy + 40], outline=col, width=7)
+    elif n == "11":  # Лосось — риба вгору
+        g.ellipse([cx - 40, cy - 90, cx + 40, cy - 10], outline=col, width=10)
+        g.polygon([(cx - 40, cy - 80), (cx - 40, cy - 20), (cx - 85, cy - 50)], outline=col, width=9)
+        g.line([cx, cy - 10, cx, cy + 90], fill=col, width=8)
+        for i in range(3):
+            g.line([cx - 30, cy + 10 + i * 25, cx + 30, cy + 25 + i * 25], fill=col, width=6)
+    elif n == "12":  # Павук
+        g.ellipse([cx - 35, cy - 20, cx + 35, cy + 50], fill=col)
+        g.ellipse([cx - 20, cy - 65, cx + 20, cy - 25], fill=col)
+        for sgn in (-1, 1):
+            for i, (dy, ln) in enumerate((( -20, 70), (5, 85), (30, 80), (50, 65))):
+                g.line([cx + sgn * 30, cy + dy, cx + sgn * (30 + ln), cy + dy - 25 + i * 12], fill=col, width=7)
+    else:
+        g.text((cx, cy), "✦", font=font(SYM, 120), fill=col, anchor="mm")
+
+
+def ancestor_icon(g, num, cx, cy, col):
+    """12 родинних символів."""
+    n = str(num)
+    if n == "1":  # Мати — серце
+        g.ellipse([cx - 55, cy - 50, cx - 5, cy + 0], fill=col)
+        g.ellipse([cx + 5, cy - 50, cx + 55, cy + 0], fill=col)
+        g.polygon([(cx - 52, cy - 5), (cx + 52, cy - 5), (cx, cy + 75)], fill=col)
+    elif n == "2":  # Батько — колона
+        g.rectangle([cx - 30, cy - 80, cx + 30, cy + 80], outline=col, width=11)
+        g.line([cx - 50, cy - 80, cx + 50, cy - 80], fill=col, width=11)
+        g.line([cx - 50, cy + 80, cx + 50, cy + 80], fill=col, width=11)
+    elif n == "3":  # Бабуся — хустка
+        g.polygon([(cx, cy - 85), (cx - 75, cy + 40), (cx + 75, cy + 40)], outline=col, width=10)
+        g.ellipse([cx - 22, cy - 30, cx + 22, cy + 14], outline=col, width=8)
+    elif n == "4":  # Дідусь — капелюх і борода
+        g.line([cx - 80, cy - 20, cx + 80, cy - 20], fill=col, width=10)
+        g.arc([cx - 45, cy - 75, cx + 45, cy + 15], start=180, end=360, fill=col, width=10)
+        g.polygon([(cx - 40, cy + 10), (cx + 40, cy + 10), (cx, cy + 90)], outline=col, width=8)
+    elif n == "5":  # Дитина — кулька
+        g.ellipse([cx - 45, cy - 85, cx + 45, cy + 5], outline=col, width=10)
+        g.line([cx, cy + 5, cx + 25, cy + 95], fill=col, width=7)
+    elif n == "6":  # Рід — дерево
+        g.line([cx, cy + 20, cx, cy + 95], fill=col, width=12)
+        g.ellipse([cx - 65, cy - 85, cx + 65, cy + 35], outline=col, width=10)
+    elif n == "7":  # Дім
+        g.rectangle([cx - 65, cy - 10, cx + 65, cy + 90], outline=col, width=10)
+        g.polygon([(cx - 85, cy - 10), (cx, cy - 85), (cx + 85, cy - 10)], outline=col, width=10)
+    elif n == "8":  # Спадок — скриня
+        g.rectangle([cx - 80, cy - 10, cx + 80, cy + 80], outline=col, width=10)
+        g.arc([cx - 80, cy - 70, cx + 80, cy + 40], start=180, end=360, fill=col, width=10)
+        g.ellipse([cx - 12, cy + 15, cx + 12, cy + 39], outline=col, width=7)
+    elif n == "9":  # Коріння
+        g.line([cx, cy - 90, cx, cy + 10], fill=col, width=11)
+        for dx, ln in ((-55, 70), (-25, 90), (25, 90), (55, 70)):
+            g.line([cx, cy + 10, cx + dx, cy + 10 + ln], fill=col, width=8)
+    elif n == "10":  # Крила
+        g.arc([cx - 130, cy - 40, cx - 10, cy + 80], start=270, end=90, fill=col, width=11)
+        g.arc([cx + 10, cy - 40, cx + 130, cy + 80], start=90, end=270, fill=col, width=11)
+    elif n == "11":  # Прощення — дві дуги назустріч
+        g.arc([cx - 110, cy - 60, cx - 10, cy + 80], start=270, end=90, fill=col, width=10)
+        g.arc([cx + 10, cy - 60, cx + 110, cy + 80], start=90, end=270, fill=col, width=10)
+    elif n == "12":  # Коло — вінок
+        g.ellipse([cx - 70, cy - 70, cx + 70, cy + 70], outline=col, width=14)
+        g.ellipse([cx - 48, cy - 48, cx + 48, cy + 48], outline=col, width=5)
+    else:
+        g.text((cx, cy), "✦", font=font(SYM, 120), fill=col, anchor="mm")
 
 
 def render(card, deck):
@@ -175,16 +479,25 @@ def render(card, deck):
     dnl = dn.lower()
     if "и-цзин" in dnl or "і-цзин" in dnl:
         lines = parse_hexagram_lines(card.meaning_general or "")
+        # фриз меандра зверху/знизу
+        for y0 in (86, H - 106):
+            x = 60
+            while x < W - 60:
+                g.rectangle([x, y0, x + 22, y0 + 22], outline=frame, width=4)
+                x += 30
         if lines:
-            draw_hexagram(g, W / 2, 150, lines, fg)
-        centered_text(g, 560, f"Гексаграма {num}", f_small, frame)
+            draw_hexagram(g, W / 2, 190, lines, fg)
+        centered_text(g, 580, f"Гексаграма {num}", f_small, frame)
         title_block(660)
     elif "футарк" in dnl or "futhark" in dnl:
         try:
             idx = int(num) - 1
             glyph = FUTHARK[idx] if 0 <= idx < 24 else "ᚠ"
         except ValueError:
-            glyph = "ᚠ"
+            idx, glyph = 0, "ᚠ"
+        # кільце кольору етиру (символи лишаємо як є — прохання користувача)
+        ring = ["#a33327", "#3f7a4e", "#2f5d8a"][idx // 8]
+        g.ellipse([W / 2 - 150, 180, W / 2 + 150, 480], outline=ring, width=10)
         g.text((W / 2, 330), glyph, font=f_rune, fill=fg, anchor="mm")
         title_block(600)
     elif "поем" in dn or "поэм" in dn:
@@ -196,10 +509,29 @@ def render(card, deck):
         g.text((W / 2, 330), glyph, font=f_rune, fill=fg, anchor="mm")
         title_block(600)
     elif "місячн" in dnl or "лунн" in dnl or "moon" in dnl:
+        # нічне небо: градієнт + зорі + срібний місяць
+        import random as _rnd
+        img, g = base_card("#0a1030", "#e8ecf5", "#c0c8e0", top="#02040c")
+        fg = "#e8ecf5"
+        _r = _rnd.Random(int(str(num or "1").split("-")[0]) if str(num or "1").split("-")[0].isdigit() else 7)
+        for _ in range(46):
+            sx, sy = _r.randint(50, W - 50), _r.randint(70, 560)
+            r0 = _r.choice([2, 2, 3])
+            g.ellipse([sx - r0, sy - r0, sx + r0, sy + r0], fill="#cdd6f4")
         frac = {1: 0.0, 2: 0.15, 3: 0.5, 4: 0.75, 5: 1.0, 6: 0.75, 7: 0.5, 8: 0.15}.get(int(num or 1), 0.5)
-        draw_moon(img, g, W / 2, 350, 120, frac, fg)
-        title_block(600)
+        draw_moon(img, g, W / 2, 330, 115, frac, "#e8ecf5")
+        g.text((W / 2, 330), "", font=f_med, fill=fg, anchor="mm")
+        centered_text(g, 600, str(num), font(ARIAL, 40), "#c0c8e0")
+        centered_text(g, 652, name, f_med, fg)
     elif "астролог" in dnl or "astrolog" in dnl:
+        # яскравий градієнт за стихією
+        el = (card.element or "").lower()
+        grad = {"вогонь": ("#3a0f16", "#8a2e1a"), "огонь": ("#3a0f16", "#8a2e1a"),
+                "вода": ("#081426", "#1f6f8a"), "повітря": ("#0c1e33", "#4f9ad5"),
+                "воздух": ("#0c1e33", "#4f9ad5"), "земля": ("#16210e", "#7a8a2f")}
+        top, bot = grad.get(el, ("#10173a", "#232c5e"))
+        img, g = base_card(bot, "#f5f0e0", "#e8c87a", top=top)
+        fg = "#f5f0e0"
         glyph = None
         if "Знак" in (card.arcana_type or ""):
             try:
@@ -225,6 +557,34 @@ def render(card, deck):
             else:
                 g.polygon([(cx - s, cy - s), (cx + s, cy - s), (cx, cy + s)], outline=fg, width=8)
         title_block(600)
+    elif "архетип" in dnl or "archetyp" in dnl:
+        # МАК: світло/тінь — верх пергамент, низ індіго (дух парності Шпеццано, своя графіка)
+        img, g = base_card("#1a1440", "#e8c87a", "#d4a94e")
+        fg = "#e8c87a"
+        g.rectangle([30, 30, W - 30, H // 2 + 40], fill="#f5edd8")
+        g.text((W / 2, 250), "☉", font=font(SYM, 90), fill="#8a6b25", anchor="mm")
+        g.text((W / 2, 430), "☽", font=font(SYM, 90), fill="#e8c87a", anchor="mm")
+        centered_text(g, 600, str(num), font(ARIAL, 40), "#d4a94e")
+        centered_text(g, 652, name, f_med, fg)
+    elif "шаман" in dnl or "shaman" in dnl:
+        # тотем: смуга стихії + своя іконка кожному звіру
+        el = (card.element or "").lower()
+        band = {"вогонь": "#a33327", "огонь": "#a33327", "вода": "#2f5d8a",
+                "повітря": "#4f9ad5", "воздух": "#4f9ad5", "земля": "#7a8a2f"}.get(el, "#d4a94e")
+        g.rectangle([30, 30, W - 30, 130], fill=band)
+        shaman_icon(g, str(card.number or ""), W / 2, 350, fg)
+        title_block(600)
+    elif "роду" in dnl or "предк" in dnl:
+        # родинні символи: кожній ролі свій знак
+        ancestor_icon(g, str(card.number or ""), W / 2, 340, fg)
+        title_block(600)
+    elif "cope" in dnl:
+        # велика літера каналу в колі
+        letter = str(card.category or "?")[:1].upper() or str(num or "?")[:1]
+        g.ellipse([W / 2 - 120, 180, W / 2 + 120, 420], outline=fg, width=8)
+        g.text((W / 2, 300), letter, font=font(ARIAL, 170), fill=fg, anchor="mm")
+        centered_text(g, 520, str(card.category or ""), font(ARIAL, 40), frame)
+        title_block(620)
     elif "нумеролог" in dnl or "numerolog" in dnl:
         g.text((W / 2, 330), str(num), font=font(ARIAL, 220), fill=fg, anchor="mm")
         title_block(600)
@@ -238,17 +598,29 @@ def render(card, deck):
         g.text((W / 2, 380), glyph, font=font(SYM, 220), fill=col, anchor="mm")
         title_block(620)
     elif "ленорман" in dnl or "lenormand" in dnl:
+        # пергамент + контурна іконка + гральна відповідність
+        img, g = base_card("#efe3cb", "#3a2c14", "#8a6b25")
+        fg, frame = "#3a2c14", "#8a6b25"
         inset = LENORMAND_INSET.get(str(num), "")
-        g.text((W / 2, 300), str(num), font=font(ARIAL, 150), fill=fg, anchor="mm")
+        lenormand_icon(g, str(num), W / 2, 330, "#7a5a1e")
         if inset:
-            g.text((W / 2, 470), inset, font=font(ARIAL, 72), fill=frame, anchor="mm")
-        title_block(600)
+            g.text((W / 2, 500), inset, font=font(ARIAL, 60), fill="#7a5a1e", anchor="mm")
+        centered_text(g, 600, str(num), font(ARIAL, 40), frame)
+        centered_text(g, 652, name, f_med, fg)
     elif "цолькин" in dnl or "tzolkin" in dnl:
         if str(num or "").startswith("S"):
             idx = int(str(num[1:])) - 1
             col = SEAL_COLORS[idx % 4]
-            g.ellipse([W / 2 - 110, 220, W / 2 + 110, 440], fill=col, outline=frame, width=5)
-            g.text((W / 2, 330), str(num), font=font(ARIAL, 64), fill="#10173a" if idx % 4 == 1 else fg, anchor="mm")
+            # справжній гліф дня в білому картуші + кільце кольору печатки
+            gl = DB_IMG / "13" / f"seal_{idx + 1:02d}.png"
+            g.ellipse([W / 2 - 135, 175, W / 2 + 135, 445], outline=col, width=8)
+            if gl.exists():
+                glyph = Image.open(gl).convert("RGB").resize((220, 220))
+                img.paste(glyph, (W // 2 - 110, 225))
+                g.rectangle([W / 2 - 110, 225, W / 2 + 110, 445], outline=frame, width=4)
+            else:
+                g.ellipse([W / 2 - 110, 220, W / 2 + 110, 440], fill=col, outline=frame, width=5)
+                g.text((W / 2, 330), str(num), font=font(ARIAL, 64), fill="#10173a" if idx % 4 == 1 else fg, anchor="mm")
         else:
             maya_number(g, W / 2, 330, int(str(num or "T0")[1:]), fg)
         title_block(600)

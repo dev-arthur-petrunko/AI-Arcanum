@@ -1,0 +1,367 @@
+[
+ {
+  "file": "File:Bembo-Visconti-tarot-arcanum-fool.jpg",
+  "slot": "0",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-arcanum-01-magician.jpg",
+  "slot": "I",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-arcanum-02-high priestess.jpg",
+  "slot": "II",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-arcanum-03-empress.jpg",
+  "slot": "III",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-arcanum-04-emperor.jpg",
+  "slot": "IV",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-arcanum-05-hierophant.jpg",
+  "slot": "V",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-arcanum-06-lovers.jpg",
+  "slot": "VI",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-arcanum-07-chariot.jpg",
+  "slot": "VII",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-arcanum-08-justice.jpg",
+  "slot": "VIII",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-arcanum-09-hermit.jpg",
+  "slot": "IX",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-arcanum-10-wheel of fortune.jpg",
+  "slot": "X",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-arcanum-11-strength.jpg",
+  "slot": "XI",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-arcanum-12-hanged man.jpg",
+  "slot": "XII",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-arcanum-13.jpg",
+  "slot": "XIII",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-arcanum-14-temperance.jpg",
+  "slot": "XIV",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-arcanum-17-star.jpg",
+  "slot": "XVII",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-arcanum-18-moon.jpg",
+  "slot": "XVIII",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-arcanum-19-sun.jpg",
+  "slot": "XIX",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-arcanum-20-judgement.jpg",
+  "slot": "XX",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-arcanum-21-world.jpg",
+  "slot": "XXI",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-coins-01-ace.jpg",
+  "slot": "pentacles-01",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-coins-02-deuce.jpg",
+  "slot": "pentacles-02",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-coins-03.jpg",
+  "slot": "pentacles-03",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-coins-04.jpg",
+  "slot": "pentacles-04",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-coins-05.jpg",
+  "slot": "pentacles-05",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-coins-06.jpg",
+  "slot": "pentacles-06",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-coins-07.jpg",
+  "slot": "pentacles-07",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-coins-08.jpg",
+  "slot": "pentacles-08",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-coins-09.jpg",
+  "slot": "pentacles-09",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-coins-10.jpg",
+  "slot": "pentacles-10",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-coins-11-knave.jpg",
+  "slot": "pentacles-11",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-coins-13-queen.jpg",
+  "slot": "pentacles-13",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-coins-14-king.jpg",
+  "slot": "pentacles-14",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-cups-01-ace.jpg",
+  "slot": "cups-01",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-cups-02-deuce.jpg",
+  "slot": "cups-02",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-cups-03.jpg",
+  "slot": "cups-03",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-cups-04.jpg",
+  "slot": "cups-04",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-cups-05.jpg",
+  "slot": "cups-05",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-cups-06.jpg",
+  "slot": "cups-06",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-cups-07.jpg",
+  "slot": "cups-07",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-cups-08.jpg",
+  "slot": "cups-08",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-cups-09.jpg",
+  "slot": "cups-09",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-cups-10.jpg",
+  "slot": "cups-10",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-cups-11-knave.jpg",
+  "slot": "cups-11",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-cups-12-knight.jpg",
+  "slot": "cups-12",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-cups-13-queen.jpg",
+  "slot": "cups-13",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-staves-01-ace.jpg",
+  "slot": "wands-01",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-staves-02-deuce.jpg",
+  "slot": "wands-02",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-staves-03.jpg",
+  "slot": "wands-03",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-staves-04.jpg",
+  "slot": "wands-04",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-staves-05.jpg",
+  "slot": "wands-05",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-staves-06.jpg",
+  "slot": "wands-06",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-staves-07.jpg",
+  "slot": "wands-07",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-staves-08.jpg",
+  "slot": "wands-08",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-staves-09.jpg",
+  "slot": "wands-09",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-staves-10.jpg",
+  "slot": "wands-10",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-staves-11-knave.jpg",
+  "slot": "wands-11",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-staves-12-knight.jpg",
+  "slot": "wands-12",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-staves-13-queen.jpg",
+  "slot": "wands-13",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-staves-14-king.jpg",
+  "slot": "wands-14",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-swords-01-ace.jpg",
+  "slot": "swords-01",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-swords-02-deuce.jpg",
+  "slot": "swords-02",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-swords-04.jpg",
+  "slot": "swords-04",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-swords-05.jpg",
+  "slot": "swords-05",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-swords-06.jpg",
+  "slot": "swords-06",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-swords-07.jpg",
+  "slot": "swords-07",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-swords-08.jpg",
+  "slot": "swords-08",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-swords-09.jpg",
+  "slot": "swords-09",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-swords-10.jpg",
+  "slot": "swords-10",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-swords-11-knave.jpg",
+  "slot": "swords-11",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-swords-12-knight.jpg",
+  "slot": "swords-12",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-swords-13-queen.jpg",
+  "slot": "swords-13",
+  "ok": true
+ },
+ {
+  "file": "File:Bembo-Visconti-tarot-swords-14-king.jpg",
+  "slot": "swords-14",
+  "ok": true
+ }
+]

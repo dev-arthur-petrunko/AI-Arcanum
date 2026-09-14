@@ -1,0 +1,392 @@
+[
+ {
+  "file": "File:TT Tarot.png",
+  "slot": "0",
+  "ok": true
+ },
+ {
+  "file": "File:T1 Tarot.png",
+  "slot": "I",
+  "ok": true
+ },
+ {
+  "file": "File:T2 Tarot.png",
+  "slot": "II",
+  "ok": true
+ },
+ {
+  "file": "File:T3 Tarot.png",
+  "slot": "III",
+  "ok": true
+ },
+ {
+  "file": "File:T4 Tarot.png",
+  "slot": "IV",
+  "ok": true
+ },
+ {
+  "file": "File:T5 Tarot.png",
+  "slot": "V",
+  "ok": true
+ },
+ {
+  "file": "File:T6 Tarot.png",
+  "slot": "VI",
+  "ok": true
+ },
+ {
+  "file": "File:T7 Tarot.png",
+  "slot": "VII",
+  "ok": true
+ },
+ {
+  "file": "File:T8 Tarot.png",
+  "slot": "VIII",
+  "ok": true
+ },
+ {
+  "file": "File:T9 Tarot.png",
+  "slot": "IX",
+  "ok": true
+ },
+ {
+  "file": "File:T10 Tarot.png",
+  "slot": "X",
+  "ok": true
+ },
+ {
+  "file": "File:T11 Tarot.png",
+  "slot": "XI",
+  "ok": true
+ },
+ {
+  "file": "File:T12 Tarot.png",
+  "slot": "XII",
+  "ok": true
+ },
+ {
+  "file": "File:T13 Tarot.png",
+  "slot": "XIII",
+  "ok": true
+ },
+ {
+  "file": "File:T14 Tarot.png",
+  "slot": "XIV",
+  "ok": true
+ },
+ {
+  "file": "File:T15 Tarot.png",
+  "slot": "XV",
+  "ok": true
+ },
+ {
+  "file": "File:T16 Tarot.png",
+  "slot": "XVI",
+  "ok": true
+ },
+ {
+  "file": "File:T17 Tarot.png",
+  "slot": "XVII",
+  "ok": true
+ },
+ {
+  "file": "File:T18 Tarot.png",
+  "slot": "XVIII",
+  "ok": true
+ },
+ {
+  "file": "File:T19 Tarot.png",
+  "slot": "XIX",
+  "ok": true
+ },
+ {
+  "file": "File:T20 Tarot.png",
+  "slot": "XX",
+  "ok": true
+ },
+ {
+  "file": "File:T21 Tarot.png",
+  "slot": "XXI",
+  "ok": true
+ },
+ {
+  "file": "File:1B Tarot.png",
+  "slot": "wands-01",
+  "ok": true
+ },
+ {
+  "file": "File:2B Tarot.png",
+  "slot": "wands-02",
+  "ok": true
+ },
+ {
+  "file": "File:3B Tarot.png",
+  "slot": "wands-03",
+  "ok": true
+ },
+ {
+  "file": "File:4B Tarot.png",
+  "slot": "wands-04",
+  "ok": true
+ },
+ {
+  "file": "File:5B Tarot.png",
+  "slot": "wands-05",
+  "ok": true
+ },
+ {
+  "file": "File:6B Tarot.png",
+  "slot": "wands-06",
+  "ok": true
+ },
+ {
+  "file": "File:7B Tarot.png",
+  "slot": "wands-07",
+  "ok": true
+ },
+ {
+  "file": "File:8B Tarot.png",
+  "slot": "wands-08",
+  "ok": true
+ },
+ {
+  "file": "File:9B Tarot.png",
+  "slot": "wands-09",
+  "ok": true
+ },
+ {
+  "file": "File:10B Tarot.png",
+  "slot": "wands-10",
+  "ok": true
+ },
+ {
+  "file": "File:1C Tarot.png",
+  "slot": "cups-01",
+  "ok": true
+ },
+ {
+  "file": "File:2C Tarot.png",
+  "slot": "cups-02",
+  "ok": true
+ },
+ {
+  "file": "File:3C Tarot.png",
+  "slot": "cups-03",
+  "ok": true
+ },
+ {
+  "file": "File:4C Tarot.png",
+  "slot": "cups-04",
+  "ok": true
+ },
+ {
+  "file": "File:5C Tarot.png",
+  "slot": "cups-05",
+  "ok": true
+ },
+ {
+  "file": "File:6C Tarot.png",
+  "slot": "cups-06",
+  "ok": true
+ },
+ {
+  "file": "File:7C Tarot.png",
+  "slot": "cups-07",
+  "ok": true
+ },
+ {
+  "file": "File:8C Tarot.png",
+  "slot": "cups-08",
+  "ok": true
+ },
+ {
+  "file": "File:9C Tarot.png",
+  "slot": "cups-09",
+  "ok": true
+ },
+ {
+  "file": "File:10C Tarot.png",
+  "slot": "cups-10",
+  "ok": true
+ },
+ {
+  "file": "File:1P Tarot.png",
+  "slot": "pentacles-01",
+  "ok": true
+ },
+ {
+  "file": "File:2P Tarot.png",
+  "slot": "pentacles-02",
+  "ok": true
+ },
+ {
+  "file": "File:3P Tarot.png",
+  "slot": "pentacles-03",
+  "ok": true
+ },
+ {
+  "file": "File:4P Tarot.png",
+  "slot": "pentacles-04",
+  "ok": true
+ },
+ {
+  "file": "File:5P Tarot.png",
+  "slot": "pentacles-05",
+  "ok": true
+ },
+ {
+  "file": "File:6P Tarot.png",
+  "slot": "pentacles-06",
+  "ok": true
+ },
+ {
+  "file": "File:7P Tarot.png",
+  "slot": "pentacles-07",
+  "ok": true
+ },
+ {
+  "file": "File:8P Tarot.png",
+  "slot": "pentacles-08",
+  "ok": true
+ },
+ {
+  "file": "File:9P Tarot.png",
+  "slot": "pentacles-09",
+  "ok": true
+ },
+ {
+  "file": "File:10P Tarot.png",
+  "slot": "pentacles-10",
+  "ok": true
+ },
+ {
+  "file": "File:1S Tarot.png",
+  "slot": "swords-01",
+  "ok": true
+ },
+ {
+  "file": "File:2S Tarot.png",
+  "slot": "swords-02",
+  "ok": true
+ },
+ {
+  "file": "File:3S Tarot.png",
+  "slot": "swords-03",
+  "ok": true
+ },
+ {
+  "file": "File:4S Tarot.png",
+  "slot": "swords-04",
+  "ok": true
+ },
+ {
+  "file": "File:5S Tarot.png",
+  "slot": "swords-05",
+  "ok": true
+ },
+ {
+  "file": "File:6S Tarot.png",
+  "slot": "swords-06",
+  "ok": true
+ },
+ {
+  "file": "File:7S Tarot.png",
+  "slot": "swords-07",
+  "ok": true
+ },
+ {
+  "file": "File:8S Tarot.png",
+  "slot": "swords-08",
+  "ok": true
+ },
+ {
+  "file": "File:9S Tarot.png",
+  "slot": "swords-09",
+  "ok": true
+ },
+ {
+  "file": "File:10S Tarot.png",
+  "slot": "swords-10",
+  "ok": true
+ },
+ {
+  "file": "File:JB Tarot.png",
+  "slot": "wands-11",
+  "ok": true
+ },
+ {
+  "file": "File:JC Tarot.png",
+  "slot": "cups-11",
+  "ok": true
+ },
+ {
+  "file": "File:JP Tarot.png",
+  "slot": "pentacles-11",
+  "ok": true
+ },
+ {
+  "file": "File:JS Tarot.png",
+  "slot": "swords-11",
+  "ok": true
+ },
+ {
+  "file": "File:HB Tarot.png",
+  "slot": "wands-12",
+  "ok": true
+ },
+ {
+  "file": "File:HC Tarot.png",
+  "slot": "cups-12",
+  "ok": true
+ },
+ {
+  "file": "File:HP Tarot.png",
+  "slot": "pentacles-12",
+  "ok": true
+ },
+ {
+  "file": "File:HS Tarot.png",
+  "slot": "swords-12",
+  "ok": true
+ },
+ {
+  "file": "File:QB Tarot.png",
+  "slot": "wands-13",
+  "ok": true
+ },
+ {
+  "file": "File:QC Tarot.png",
+  "slot": "cups-13",
+  "ok": true
+ },
+ {
+  "file": "File:QP Tarot.png",
+  "slot": "pentacles-13",
+  "ok": true
+ },
+ {
+  "file": "File:QS Tarot.png",
+  "slot": "swords-13",
+  "ok": true
+ },
+ {
+  "file": "File:KB Tarot.png",
+  "slot": "wands-14",
+  "ok": true
+ },
+ {
+  "file": "File:KC Tarot.png",
+  "slot": "cups-14",
+  "ok": true
+ },
+ {
+  "file": "File:KP Tarot.png",
+  "slot": "pentacles-14",
+  "ok": true
+ },
+ {
+  "file": "File:KS Tarot.png",
+  "slot": "swords-14",
+  "ok": true
+ }
+]

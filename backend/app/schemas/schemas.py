@@ -37,6 +37,11 @@ class DeckOut(LocalizedMixin):
     card_count: int | None = None
     cover_image: str | None = None
     description: str | None = None
+    is_reference_only: bool = False
+    source_url: str | None = None
+    buy_url: str | None = None
+    composition: str | None = None
+    gallery: list | None = None
 
 
 class CardOut(LocalizedMixin):

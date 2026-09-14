@@ -19,6 +19,13 @@ COLUMNS = {
     "category": "VARCHAR(64)",
     "theme": "TEXT",
 }
+DECK_COLUMNS = {
+    "is_reference_only": "BOOLEAN DEFAULT 0",
+    "source_url": "VARCHAR(512)",
+    "buy_url": "VARCHAR(512)",
+    "composition": "TEXT",
+    "gallery": "JSON",
+}
 
 
 def run() -> None:
@@ -27,7 +34,14 @@ def run() -> None:
         for col, ddl in COLUMNS.items():
             try:
                 conn.execute(text(f"ALTER TABLE cards ADD COLUMN {col} {ddl}"))
-                print(f"[schema] +{col}")
+                print(f"[schema] cards +{col}")
+            except Exception as e:
+                if "duplicate column" not in str(e).lower():
+                    raise
+        for col, ddl in DECK_COLUMNS.items():
+            try:
+                conn.execute(text(f"ALTER TABLE decks ADD COLUMN {col} {ddl}"))
+                print(f"[schema] decks +{col}")
             except Exception as e:
                 if "duplicate column" not in str(e).lower():
                     raise

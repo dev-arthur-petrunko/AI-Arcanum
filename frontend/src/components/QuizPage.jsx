@@ -17,7 +17,11 @@ export default function QuizPage() {
   const t = T[lang];
 
   useEffect(() => {
-    getJSON("/decks").then((d) => Array.isArray(d) && setDecks(d)).catch(() => {});
+    // лише колоди з картами (довідкові профілі без набору — не для квізу)
+    getJSON("/stats").then((s) => {
+      const rows = Array.isArray(s?.by_deck) ? s.by_deck.filter((d) => d.cards > 0) : [];
+      setDecks(rows);
+    }).catch(() => {});
   }, []);
 
   return (

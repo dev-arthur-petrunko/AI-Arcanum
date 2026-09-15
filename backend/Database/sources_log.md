@@ -59,3 +59,20 @@
   Зображення 500px: `File:MarseilleTarot.jpg` (Wikimedia Commons, Public Domain).
   Файли `images/24/`, `assets/24/`; метадані `pd_map_24.json`; кэш URL `pd_urls_24.json`.
 - Тексти карт Visconti/Marseille — з RWS (deck 1), gen_pd_cards.py з урахуванням VIII=Justice, XI=Strength.
+
+## Друга хвиля: 14 колод / 13 систем (scripts/import_second_wave.py, 2026-09-15)
+Карти 31–44, згенеровано графіку `generate_deck_images.py` (процедурні малюнки, без копірайту). Джерела значень — відкриті довідники:
+- Цінності (Шварц, 12): simplypsychology.org/values.html (теорія базових цінностей).
+- Ресурс (12): positivepsychology.com/resilience/ (сутність і вправи психологічної стійкості).
+- Сни (20): dreammoods.com/dreamdictionary/ (типові символи сновидінь).
+- Стихії (5): en.wikipedia.org/wiki/Classical_element (класичний набір Вогонь/Вода/Повітря/Земля + ефір/квінтесенція).
+- Архангели (7): en.wikipedia.org/wiki/Archangel.
+- Афірмації · карта дня (20): pubmed.ncbi.nlm.nih.gov/24602760/ (ефективність афірмацій).
+- Бажання (16): developgoodhabits.com/vision-board-ideas/ (теми для дошки бажань).
+- Каббала: сфіроти (10) + 22 шляхи — en.wikipedia.org/wiki/Tree_of_life_(Kabbalah).
+- Багуа · 8 триграм: en.wikipedia.org/wiki/Bagua.
+- Іфа · 16 Оду: en.wikipedia.org/wiki/Ifá.
+- Числа-ангели (12): mindbodygreen.com/articles/angel-number-meaning.
+- Тасеографія · чайні листки (20): tealeafreading.com/.
+- Кристали · оракул самоцвітів (16): energymuse.com/crystal-guide.
+Шрифтова частина: огамові гліфи — `seguihis.ttf` (Segoe UI Historic, U+1680–169F); деванагарі (биджа `लं वं रं यं हं ॐ`) — `arial.ttf`; карти Playing Cards (U+1F0A1+) — `seguisym.ttf`; емодзі-силуети (зодіак, емоції, сни) — `seguiemj.ttf` (монохромно, fill-колір); ієрогліфи триграм — `msyh.ttc`; іврит (шляхи) — `arial.ttf`.

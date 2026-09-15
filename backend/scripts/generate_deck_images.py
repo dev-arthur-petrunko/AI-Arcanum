@@ -57,6 +57,37 @@ LENORMAND_INSET = {  # традиційні відповідності грал�
     "25": "A♣", "26": "10♦", "27": "7♠", "28": "A♥", "29": "A♠", "30": "K♠",
     "31": "A♦", "32": "8♥", "33": "8♦", "34": "K♦", "35": "9♠", "36": "6♣"}
 
+EMOJI = "C:/Windows/Fonts/seguiemj.ttf"   # емоji (у PIL — монохромні силуети)
+CJK = "C:/Windows/Fonts/msyh.ttc"         # китайські ієрогліфи (Багуа)
+
+# Справжні Unicode-гліфи огама (U+1680–169F, Segoe UI Historic) — на заміну
+# процедурним рискам; фолбек лишається в draw_ogham.
+OGHAM_UNICODE = {
+    "B": "\u1681", "L": "\u1682", "F": "\u1683", "S": "\u1684", "N": "\u1685",
+    "H": "\u1686", "D": "\u1687", "T": "\u1688", "C": "\u1689", "Q": "\u168a",
+    "M": "\u168b", "G": "\u168c", "NG": "\u168d", "Z": "\u168e", "R": "\u168f",
+    "A": "\u1690", "O": "\u1691", "U": "\u1692", "E": "\u1693", "I": "\u1694",
+}
+
+# Емоji-силуети для колод (PIL малює їх монохромними, колір задається fill).
+MOON_EMOJI = {1: "🌑", 2: "🌒", 3: "🌓", 4: "🌔", 5: "🌕", 6: "🌖", 7: "🌗", 8: "🌘"}
+ZODIAC_EMOJI = ["🐀", "🐂", "🐅", "🐇", "🐉", "🐍", "🐎", "🐐", "🐒", "🐓", "🐕", "🐖"]
+PLUTCHIK_EMOJI = {"Радість": "😊", "Сум": "😢", "Довіра": "🤝", "Відраза": "🤢",
+                  "Страх": "😨", "Гнів": "😠", "Здивування": "😲", "Очікування": "⏳"}
+DREAM_EMOJI = {"Вода": "💧", "Змія": "🐍", "Будинок": "🏠", "Зуби": "🦷", "Дитя": "👶",
+               "Смерть": "💀", "Політ": "🕊", "Птахи": "🐦", "Вогонь": "🔥", "Квіти": "🌸",
+               "Гроза": "🌩", "Море": "🌊", "Гора": "⛰", "Дорога": "🛤", "Ключ": "🗝",
+               "Дзеркало": "🪞", "Міст": "🌉", "Золото": "💰", "Крила": "🕊", "Дерево": "🌳"}
+
+# Гральні 36: блок еmoji Playing Cards (U+1F0A1...) з SYM.
+_SUIT_BASE = {"S": 0x1F0A0, "H": 0x1F0B0, "D": 0x1F0C0, "C": 0x1F0D0}
+_RANK_OFF = {"A": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8,
+             "9": 9, "10": 10, "J": 11, "Q": 13, "K": 14}
+
+
+def playing_card_unicode(suit_letter, rank):
+    return chr(_SUIT_BASE.get(str(suit_letter).upper(), 0x1F0A0) + _RANK_OFF.get(str(rank), 1))
+
 # Триграми І-Цзин: (нижня, середня, верхня лінія: 0=інь, 1=ян) → (символ, назва укр)
 TRIGRAMS = {
     (1, 1, 1): ("☰", "Небо"),
@@ -487,6 +518,12 @@ SIGN_CODE_INDEX = {"ari": 0, "tau": 1, "gem": 2, "can": 3, "leo": 4, "vir": 5,
 CHAKRA_COLORS = {"red": "#c92a1e", "orange": "#e87a20", "yellow": "#e0b32a",
                  "green": "#2f9e63", "blue": "#2f7fc9", "indigo": "#3b3fa0",
                  "violet": "#7a4fa8", "white": "#e8e6f0"}
+CRYSTAL_COLORS = {"amethyst": "#8a4ba8", "rose": "#e8849c", "citrine": "#e0b32a",
+                  "clear": "#e8e6f0", "tourmaline": "#2f3542", "selenite": "#e8e0ce",
+                  "carnelian": "#d6453d", "jade": "#2f9e63", "lapis": "#2f5d8a",
+                  "labradorite": "#4a6f9e", "fluorite": "#5fbfa9", "tiger": "#c9962e",
+                  "moonstone": "#b8c4d8", "malachite": "#1f8a62", "obsidian": "#23232d",
+                  "aventurine": "#3f9e5f"}
 
 
 def shade(hexc, f):
@@ -607,6 +644,101 @@ def zodiak_coin(g, cx, cy, idx, col, dark):
                fill=col if i == idx else dark, width=8 if i == idx else 5)
     g.rectangle([cx - 78, cy - 78, cx + 78, cy + 78], outline=col, width=5)
     g.rectangle([cx - 62, cy - 62, cx + 62, cy + 62], outline=dark, width=2)
+
+
+# ── Помічники нових систем ─────────────────────────────────────────────
+
+BAGUA_LINES = {  # 乾☰ 兑☱ 離☲ 震☳ 巽☴ 坎☵ 艮☶ 坤☷ (нижня, середня, верхня)
+    "☰": (1, 1, 1), "☱": (1, 1, 0), "☲": (1, 0, 1), "☳": (1, 0, 0),
+    "☴": (0, 1, 1), "☵": (0, 1, 0), "☶": (0, 0, 1), "☷": (0, 0, 0)}
+
+
+def draw_trigram(g, cx, cy, gly, color):
+    """Три риси триграми (суцільна=ян)."""
+    lines = BAGUA_LINES.get(gly, (1, 1, 1))
+    for i, yang in enumerate(lines):
+        y = cy - 80 + i * 62
+        if yang:
+            g.rectangle([cx - 112, y - 13, cx + 112, y + 13], fill=color)
+        else:
+            g.rectangle([cx - 112, y - 13, cx - 18, y + 13], fill=color)
+            g.rectangle([cx + 18, y - 13, cx + 112, y + 13], fill=color)
+
+
+def draw_gem(g, cx, cy, s, color, light):
+    """Гранований самоцвіт (один камінь, кілька граней)."""
+    g.polygon([(cx, cy - s), (cx + s, cy - s * 0.28), (cx + s * 0.62, cy + s),
+               (cx - s * 0.62, cy + s), (cx - s, cy - s * 0.28)],
+              fill=shade(color, 0.72), outline=light, width=4)
+    g.polygon([(cx, cy - s), (cx + s * 0.5, cy - s * 0.42), (cx, cy - s * 0.18),
+               (cx - s * 0.5, cy - s * 0.42)], fill=shade(color, 0.9),
+              outline=light, width=3)
+
+
+def draw_teacup(g, cx, cy, color, dark):
+    """Чашка для тасеографії: пара + пар + блюдце (контурно)."""
+    g.ellipse([cx - 128, cy + 62, cx + 128, cy + 104], outline=dark, width=4)  # блюдце
+    g.arc([cx - 74, cy - 108, cx + 74, cy + 66], 35, 145, fill=dark, width=6)   # ручка (права)
+    g.polygon([(cx - 84, cy - 66), (cx + 76, cy - 66), (cx + 60, cy + 56),
+               (cx - 68, cy + 56)], outline=color, width=5)                      # чашка
+    for i, dy in enumerate((0, -18, -34)):
+        g.arc([cx - 70 - i * 26, cy - 108 + dy, cx + 40 - i * 26, cy - 70 + dy],
+              200, 340, fill=dark, width=5)                                      # пар
+    g.line([cx - 56, cy - 40, cx + 52, cy - 40], fill=color, width=4)            # лінія чаю
+
+
+def draw_radiant(g, cx, cy, r, color, dark):
+    """Сяюча зірка-ореол (архангели)."""
+    import math as _m
+    for i in range(16):
+        a = _m.radians(i * 22.5)
+        g.line([cx + (r - 30) * _m.cos(a), cy + (r - 30) * _m.sin(a),
+                cx + (r + 18) * _m.cos(a), cy + (r + 18) * _m.sin(a)],
+               fill=color, width=6 if i % 2 == 0 else 3)
+    g.ellipse([cx - r, cy - r, cx + r, cy + r], outline=color, width=6)
+    g.ellipse([cx - r - 22, cy - r - 22, cx + r + 22, cy + r + 22], outline=dark, width=2)
+
+
+SEPHIROT_POS = {1: (0.00, 0.06), 2: (0.66, 0.13), 3: (-0.66, 0.13),
+                4: (0.60, 0.42), 5: (-0.60, 0.42), 6: (0.00, 0.50),
+                7: (0.60, 0.79), 8: (-0.60, 0.79), 9: (0.00, 0.85), 10: (0.00, 1.00)}
+SEPHIROT_EDGES = [(1, 2), (1, 3), (2, 3), (2, 6), (3, 6), (2, 4), (3, 5), (4, 5),
+                  (4, 6), (5, 6), (6, 7), (6, 8), (7, 8), (7, 9), (8, 9), (9, 10)]
+
+
+def tree_of_life(g, cx, top, bot, highlight, color, dim, path_hi=None):
+    """Древо Життя: highlight — активна сфіра, path_hi=(a,b) — сяючий шлях."""
+    def pos(n):
+        kx, ky = SEPHIROT_POS[n]
+        return cx + kx * 150, top + ky * (bot - top)
+    for a, b in SEPHIROT_EDGES:
+        hi = path_hi == (a, b) or path_hi == (b, a)
+        g.line([pos(a), pos(b)], fill=color if hi else dim,
+               width=10 if hi else 3)
+    glow = None
+    for n, (kx, ky) in SEPHIROT_POS.items():
+        x, y = pos(n)
+        if n == highlight:
+            g.ellipse([x - 24, y - 24, x + 24, y + 24], fill=color, outline="#ffffff", width=3)
+            g.text((x, y), str(n), font=font(ARIAL, 20), fill="#10173a", anchor="mm")
+        else:
+            g.ellipse([x - 20, y - 20, x + 20, y + 20], outline=dim, width=3)
+            g.text((x, y), str(n), font=font(ARIAL, 16), fill=dim, anchor="mm")
+
+
+def ifa_grid(g, cx, cy, idx, color, dark):
+    """Класична дошка Іфа-опритування: 16 позицій 4×4, активний оду світиться."""
+    for i in range(16):
+        r0, c0 = divmod(i, 4)
+        x = cx - 150 + r0 * 100
+        y = cy - 150 + c0 * 100
+        if i == idx:
+            g.ellipse([x - 30, y - 30, x + 30, y + 30], fill=color, outline="#ffffff", width=4)
+            g.text((x, y), str(idx + 1), font=font(ARIAL, 18), fill="#10173a", anchor="mm")
+        else:
+            g.ellipse([x - 26, y - 26, x + 26, y + 26], outline=dark, width=3)
+    # колоподібне обрамлення знаку опритування
+    g.ellipse([cx - 218, cy - 218, cx + 218, cy + 218], outline=dark, width=3)
 
 
 def render(card, deck):
@@ -752,20 +884,30 @@ def render(card, deck):
         g.text((W / 2, 330), glyph, font=f_rune, fill=fg, anchor="mm")
         title_block(600)
     elif "місячн" in dnl or "лунн" in dnl or "moon" in dnl:
-        # нічне небо: градієнт + зорі + срібний місяць
+        # нічне небо: градієнт + зорі + місячна емоji-силует на світлому диску
         import random as _rnd
         img, g = base_card("#0a1030", "#e8ecf5", "#c0c8e0", top="#02040c")
         fg = "#e8ecf5"
-        _r = _rnd.Random(int(str(num or "1").split("-")[0]) if str(num or "1").split("-")[0].isdigit() else 7)
+        try:
+            ph = int(str(num).split("-")[0])
+        except ValueError:
+            ph = 1
+        _r = _rnd.Random(ph)
         for _ in range(46):
             sx, sy = _r.randint(50, W - 50), _r.randint(70, 560)
             r0 = _r.choice([2, 2, 3])
             g.ellipse([sx - r0, sy - r0, sx + r0, sy + r0], fill="#cdd6f4")
-        frac = {1: 0.0, 2: 0.15, 3: 0.5, 4: 0.75, 5: 1.0, 6: 0.75, 7: 0.5, 8: 0.15}.get(int(num or 1), 0.5)
-        draw_moon(img, g, W / 2, 330, 115, frac, "#e8ecf5")
-        g.text((W / 2, 330), "", font=f_med, fill=fg, anchor="mm")
-        centered_text(g, 600, str(num), font(ARIAL, 40), "#c0c8e0")
-        centered_text(g, 652, name, f_med, fg)
+        em = MOON_EMOJI.get(ph, "🌕")
+        mf = font(EMOJI, 210)
+        if has_glyph(mf, em):
+            g.ellipse([W / 2 - 92, 238, W / 2 + 92, 422], fill="#e6dfc8", outline="#c9c2a8", width=5)
+            g.text((W / 2, 330), em, font=mf, fill="#2a3a60", anchor="mm")
+        else:
+            frac = {1: 0.0, 2: 0.15, 3: 0.5, 4: 0.75, 5: 1.0, 6: 0.75, 7: 0.5, 8: 0.15}.get(ph, 0.5)
+            draw_moon(img, g, W / 2, 330, 115, frac, "#e8ecf5")
+        centered_text(g, 560, str(num), font(ARIAL, 40), "#c0c8e0")
+        centered_text(g, 612, name, f_med, fg)
+        centered_text(g, 668, str(card.category or "Місячна фаза"), font(ARIAL, 24), "#cdd6f4")
     elif "астролог" in dnl or "astrolog" in dnl:
         # яскравий градієнт за стихією
         el = (card.element or "").lower()
@@ -832,13 +974,22 @@ def render(card, deck):
         g.text((W / 2, 330), str(num), font=font(ARIAL, 220), fill=fg, anchor="mm")
         title_block(600)
     elif "гральн" in dnl or "игральн" in dnl or "playing" in dnl:
+        # гральні 36: справжні символи Playing Cards (U+1F0A1...) або ранг+масть
         suit = card.suit or ""
-        glyph = SUIT_GLYPH.get(suit, "✦")
         col = SUIT_COLOR.get(suit, fg)
         rank = str(num or "").split("-")[-1]
-        g.text((70, 60), rank, font=font(ARIAL, 64), fill=col, anchor="ma")
-        g.text((70, 130), glyph, font=font(SYM, 56), fill=col, anchor="ma")
-        g.text((W / 2, 380), glyph, font=font(SYM, 220), fill=col, anchor="mm")
+        sl = str(num or "").split("-")[0] if "-" in str(num or "") else ""
+        gpc = font(SYM, 250)
+        uni = playing_card_unicode(sl, rank) if sl else ""
+        if uni and has_glyph(gpc, uni):
+            g.text((W / 2, 340), uni, font=gpc, fill=col, anchor="mm")
+            g.text((70, 60), rank, font=font(ARIAL, 64), fill=col, anchor="ma")
+            g.text((70, 130), SUIT_GLYPH.get(suit, "✦"), font=font(SYM, 56), fill=col, anchor="ma")
+        else:
+            glyph = SUIT_GLYPH.get(suit, "✦")
+            g.text((70, 60), rank, font=font(ARIAL, 64), fill=col, anchor="ma")
+            g.text((70, 130), glyph, font=font(SYM, 56), fill=col, anchor="ma")
+            g.text((W / 2, 380), glyph, font=font(SYM, 220), fill=col, anchor="mm")
         title_block(620)
     elif "ленорман" in dnl or "lenormand" in dnl:
         # пергамент + контурна іконка + гральна відповідність
@@ -868,7 +1019,7 @@ def render(card, deck):
             maya_number(g, W / 2, 330, int(str(num or "T0")[1:]), fg)
         title_block(600)
     elif "зодіак" in dnl or "зодиак" in dnl:
-        # китайська монета + колесо 12 знаків (червоне на золоті)
+        # китайська монета + емоji-силует знака зодіаку в центрі
         img, g = base_card("#5c1522", "#f6d66a", "#c8922a", top="#22050a")
         fg, frame = "#f6d66a", "#c8922a"
         try:
@@ -876,21 +1027,33 @@ def render(card, deck):
         except ValueError:
             idx = 0
         zodiak_coin(g, W / 2, 350, idx, fg, shade("#c8922a", -0.45))
-        nf = font(SERIF_B, 46)
-        while nf.size > 24 and g.textlength(name, font=nf) > W - 220:
-            nf = font(SERIF_B, nf.size - 3)
-        centered_text(g, 350, name, nf, fg)
+        em = ZODIAC_EMOJI[idx]
+        ef = font(EMOJI, 160)
+        if has_glyph(ef, em):
+            g.text((W / 2, 350), em, font=ef, fill="#5c1522", anchor="mm")
+        else:
+            nf = font(SERIF_B, 46)
+            while nf.size > 24 and g.textlength(name, font=nf) > W - 220:
+                nf = font(SERIF_B, nf.size - 3)
+            centered_text(g, 350, name, nf, fg)
         lucky = (card.symbolism or "").split(". ")[0]
         centered_text(g, 596, str(num), font(ARIAL, 40), frame)
         centered_text(g, 650, "Китайський зодіак", font(ARIAL, 26), frame)
         centered_text(g, 700, lucky[:52], font(ARIAL, 20), shade("#f6d66a", -0.35))
     elif "огам" in dnl or "ogham" in dnl:
-        # пергамент + вертикальна вісь огама з рисками
+        # пергамент + СПРАВЖНІ Unicode-гліфи огама (U+1680–169F); риски — фолбек
         img, g = base_card("#efe3cb", "#3a2c14", "#8a6b25")
         fg, frame = "#3a2c14", "#8a6b25"
         letter = str(num).upper()
-        draw_ogham(g, letter, W / 2, 168, 512, "#7a5a1e")
-        centered_text(g, 112, letter, font(SERIF_B, 34), "#7a5a1e")
+        uni = OGHAM_UNICODE.get(letter, "")
+        og_f = font(HIST, 300)
+        if uni and has_glyph(og_f, uni):
+            # легка вісь-стебло за гліфом
+            g.line([W / 2, 150, W / 2, 470], fill="#c8b27a", width=3)
+            g.text((W / 2, 318), uni, font=og_f, fill="#7a5a1e", anchor="mm")
+        else:
+            draw_ogham(g, letter, W / 2, 168, 512, "#7a5a1e")
+        centered_text(g, 108, letter, font(SERIF_B, 34), "#7a5a1e")
         tree = str(card.suit or "")
         centered_text(g, 544, tree, font(SERIF, 36), "#7a5a1e")
         centered_text(g, 596, str(letter), font(ARIAL, 40), frame)
@@ -941,12 +1104,17 @@ def render(card, deck):
         centered_text(g, 684, str(num), font(ARIAL, 34), frame)
         centered_text(g, 728, str(card.category or ""), font(ARIAL, 22), "#cdd6f4")
     elif "плутчик" in dnl or "plutchik" in dnl:
-        # пергамент + кольорове обличчя емоції та її опонент
+        # пергамент + емоji-силует емоції Плутчика
         img, g = base_card("#faf4e8", "#2a2350", "#c9a24a")
         fg, frame = "#2a2350", "#c9a24a"
         col = str(card.element or "#e8c87a")
         dark = shade(col, -0.3)
-        emotion_face(g, W / 2, 330, 142, name, col, dark)
+        em = PLUTCHIK_EMOJI.get(name, "")
+        ef = font(EMOJI, 220)
+        if em and has_glyph(ef, em):
+            g.text((W / 2, 300), em, font=ef, fill=col, anchor="mm")
+        else:
+            emotion_face(g, W / 2, 330, 142, name, col, dark)
         centered_text(g, 522, name, font(SERIF_B, 46), fg)
         opp = str(card.suit or "")
         centered_text(g, 572, "Опонент: " + opp, font(ARIAL, 26), "#6b5330")
@@ -956,16 +1124,259 @@ def render(card, deck):
         centered_text(g, 680, str(num), font(ARIAL, 40), frame)
         centered_text(g, 732, "Карта емоцій · Плутчик", font(ARIAL, 22), "#8a6b25")
     elif "чакр" in dnl or "chakr" in dnl:
-        # лотос чакри в її кольорі (мандала)
+        # лотос чакри в її кольорі (мандала) + биджа-мантра в центрі
         base = CHAKRA_COLORS.get(str(card.element_code or "").lower(), "#e8c87a")
         r, g_, b_ = shade(base, -0.55)
         img, g = base_card("#12102a", "#f0ead8", "#c9a24a",
                            top="#%02x%02x%02x" % (r, g_, b_))
         fg, frame = "#f0ead8", "#c9a24a"
         chakra_lotus(g, W / 2, 330, shade(base, -0.45), base)
+        bija = {1: "लं", 2: "वं", 3: "रं", 4: "यं", 5: "हं",
+                6: "ॐ", 7: "ॐ"}.get(int(str(num or "1")[:1]), "ॐ")
+        g.text((W / 2, 330), bija, font=font(ARIAL, 52), fill=fg, anchor="mm")
+        g.text((W / 2, 272), "बीज", font=font(ARIAL, 22), fill=frame, anchor="ma")
         centered_text(g, 592, name, font(SERIF_B, 40), fg)
         centered_text(g, 648, str(card.element or ""), font(ARIAL, 26), frame)
         centered_text(g, 700, "Лотос " + str(num) + " · Чакра", font(ARIAL, 22), "#c9a24a")
+    elif "цінн" in dnl or "ценност" in dnl:
+        # цінності (Шварц): скарбниця на вечірньому тлі
+        img, g = base_card("#231a3a", "#efe6cf", "#cfa75a", top="#120d22")
+        fg, frame = "#efe6cf", "#cfa75a"
+        g.text((W / 2, 250), "✦", font=font(SYM, 120), fill=frame, anchor="mm")
+        centered_text(g, 150, "ЦІННІСТЬ · ОРІЄНТИР", font(ARIAL, 26), frame)
+        kw = str(card.keywords_upright or "").split(",")[0].strip()
+        kf = font(SERIF_B, 52)
+        while kf.size > 24 and g.textlength(kw, font=kf) > W - 150:
+            kf = font(SERIF_B, kf.size - 3)
+        centered_text(g, 330, kw, kf, fg)
+        centered_text(g, 420, str(card.keywords_upright or ""), font(ARIAL, 21), frame,
+                       max_w=W - 160)
+        centered_text(g, 610, str(num), font(ARIAL, 40), frame)
+        centered_text(g, 662, name, f_med, fg)
+        centered_text(g, 716, "Карта цінностей", font(ARIAL, 22), frame)
+    elif "ресурс" in dnl or "resourc" in dnl:
+        # ресурси стійкості: смарагдова енергія
+        img, g = base_card("#0e2a24", "#edf2e9", "#6fae9a", top="#061512")
+        fg, frame = "#edf2e9", "#6fae9a"
+        g.text((W / 2, 250), "☘", font=font(SYM, 120), fill=frame, anchor="mm")
+        centered_text(g, 150, "РЕСУРС · ОПОРА", font(ARIAL, 26), frame)
+        kw = str(card.keywords_upright or "").split(",")[0].strip()
+        kf = font(SERIF_B, 52)
+        while kf.size > 24 and g.textlength(kw, font=kf) > W - 150:
+            kf = font(SERIF_B, kf.size - 3)
+        centered_text(g, 330, kw, kf, fg)
+        centered_text(g, 420, str(card.keywords_upright or ""), font(ARIAL, 21), frame,
+                       max_w=W - 160)
+        centered_text(g, 610, str(num), font(ARIAL, 40), frame)
+        centered_text(g, 662, name, f_med, fg)
+        centered_text(g, 716, "Карта ресурсів", font(ARIAL, 22), frame)
+    elif "снів" in dnl or "sniv" in dnl:
+        # сни: нічне небо + емоji-символ сновидіння
+        img, g = base_card("#0a1030", "#e8ecf5", "#c0c8e0", top="#02040c")
+        fg, frame = "#e8ecf5", "#c0c8e0"
+        em = DREAM_EMOJI.get(str(card.theme or ""), "🌙")
+        ef = font(EMOJI, 220)
+        if has_glyph(ef, em):
+            g.text((W / 2, 250), em, font=ef, fill="#d8c65e", anchor="mm")
+        else:
+            g.text((W / 2, 250), "✦", font=font(SYM, 150), fill="#d8c65e", anchor="mm")
+        centered_text(g, 130, "СОН", font(ARIAL, 26), frame)
+        centered_text(g, 420, str(card.category or "Символ сновидіння"), font(ARIAL, 24), "#cdd6f4")
+        centered_text(g, 566, str(num), font(ARIAL, 40), frame)
+        centered_text(g, 618, name, f_med, fg)
+        centered_text(g, 672, str(card.keywords_upright or ""), font(ARIAL, 22), "#a9b4d6",
+                       max_w=W - 160)
+        centered_text(g, 726, "Карти снів", font(ARIAL, 22), frame)
+    elif "стихі" in dnl or "стихии" in dnl or "стих" in dnl:
+        # стихії: алхімічний трикутник/символ у власних кольорах
+        colmap = {"fire": "#e0563a", "water": "#3f86c9", "air": "#7cbfe8",
+                  "earth": "#8a9e4f", "aether": "#9a6fd0"}
+        basec = colmap.get(str(card.element_code or "").lower(), "#cfa75a")
+        r, g_, b_ = shade(basec, -0.6)
+        img, g = base_card("#10142a", "#f0ead8", basec, top="#080a18")
+        fg, frame = "#f0ead8", basec
+        gly = str(card.symbolism or "🜁")
+        gf = font(SYM, 260)
+        if has_glyph(gf, gly):
+            g.text((W / 2, 320), gly, font=gf, fill=frame, anchor="mm")
+        else:  # трикутник стихії
+            up = "ого" in name.lower() or "ітря" in name.lower() or "оздух" in name.lower()
+            s = 120
+            if up:
+                g.polygon([(W / 2 - s, 420), (W / 2 + s, 420), (W / 2, 220)], outline=fg, width=8)
+            else:
+                g.polygon([(W / 2 - s, 220), (W / 2 + s, 220), (W / 2, 420)], outline=fg, width=8)
+        centered_text(g, 502, name, font(SERIF_B, 46), fg)
+        centered_text(g, 560, str(card.suit or ""), font(ARIAL, 26), frame)
+        centered_text(g, 614, str(card.keywords_upright or ""), font(ARIAL, 22), "#cdd3e8",
+                       max_w=W - 160)
+        centered_text(g, 680, "Стихія " + str(num), font(ARIAL, 32), frame)
+        centered_text(g, 732, "Елемент · класична філософія", font(ARIAL, 22), frame)
+    elif "архангел" in dnl or "archangel" in dnl:
+        # архангели: сяюча зірка-ореол на нічному синьому
+        img, g = base_card("#0b1d33", "#f3e9ce", "#d9a05b", top="#040b16")
+        fg, frame = "#f3e9ce", "#d9a05b"
+        draw_radiant(g, W / 2, 330, 150, frame, "#7a5a1e")
+        g.text((W / 2, 330), "✶", font=font(SYM, 90), fill=shade("#d9a05b", 0.4),
+               anchor="mm")
+        centered_text(g, 512, name, font(SERIF_B, 44), fg)
+        centered_text(g, 566, str(card.suit or ""), font(ARIAL, 26), frame)
+        centered_text(g, 612, str(card.keywords_upright or "")[:48], font(ARIAL, 22), "#c8d2e8",
+                       max_w=W - 150)
+        centered_text(g, 676, str(num), font(ARIAL, 36), frame)
+        centered_text(g, 726, "Ангельський оракул", font(ARIAL, 22), frame)
+    elif "афірм" in dnl or "affirm" in dnl:
+        # афірмації: сонячна пергаментна картка-нагадування
+        img, g = base_card("#f7f0e2", "#3a2c14", "#8a6b25")
+        fg, frame = "#3a2c14", "#8a6b25"
+        g.text((W / 2, 240), "❀", font=font(SYM, 120), fill="#8a6b25", anchor="mm")
+        centered_text(g, 140, "АФІРМАЦІЯ · ДЕНЬ", font(ARIAL, 26), "#8a6b25")
+        kw = str(card.keywords_upright or "").split(",")[0].strip()
+        a = str(card.meaning_general or "").split(".")
+        kf = font(SERIF, 38)
+        while kf.size > 22 and g.textlength(kw, font=kf) > W - 150:
+            kf = font(SERIF, kf.size - 3)
+        centered_text(g, 330, kw, kf, fg)
+        lf = font(SERIF, 20)
+        lines = wrap_lines(g, str(card.meaning_general or ""), lf, W - 170, 4)
+        y = 410
+        for ln in lines:
+            centered_text(g, y, ln, lf, "#6b5330")
+            y += 28
+        centered_text(g, 580, str(num), font(ARIAL, 36), "#8a6b25")
+        centered_text(g, 632, name, font(SERIF_B, 34), fg)
+        centered_text(g, 686, "Карта дня", font(ARIAL, 22), "#8a6b25")
+    elif "бажан" in dnl or "wish" in dnl:
+        # бажання: зірка-амбіція на теплому тлі
+        img, g = base_card("#2b1a12", "#f5e9da", "#d9a05b", top="#140b06")
+        fg, frame = "#f5e9da", "#d9a05b"
+        pts = star_points(W / 2, 250, 95, 38, n=6)
+        g.polygon(pts, outline=frame, width=6)
+        centered_text(g, 150, "БАЖАННЯ", font(ARIAL, 26), frame)
+        kw = str(card.keywords_upright or "").split(",")[0].strip()
+        kf = font(SERIF_B, 50)
+        while kf.size > 24 and g.textlength(kw, font=kf) > W - 150:
+            kf = font(SERIF_B, kf.size - 3)
+        centered_text(g, 400, kw, kf, fg)
+        centered_text(g, 470, str(card.keywords_upright or ""), font(ARIAL, 21), frame,
+                       max_w=W - 160)
+        centered_text(g, 610, str(num), font(ARIAL, 40), frame)
+        centered_text(g, 662, name, f_med, fg)
+        centered_text(g, 716, "Карта бажань", font(ARIAL, 22), frame)
+    elif "сфір" in dnl or "sephir" in dnl:
+        # Каббала: Древо Життя, активна сфіра сяє золотом
+        img, g = base_card("#1a1440", "#e8c87a", "#8a6b25", top="#0a0724")
+        fg, frame = "#e8c87a", "#8a6b25"
+        try:
+            hi = int(str(num))
+        except ValueError:
+            hi = 1
+        tree_of_life(g, W / 2, 205, 555, hi % 10, fg, frame)
+        centered_text(g, 150, "СФІРА " + str(num), font(ARIAL, 30), frame)
+        centered_text(g, 606, name, font(SERIF_B, 36), fg)
+        centered_text(g, 656, str(card.theme or ""), font(ARIAL, 24), frame, max_w=W - 150)
+        centered_text(g, 700, str(card.suit or ""), font(ARIAL, 22), "#a9833f")
+        centered_text(g, 748, "Каббала · Древо Життя", font(ARIAL, 20), frame)
+    elif "шлях" in dnl or "path" in dnl:
+        # Каббала: шлях 11–32 — сяюча грань між сфіротами + літера івриту
+        img, g = base_card("#241244", "#efe6cf", "#cfa75a", top="#0e071f")
+        fg, frame = "#efe6cf", "#cfa75a"
+        pa, pb = 1, 2
+        try:
+            pa, pb = (int(x) for x in str(card.theme or "1→2").replace("→", " ").split())
+        except ValueError:
+            pass
+        centered_text(g, 148, "ШЛЯХ " + str(num), font(ARIAL, 28), frame)
+        heb = str(card.suit or "")
+        hb = font(ARIAL, 76)
+        if heb and has_glyph(hb, heb):
+            g.text((W / 2, 92), heb, font=hb, fill=fg, anchor="mm")
+        else:
+            centered_text(g, 92, str(card.suit_code or ""), font(SERIF_B, 30), fg)
+        tree_of_life(g, W / 2, 230, 560, pa, fg, frame, path_hi=(pa, pb))
+        taro = str(card.symbolism or "")
+        centered_text(g, 602, taro[:40], font(ARIAL, 26), frame)
+        centered_text(g, 656, name, font(SERIF_B, 30), fg)
+        centered_text(g, 704, str(card.element or ""), font(ARIAL, 22), frame)
+        centered_text(g, 744, str(card.suit_code or ""), font(ARIAL, 20), "#a9833f")
+    elif "багуа" in dnl or "bagua" in dnl:
+        # Багуа: ієрогліф + три риси триграми
+        img, g = base_card("#141024", "#f0ead8", "#c9a24a", top="#080611")
+        fg, frame = "#f0ead8", "#c9a24a"
+        cjk = str(card.suit or "")
+        cf = font(CJK, 150)
+        if has_glyph(cf, cjk):
+            g.text((W / 2, 240), cjk, font=cf, fill=fg, anchor="mm")
+        else:
+            centered_text(g, 220, str(card.suit_code or ""), font(SYM, 120), fg)
+        try:
+            idx = int(num) - 1
+            trig = "☰☱☲☳☴☵☶☷"[idx % 8]
+        except (ValueError, IndexError):
+            trig = "☰"
+        draw_trigram(g, W / 2, 430, trig, fg)
+        centered_text(g, 596, name, font(SERIF_B, 36), fg)
+        centered_text(g, 648, str(card.zodiac_sign or ""), font(ARIAL, 24), frame)
+        centered_text(g, 692, str(card.element or ""), font(ARIAL, 24), frame)
+        centered_text(g, 732, "Багуа · " + str(num), font(ARIAL, 22), "#a9833f")
+    elif "іфа" in dnl or "ifa" in dnl:
+        # Іфа: дошка 16 Оду, активний знак світиться
+        img, g = base_card("#0f1c10", "#e8e6cf", "#8a9e4f", top="#060f07")
+        fg, frame = "#e8e6cf", "#8a9e4f"
+        try:
+            ixi = int(num) - 1
+        except ValueError:
+            ixi = 0
+        ifa_grid(g, W / 2, 350, ixi, frame, "#56643a")
+        centered_text(g, 118, name, font(SERIF_B, 34), fg)
+        centered_text(g, 164, str(card.category or "Оду Іфа"), font(ARIAL, 22), frame)
+        centered_text(g, 592, str(card.theme or ""), font(ARIAL, 24), frame, max_w=W - 160)
+        centered_text(g, 648, str(card.keywords_upright or "")[:44], font(ARIAL, 20), "#b6c08d",
+                       max_w=W - 160)
+        centered_text(g, 706, "Оду " + str(num) + " · Іфа", font(ARIAL, 24), frame)
+    elif "числ-ангел" in dnl or "angel-number" in dnl:
+        # числа-ангели: велике число в сяйві
+        img, g = base_card("#141423", "#f0ead8", "#c9a24a", top="#07070f")
+        fg, frame = "#f0ead8", "#c9a24a"
+        for i in range(12):
+            import math as _m
+            a = _m.radians(i * 30)
+            g.line([W / 2 + 160 * _m.cos(a), 330 + 160 * _m.sin(a),
+                    W / 2 + 205 * _m.cos(a), 330 + 205 * _m.sin(a)],
+                   fill="#4a4372", width=3)
+        nf = font(SERIF_B, 130)
+        while nf.size > 60 and g.textlength(str(num or ""), font=nf) > W - 170:
+            nf = font(SERIF_B, nf.size - 6)
+        centered_text(g, 330, str(num or ""), nf, fg)
+        centered_text(g, 500, name, font(SERIF_B, 34), fg)
+        centered_text(g, 552, str(card.keywords_upright or "")[:52], font(ARIAL, 22),
+                       frame, max_w=W - 160)
+        centered_text(g, 660, "Число-ангел · " + str(num), font(ARIAL, 26), frame)
+    elif "тасеограф" in dnl or "tealeaf" in dnl or "чай" in dnl:
+        # тасеографія: чашка для кави/чаю + символ
+        img, g = base_card("#efe3cb", "#3a2c14", "#8a6b25")
+        fg, frame = "#3a2c14", "#8a6b25"
+        draw_teacup(g, W / 2, 300, "#7a5a1e", "#8a6b25")
+        centered_text(g, 150, "СИМВОЛ У ЧАШЦІ", font(ARIAL, 24), "#8a6b25")
+        centered_text(g, 500, name, font(SERIF_B, 40), fg)
+        centered_text(g, 560, str(card.suit or ""), font(ARIAL, 26), "#7a5a1e")
+        centered_text(g, 618, str(card.keywords_upright or "")[:48], font(ARIAL, 22), "#6b5330",
+                       max_w=W - 160)
+        centered_text(g, 672, "Знак " + str(num), font(ARIAL, 34), "#8a6b25")
+        centered_text(g, 720, "Тасеографія · чайні листки", font(ARIAL, 20), "#8a6b25")
+    elif "кристал" in dnl or "crystal" in dnl:
+        # кристали: кольоровий самоцвіт + властивості
+        basec = CRYSTAL_COLORS.get(str(card.element_code or "").lower(), "#9a6fd0")
+        r, g_, b_ = shade(basec, -0.6)
+        img, g = base_card("#141423", "#f0ead8", basec, top="#07070f")
+        fg, frame = "#f0ead8", basec
+        draw_gem(g, W / 2, 330, 130, basec, frame)
+        centered_text(g, 520, name, font(SERIF_B, 40), fg)
+        centered_text(g, 574, str(card.suit or ""), font(ARIAL, 26), frame)
+        centered_text(g, 622, str(card.keywords_upright or "")[:48], font(ARIAL, 22),
+                       "#cdd3e8", max_w=W - 160)
+        centered_text(g, 682, str(num), font(ARIAL, 34), frame)
+        centered_text(g, 726, "Оракул самоцвітів", font(ARIAL, 20), frame)
     else:
         g.text((W / 2, 300), "✦", font=font(SYM, 170), fill=fg, anchor="mm")
         title_block(560)

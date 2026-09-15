@@ -18,15 +18,44 @@
   УВАГА: sacred-texts pktNN.htm мертві (404, сайт став SPA); Gutenberg #43548 — це де Лоранс 1918, НЕ Уейт.
 - RWS-скани (PD): Commons API, категорія "Rider-Waite-Smith tarot deck (TaionWC)", файли "RWS Tarot NN …".
   upload.wikimedia.org вимагає браузерний UA (ботовий дає 403); тротлінг 429 лікується паузою+ретраєм.
+- Ленорман: скани прадіда — Das Spiel der Hofnung (Й. К. Гехтель, Нюрнберг, 1799, PD),
+  нарізка `scripts/cut_game_of_hope.py` 6×6 (сировинний аркуш: `Database/raw/lenormand/`).
+  Повного PD-сету сучасного Ленорман на Commons нема (лише 3 файли).
+- Цолькин: гліфи днів DaySign (Wikimedia Commons, Public domain) — вмонтовано в карти;
+  тони — нумерали мая. Gypsy Witch 1903 на archive.org НЕ знайдено (лише сторонні книги) —
+  сучасні перевидання (US Games 1989+) під копірайтом, тому циганські лишилися процедурними.
+- МАК розширено до 20: 4 пари «архетип—тінь» у дусі Спеццано (своя графіка, не копії).
 - Процедурні ілюстрації (`scripts/generate_deck_images.py`, власний код, не фото):
   гексаграми — лінії розібрано з тексту Легга (NINE/SIX, перевірено якорі 111111/000000);
   руни (Segoe UI Historic)/астрознаки/масті (Segoe UI Symbol, Arial) — системні шрифти;
-  фази місяця, нумерали мая, кольори печаток — автентичні умовні позначення.
-  340 файлів, покриття БД 418/418. Історичного PD-сету Ленорман на Commons нема
-  (лише 3 розрізнені файли) — тому Ленорман теж процедурний: номер + гральна відповідність.
+  фази місяця, нумерали мая, кольори печаток — автентичні умовні позначення;
+  Ленорман — 36 контурних іконок + гральні відповідності; шамани/предки — по іконці на карту;
+  МАК — дуальність світло/тінь. Покриття БД: 432/432.
 - И-Цзин, пер. James Legge (1899), 64 гексаграммы: sacred-texts.com/ich/icNN.htm (legacy .htm живы).
 - Англосаксонская руническая поэма, 29 строф (OE + пер. Bruce Dickins, 1915, PD):
   en.wikisource.org/wiki/Runic_and_Heroic_Poems…/The_Anglo-Saxon_Runic_Poem
   (sacred-texts neu/ascp/a12.htm — только JS-оболочка, в статике пусто).
 - Ручне введення сучасних джерел: прочитати → переписати своїми словами →
   CSV з обовʼязковим source_reference → scripts/import_from_csv.py
+- Значення Таро (фон, НЕ скрейпінг): labyrinthos.co/blogs/tarot-card-meanings-list,
+  purplegarden.co/blog/list-of-tarot-cards-with-pictures, tarostarot.com/tarot-card-meanings,
+  alittlesparkofjoy.com/tarot-cards-list — тексти авторські, взято лише структуру
+  (масті/стихії/знаки) як фон для власних формулювань.
+- Деканати молодших арканів: традиція Золотої Зорі (халдейський порядок) — факти,
+  `scripts/fill_minors.py`.
+- Галереї колод (довідкові профілі, без копіювання карт): aeclectic.net (каталог тисяч колод),
+  trionfi.com/0/i/ (~200 колод), tarot-heritage.com/history-4/resources (музеї:
+  British Museum, Yale, BnF), waitesmith.org, themorgan.org/exhibitions/tarot,
+  vam.ac.uk/articles/tarot-cards, museum-tarot.org, tarotmuseumbelgium.com.
+  Профілі: Вісконті-Сфорца (~1450, 74 карти), Марсель (Додаль 1701), Тот (Кроулі–Гарріс, вид. 1969).
+- Астроджерела: astro.com, cafeastrology.com, horoscopes.astro-seek.com,
+  astrowl.ai/en/dictionary; огляди астроколод: aeclectic.net/tarot/cards/astrology.shtml,
+  aeclectic.net/tarot/cards/astrological-oracle (оракул 22: 12 знаків + 10 планет),
+   astrology.com/article/oracle-vs-tarot, askastrology.com (oracle-decks).
+- Visconti-Sforza Tarot (deck 23, 74 карт): Пірпонт Морґан-Берґамо, ~1450.
+  Зображення 500px: Wikimedia Commons (Public Domain); мінуси XV (Диявол) та XVI (Вежа).
+  Файли `images/23/`, `assets/23/`; метадані `pd_map_23.json`; кэш URL `pd_urls_23.json`.
+- Tarot de Marseille (deck 24, 78 карт): репринт 1970 р., Philippe Camoin.
+  Зображення 500px: `File:MarseilleTarot.jpg` (Wikimedia Commons, Public Domain).
+  Файли `images/24/`, `assets/24/`; метадані `pd_map_24.json`; кэш URL `pd_urls_24.json`.
+- Тексти карт Visconti/Marseille — з RWS (deck 1), gen_pd_cards.py з урахуванням VIII=Justice, XI=Strength.

@@ -15,7 +15,7 @@ const CUT = 600;
     довгі тексти — зі згортанням. */
 export default function CardDetail({ card, lang, emptyText }) {
   const [open, setOpen] = useState(false);
-  if (!card) return <p style={{ color: "var(--muted)" }}>{emptyText}</p>;
+  if (!card) return <div className="drawer drawer-empty"><p style={{ color: "var(--muted)", opacity: 0.7 }}>{emptyText}</p></div>;
   const c = pick(
     card, lang, "name", "description", "theme",
     "keywords_upright", "keywords_reversed", "meaning_general",
@@ -24,10 +24,10 @@ export default function CardDetail({ card, lang, emptyText }) {
   const long = (c.meaning_general || "").length > CUT;
   const shown = !long || open ? c.meaning_general : `${c.meaning_general.slice(0, CUT)}…`;
   return (
-    <div className="drawer" id="card-detail">
+    <div className="drawer drawer-card" key={card.id} id="card-detail">
       {card.image_path && card.id > 0 ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={card.image_path} alt={c.name} onError={(e) => (e.currentTarget.style.display = "none")} />
+        <img src={card.image_path} alt={c.name} onError={(e) => (e.target.style.display = "none")} />
       ) : <div style={{ fontSize: 90, textAlign: "center" }}>✦</div>}
       <div>
         <div className="meta">{card.number} · {card.arcana_type || card.category || "—"}</div>

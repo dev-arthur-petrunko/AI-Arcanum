@@ -15,7 +15,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from PIL import Image, ImageColor, ImageDraw, ImageFont
+from PIL import Image, ImageColor, ImageDraw, ImageFilter, ImageFont
 
 try:  # Windows-консоль (cp1251) не вміє ʼ— поза ASCII
     import sys as _sys
@@ -34,6 +34,8 @@ W, H = 512, 840
 ARIAL = "C:/Windows/Fonts/arial.ttf"
 SYM = "C:/Windows/Fonts/seguisym.ttf"
 HIST = "C:/Windows/Fonts/seguihis.ttf"  # руни (у seguisym лише tofu)
+SERIF = "C:/Windows/Fonts/georgia.ttf"     # І-Цзин: елегантна тиографіка
+SERIF_B = "C:/Windows/Fonts/georgiab.ttf"
 
 FUTHARK = ["ᚠ", "ᚢ", "ᚦ", "ᚨ", "ᚱ", "ᚲ", "ᚷ", "ᚹ", "ᚺ", "ᚾ", "ᛁ", "ᛄ",
            "ᛇ", "ᛈ", "ᛉ", "ᛋ", "ᛏ", "ᛒ", "ᛖ", "ᛗ", "ᛚ", "ᛜ", "ᛟ", "ᛞ"]
@@ -54,6 +56,18 @@ LENORMAND_INSET = {  # традиційні відповідності грал�
     "19": "6♠", "20": "8♠", "21": "8♣", "22": "Q♦", "23": "7♣", "24": "J♥",
     "25": "A♣", "26": "10♦", "27": "7♠", "28": "A♥", "29": "A♠", "30": "K♠",
     "31": "A♦", "32": "8♥", "33": "8♦", "34": "K♦", "35": "9♠", "36": "6♣"}
+
+# Триграми І-Цзин: (нижня, середня, верхня лінія: 0=інь, 1=ян) → (символ, назва укр)
+TRIGRAMS = {
+    (1, 1, 1): ("☰", "Небо"),
+    (0, 0, 0): ("☷", "Земля"),
+    (1, 0, 1): ("☲", "Вогонь"),
+    (0, 1, 0): ("☵", "Вода"),
+    (1, 1, 0): ("☱", "Озеро"),
+    (0, 0, 1): ("☶", "Гора"),
+    (1, 0, 0): ("☳", "Грім"),
+    (0, 1, 1): ("☴", "Вітер"),
+}
 
 THEMES = {
     "Таро Уэйта-Смит": ("#f5edd8", "#2a2350", "#8a6b25"),
@@ -460,6 +474,141 @@ def ancestor_icon(g, num, cx, cy, col):
         g.text((cx, cy), "✦", font=font(SYM, 120), fill=col, anchor="mm")
 
 
+# ── Нові навчальні колоди (з відкритих джерел, своя графіка) ─────────
+# Огам: літера → (сім'я рисок, кількість). R=праворуч, L=ліворуч, C=навхрест, V=голосні-засічки.
+OGHAM_GLYPH = {
+    "B": ("R", 1), "L": ("R", 2), "F": ("R", 3), "S": ("R", 4), "N": ("R", 5),
+    "H": ("L", 1), "D": ("L", 2), "T": ("L", 3), "C": ("L", 4), "Q": ("L", 5),
+    "M": ("C", 1), "G": ("C", 2), "NG": ("C", 3), "Z": ("C", 4), "R": ("C", 5),
+    "A": ("V", 1), "O": ("V", 2), "U": ("V", 3), "E": ("V", 4), "I": ("V", 5),
+}
+SIGN_CODE_INDEX = {"ari": 0, "tau": 1, "gem": 2, "can": 3, "leo": 4, "vir": 5,
+                   "lib": 6, "sco": 7, "sag": 8, "cap": 9, "aqu": 10, "pis": 11}
+CHAKRA_COLORS = {"red": "#c92a1e", "orange": "#e87a20", "yellow": "#e0b32a",
+                 "green": "#2f9e63", "blue": "#2f7fc9", "indigo": "#3b3fa0",
+                 "violet": "#7a4fa8", "white": "#e8e6f0"}
+
+
+def shade(hexc, f):
+    """f >= 0 — світліше (до білого), f < 0 — темніше."""
+    r, g, b = ImageColor.getrgb(hexc)
+    if f >= 0:
+        return tuple(int(c + (255 - c) * f) for c in (r, g, b))
+    return tuple(int(c * (1 + f)) for c in (r, g, b))
+
+
+def wrap_lines(g, text, fnt, max_w, limit=6):
+    lines, cur = [], ""
+    for w in text.split():
+        t = (cur + " " + w).strip()
+        if g.textlength(t, font=fnt) <= max_w:
+            cur = t
+        else:
+            if cur:
+                lines.append(cur)
+            cur = w
+    if cur:
+        lines.append(cur)
+    return lines[:limit]
+
+
+def draw_ogham(g, letter, cx, top, bot, col, w=10):
+    g.line([cx, top, cx, bot], fill=col, width=w + 2)
+    fam, cnt = OGHAM_GLYPH.get(letter, ("R", 1))
+    if not fam:
+        return
+    step = (bot - top) / (cnt + 1)
+    for i in range(1, cnt + 1):
+        y = top + i * step
+        if fam == "R":
+            g.line([cx, y, cx + 108, y], fill=col, width=w)
+        elif fam == "L":
+            g.line([cx - 108, y, cx, y], fill=col, width=w)
+        elif fam == "C":
+            g.line([cx - 108, y, cx + 108, y], fill=col, width=w)
+        else:
+            g.line([cx - 58, y + 22, cx + 58, y - 22], fill=col, width=w)
+
+
+def emotion_face(g, cx, cy, r, key, col, dark):
+    """Схематичне обличчя-смайл за емоцією Плутчика (своя графіка)."""
+    g.ellipse([cx - r, cy - r, cx + r, cy + r], fill=shade(col, 0.82),
+              outline=dark, width=8)
+    k = str(key).lower()
+    exd, eye_r, ey = r * 0.34, max(4, int(r * 0.06)), cy - r * 0.15
+
+    def brow(s, tilt):
+        x1, x2 = cx + s * exd - r * 0.18, cx + s * exd + r * 0.18
+        y1 = ey - r * 0.44 - tilt * s * r * 0.16
+        y2 = ey - r * 0.34 + tilt * s * r * 0.16
+        g.line([x1, y1, x2, y2], fill=dark, width=8)
+
+    bw = {"гнів": -1, "страх": 1, "здивування": 1, "очікування": 0.7,
+          "відраза": 0.7}.get(k, 0)
+    for s in (-1, 1):
+        if bw:
+            brow(s, bw)
+    if "страх" in k or "здив" in k:
+        for s in (-1, 1):
+            ex = cx + s * exd
+            er = r * 0.10
+            g.ellipse([ex - er, ey - er, ex + er, ey + er], fill=dark)
+    else:
+        g.ellipse([cx - exd - eye_r, ey - eye_r, cx - exd + eye_r, ey + eye_r], fill=dark)
+        g.ellipse([cx + exd - eye_r, ey - eye_r, cx + exd + eye_r, ey + eye_r], fill=dark)
+    my, mw = cy + r * 0.24, r * 0.42
+    if "радість" in k or "довіра" in k:
+        g.arc([cx - mw, my - mw * 0.5, cx + mw, my + mw * 0.9], 0, 180, fill=dark, width=8)
+    elif "сум" in k:
+        g.arc([cx - mw, my - mw * 0.9, cx + mw, my + mw * 0.5], 180, 360, fill=dark, width=8)
+    elif "відраза" in k:
+        g.line([cx - mw * 0.6, my + mw * 0.2, cx + mw * 0.6, my + mw * 0.2], fill=dark, width=8)
+    elif "здив" in k:
+        g.ellipse([cx - mw * 0.36, my, cx + mw * 0.36, my + mw * 0.6], fill=dark)
+    elif "гнів" in k:
+        g.line([cx - mw, my, cx + mw, my], fill=dark, width=8)
+        g.line([cx - mw, my, cx - mw, my + mw * 0.4], fill=dark, width=8)
+        g.line([cx + mw, my, cx + mw, my + mw * 0.4], fill=dark, width=8)
+        g.line([cx - mw, my + mw * 0.4, cx + mw, my + mw * 0.4], fill=dark, width=8)
+    elif "очікув" in k:
+        g.arc([cx - mw, my - mw * 0.3, cx + mw, my + mw * 0.5], 15, 165, fill=dark, width=7)
+    else:  # страх — хвилястий рот
+        pts = [(cx - mw + i * 2 * mw / 5, my + (7 if i % 2 else -7)) for i in range(6)]
+        g.line(pts, fill=dark, width=7, joint="curve")
+
+
+def chakra_lotus(g, cx, cy, dark, main, n=8):
+    import math as _m
+    g.ellipse([cx - 208, cy - 208, cx + 208, cy + 208], outline=main, width=3)
+    g.ellipse([cx - 176, cy - 176, cx + 176, cy + 176], outline=dark, width=2)
+    for i in range(n):
+        a = _m.radians(i * 360 / n + 22.5)
+        px, py = cx + 188 * _m.cos(a), cy + 188 * _m.sin(a)
+        g.ellipse([px - 40, py - 40, px + 40, py + 40], outline=main, width=5)
+    g.ellipse([cx - 106, cy - 106, cx + 106, cy + 106], outline=main, width=4)
+    for i in range(n * 2):
+        a = _m.radians(i * 360 / (n * 2))
+        px, py = cx + 106 * _m.cos(a), cy + 106 * _m.sin(a)
+        g.line([px, py, cx + 76 * _m.cos(a), cy + 76 * _m.sin(a)], fill=main, width=3)
+    g.ellipse([cx - 62, cy - 62, cx + 62, cy + 62], fill=shade(main, 0.15),
+              outline=main, width=4)
+    g.ellipse([cx - 9, cy - 9, cx + 9, cy + 9], fill=main)
+
+
+def zodiak_coin(g, cx, cy, idx, col, dark):
+    import math as _m
+    g.ellipse([cx - 175, cy - 175, cx + 175, cy + 175], outline=col, width=4)
+    g.ellipse([cx - 156, cy - 156, cx + 156, cy + 156], outline=dark, width=2)
+    for i in range(12):
+        a = _m.radians(i * 30 - 90)
+        r1, r2 = (205, 222) if i == idx else (185, 222)
+        g.line([cx + r1 * _m.cos(a), cy + r1 * _m.sin(a),
+                cx + r2 * _m.cos(a), cy + r2 * _m.sin(a)],
+               fill=col if i == idx else dark, width=8 if i == idx else 5)
+    g.rectangle([cx - 78, cy - 78, cx + 78, cy + 78], outline=col, width=5)
+    g.rectangle([cx - 62, cy - 62, cx + 62, cy + 62], outline=dark, width=2)
+
+
 def render(card, deck):
     bg, fg, frame = theme_for(deck.name)
     img, g = base_card(bg, fg, frame)
@@ -479,16 +628,110 @@ def render(card, deck):
     dnl = dn.lower()
     if "и-цзин" in dnl or "і-цзин" in dnl:
         lines = parse_hexagram_lines(card.meaning_general or "")
-        # фриз меандра зверху/знизу
-        for y0 in (86, H - 106):
-            x = 60
-            while x < W - 60:
-                g.rectangle([x, y0, x + 22, y0 + 22], outline=frame, width=4)
-                x += 30
+        fg_rgb = (232, 200, 122)
+        frame_rgb = (201, 162, 74)
+        CX, CY = W // 2, 370
+        HEX_TOP = 220
+        HEX_SP = 60
+
+        # ── 1. Deep indigo-black background ──
+        img = Image.new("RGBA", (W, H), (10, 5, 28, 255))
+
+        # ── 2. Multi-layer radial warm glow ──
+        glow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        gd = ImageDraw.Draw(glow)
+        for r in range(230, 0, -3):
+            a = int(38 * (1 - (r / 230) ** 2.5))
+            if a > 0:
+                gd.ellipse([CX - r, CY - r, CX + r, CY + r],
+                           fill=(160, 120, 30, a))
+        for r in range(110, 0, -2):
+            a = int(50 * (1 - (r / 110) ** 2))
+            if a > 0:
+                gd.ellipse([CX - r, CY - r, CX + r, CY + r],
+                           fill=(210, 170, 50, a))
+        glow = glow.filter(ImageFilter.GaussianBlur(22))
+        img = Image.alpha_composite(img, glow)
+
+        # ── 3. Concentric mandala ellipses (very subtle) ──
+        mand = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        md = ImageDraw.Draw(mand)
+        for rx, ry in [(188, 218), (168, 196), (150, 178)]:
+            md.ellipse([CX - rx, CY - ry, CX + rx, CY + ry],
+                       outline=(200, 160, 50, 40), width=1)
+        for dy in (-218, 218):
+            md.polygon([(CX, CY + dy - 8), (CX + 8, CY + dy),
+                        (CX, CY + dy + 8), (CX - 8, CY + dy)],
+                       fill=(200, 160, 50, 55))
+        img = Image.alpha_composite(img, mand)
+
+        # ── 4. Hexagram line glow (shape-following, blurred) ──
         if lines:
-            draw_hexagram(g, W / 2, 190, lines, fg)
-        centered_text(g, 580, f"Гексаграма {num}", f_small, frame)
-        title_block(660)
+            hgl = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+            hg = ImageDraw.Draw(hgl)
+            for i, yang in enumerate(lines):
+                y = HEX_TOP + (5 - i) * HEX_SP
+                if yang:
+                    hg.rectangle([CX - 138, y - 20, CX + 138, y + 20],
+                                 fill=(232, 200, 122, 80))
+                else:
+                    hg.rectangle([CX - 138, y - 20, CX - 10, y + 20],
+                                 fill=(232, 200, 122, 80))
+                    hg.rectangle([CX + 10, y - 20, CX + 138, y + 20],
+                                 fill=(232, 200, 122, 80))
+            hgl = hgl.filter(ImageFilter.GaussianBlur(14))
+            img = Image.alpha_composite(img, hgl)
+
+        # ── 5. Convert to RGB, draw sharp hexagram ──
+        img = img.convert("RGB")
+        g = ImageDraw.Draw(img)
+        if lines:
+            for i, yang in enumerate(lines):
+                y = HEX_TOP + (5 - i) * HEX_SP
+                if yang:
+                    g.rectangle([CX - 130, y - 13, CX + 130, y + 13],
+                                fill="#e8c87a")
+                else:
+                    g.rectangle([CX - 130, y - 13, CX - 16, y + 13],
+                                fill="#e8c87a")
+                    g.rectangle([CX + 16, y - 13, CX + 130, y + 13],
+                                fill="#e8c87a")
+
+        # ── 6. Trigrams in side margins ──
+        low = tuple(int(x) for x in (lines[0], lines[1], lines[2])) if lines else None
+        up = tuple(int(x) for x in (lines[3], lines[4], lines[5])) if lines else None
+        for (tr, glyph), (tx, ty) in (((TRIGRAMS.get(up), "☰"), (74, CY)),
+                                       ((TRIGRAMS.get(low), "☷"), (W - 74, CY))):
+            tr_sym = tr[0] if tr else glyph
+            tr_name = tr[1].upper() if tr else ""
+            g.text((tx, ty - 6), tr_sym, font=font(SYM, 58), fill="#e8c87a",
+                   anchor="mm")
+            nf = font(ARIAL, 16)
+            g.text((tx, ty + 38), tr_name, font=nf, fill="#c9a24a", anchor="mm")
+
+        # ── 7. Ornate frame ──
+        g.rectangle([10, 10, W - 10, H - 10], outline="#c9a24a", width=5)
+        g.rectangle([22, 22, W - 22, H - 22], outline="#c9a24a", width=1)
+        for fx, fy in [(10, 10), (W - 10, 10), (10, H - 10), (W - 10, H - 10)]:
+            g.polygon([(fx, fy - 14), (fx + 14, fy), (fx, fy + 14), (fx - 14, fy)],
+                      fill="#c9a24a")
+        for y0 in (50, H - 66):
+            x = 48
+            while x < W - 48:
+                g.rectangle([x, y0, x + 10, y0 + 10], outline="#c9a24a", width=2)
+                x += 16
+
+        # ── 8. Text ──
+        g.line([50, 155, W - 50, 155], fill=frame_rgb, width=1)
+        g.line([50, H - 88, W - 50, H - 88], fill="#c9a24a", width=1)
+        centered_text(g, 105, "ГЕКСАГРАМА " + str(num), font(SERIF, 30),
+                      "#e8c87a")
+        centered_text(g, 620, "Гексаграма " + str(num), font(SERIF, 24), "#c9a24a")
+        name_face = ((card.translations or {}).get("uk", {}) or {}).get("name") or name
+        name_f = font(SERIF_B, 40)
+        while name_f.size > 24 and g.textlength(name_face, font=name_f) > W - 140:
+            name_f = font(SERIF_B, name_f.size - 3)
+        centered_text(g, 700, name_face, name_f, "#e8c87a")
     elif "футарк" in dnl or "futhark" in dnl:
         try:
             idx = int(num) - 1
@@ -624,6 +867,105 @@ def render(card, deck):
         else:
             maya_number(g, W / 2, 330, int(str(num or "T0")[1:]), fg)
         title_block(600)
+    elif "зодіак" in dnl or "зодиак" in dnl:
+        # китайська монета + колесо 12 знаків (червоне на золоті)
+        img, g = base_card("#5c1522", "#f6d66a", "#c8922a", top="#22050a")
+        fg, frame = "#f6d66a", "#c8922a"
+        try:
+            idx = (int(num) - 1) % 12
+        except ValueError:
+            idx = 0
+        zodiak_coin(g, W / 2, 350, idx, fg, shade("#c8922a", -0.45))
+        nf = font(SERIF_B, 46)
+        while nf.size > 24 and g.textlength(name, font=nf) > W - 220:
+            nf = font(SERIF_B, nf.size - 3)
+        centered_text(g, 350, name, nf, fg)
+        lucky = (card.symbolism or "").split(". ")[0]
+        centered_text(g, 596, str(num), font(ARIAL, 40), frame)
+        centered_text(g, 650, "Китайський зодіак", font(ARIAL, 26), frame)
+        centered_text(g, 700, lucky[:52], font(ARIAL, 20), shade("#f6d66a", -0.35))
+    elif "огам" in dnl or "ogham" in dnl:
+        # пергамент + вертикальна вісь огама з рисками
+        img, g = base_card("#efe3cb", "#3a2c14", "#8a6b25")
+        fg, frame = "#3a2c14", "#8a6b25"
+        letter = str(num).upper()
+        draw_ogham(g, letter, W / 2, 168, 512, "#7a5a1e")
+        centered_text(g, 112, letter, font(SERIF_B, 34), "#7a5a1e")
+        tree = str(card.suit or "")
+        centered_text(g, 544, tree, font(SERIF, 36), "#7a5a1e")
+        centered_text(g, 596, str(letter), font(ARIAL, 40), frame)
+        centered_text(g, 650, name, f_med, fg)
+        centered_text(g, 714, str(card.keywords_upright or "")[:46], font(ARIAL, 20), "#7a5a1e")
+    elif "сабіан" in dnl or "sabian" in dnl:
+        # знак зодіаку + лента градуса + образ (Сабіан-360)
+        img, g = base_card("#0b0f2e", "#e8c87a", "#8a6b25", top="#04060f")
+        fg, frame = "#e8c87a", "#8a6b25"
+        sig = SIGN_CODE_INDEX.get(str(card.zodiac_sign_code or "").lower(), 0)
+        g.text((W / 2, 300), ZODIAC[sig], font=font(SYM, 170), fill=fg, anchor="mm")
+        try:
+            deg = int(str(card.category or 0))
+        except ValueError:
+            deg = 0
+        g.line([W / 2 - 140, 420, W / 2 + 140, 420], fill="#8a6b25", width=1)
+        g.text((W / 2, 444), f"{deg}°  {name.rsplit(' ', 1)[0].upper() if '°' in name else name}",
+               font=font(ARIAL, 26), fill="#c9a24a", anchor="mm")
+        phrase = str(card.symbolism or "")
+        pf = font(SERIF, 20)
+        lines = wrap_lines(g, phrase, pf, W - 140, 5)
+        y = 490
+        for ln in lines:
+            centered_text(g, y, ln, pf, "#e8c87a")
+            y += 28
+        centered_text(g, 668, str(num), font(ARIAL, 34), "#8a6b25")
+        name_face = ((card.translations or {}).get("uk", {}) or {}).get("name") or name
+        centered_text(g, 712, name_face, f_med, fg)
+    elif "накшатр" in dnl or "nakshat" in dnl:
+        # нічне небо: місячний серп + символ місячної стоянки
+        img, g = base_card("#0a1030", "#e8ecf5", "#c0c8e0", top="#02040c")
+        fg, frame = "#e8ecf5", "#c0c8e0"
+        import random as _rnd
+        _r = _rnd.Random(int(str(num or "1").split("-")[0]) if str(num or "1").split("-")[0].isdigit() else 7)
+        for _ in range(42):
+            sx, sy = _r.randint(50, W - 50), _r.randint(70, 560)
+            g.ellipse([sx - 2, sy - 2, sx + 2, sy + 2], fill="#cdd6f4")
+        draw_moon(img, g, W / 2, 300, 120, 0.85, "#e8ecf5")
+        sig = SIGN_CODE_INDEX.get(str(card.zodiac_sign_code or "").lower(), 0)
+        g.text((W / 2, 300), ZODIAC[sig], font=font(SYM, 72), fill="#e8c87a", anchor="mm")
+        centered_text(g, 470, name, font(SERIF_B, 36), fg)
+        centered_text(g, 520, str(card.zodiac_sign or ""), font(ARIAL, 24), "#cdd6f4")
+        pl = str(card.planet or "")
+        pg = PLANET_GLYPH.get(pl, "")
+        centered_text(g, 560, (pg + " " + pl).strip(), font(ARIAL, 24), "#e8c87a")
+        centered_text(g, 608, str(card.theme or ""), font(ARIAL, 20), "#cdd6f4")
+        centered_text(g, 644, str(card.symbolism or ""), font(ARIAL, 18), "#a9b4d6")
+        centered_text(g, 684, str(num), font(ARIAL, 34), frame)
+        centered_text(g, 728, str(card.category or ""), font(ARIAL, 22), "#cdd6f4")
+    elif "плутчик" in dnl or "plutchik" in dnl:
+        # пергамент + кольорове обличчя емоції та її опонент
+        img, g = base_card("#faf4e8", "#2a2350", "#c9a24a")
+        fg, frame = "#2a2350", "#c9a24a"
+        col = str(card.element or "#e8c87a")
+        dark = shade(col, -0.3)
+        emotion_face(g, W / 2, 330, 142, name, col, dark)
+        centered_text(g, 522, name, font(SERIF_B, 46), fg)
+        opp = str(card.suit or "")
+        centered_text(g, 572, "Опонент: " + opp, font(ARIAL, 26), "#6b5330")
+        kw = (card.keywords_upright or "").split(",")[0].strip()
+        centered_text(g, 614, kw, font(ARIAL, 22), shade("#2a2350", -0.25),
+                      max_w=W - 140)
+        centered_text(g, 680, str(num), font(ARIAL, 40), frame)
+        centered_text(g, 732, "Карта емоцій · Плутчик", font(ARIAL, 22), "#8a6b25")
+    elif "чакр" in dnl or "chakr" in dnl:
+        # лотос чакри в її кольорі (мандала)
+        base = CHAKRA_COLORS.get(str(card.element_code or "").lower(), "#e8c87a")
+        r, g_, b_ = shade(base, -0.55)
+        img, g = base_card("#12102a", "#f0ead8", "#c9a24a",
+                           top="#%02x%02x%02x" % (r, g_, b_))
+        fg, frame = "#f0ead8", "#c9a24a"
+        chakra_lotus(g, W / 2, 330, shade(base, -0.45), base)
+        centered_text(g, 592, name, font(SERIF_B, 40), fg)
+        centered_text(g, 648, str(card.element or ""), font(ARIAL, 26), frame)
+        centered_text(g, 700, "Лотос " + str(num) + " · Чакра", font(ARIAL, 22), "#c9a24a")
     else:
         g.text((W / 2, 300), "✦", font=font(SYM, 170), fill=fg, anchor="mm")
         title_block(560)
@@ -634,7 +976,7 @@ def slug_deck(deck_id, deck_name):
     return f"{deck_id:02d}"
 
 
-def run(only=None):
+def run(only=None, force=False):
     Base.metadata.create_all(bind=engine)
     db = SessionLocal()
     made = linked = skipped_hex = 0
@@ -655,11 +997,11 @@ def run(only=None):
                 fname = f"{re.sub(r'[^\w\-]+', '_', str(c.number or c.id))}.jpg"
                 rel = f"{ddir}/{fname}"
                 dest = DB_IMG / rel
-                if not dest.exists():
+                if force or not dest.exists():
                     render(c, deck).save(dest, quality=82)
                     made += 1
                 pub = PUB / rel
-                if not pub.exists():
+                if force or not pub.exists():
                     Image.open(dest).save(pub, quality=72, optimize=True)
                 web = f"/assets/{ddir}/{fname}"
                 if c.image_path != web:
@@ -674,5 +1016,7 @@ def run(only=None):
 
 if __name__ == "__main__":
     import sys as _s
-    only = _s.argv[_s.argv.index("--only") + 1] if "--only" in _s.argv else None
-    run(only)
+    argv = _s.argv[1:]
+    only = argv[argv.index("--only") + 1] if "--only" in argv else None
+    force = "--force" in argv
+    run(only, force=force)

@@ -6,9 +6,9 @@ import CardDetail from "./CardDetail";
 import { cardName, getJSON, pick } from "../lib/api";
 
 const T = {
-  ru: { back: "← Все колоды", searchPh: "Поиск по колоде…", found: "Найдено", pick: "Кликни карту в 3D или в списке ↓", lucky: "🎲 Случайная карта колоды", studyBadge: "навчальна модель" },
-  uk: { back: "← Усі колоди", searchPh: "Пошук по колоді…", found: "Знайдено", pick: "Клікни карту в 3D або в списку ↓", lucky: "🎲 Випадкова карта колоди", studyBadge: "навчальна модель" },
-  en: { back: "← All decks", searchPh: "Search this deck…", found: "Found", pick: "Click a card in 3D or in the list ↓", lucky: "🎲 Random card of this deck", studyBadge: "study model" },
+  ru: { back: "← Все колоды", searchPh: "Поиск по колоде…", found: "Найдено", pick: "Кликни карту в 3D или в списке ↓", lucky: "🎲 Случайная карта колоды", studyBadge: "навчальна модель", partialBadge: "неполный набор" },
+  uk: { back: "← Усі колоди", searchPh: "Пошук по колоді…", found: "Знайдено", pick: "Клікни карту в 3D або в списку ↓", lucky: "🎲 Випадкова карта колоди", studyBadge: "навчальна модель", partialBadge: "неповний набір" },
+  en: { back: "← All decks", searchPh: "Search this deck…", found: "Found", pick: "Click a card in 3D or in the list ↓", lucky: "🎲 Random card of this deck", studyBadge: "study model", partialBadge: "partial set" },
 };
 
 /** Клієнт сторінки колоди: 3D-віяло, пошук усередині колоди, розбір, ?card=підсвітка. */
@@ -53,11 +53,18 @@ export default function DeckClient({ deck, initialCards, lang, setLang }) {
 
   const deckName = pick(deck, lang, "name", "description").name || deck.name;
   const deckDesc = pick(deck, lang, "description").description || deck.description;
+  const deckNote = pick(deck, lang, "note").note || null;
 
   return (
     <>
       <a className="btn btn-ghost" href="/#decks" style={{ display: "inline-block", marginBottom: 18 }}>{t.back}</a>
-      <div><span className="badge badge-study">{t.studyBadge}</span></div>
+      <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+        <span className="badge badge-study">{t.studyBadge}</span>
+        {deck.is_partial && <span className="badge badge-partial">{t.partialBadge}</span>}
+      </div>
+      {deckNote && (
+        <p className="deck-note" style={{ maxWidth: 720, marginTop: 12 }}>⚠️ {deckNote}</p>
+      )}
       <div className="section-head">
         <span className="num">✦</span>
         <div>

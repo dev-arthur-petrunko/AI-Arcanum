@@ -51,7 +51,7 @@ export default function ArticlesPage() {
                   <span className="sys">{a.system}</span>
                 </summary>
                 <div className="article-body">
-                  {a.body}
+                  {a.translations?.[lang]?.body || a.body}
                   {a.source_reference && <div className="src">{t.src} {a.source_reference}</div>}
                 </div>
               </details>

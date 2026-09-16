@@ -19,7 +19,8 @@ export default function CardDetail({ card, lang, emptyText }) {
   const c = pick(
     card, lang, "name", "description", "theme",
     "keywords_upright", "keywords_reversed", "meaning_general",
-    "meaning_love", "meaning_career", "meaning_health", "symbolism"
+    "meaning_love", "meaning_career", "meaning_health",
+    "meaning_spirituality", "meaning_reversed", "symbolism"
   );
   const long = (c.meaning_general || "").length > CUT;
   const shown = !long || open ? c.meaning_general : `${c.meaning_general.slice(0, CUT)}…`;
@@ -42,9 +43,14 @@ export default function CardDetail({ card, lang, emptyText }) {
             {open ? LESS[lang] : MORE[lang]}
           </button>
         )}
+        {c.meaning_reversed && (
+          <p style={{ color: "var(--muted)" }}>⇄ {c.meaning_reversed}</p>
+        )}
         <dl className="kv">
           {!!c.meaning_love && (<><dt>♥</dt><dd>{c.meaning_love}</dd></>)}
           {!!c.meaning_career && (<><dt>⚒</dt><dd>{c.meaning_career}</dd></>)}
+          {!!c.meaning_health && (<><dt>✚</dt><dd>{c.meaning_health}</dd></>)}
+          {!!c.meaning_spirituality && (<><dt>☯</dt><dd>{c.meaning_spirituality}</dd></>)}
           {[card.element, card.planet, card.zodiac_sign].some(Boolean) && (
             <><dt>✳</dt><dd>{[card.element, card.planet, card.zodiac_sign].filter(Boolean).join(" · ")}</dd></>
           )}

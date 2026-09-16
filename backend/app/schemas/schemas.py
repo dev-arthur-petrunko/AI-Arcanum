@@ -38,6 +38,8 @@ class DeckOut(LocalizedMixin):
     cover_image: str | None = None
     description: str | None = None
     is_reference_only: bool = False
+    is_partial: bool = False
+    note: str | None = None
     source_url: str | None = None
     buy_url: str | None = None
     composition: str | None = None
@@ -67,6 +69,8 @@ class CardOut(LocalizedMixin):
     meaning_love: str | None = None
     meaning_career: str | None = None
     meaning_health: str | None = None
+    meaning_spirituality: str | None = None
+    meaning_reversed: str | None = None
     symbolism: str | None = None
     image_path: str | None = None
     model_3d_path: str | None = None

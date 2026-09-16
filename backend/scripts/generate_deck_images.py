@@ -227,6 +227,46 @@ def star_points(cx, cy, r1, r2, n=5, rot=-90):
     return pts
 
 
+def draw_house_wheel(g, cx, cy, active, color, dim):
+    """12-секторне колесо домів; активний дім світиться золотом."""
+    import math
+    R, Ri = 150, 96
+    for i in range(12):
+        a0 = math.radians(-90 + i * 30)
+        a1 = math.radians(-90 + (i + 1) * 30)
+        def pt(r, a):
+            return (cx + r * math.cos(a), cy + r * math.sin(a))
+        poly = [pt(R, a0), pt(Ri, a0), pt(Ri, a1), pt(R, a1)]
+        if i == active % 12:
+            g.polygon(poly, outline=color, fill=shade("#c9a24a", 0.25),
+                      width=4)
+            g.text(pt((R + Ri) / 2, (a0 + a1) / 2), str(i + 1),
+                   font=font(ARIAL, 26), fill="#10173a", anchor="mm")
+        else:
+            g.polygon(poly, outline=dim, width=2)
+            g.text(pt((R + Ri) / 2, (a0 + a1) / 2), str(((i) % 12) + 1),
+                   font=font(ARIAL, 22), fill=dim, anchor="mm")
+    g.ellipse([cx - Ri, cy - Ri, cx + Ri, cy + Ri], outline=dim, width=2)
+    g.text((cx, cy), str(active + 1), font=font(ARIAL, 40), fill=color, anchor="mm")
+
+
+def draw_asteroid(g, cx, cy, color, dim):
+    """Астероїд: зоряна іскра + еліптична орбіта в трьох планах."""
+    g.ellipse([cx - 128, cy - 66, cx + 128, cy + 66], outline=dim, width=3)
+    g.ellipse([cx - 44, cy - 44, cx + 44, cy + 44], outline=color, width=6)
+    g.text((cx, cy), "✦", font=font(SYM, 72), fill=color, anchor="mm")
+
+
+def draw_eclipse(g, cx, cy, color, dim):
+    """Затемнення: сонце-диск, що перекривається місяцем (гліф-силует)."""
+    g.ellipse([cx - 110, cy - 110, cx + 110, cy + 110], outline=color, width=6)
+    # місячний диск із тінню, зсунутий направо — сонце за ним
+    g.ellipse([cx + 42, cy - 96, cx + 118, cy - 18], outline=dim, width=5)
+    g.ellipse([cx + 26, cy - 66, cx + 96, cy + 14], fill=(0, 0, 0, 0),
+              outline="#f0d080", width=3)
+    g.text((cx, cy), "☀", font=font(SYM, 96), fill=color, anchor="mm")
+
+
 def lenormand_icon(g, num, cx, cy, col):
     """Контурні іконки 36 карт Ленорман (золото на синьому)."""
     s = 90
@@ -687,6 +727,31 @@ def draw_teacup(g, cx, cy, color, dark):
     g.line([cx - 56, cy - 40, cx + 52, cy - 40], fill=color, width=4)            # лінія чаю
 
 
+def pip_grid(n, cx, cy, dx=70, dy=80):
+    """Симетрична сітка піпок таро (до 2 стовпців, останній непарний — в центрі)."""
+    rows = (n + 1) // 2
+    pts, i = [], 0
+    for r in range(rows):
+        y = cy + (r - (rows - 1) / 2) * dy
+        if n - i == 1:
+            pts.append((cx, y))
+            break
+        pts.append((cx - dx, y))
+        pts.append((cx + dx, y))
+        i += 2
+    return pts
+
+
+def draw_tarot_orb(g, cx, cy, r, base):
+    """Куля-піпка таро з обідком і сяйвом."""
+    g.ellipse([cx - r - 6, cy - r - 6, cx + r + 6, cy + r + 6], fill=shade(base, 0.55),
+              outline=shade(base, 0.35), width=2)
+    g.ellipse([cx - r, cy - r, cx + r, cy + r], fill=shade(base, 0.25),
+              outline=shade(base, 0.75), width=3)
+    g.ellipse([cx - r * 0.55, cy - r * 0.55, cx + r * 0.55, cy + r * 0.55],
+              outline=shade(base, 0.9), width=2)
+
+
 def draw_radiant(g, cx, cy, r, color, dark):
     """Сяюча зірка-ореол (архангели)."""
     import math as _m
@@ -704,6 +769,48 @@ SEPHIROT_POS = {1: (0.00, 0.06), 2: (0.66, 0.13), 3: (-0.66, 0.13),
                 7: (0.60, 0.79), 8: (-0.60, 0.79), 9: (0.00, 0.85), 10: (0.00, 1.00)}
 SEPHIROT_EDGES = [(1, 2), (1, 3), (2, 3), (2, 6), (3, 6), (2, 4), (3, 5), (4, 5),
                   (4, 6), (5, 6), (6, 7), (6, 8), (7, 8), (7, 9), (8, 9), (9, 10)]
+
+# ── 7 навчальних таро (деки 51–57): тематичні палітри ──
+TAROT_THEMES = {
+    "angel": {"top": "#1a1030", "bg": "#2a1b45", "fg": "#f4e9d0", "frame": "#d4b05a",
+              "glow": "#e8c87a", "label": "АНГЕЛИ"},
+    "neocolonial": {"top": "#3a2413", "bg": "#5a3a20", "fg": "#f2e6c8", "frame": "#c9932e",
+                    "glow": "#e0a94e", "label": "НЕОКОЛОНІАЛЬНЕ"},
+    "fablemaker": {"top": "#2b1540", "bg": "#3e1f5a", "fg": "#f4e8f0", "frame": "#e09ad0",
+                   "glow": "#e8b0ff", "label": "БАЙКАР"},
+    "alice": {"top": "#12333a", "bg": "#1c4a55", "fg": "#f2ecdf", "frame": "#d4b04f",
+              "glow": "#e8cf8a", "label": "АЛІСА"},
+    "visionquest": {"top": "#142018", "bg": "#1f3226", "fg": "#ede6d2", "frame": "#c9962e",
+                    "glow": "#e0b44e", "label": "ВИДІННЯ"},
+    "goldencat": {"top": "#14121a", "bg": "#1f1c26", "fg": "#f2e6c8", "frame": "#d4af37",
+                  "glow": "#f0cd60", "label": "ЗОЛОТИЙ КІТ"},
+    "folklore": {"top": "#14303a", "bg": "#1d4352", "fg": "#f5ecd8", "frame": "#c9a24a",
+                 "glow": "#e0c07a", "label": "ФОЛЬКЛОР"},
+}
+
+TAROT_SUITGLYPH = {
+    "wands": ("⚝", "wand"),
+    "cups": ("⚶", "cup"),
+    "swords": ("⚔", "sword"),
+    "pentacles": ("⚲", "coin"),
+}
+TAROT_RANKWORD = {11: "ПАЖ", 12: "ЛИЦАР", 13: "КОРОЛЕВА", 14: "КОРОЛЬ"}
+
+
+def tarot_theme(dnl):
+    if "неоколоніальне" in dnl or "неоколоніальн" in dnl:
+        return TAROT_THEMES["neocolonial"]
+    if "байкар" in dnl or "fablemaker" in dnl:
+        return TAROT_THEMES["fablemaker"]
+    if "аліс" in dnl or "alice" in dnl:
+        return TAROT_THEMES["alice"]
+    if "видіння" in dnl or "vision" in dnl:
+        return TAROT_THEMES["visionquest"]
+    if "золотого чорного кота" in dnl or "golden black cat" in dnl or "золотого черного кота" in dnl:
+        return TAROT_THEMES["goldencat"]
+    if "фольклорн" in dnl or "folklore" in dnl:
+        return TAROT_THEMES["folklore"]
+    return TAROT_THEMES["angel"]
 
 
 def tree_of_life(g, cx, top, bot, highlight, color, dim, path_hi=None):
@@ -917,17 +1024,74 @@ def render(card, deck):
         top, bot = grad.get(el, ("#10173a", "#232c5e"))
         img, g = base_card(bot, "#f5f0e0", "#e8c87a", top=top)
         fg = "#f5f0e0"
+        arc = (card.arcana_type or "")
         glyph = None
-        if "Знак" in (card.arcana_type or ""):
-            try:
-                glyph = ZODIAC[int(num) - 1]
-            except (ValueError, IndexError):
-                pass
-        elif "Планет" in (card.arcana_type or ""):
-            glyph = PLANET_GLYPH.get(name)
-        elif "Стих" in (card.arcana_type or ""):
+        try:
+            n = int(num) - 1
+        except (TypeError, ValueError):
+            n = 0
+        if "Дім" in arc or "Дом" in arc:
+            # астрологічні доми: 12-секторне колесо, активний дім світиться
+            sc = str(card.suit_code or "")
+            hi = int(sc.replace("house", "")) - 1 if sc.startswith("house") else n % 12
+            draw_house_wheel(g, W / 2, 330, hi, fg, "#8a6b25")
+            title_block(600)
+        elif "Фаза" in arc or "фаза" in arc:
+            # фази Місяця: справжня форма місяця за номером фази 1–8
+            import math
+            sc = str(card.suit_code or "")
+            ph = int(sc.replace("phase", "")) if sc.startswith("phase") else (n % 8) + 1
+            frac = {1: 0.0, 2: 0.18, 3: 0.5, 4: 0.82, 5: 1.0, 6: 0.82,
+                    7: 0.5, 8: 0.18}.get(ph, 0.5)
+            draw_moon(img, g, W / 2, 330, 120, frac, fg)
+            centered_text(g, 500, str(card.category or "Місячний цикл"),
+                          font(ARIAL, 24), "#a9c2e8")
+            title_block(600)
+        elif "Пора року" in arc or "річн" in arc.lower():
+            # поворотні точки року: символ знака-точки в центрі
+            sc = str(card.suit_code or "")
+            si = int(sc.replace("season", "")) - 1 if sc.startswith("season") else n % 4
+            sig = {0: 0, 1: 3, 2: 6, 3: 9}[si % 4]
+            g.text((W / 2, 330), ZODIAC[sig], font=font(SYM, 200), fill=fg, anchor="mm")
+            centered_text(g, 500, str(card.theme or "Точка року"), font(ARIAL, 26), "#a9c2e8")
+            title_block(600)
+        elif "Астеро" in arc:
+            # астероїд: коло + орбіта + іскра
+            draw_asteroid(g, W / 2, 330, fg, "#8a6b25")
+            centered_text(g, 500, str(card.planet or "Астероїд"), font(ARIAL, 26), "#a9c2e8")
+            title_block(600)
+        elif "Затемнен" in arc:
+            # затемнення: сонце й місяць, що перекриваються
+            draw_eclipse(g, W / 2, 330, fg, "#8a6b25")
+            title_block(600)
+        elif "Пара" in arc or "пара" in arc:
+            # планетарна пара: два гліфи поруч
+            p1 = PLANET_GLYPH.get(str(card.planet or ""), "☉")
+            p2 = PLANET_GLYPH.get(str(card.suit or ""), "☿")
+            f_pair = font(SYM, 128)
+            g.text((W / 2 - 90, 330), p1, font=f_pair, fill=fg, anchor="mm")
+            g.text((W / 2 + 90, 330), p2, font=f_pair, fill=fg, anchor="mm")
+            title_block(600)
+        elif "у знаку" in arc or "в знаку" in arc:
+            # Radiant Sun: планета-масть велика + знак-колір збоку
+            pg = PLANET_GLYPH.get(str(card.suit or ""), "☉")
+            sg = SIGN_CODE_INDEX.get(str(card.zodiac_sign_code or "").lower(), 0)
+            g.text((W / 2, 320), pg, font=font(SYM, 150), fill=fg, anchor="mm")
+            g.text((W / 2, 320), ZODIAC[sg], font=font(SYM, 72), fill="#f0d080",
+                   anchor="mm")
+            centered_text(g, 460, str(card.suit or "") + " · " + str(card.zodiac_sign or ""),
+                          font(ARIAL, 26), "#a9c2e8")
+            title_block(600)
+        elif "Знак" in arc:
+            # знаки 12: точний символ за знаком, а не лише за num
+            sig = SIGN_CODE_INDEX.get(str(card.zodiac_sign_code or "").lower(),
+                                      n % 12 if 0 <= n < 12 else 0)
+            glyph = ZODIAC[sig]
+        elif "Планет" in arc:
+            glyph = PLANET_GLYPH.get(str(name), PLANET_GLYPH.get(str(card.planet or "")))
+        elif "Стих" in arc:
             glyph = {"Вогонь": "🜂", "Земля": "🜃", "Повітря": "🜁", "Вода": "🜄",
-                 "Огонь": "🜂"}.get(name)
+                     "Огонь": "🜂", "Воздух": "🜁"}.get(name)
         drawn = False
         if glyph and has_glyph(font(SYM, 200), glyph):
             g.text((W / 2, 330), glyph, font=font(SYM, 200), fill=fg, anchor="mm")
@@ -1377,6 +1541,51 @@ def render(card, deck):
                        "#cdd3e8", max_w=W - 160)
         centered_text(g, 682, str(num), font(ARIAL, 34), frame)
         centered_text(g, 726, "Оракул самоцвітів", font(ARIAL, 20), frame)
+    elif "навчальн" in dnl and ("таро" in dnl or "tarot" in dnl):
+        # 7 навчальних таро (51–57): старші — сяйво + номер, молодші — піпки/двір
+        th = tarot_theme(dnl)
+        img, g = base_card(th["top"], th["bg"], th["fg"], top=th["top"])
+        fg, frame = th["fg"], th["frame"]
+        is_major = "старш" in arc
+        if is_major:
+            draw_radiant(g, W / 2, 330, 165, th["glow"], shade(th["glow"], -0.55))
+            nf = font(SERIF_B, 120)
+            while nf.size > 30 and g.textlength(str(num or ""), font=nf) > W - 190:
+                nf = font(SERIF_B, nf.size - 6)
+            centered_text(g, 332, str(num or ""), nf, fg)
+            draw_tarot_orb(g, W / 2, 150, 34, th["glow"])
+            centered_text(g, 118, th["label"], font(ARIAL, 26), th["glow"])
+            centered_text(g, 540, name, font(SERIF_B, 46), fg)
+            centered_text(g, 600, str(card.keywords_upright or "")[:52], font(ARIAL, 22),
+                          frame, max_w=W - 160)
+            centered_text(g, 672, str(card.arcana_type or "") + " · " + str(num),
+                          font(ARIAL, 28), frame)
+            centered_text(g, 720, "Таро · процедурна вправа", font(ARIAL, 20), frame)
+        else:
+            suit = (card.suit_code or "").lower()
+            try:
+                rank = int(str(num).rsplit("-", 1)[1])
+            except (ValueError, IndexError):
+                rank = 1
+            kind = "major" if False else ""
+            if rank <= 10:
+                for (px, py) in pip_grid(rank, W / 2, 320):
+                    draw_tarot_orb(g, px, py, 30, th["glow"] if rank % 2 == 0 else frame)
+            else:
+                draw_tarot_orb(g, W / 2, 330, 96, th["glow"])
+                centered_text(g, 470, str(card.suit or ""), font(ARIAL, 34), frame)
+                centered_text(g, 150, (TAROT_RANKWORD.get(rank, "") or ""),
+                              font(ARIAL, 36), th["glow"])
+            sl = TAROT_SUITGLYPH.get(suit)
+            if sl:
+                centered_text(g, 532, sl[1].upper() if False else str(card.suit or ""),
+                              font(ARIAL, 30), frame)
+            centered_text(g, 580, name, font(SERIF_B, 42), fg)
+            centered_text(g, 640, str(card.keywords_upright or "")[:48], font(ARIAL, 22),
+                          frame, max_w=W - 160)
+            centered_text(g, 708, str(card.suit or "") + " · " + str(rank),
+                          font(ARIAL, 28), frame)
+            centered_text(g, 748, "Таро · процедурна вправа", font(ARIAL, 18), frame)
     else:
         g.text((W / 2, 300), "✦", font=font(SYM, 170), fill=fg, anchor="mm")
         title_block(560)

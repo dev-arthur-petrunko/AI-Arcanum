@@ -18,9 +18,12 @@ COLUMNS = {
     "planet_code": "VARCHAR(32)",
     "category": "VARCHAR(64)",
     "theme": "TEXT",
+    "meaning_spirituality": "TEXT",
+    "meaning_reversed": "TEXT",
 }
 DECK_COLUMNS = {
     "is_reference_only": "BOOLEAN DEFAULT 0",
+    "is_partial": "BOOLEAN DEFAULT 0",
     "source_url": "VARCHAR(512)",
     "buy_url": "VARCHAR(512)",
     "composition": "TEXT",

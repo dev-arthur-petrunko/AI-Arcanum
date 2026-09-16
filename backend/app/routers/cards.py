@@ -10,7 +10,8 @@ router = APIRouter(prefix="/cards", tags=["cards"])
 
 
 LOCALIZABLE = ("name", "keywords_upright", "keywords_reversed", "meaning_general",
-                 "meaning_love", "meaning_career", "meaning_health", "symbolism", "theme")
+                 "meaning_love", "meaning_career", "meaning_health",
+                 "meaning_spirituality", "meaning_reversed", "symbolism", "theme")
 
 
 def _either(col, code_col, value: str | None):

@@ -2,7 +2,7 @@ import "./globals.css";
 
 export const metadata = {
   title: "AI-Arcanum — енциклопедія ворожбильних карт",
-  description: "Таро, Ленорман, І-Цзин, руни: інтерактивна 3D-енциклопедія (UK/RU/EN). Backend — 100% Python.",
+  description: "Таро, Ленорман, І-Цзин, руни, оракули, психологічні й символічні системи: інтерактивна 3D-енциклопедія (UK/RU/EN). Backend — 100% Python.",
 };
 
 export default function RootLayout({ children }) {

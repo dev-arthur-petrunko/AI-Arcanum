@@ -1,6 +1,9 @@
 """seed_articles.py — імпорт Database/articles/*.md (front-matter → таблиця articles).
-Ідемпотентний (за slug). Запуск з папки backend/: python scripts/seed_articles.py
+Ідемпотентний (за slug). Конвенція переводів тіла: файли {slug}.{lang}.md
+з front-matter `link: <slug>` — вони додають translations[lang] = {title, body}
+до базової статті (slug без суфікса). Запуск з папки backend/: python scripts/seed_articles.py
 """
+import os
 import re
 import sys
 from pathlib import Path
@@ -12,6 +15,9 @@ from app.models import Article
 
 ART_DIR = Path(__file__).resolve().parents[1] / "Database" / "articles"
 
+LANG_SUFFIX = re.compile(r"^(.*)\.(uk|en|ru)\.md$")
+LINK_RE = re.compile(r"^link\s*:\s*(.+)$")
+
 
 def parse_md(path: Path) -> dict:
     text = path.read_text(encoding="utf-8")
@@ -20,18 +26,11 @@ def parse_md(path: Path) -> dict:
         raise ValueError(f"{path.name}: немає front-matter")
     meta_raw, body = m.group(1), m.group(2).strip()
     meta: dict = {}
-    trans: dict = {}
     for line in meta_raw.splitlines():
-        if re.match(r"\s+\w", line) and ":" in line and "translations" in meta_raw:
-            mm = re.match(r"\s*(\w+):\s*\{\s*title:\s*\"?([^\",}]+)\"?", line)
-            if mm:
-                trans.setdefault(mm.group(1), {})["title"] = mm.group(2).strip()
+        if ":" not in line:
             continue
-        if ":" in line:
-            k, v = line.split(":", 1)
-            meta[k.strip()] = v.strip().strip('"')
-    if trans:
-        meta["translations"] = trans
+        k, v = line.split(":", 1)
+        meta[k.strip()] = v.strip().strip('"')
     meta["body"] = body
     return meta
 
@@ -41,9 +40,12 @@ def run() -> int:
     db = SessionLocal()
     n = 0
     try:
-        for path in sorted(ART_DIR.glob("*.md")):
-            if path.name == "README.md":
-                continue
+        files = sorted(ART_DIR.glob("*.md"))
+        base_files = [p for p in files if not LANG_SUFFIX.match(p.name) and p.name != "README.md"]
+        trans_files = [(LANG_SUFFIX.match(p.name), p) for p in files if LANG_SUFFIX.match(p.name)]
+
+        # спочатку базові статті
+        for path in base_files:
             meta = parse_md(path)
             art = db.query(Article).filter_by(slug=meta["slug"]).first()
             if art:
@@ -51,14 +53,27 @@ def run() -> int:
                 art.body = meta.get("body", art.body)
                 art.system = meta.get("system", art.system)
                 art.source_reference = meta.get("source_reference", art.source_reference)
-                art.translations = meta.get("translations", art.translations)
             else:
                 db.add(Article(slug=meta["slug"], title=meta.get("title", meta["slug"]),
-                               system=meta.get("system"), lang=meta.get("lang", "ru"),
-                               body=meta.get("body", ""),
-                               source_reference=meta.get("source_reference"),
-                               translations=meta.get("translations")))
+                               system=meta.get("system"),
+                               lang=meta.get("lang", "ru"), body=meta.get("body", ""),
+                               source_reference=meta.get("source_reference")))
                 n += 1
+        db.flush()  # базові статті мають бути видні до обробки файлів-перекладів
+
+        # потім файли-переклади: зливаємо title+body у translations
+        for match, path in trans_files:
+            slug, lang = match.group(1), match.group(2)
+            meta = parse_md(path)
+            link = (meta.get("link") or "").strip() or slug
+            art = db.query(Article).filter_by(slug=link).first()
+            if not art:
+                print(f"[articles] !! немає базової статті для {path.name} (link={link})")
+                continue
+            tr = dict(art.translations or {})
+            tr[lang] = {"title": meta.get("title", art.title), "body": meta.get("body", "")}
+            art.translations = tr
+
         db.commit()
         print(f"[articles] нових: {n}, всього: {db.query(Article).count()}")
         return n

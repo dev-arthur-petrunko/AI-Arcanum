@@ -1,18 +1,41 @@
 "use client";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import Reveal from "./Reveal";
 import { cardName, getJSON, pick } from "../lib/api";
 
+/** Канонічні ключі категорій систем (порядок вкладок). */
+const CAT_ORDER = ["all", "divination", "oracles", "therapeutic", "astrological", "shamanic", "calendar", "esoteric", "numerological"];
+
+/** Нормалізує systems.category (ru/uk) до канонічного ключа. */
+function normCat(c) {
+  const s = (c || "").toString().trim().toLowerCase();
+  if (s.includes("гадател") || s.includes("гадалн")) return "divination";
+  if (s.includes("оракул")) return "oracles";
+  if (s.includes("терапевт")) return "therapeutic";
+  if (s.includes("астролог")) return "astrological";
+  if (s.includes("шаман")) return "shamanic";
+  if (s.includes("календар")) return "calendar";
+  if (s.includes("езотер") || s.includes("эзотер")) return "esoteric";
+  if (s.includes("нумеролог")) return "numerological";
+  return "other";
+}
+
+const MARQ = ["ТАРО", "ЛЕНОРМАН", "І-ЦЗИН", "РУНИ", "ОРАКУЛИ", "МАК", "АСТРОЛОГІЯ", "ШАМАНСЬКІ", "ЦИГАНСЬКІ", "ЦОЛЬКІН", "ОГАМ", "БАГУА", "ІФА", "КАБАЛА", "ЧИСЛА-АНГЕЛИ", "КРИСТАЛИ"];
+
 const T = {
   ru: {
-    links: [["#decks", "Колоды"], ["#systems", "Системы"], ["#daily", "Карта дня"], ["/spreads", "Расклады"], ["#history", "История"], ["/articles", "Статьи"], ["#glossary", "Глоссарий"], ["/quiz", "Квиз"]],
     eyebrow: "Интерактивная 3D-энциклопедия · backend — 100% Python",
     titleA: "Карты судьбы —", titleB: "живая энциклопедия",
-    sub: "424 карты, 13 систем: сначала выбери колоду — потом листай её в 3D, читай разборы и проверяй себя в квизе.",
+    sub: "Актуальная база: {cards} карт и {systems} систем. Сначала выбери колоду — потом листай её в 3D, читай разборы и проверяй себя в квизе.",
     cta1: "Выбрать колоду", cta2: "Мне повезёт",
     stats: ["карт в базе", "систем", "языка"],
     decks: "Колоды", decksSub: "Сначала колода — потом всё остальное. Клик ведёт на 3D-витрину колоды.",
+    cats: {
+      all: "Все", divination: "Гадальные", oracles: "Оракулы", therapeutic: "Терапевтические",
+      astrological: "Астрологические", shamanic: "Шаманские", calendar: "Календарные",
+      esoteric: "Эзотерические", numerological: "Нумерологические",
+    },
     systems: "Системы карт", systemsSub: "Живой склад базы — GET /stats.",
     daily: "Карта дня",
     spreads: "Расклады", spreadsSub: "Отдельные страницы: выбор колоды и случайные карты.",
@@ -27,15 +50,20 @@ const T = {
     foot: "RWS 1909 и Уэйт 1911 — общественное достояние. Современные трактовки — только пересказ своими словами.",
     cardsIn: "карт", decksIn: "колод", open: "Открыть →",
     studyBadge: "навчальна модель",
+    partialBadge: "неповний набір",
   },
   uk: {
-    links: [["#decks", "Колоди"], ["#systems", "Системи"], ["#daily", "Карта дня"], ["/spreads", "Розклади"], ["#history", "Історія"], ["/articles", "Статті"], ["#glossary", "Глосарій"], ["/quiz", "Квіз"]],
     eyebrow: "Інтерактивна 3D-енциклопедія · backend — 100% Python",
     titleA: "Карти долі —", titleB: "жива енциклопедія",
-    sub: "424 карти, 13 систем: спочатку обери колоду — потім гортай її в 3D, читай розбори й перевіряй себе у квізі.",
+    sub: "Актуальна база: {cards} карт і {systems} систем. Спочатку обери колоду — потім гортай її в 3D, читай розбори й перевіряй себе у квізі.",
     cta1: "Обрати колоду", cta2: "Мені пощастить",
     stats: ["карт у базі", "систем", "мови"],
     decks: "Колоди", decksSub: "Спочатку колода — потім усе інше. Клік веде на 3D-вітрину колоди.",
+    cats: {
+      all: "Усі", divination: "Гадальні", oracles: "Оракули", therapeutic: "Терапевтичні",
+      astrological: "Астрологічні", shamanic: "Шаманські", calendar: "Календарні",
+      esoteric: "Езотеричні", numerological: "Нумерологічні",
+    },
     systems: "Системи карт", systemsSub: "Живий склад бази — GET /stats.",
     daily: "Карта дня",
     spreads: "Розклади", spreadsSub: "Окремі сторінки: вибір колоди й випадкові карти.",
@@ -50,15 +78,20 @@ const T = {
     foot: "RWS 1909 і Уейт 1911 — суспільне надбання.",
     cardsIn: "карт", decksIn: "колод", open: "Відкрити →",
     studyBadge: "навчальна модель",
+    partialBadge: "неповний набір",
   },
   en: {
-    links: [["#decks", "Decks"], ["#systems", "Systems"], ["#daily", "Daily card"], ["/spreads", "Spreads"], ["#history", "History"], ["/articles", "Articles"], ["#glossary", "Glossary"], ["/quiz", "Quiz"]],
     eyebrow: "Interactive 3D encyclopedia · 100% Python backend",
     titleA: "Fortune cards —", titleB: "a living encyclopedia",
-    sub: "424 cards, 13 systems: first pick a deck — then browse it in 3D, read breakdowns, test yourself.",
+    sub: "Live DB: {cards} cards, {systems} systems. Pick a deck first — then browse it in 3D, read breakdowns and test yourself.",
     cta1: "Pick a deck", cta2: "Feeling lucky",
     stats: ["cards in DB", "systems", "languages"],
     decks: "Decks", decksSub: "Deck first — everything else after. Click opens the deck's 3D shelf.",
+    cats: {
+      all: "All", divination: "Divination", oracles: "Oracles", therapeutic: "Therapeutic",
+      astrological: "Astrological", shamanic: "Shamanic", calendar: "Calendar",
+      esoteric: "Esoteric", numerological: "Numerological",
+    },
     systems: "Card systems", systemsSub: "Live DB contents — GET /stats.",
     daily: "Card of the day",
     spreads: "Spreads", spreadsSub: "Separate pages: deck picker and random cards.",
@@ -73,6 +106,7 @@ const T = {
     foot: "RWS 1909 & Waite 1911 — public domain.",
     cardsIn: "cards", decksIn: "decks", open: "Open →",
     studyBadge: "study model",
+    partialBadge: "partial set",
   },
 };
 
@@ -90,7 +124,47 @@ export default function HomeClient({ initialCounts, initialDecks, initialSystems
   const [counts, setCounts] = useState(initialCounts || { cards: 424, systems: 13 });
   const [theme, setTheme] = useState("dark");
   const [progress, setProgress] = useState(0);
+  const [cat, setCat] = useState("all");
   const t = T[lang];
+
+  const sysCat = useMemo(() => {
+    const m = {};
+    (systems || []).forEach((s) => { m[s.id] = s.category; });
+    return m;
+  }, [systems]);
+
+  const enriched = useMemo(
+    () => (decks || []).map((d) => ({ ...d, catKey: normCat(sysCat[d.system_id]) })),
+    [decks, sysCat],
+  );
+
+  const countsByCat = useMemo(() => {
+    const m = { all: enriched.length };
+    enriched.forEach((d) => { m[d.catKey] = (m[d.catKey] || 0) + 1; });
+    return m;
+  }, [enriched]);
+
+  const catTabs = useMemo(() => CAT_ORDER.filter((k) => k === "all" || countsByCat[k] > 0), [countsByCat]);
+
+  const shown = useMemo(
+    () => (cat === "all" ? enriched : enriched.filter((d) => d.catKey === cat)),
+    [enriched, cat],
+  );
+
+  useEffect(() => {
+    const read = () => {
+      const m = window.location.hash.match(/^#decks-([a-z]+)$/);
+      if (m && CAT_ORDER.includes(m[1])) setCat(m[1]);
+    };
+    read();
+    window.addEventListener("hashchange", read);
+    return () => window.removeEventListener("hashchange", read);
+  }, []);
+
+  function pickCat(k) {
+    setCat(k);
+    try { history.replaceState(null, "", `#decks-${k}`); } catch {}
+  }
 
   useEffect(() => {
     try {
@@ -155,12 +229,7 @@ export default function HomeClient({ initialCounts, initialDecks, initialSystems
       <nav className="nav">
         <div className="wrap nav-inner">
           <a className="brand" href="#top">✦ AI-<b>Arcanum</b></a>
-          <div className="nav-links">
-            {t.links.map(([href, label]) => (
-              <a key={href} href={href}>{label}</a>
-            ))}
-          </div>
-          <button className="theme-btn" onClick={toggleTheme} title="theme" style={{ marginLeft: 12 }}>
+          <button className="theme-btn" onClick={toggleTheme} title="theme" style={{ marginLeft: "auto" }}>
             {theme === "dark" ? "☀" : "☾"}
           </button>
           <div className="lang-switch" style={{ marginLeft: 8 }}>
@@ -171,6 +240,15 @@ export default function HomeClient({ initialCounts, initialDecks, initialSystems
             ))}
           </div>
         </div>
+        {catTabs.length > 1 && (
+          <div className="wrap nav-cats" role="tablist" aria-label={t.decks}>
+            {catTabs.map((k) => (
+              <a key={k} href={`#decks-${k}`} role="tab" aria-selected={cat === k} className={cat === k ? "active" : ""}>
+                {t.cats[k]}
+              </a>
+            ))}
+          </div>
+        )}
       </nav>
 
       <main id="top" className="wrap">
@@ -179,7 +257,7 @@ export default function HomeClient({ initialCounts, initialDecks, initialSystems
           <span className="hero-orb" style={{ width: 220, height: 220, right: "-40px", top: "120px", background: "rgba(212,169,78,.4)", animationDelay: "-5s" }} />
           <span className="eyebrow">{t.eyebrow}</span>
           <h1>{t.titleA} <em>{t.titleB}</em></h1>
-          <p>{t.sub}</p>
+          <p>{t.sub.replace("{cards}", counts.cards).replace("{systems}", counts.systems)}</p>
           <div className="cta-row">
             <a className="btn btn-gold" href="#decks">{t.cta1}</a>
             <button className="btn btn-ghost" onClick={lucky}>🎲 {t.cta2}</button>
@@ -191,7 +269,7 @@ export default function HomeClient({ initialCounts, initialDecks, initialSystems
           </div>
         </header>
         <div className="marquee" aria-hidden="true">
-          <span>✦ ТАРО ✦ ЛЕНОРМАН ✦ І-ЦЗИН ✦ РУНИ ✦ ОРАКУЛИ ✦ МАК ✦ АСТРОЛОГІЯ ✦ ШАМАНСЬКІ ✦ ЦИГАНСЬКІ ✦ ЦОЛЬКІН ✦ НУМЕРОЛОГІЯ ✦ ТАРО ✦ ЛЕНОРМАН ✦ І-ЦЗИН ✦ РУНИ ✦ ОРАКУЛИ ✦ МАК ✦ АСТРОЛОГІЯ ✦ ШАМАНСЬКІ ✦ ЦИГАНСЬКІ ✦ ЦОЛЬКІН ✦ НУМЕРОЛОГІЯ&nbsp;</span>
+          <span>✦ {MARQ.join(" ✦ ")} ✦ {MARQ.join(" ✦ ")}&nbsp;</span>
         </div>
 
         <Reveal>
@@ -200,10 +278,19 @@ export default function HomeClient({ initialCounts, initialDecks, initialSystems
               <span className="num">01</span>
               <div><h2>{t.decks}</h2><p>{t.decksSub}</p></div>
             </div>
+            <div className="tabs" role="tablist" aria-label={t.decks}>
+              {catTabs.map((k) => (
+                <button key={k} id={`decks-${k}`} role="tab" aria-selected={cat === k}
+                  className={"tab" + (cat === k ? " active" : "")} onClick={() => pickCat(k)}>
+                  {t.cats[k]}<span className="tab-n">{countsByCat[k]}</span>
+                </button>
+              ))}
+            </div>
             <div className="sys-grid">
-              {decks.map((d) => (
+              {shown.map((d) => (
                 <a key={d.id} className="sys-card" href={`/decks/${d.id}`} style={{ textDecoration: "none", color: "inherit" }}>
                   <span className="badge badge-study">{t.studyBadge}</span>
+                  {d.is_partial && <span className="badge badge-partial">{t.partialBadge}</span>}
                   {d.cover && (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img src={d.cover} alt="" onError={(e) => (e.currentTarget.style.display = "none")}

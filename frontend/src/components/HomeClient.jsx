@@ -40,7 +40,7 @@ const T = {
     daily: "Карта дня",
     spreads: "Расклады", spreadsSub: "Отдельные страницы: выбор колоды и случайные карты.",
     timeline: "История систем", timelineSub: "От игральных карт XV века до оракулов.",
-    articles: "Статьи", articlesSub: "Отдельные страницы: гайды энциклопедии — GET /articles.",
+    articles: "Гайды и статьи", articlesSub: "Руководства: расклады, история, системы и практика чтения карт.",
     gloss: "Глоссарий", glossSub: "Термины энциклопедии.",
     quiz: "Проверь себя", quizSub: "Отдельная страница: выбор колоды и счёт.", quizGo: "Открыть квиз →",
     method: "Методика COPE · BASIC Ph", methodSub: "Шесть ресурсных каналов — рамка колоды COPE (О. Аялон, OH Cards Institute).",
@@ -68,7 +68,7 @@ const T = {
     daily: "Карта дня",
     spreads: "Розклади", spreadsSub: "Окремі сторінки: вибір колоди й випадкові карти.",
     timeline: "Історія систем", timelineSub: "Від гральних карт XV століття.",
-    articles: "Статті", articlesSub: "Окремі сторінки: гайди енциклопедії — GET /articles.",
+    articles: "Гайди і статті", articlesSub: "Керівництва: розклади, історія, системи та практика читання карт.",
     gloss: "Глосарій", glossSub: "Терміни енциклопедії.",
     quiz: "Перевір себе", quizSub: "Окрема сторінка: вибір колоди й рахунок.", quizGo: "Відкрити квіз →",
     method: "Методика COPE · BASIC Ph", methodSub: "Шість ресурсних каналів — рамка колоди COPE (О. Аялон, OH Cards Institute).",
@@ -96,7 +96,7 @@ const T = {
     daily: "Card of the day",
     spreads: "Spreads", spreadsSub: "Separate pages: deck picker and random cards.",
     timeline: "Systems timeline", timelineSub: "From 15th-century playing cards.",
-    articles: "Articles", articlesSub: "Separate pages: encyclopedia guides — GET /articles.",
+    articles: "Guides and articles", articlesSub: "Guides: spreads, history, systems and card reading practice.",
     gloss: "Glossary", glossSub: "Encyclopedia terms.",
     quiz: "Test yourself", quizSub: "Separate page: deck picker and score.", quizGo: "Open quiz →",
     method: "COPE method · BASIC Ph", methodSub: "Six resource channels — the frame of the COPE deck (O. Ayalon, OH Cards Institute).",
@@ -229,6 +229,12 @@ export default function HomeClient({ initialCounts, initialDecks, initialSystems
       <nav className="nav">
         <div className="wrap nav-inner">
           <a className="brand" href="#top">✦ AI-<b>Arcanum</b></a>
+          <div className="nav-links">
+            <a className="active" href="#decks">Значення карт</a>
+            <a href="/spreads">Види розкладів</a>
+            <a href="/articles">Гайди і статті</a>
+            <a href="/quiz">Квіз</a>
+          </div>
           <button className="theme-btn" onClick={toggleTheme} title="theme" style={{ marginLeft: "auto" }}>
             {theme === "dark" ? "☀" : "☾"}
           </button>

@@ -63,6 +63,7 @@ a { color: var(--gold-soft); }
 .nav-links { display: flex; gap: 18px; margin-left: auto; }
 .nav-links a { color: var(--muted); text-decoration: none; font-size: 14px; }
 .nav-links a:hover { color: var(--gold-soft); }
+.nav-links a.active { color: var(--gold-soft); }
 .lang-switch { display: flex; gap: 6px; }
 .lang-switch button {
   background: transparent; border: 1px solid var(--line); color: var(--muted);
@@ -176,6 +177,12 @@ a { color: var(--gold-soft); }
 .mini-card:hover { transform: translateY(-4px); border-color: var(--gold); box-shadow: 0 12px 28px rgba(212, 169, 78, 0.22); }
 .mini-card b { display: block; font-size: 15px; }
 .mini-card span { font-size: 12px; color: var(--muted); }
+
+.arc-title { display: flex; align-items: baseline; gap: 10px; margin: 8px 0 14px; }
+.arc-title b { font-family: "Cormorant Garamond", serif; font-size: 26px; color: var(--gold-soft); }
+.arc-count { font-size: 12px; color: var(--muted); letter-spacing: 0.1em; }
+.arc-no { color: var(--gold-soft); font-size: 13px; letter-spacing: 0.08em; margin-bottom: 2px !important; }
+.arc-key { font-size: 12px; color: var(--text2); line-height: 1.4; display: block; margin-top: 6px; font-style: italic; }
 
 .daily {
   border-radius: 24px; padding: 34px; position: relative; overflow: hidden;
@@ -310,6 +317,9 @@ a { color: var(--gold-soft); }
 .sys-card .cat { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-soft); }
 .sys-card .n { font-family: "Cormorant Garamond", serif; font-size: 30px; color: var(--gold-soft); }
 .sys-card small { color: var(--muted); font-size: 12px; }
+.spread-card { cursor: pointer; }
+.spread-card:hover, .spread-on { border-color: var(--gold); }
+.spread-card:hover .n { color: var(--gold); }
 .badge {
   display: inline-block; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
   border-radius: 999px; padding: 4px 12px; margin-bottom: 8px;

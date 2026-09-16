@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import { getJSON } from "../lib/api";
 
 const T = {
-  ru: { title: "Статьи", sub: "Гайды энциклопедии: история, системы и практика чтения карт.", back: "← На главную", empty: "Статьи загружаются…", src: "📜" },
-  uk: { title: "Статті", sub: "Гайди енциклопедії: історія, системи та практика читання карт.", back: "← На головну", empty: "Статті завантажуються…", src: "📜" },
-  en: { title: "Articles", sub: "Encyclopedia guides: history, systems and card reading practice.", back: "← Home", empty: "Loading articles…", src: "📜" },
+  ru: { title: "Гайди и статьи", sub: "Руководства энциклопедии: расклады, история, системы и практика чтения карт.", back: "← На главную", empty: "Статьи загружаются…", src: "📜" },
+  uk: { title: "Гайди і статті", sub: "Гайди енциклопедії: розклади, історія, системи та практика читання карт.", back: "← На головну", empty: "Статті завантажуються…", src: "📜" },
+  en: { title: "Guides and articles", sub: "Encyclopedia guides: spreads, history, systems and card reading practice.", back: "← Home", empty: "Loading articles…", src: "📜" },
 };
 
 /** Окрема сторінка статей: акордеон усіх матеріалів з GET /articles. */
@@ -24,7 +24,9 @@ export default function ArticlesPage() {
         <div className="wrap nav-inner">
           <a className="brand" href="/">✦ AI-<b>Arcanum</b></a>
           <div className="nav-links">
-            <a href="/spreads">Розклади / Расклады / Spreads</a>
+            <a href="/#decks">Значення карт</a>
+            <a href="/spreads">Види розкладів</a>
+            <a className="active" href="/articles">Гайди і статті</a>
             <a href="/quiz">Квіз</a>
           </div>
           <div className="lang-switch" style={{ marginLeft: "auto" }}>
@@ -60,7 +62,7 @@ export default function ArticlesPage() {
         )}
       </main>
       <footer className="footer">
-        <div className="wrap"><span>✦ AI-Arcanum · Статті</span></div>
+        <div className="wrap"><span>✦ AI-Arcanum · Гайди і статті</span></div>
       </footer>
     </>
   );

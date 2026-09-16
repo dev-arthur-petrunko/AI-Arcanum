@@ -76,3 +76,28 @@
 - Тасеографія · чайні листки (20): tealeafreading.com/.
 - Кристали · оракул самоцвітів (16): energymuse.com/crystal-guide.
 Шрифтова частина: огамові гліфи — `seguihis.ttf` (Segoe UI Historic, U+1680–169F); деванагарі (биджа `लं वं रं यं हं ॐ`) — `arial.ttf`; карти Playing Cards (U+1F0A1+) — `seguisym.ttf`; емодзі-силуети (зодіак, емоції, сни) — `seguiemj.ttf` (монохромно, fill-колір); ієрогліфи триграм — `msyh.ttc`; іврит (шляхи) — `arial.ttf`.
+
+## Третя хвиля — астрологічні оракули (scripts/import_astro_wave.py, 2026-09-15)
+Карти 45–50 (системи 34–39, категорія «астрологічні»), 287 карт. Тексти — власний навчальний переказ (UK-база + EN/RU), графіка — процедурна (`generate_deck_images.py`, без копірайту). Колоди лише «навчальні аналоги» комерційних (структура/концепція + посилання-надихач у профілі):
+- Weatherstone Astrology Oracle — deck 45 (22): weatherstonegroup.com.
+- Astrological Year (Донна Вудвелл) — deck 46 (50): selfstudydaily.com.
+- Arcana of Astrology (Донна Вудвелл) — deck 47 (54): thearcanaofastrology.com.
+- Oracle of the Radiant Sun (Керолайн Сміт та Джон Астор) — deck 48 (84, 7 мастей × 12 знаків): hayhouse.com/oracle-of-the-radiant-sun.
+- Musing Mystical Astrology (Джилл Вінтерстайн) — deck 49 (55, 10 планет + 45 пар): musingmystical.com/free-astrology-oracle-deck.
+- Astrology Reference (референс, БД-, єдиний `is_reference_only=1`) — deck 50 (22): russellcottrell.com/astrology/ (факти).
+Факти (управителі знаків, стихії, домени планет, фази, астероїди, затемнення) — загальновідомі астрологічні відомості. Значення карт — оригінальні формулювання AI-Arcanum, співзвучні навчальній концепції колод-надихачів.
+
+## Четверта хвиля — 5 навчальних таро-колод (scripts/import_tarot_wave.py, 2026-09-16)
+Система «Таро» (id 1), колоди **51–55**, 390 карт (5 × 78). Тексти — ВЛАСНИЙ навчальний переказ поверх нашої бази RWS (deck 1), тематичні ключі кожної колоди (UK-база + EN/RU); глибокі значення (любов/кар'єра/здоров'я/духовність/перевернуте) копіюються з deck 1. Колоди — «навчальні аналоги» комерційних (структура 78 = 22+56, концепція + source_url-надихач; скани/тексти НЕ копіюються):
+- Angel Tarot (Travis McHenry, Rockpool Publishing) — deck 51: rockpoolpublishing.com.au/angel-tarot (72 ангели Шемхамфорашу).
+- Tarot Neocolonial de las Americas (Patrick McGrath Muniz, U.S. Games, 2022) — deck 52: usgamesinc.com/tarot-neocolonial-de-las-americas (традиція Вейта).
+- Fablemaker's Animated Tarot (Misty Bourne, US Games, 2022) — deck 53: usgamesinc.com/the-fablemakers-animated-tarot.
+- Alice in Wonderland Tarot (Lisa Vannini, Insight Editions, 2022) — deck 54: insighteditions.com/products/alice-in-wonderland-tarot-deck.
+- Vision Quest Tarot (Gayan S. Winter, AGMuller 1998/2016) — deck 55: agmuller.net/vision-quest-tarot (традиція Тота; у нас масті перейменовано: Стріли/Чаші/Пера/Плоди).
+Графіка — процедурна вітка «навчальн»+«таро» у `generate_deck_images.py` (5 палітр, старші — сяйво + номер, молодші — піпки/двір); файли `images/51…55/`, `assets/51…55/`; покриття 390/390 (0 пропусків).
+
+## П'ята хвиля — ще 2 навчальні таро-колоди (scripts/import_tarot_wave.py, 2026-09-16)
+Та сама система «Таро» (id 1), колоди **56–57**, +156 карт (2 × 78). Той самий шаблон «навчальний аналог»: власний переказ поверх RWS (deck 1), тематичні ключі, глибокі тексти з deck 1, процедурна графіка, скани НЕ копіюються:
+- Golden Black Cat Tarot (Helena de Almeida, Königsfurt-Urania, 2022) — deck 56: usgamesinc.com/golden-black-cat-tarot (традиція Вейта; образ — чорний кіт із золотом).
+- Folklore Tarot (Rowan Ortins, U.S. Games, 2023) — deck 57: usgamesinc.com/folklore-tarot (традиція Вейта; тема — міфологія народів світу).
+Графіка — та сама вітка «навчальн»+«таро» (додано 2 палітри: `goldencat`, `folklore`); файли `images/56…57/`, `assets/56…57/`; покриття 156/156 (0 пропусків). Разом: 50 колод / 1723 карти / 38 систем.

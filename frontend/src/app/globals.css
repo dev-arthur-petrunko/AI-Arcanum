@@ -560,3 +560,36 @@ a { color: var(--gold-soft); }
 /* --- параллакс-глит light/dark: чтобы у бургера был и светлый вариант --- */
 [data-theme="light"] .burger span { background: #5a4a22; }
 [data-theme="light"] .drawer { background: var(--panel-solid); }
+/* волна 8.5 · раздать золото ВСЕМ страницам глобально (без правки JSX) */
+.section-head h2, .section-head h1, .hero h1, .page h1,
+.spread-card b, .article-card summary, .sys-card .n,
+.quiz-box h3, .quiz-box .score, .daily h2, .stat-num,
+.stat b.num, .spread-head h2, .deck-title h1, .article-card summary b {
+  background: linear-gradient(105deg, #8a6b25 0%, #d4a94e 30%, #f7ecc4 50%, #d4a94e 70%, #8a6b25 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+  animation: gold-sweep-in 3.2s ease;
+}
+@keyframes gold-sweep-in {
+  from { background-position: 100% center; }
+  to   { background-position: 0% center; }
+}
+.glow-card { position: relative; }
+.glow-card::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; z-index: -1;
+  padding: 1px; background: conic-gradient(from var(--ang, 0deg) at 50% 50%,
+    transparent 0 40deg, rgba(212, 169, 78, 0.9) 100deg, transparent 180deg 300deg);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  animation: glow-spin 5s linear infinite;
+  opacity: 0; transition: opacity 0.25s ease;
+}
+.glow-card:hover::before, .glow-card:focus-within::before { opacity: 1; }
+@property --ang { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+@keyframes glow-spin { to { --ang: 360deg; } }
+[data-theme="light"] .section-head h2, [data-theme="light"] .spread-card b,
+[data-theme="light"] .article-card summary, [data-theme="light"] .stat b.num,
+[data-theme="light"] .quiz-box h3 {
+  background: linear-gradient(105deg, #7a5a14 0%, #a97b2f 40%, #8a6b25 100%);
+}

@@ -22,3 +22,5 @@ Thumbs.db
 
 # Media (large, keep placeholders)
 !**/.gitkeep
+
+frontend/dev.log

@@ -16,6 +16,8 @@ export default function SiteNav({ lang = "uk", setLang, theme, toggleTheme, acti
   const ref = useRef(null);
 
   useEffect(() => {
+    const d = ref.current;
+    if (d && d.classList.contains("open")) setOpen(true);
     const close = (e) => {
       if (ref.current && !ref.current.contains(e.target)) setOpen(false);
     };

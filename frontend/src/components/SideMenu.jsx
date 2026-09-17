@@ -18,24 +18,37 @@ const T = {
   general: { ru: "Разделы", uk: "Розділи", en: "Sections" },
 };
 
+function applyMenu(v) {
+  try {
+    document.body.classList.toggle("side-open", v);
+    document.body.style.overflow = v ? "hidden" : "";
+  } catch {}
+}
+
 export default function SideMenu({ lang = "ru", setLang }) {
   const [open, setOpen] = useState(false);
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
-    return () => (document.body.style.overflow = "");
+    try {
+      if (document.body.classList.contains("side-open")) setOpen(true);
+    } catch {}
+  }, []);
+  useEffect(() => {
+    applyMenu(open);
+    const onKey = (e) => { if (e.key === "Escape") setOpen(false); };
+    window.addEventListener("keydown", onKey);
+    return () => { window.removeEventListener("keydown", onKey); };
   }, [open]);
+  const openMenu = () => setOpen(true);
   const close = () => setOpen(false);
 
   return (
     <>
       <button type="button" className="burger" aria-label={T.menu[lang]} aria-expanded={open}
-        onClick={() => setOpen(true)}>
+        onClick={openMenu}>
         <span /><span /><span />
       </button>
-      {open && (
-        <>
-          <div className="side-overlay" onClick={close} aria-hidden="true" />
-          <aside className="side-drawer" role="dialog" aria-modal="true" aria-label={T.menu[lang]}>
+      <div className="side-overlay" onClick={close} aria-hidden="true" />
+      <aside className="side-drawer" role="dialog" aria-modal="true" aria-label={T.menu[lang]}>
             <div className="side-top">
               <b className="brand" style={{ fontSize: 16 }}>✦ AI-<b>Arcanum</b></b>
               <button type="button" className="side-close" aria-label={T.close[lang]} onClick={close}>✕</button>
@@ -69,8 +82,6 @@ export default function SideMenu({ lang = "ru", setLang }) {
               </div>
             </div>
           </aside>
-        </>
-      )}
     </>
   );
 }

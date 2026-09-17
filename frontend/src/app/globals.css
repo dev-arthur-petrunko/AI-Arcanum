@@ -421,3 +421,142 @@ a { color: var(--gold-soft); }
 .drawer-list a.drawer-home { color: var(--muted); font-size: 14px; }
 .drawer-ico { font-size: 18px; min-width: 24px; text-align: center; }
 .drawer-lang { padding: 14px 20px; border-top: 1px solid var(--line); }
+
+/* =====================================================================
+   ПРЕМИУМ-ВОЛНА 8 · золото-фиолетовая роскошь (добавлено поверх всего)
+   ===================================================================== */
+/* 1) сочная глубокая палитра */
+:root {
+  --bg: #060810;
+  --panel: rgba(16, 21, 44, 0.72);
+  --gold: #d4a94e;
+  --gold-soft: #e8c87a;
+  --ivory: #f2ecdc;
+  --muted: #8b91ab;
+}
+
+/* 2) шиммер-текст (бегущий блик по золоту) */
+@keyframes gold-shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* 3) свечение по контуру карточки (like Cursor / Aceternity glow) */
+@keyframes glow-spin { to { --ang: 360deg; } }
+
+/* 4) живые частицы-искры над hero */
+@keyframes spark-fall {
+  0% { transform: translateY(-8vh) rotate(0deg); opacity: 0; }
+  12% { opacity: 1; }
+  88% { opacity: 1; }
+  100% { transform: translateY(108vh) rotate(320deg); opacity: 0; }
+}
+
+/* 5) бесконечная лента (marquee) */
+@keyframes marquee-x { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee-x { display: flex; gap: 28px; width: max-content; animation: marquee-x 26s linear infinite; }
+.marquee-x:hover { animation-play-state: paused; }
+
+/* 6) параллакс-блики поверх сетки */
+@keyframes pc-glow { 0%, 100% { opacity: 0.35; } 50% { opacity: 0.8; } }
+
+/* =====================================================================
+   ВОЛНА 8 · ПРЕМИУМ-РЕСТАЙЛ (золото·фиолет·аврора) — чисто CSS, SSR-безопасно
+   ===================================================================== */
+
+/* --- анимированная аврора-подсветка углов (hero + панели) --- */
+@keyframes aurora-drift {
+  0%   { transform: translate(0, 0) scale(1); }
+  33%  { transform: translate(46px, -26px) scale(1.08); }
+  66%  { transform: translate(-30px, 22px) scale(0.95); }
+  100% { transform: translate(12px, -10px) scale(1.03); }
+}
+.aurora {
+  position: absolute; top: -40%; left: -40%; width: 180%; height: 180%; z-index: -3;
+  background:
+    radial-gradient(40% 36% at 28% 22%, rgba(122, 82, 255, 0.5), transparent 68%),
+    radial-gradient(36% 32% at 74% 18%, rgba(212, 169, 78, 0.4), transparent 60%),
+    radial-gradient(44% 40% at 58% 100%, rgba(94, 45, 160, 0.55), transparent 70%);
+  filter: blur(64px); animation: aurora-drift 22s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+.hero { position: relative; overflow: hidden; }
+
+/* --- золотой шиммер-текст заголовков --- */
+@keyframes gold-shimmer { to { background-position: 200% center; } }
+.gold-shimmer {
+  background: linear-gradient(100deg, #9a7426 0%, #f2d48a 35%, #a97b2f 50%, #f5e0a8 75%, #9a7426 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+  animation: gold-shimmer 5.5s linear infinite;
+}
+
+/* --- премиум-карточки: свечение по контуру при наведении (как Cursor/Aceternity) --- */
+.glow-card { position: relative; overflow: hidden; isolation: isolate; }
+.glow-card::before {
+  content: ""; position: absolute; inset: -1px; border-radius: inherit; z-index: -1;
+  background: conic-gradient(from 0deg,
+    transparent 0deg 40deg, rgba(212, 169, 78, 0.9) 110deg, transparent 150deg,
+    rgba(122, 82, 255, 0.55) 235deg, transparent 285deg 360deg);
+  animation: glow-spin 3.5s linear infinite;
+  opacity: 0; transition: opacity 0.35s ease;
+}
+@keyframes glow-spin { to { transform: rotate(360deg); } }
+.glow-card:hover::before, .glow-card:focus-within::before { opacity: 1; }
+.sys-card, .spread-card, .article-card, .deck-card { transition: transform 0.25s ease, box-shadow 0.3s ease, border-color 0.25s ease; }
+.sys-card:hover, .spread-card:hover, .article-card:hover, .deck-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(212, 169, 78, 0.25), 0 0 44px rgba(212, 169, 78, 0.22);
+}
+
+/* --- стеклянные панели --- */
+.panel-glass {
+  background: linear-gradient(160deg, rgba(19, 26, 54, 0.82), rgba(10, 14, 34, 0.55));
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 169, 78, 0.18);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 24px 70px rgba(0, 0, 0, 0.5);
+}
+
+/* --- золотая кнопка со скользящим бликом --- */
+@keyframes shine-sweep { from { transform: translateX(-130%) rotate(22deg); } to { transform: translateX(240%) rotate(22deg); } }
+.btn-gold { overflow: hidden; position: relative; isolation: isolate; }
+.btn-gold::after {
+  content: ""; position: absolute; top: -40%; left: 10%; width: 30%; height: 180%;
+  background: linear-gradient(90deg, transparent, rgba(255, 240, 198, 0.8), transparent);
+  animation: shine-sweep 2.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  pointer-events: none;
+}
+
+/* --- звёздная текстура-маркиттонный multisparkle фон --- */
+.sparkle-bg {
+  position: fixed; inset: 0; z-index: -4; pointer-events: none; opacity: 0.55;
+  background-image:
+    radial-gradient(1px 1px at 12% 22%, rgba(242, 212, 138, 0.9), transparent 60%),
+    radial-gradient(1px 1px at 43% 68%, rgba(180, 160, 255, 0.9), transparent 60%),
+    radial-gradient(1.5px 1.5px at 78% 14%, rgba(242, 212, 138, 0.8), transparent 60%),
+    radial-gradient(1px 1px at 90% 55%, rgba(122, 82, 255, 0.8), transparent 60%),
+    radial-gradient(1px 1px at 25% 87%, rgba(255, 250, 230, 0.7), transparent 60%),
+    radial-gradient(1.2px 1.2px at 60% 40%, rgba(212, 169, 78, 0.75), transparent 60%);
+  background-size: 420px 420px;
+  animation: sparkle-twinkle 6s ease-in-out infinite alternate;
+}
+@keyframes sparkle-twinkle { from { opacity: 0.35; } to { opacity: 0.7; } }
+
+/* --- кастомный золотой скроллбар --- */
+::-webkit-scrollbar { width: 11px; height: 11px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #9a7426, #d4a94e 50%, #9a7426);
+  border-radius: 10px; border: 2px solid var(--bg);
+}
+::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #c79a34, #e8c87a 50%, #c79a34); }
+* { scrollbar-width: thin; scrollbar-color: #b0893c var(--bg); }
+
+/* --- изящное выделение --- */
+::selection { background: rgba(212, 169, 78, 0.32); color: #fff; }
+
+/* --- параллакс-глит light/dark: чтобы у бургера был и светлый вариант --- */
+[data-theme="light"] .burger span { background: #5a4a22; }
+[data-theme="light"] .drawer { background: var(--panel-solid); }

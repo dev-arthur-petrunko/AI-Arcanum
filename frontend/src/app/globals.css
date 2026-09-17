@@ -593,3 +593,60 @@ a { color: var(--gold-soft); }
 [data-theme="light"] .quiz-box h3 {
   background: linear-gradient(105deg, #7a5a14 0%, #a97b2f 40%, #8a6b25 100%);
 }
+
+/* =====================================================================
+   ВОЛНА 9 · ГЕНЕРИЧЕСКАЯ ПРИВЯЗКА премиум-слоя → существующие классы всeх страниц
+   (без правки JSX: золото-шиммер на заголовки, неон-бордер дeck/расклад/статья/квиз, панели-стекло)
+   ===================================================================== */
+
+/* 1) золотой шиммер на всех заголовках секций страниц */
+.section-head h2, .article-card summary, .quiz-title,
+.spreads-hero h1, .deck-title h1, .page-hero h1, .spread-card b,
+.sys-card b, .branch-card b, .stat b, .grid-card h3, .num.big {
+  background: linear-gradient(102deg, #9a7426 0%, #d9b35c 22%, #f4e2ac 34%, #f7ecc4 44%, #c89a4a 56%, #9a7426 82%);
+  background-size: 220% auto;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+  animation: gold-shimmer 6.5s linear infinite;
+}
+
+/* 2) стеклянные панели-оверлеи страниц */
+.spreads-hero, .deck-hero, .page-hero, .articles-hero, .quiz-hero {
+  background:
+    linear-gradient(180deg, rgba(13, 17, 38, 0.86), rgba(9, 12, 28, 0.74)),
+    repeating-linear-gradient(115deg, transparent 0 34px, rgba(212, 169, 78, 0.05) 34px 35px);
+  border: 1px solid rgba(212, 169, 78, 0.18);
+  box-shadow: inset 0 1px 0 rgba(255, 244, 215, 0.1), 0 30px 80px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  border-radius: var(--radius);
+}
+
+/* 3) неон-бордер при наведении на расклад/статью/колоду/карточку системы */
+.spread-card:hover, .article-card summary, .sys-card:hover, .grid-card:hover, .branch-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 1px rgba(212, 169, 78, 0.5), 0 22px 46px rgba(0, 0, 0, 0.5), 0 0 34px rgba(212, 169, 78, 0.22);
+}
+.spread-card, .sys-card, .grid-card, .branch-card {
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.28s ease, box-shadow 0.28s ease;
+}
+.spread-card:hover, .sys-card:hover, .grid-card:hover, .branch-card:hover { transform: translateY(-4px); }
+
+/* 4) кнопки: золотая заливка + блик (перекрытие старых .btn) */
+.btn-gold, .btn.btn-ghost, .btn.btn-primary {
+  background: linear-gradient(135deg, #a97b2f 0%, #e0bc66 45%, #d2a94e 55%, #a97b2f 100%) !important;
+  color: #171207 !important; border: none !important; font-weight: 700;
+  box-shadow: 0 8px 24px rgba(211, 169, 80, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+.btn-gold:hover, .btn.btn-ghost:hover, .btn.btn-primary:hover {
+  box-shadow: 0 12px 34px rgba(211, 169, 80, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* 5) активная вкладка меню/языка — золотая подсветка */
+.nav-links a.active, .lang-switch button.active { border-color: var(--gold); color: var(--gold-soft); }
+.nav-links a.active:hover { box-shadow: 0 0 0 1px rgba(212, 169, 78, 0.4), 0 0 18px rgba(212, 169, 78, 0.25); }
+
+/* 6) фокус-свечение инпутов (доступность + lux) */
+input:focus, select:focus, textarea:focus, .search-input:focus {
+  outline: none; border-color: var(--gold) !important;
+  box-shadow: 0 0 0 4px rgba(212, 169, 78, 0.18), 0 0 24px rgba(212, 169, 78, 0.3);
+}

@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { getJSON } from "../lib/api";
+import SideMenu from "./SideMenu";
 
 const T = {
   ru: { title: "Гайди и статьи", sub: "Руководства энциклопедии: расклады, история, системы и практика чтения карт.", back: "← На главную", empty: "Статьи загружаются…", src: "📜" },
@@ -22,13 +23,8 @@ export default function ArticlesPage() {
     <>
       <nav className="nav">
         <div className="wrap nav-inner">
+          <SideMenu lang={lang} setLang={setLang} />
           <a className="brand" href="/">✦ AI-<b>Arcanum</b></a>
-          <div className="nav-links">
-            <a href="/#decks">Значення карт</a>
-            <a href="/spreads">Види розкладів</a>
-            <a className="active" href="/articles">Гайди і статті</a>
-            <a href="/quiz">Квіз</a>
-          </div>
           <div className="lang-switch" style={{ marginLeft: "auto" }}>
             {["ru", "uk", "en"].map((l) => (
               <button key={l} className={l === lang ? "active" : ""} onClick={() => setLang(l)}>

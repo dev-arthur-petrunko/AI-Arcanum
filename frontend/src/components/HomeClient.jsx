@@ -2,6 +2,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import Reveal from "./Reveal";
+import SideMenu from "./SideMenu";
 import { cardName, getJSON, pick } from "../lib/api";
 
 /** Канонічні ключі категорій систем (порядок вкладок). */
@@ -228,13 +229,8 @@ export default function HomeClient({ initialCounts, initialDecks, initialSystems
       <div className="progress-bar" style={{ width: `${Math.round(progress * 100)}%` }} />
       <nav className="nav">
         <div className="wrap nav-inner">
+          <SideMenu lang={lang} setLang={setLang} homeHref="#top" />
           <a className="brand" href="#top">✦ AI-<b>Arcanum</b></a>
-          <div className="nav-links">
-            <a className="active" href="#decks">Значення карт</a>
-            <a href="/spreads">Види розкладів</a>
-            <a href="/articles">Гайди і статті</a>
-            <a href="/quiz">Квіз</a>
-          </div>
           <button className="theme-btn" onClick={toggleTheme} title="theme" style={{ marginLeft: "auto" }}>
             {theme === "dark" ? "☀" : "☾"}
           </button>

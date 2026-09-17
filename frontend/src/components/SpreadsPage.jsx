@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { cardName, getJSON, pick } from "../lib/api";
+import SideMenu from "./SideMenu";
 
 const T = {
   ru: {
@@ -186,13 +187,8 @@ export default function SpreadsPage() {
     <>
       <nav className="nav">
         <div className="wrap nav-inner">
+          <SideMenu lang={lang} setLang={setLang} />
           <a className="brand" href="/">✦ AI-<b>Arcanum</b></a>
-          <div className="nav-links">
-            <a href="/#decks">Значення карт</a>
-            <a className="active" href="/spreads">Види розкладів</a>
-            <a href="/articles">Гайди і статті</a>
-            <a href="/quiz">Квіз</a>
-          </div>
           <div className="lang-switch" style={{ marginLeft: "auto" }}>
             {["ru", "uk", "en"].map((l) => (
               <button key={l} className={l === lang ? "active" : ""} onClick={() => setLang(l)}>

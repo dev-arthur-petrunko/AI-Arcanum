@@ -57,6 +57,43 @@ a { color: var(--gold-soft); }
 .nav-cats a:hover { color: var(--gold-soft); border-color: var(--line); }
 .nav-cats a.active { color: var(--gold-soft); border-color: var(--gold); background: rgba(212, 169, 78, 0.08); }
 [data-theme="light"] .nav-cats a.active { background: rgba(138, 107, 37, 0.1); }
+
+/* === Выезжающее меню слева (шторка) === */
+.burger {
+  display: inline-flex; flex-direction: column; justify-content: space-between;
+  width: 38px; height: 38px; padding: 9px 8px; background: transparent;
+  border: 1px solid var(--line); border-radius: 12px; cursor: pointer;
+  flex-shrink: 0; transition: border-color 0.2s ease;
+}
+.burger span { display: block; height: 2px; border-radius: 2px; background: var(--gold-soft); width: 100%; }
+.burger:hover { border-color: var(--gold); }
+.drawer-overlay { position: fixed; inset: 0; background: rgba(4, 7, 18, 0.6); z-index: 150; animation: fade-in 0.2s ease; }
+.drawer {
+  position: fixed; top: 0; left: 0; bottom: 0; width: min(300px, 86vw);
+  background: var(--panel-solid); border-right: 1px solid var(--line);
+  z-index: 200; display: flex; flex-direction: column;
+  animation: drawer-in 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 24px 0 60px rgba(0, 0, 0, 0.45);
+}
+.drawer-top { display: flex; align-items: center; justify-content: space-between; padding: 18px 20px; border-bottom: 1px solid var(--line); }
+.drawer-brand { font-family: "Cormorant Garamond", serif; font-size: 18px; color: var(--ivory); letter-spacing: 0.04em; }
+.drawer-close { background: transparent; border: 1px solid var(--line); color: var(--muted); width: 34px; height: 34px; border-radius: 10px; cursor: pointer; font-size: 15px; }
+.drawer-close:hover { color: var(--gold-soft); border-color: var(--gold); }
+.drawer-list { display: flex; flex-direction: column; padding: 14px 12px; gap: 4px; flex: 1; overflow-y: auto; }
+.drawer-ico { width: 34px; text-align: center; font-size: 17px; flex-shrink: 0; }
+.drawer-list a, .drawer-home {
+  display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 12px;
+  color: var(--ivory); text-decoration: none; font-size: 14.5px; transition: background 0.15s ease, color 0.15s ease;
+}
+.drawer-list a:hover { background: rgba(212, 169, 78, 0.07); }
+.drawer-home { border-bottom: 1px solid var(--line); border-radius: 0; margin: 0 12px 6px; }
+.drawer-lang { display: flex; gap: 6px; padding: 16px 20px; border-top: 1px solid var(--line); }
+.drawer-lang button {
+  flex: 1; background: transparent; border: 1px solid var(--line); color: var(--muted);
+  border-radius: 10px; padding: 8px 0; font-size: 13px; cursor: pointer;
+}
+.drawer-lang button.active { color: var(--gold-soft); border-color: var(--gold); }
+@keyframes drawer-in { from { transform: translateX(-100%); } to { transform: translateX(0); } }
 .nav-inner { display: flex; align-items: center; gap: 22px; height: 62px; }
 .brand { font-family: "Cormorant Garamond", serif; font-size: 22px; letter-spacing: 0.04em; color: var(--ivory); text-decoration: none; }
 .brand b { color: var(--gold); font-weight: 600; }
@@ -343,3 +380,44 @@ a { color: var(--gold-soft); }
 .article-card summary .sys { font-size: 12px; color: var(--gold-soft); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; }
 .article-body { padding: 0 20px 20px; color: var(--text2); line-height: 1.75; white-space: pre-wrap; }
 .article-body .src { font-size: 12px; color: var(--muted); margin-top: 12px; }
+
+/* ===== Боковое меню (слева, выдвижной drawer) ===== */
+.burger {
+  display: flex; flex-direction: column; justify-content: center; gap: 4px;
+  width: 38px; height: 38px; padding: 0; border: 1px solid var(--line);
+  border-radius: 10px; background: transparent; cursor: pointer; flex: 0 0 auto;
+}
+.burger span { display: block; height: 2px; width: 18px; margin: 0 auto; background: var(--ivory); border-radius: 2px; transition: background 0.2s ease; }
+.burger:hover { border-color: var(--gold); }
+.burger:hover span { background: var(--gold-soft); }
+.drawer-overlay {
+  position: fixed; inset: 0; z-index: 200; background: rgba(4, 7, 18, 0.6);
+  backdrop-filter: blur(2px); animation: fade-in 0.2s ease;
+}
+.drawer-nav {
+  position: fixed; top: 0; left: 0; bottom: 0; width: min(320px, 86vw); z-index: 210;
+  display: flex; flex-direction: column; background: var(--panel-solid);
+  border-right: 1px solid var(--line); box-shadow: 20px 0 60px rgba(0, 0, 0, 0.5);
+  animation: drawer-in 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@keyframes drawer-in { from { transform: translateX(-100%); } to { transform: translateX(0); } }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+.drawer-top {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 18px 20px; border-bottom: 1px solid var(--line);
+}
+.drawer-close {
+  background: transparent; border: 1px solid var(--line); color: var(--muted);
+  border-radius: 999px; width: 34px; height: 34px; cursor: pointer; font-size: 14px;
+}
+.drawer-close:hover { border-color: var(--gold); color: var(--gold-soft); }
+.drawer-list { display: flex; flex-direction: column; gap: 4px; padding: 14px 12px; overflow-y: auto; flex: 1; }
+.drawer-list a {
+  display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 12px;
+  color: var(--ivory); text-decoration: none; font-size: 15px;
+  border: 1px solid transparent; transition: border-color 0.15s ease, background 0.15s ease;
+}
+.drawer-list a:hover { border-color: var(--gold); background: rgba(212, 169, 78, 0.08); color: var(--gold-soft); }
+.drawer-list a.drawer-home { color: var(--muted); font-size: 14px; }
+.drawer-ico { font-size: 18px; min-width: 24px; text-align: center; }
+.drawer-lang { padding: 14px 20px; border-top: 1px solid var(--line); }

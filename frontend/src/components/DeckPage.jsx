@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { DeckClientSuspense } from "./DeckClient";
+import SideMenu from "./SideMenu";
 
 /** Клієнт обгортки сторінки колоди: мова + навігація. Дані — із серверного page.jsx. */
 export default function DeckPage({ deck, initialCards }) {
@@ -10,13 +11,8 @@ export default function DeckPage({ deck, initialCards }) {
     <>
       <nav className="nav">
         <div className="wrap nav-inner">
+          <SideMenu lang={lang} setLang={setLang} />
           <a className="brand" href="/">✦ AI-<b>Arcanum</b></a>
-          <div className="nav-links">
-            <a className="active" href="/#decks">Значення карт</a>
-            <a href="/spreads">Види розкладів</a>
-            <a href="/articles">Гайди і статті</a>
-            <a href="/quiz">Квіз</a>
-          </div>
           <div className="lang-switch" style={{ marginLeft: "auto" }}>
             {["ru", "uk", "en"].map((l) => (
               <button key={l} className={l === lang ? "active" : ""} onClick={() => setLang(l)}>

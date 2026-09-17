@@ -18,28 +18,27 @@ const T = {
   general: { ru: "Разделы", uk: "Розділи", en: "Sections" },
 };
 
-function applyMenu(v) {
-  try {
-    document.body.classList.toggle("side-open", v);
-    document.body.style.overflow = v ? "hidden" : "";
-  } catch {}
-}
-
 export default function SideMenu({ lang = "ru", setLang }) {
   const [open, setOpen] = useState(false);
   useEffect(() => {
-    try {
-      if (document.body.classList.contains("side-open")) setOpen(true);
-    } catch {}
+    const sync = () => setOpen(document.body.classList.contains("side-open"));
+    sync();
+    const mo = new MutationObserver(sync);
+    mo.observe(document.body, { attributes: true, attributeFilter: ["class"] });
+    window.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMenu(); });
+    return () => mo.disconnect();
   }, []);
-  useEffect(() => {
-    applyMenu(open);
-    const onKey = (e) => { if (e.key === "Escape") setOpen(false); };
-    window.addEventListener("keydown", onKey);
-    return () => { window.removeEventListener("keydown", onKey); };
-  }, [open]);
-  const openMenu = () => setOpen(true);
-  const close = () => setOpen(false);
+  const openMenu = () => {
+    document.body.classList.add("side-open");
+    document.body.style.overflow = "hidden";
+    setOpen(true);
+  };
+  const closeMenu = () => {
+    document.body.classList.remove("side-open");
+    document.body.style.overflow = "";
+    setOpen(false);
+  };
+  const close = closeMenu;
 
   return (
     <>

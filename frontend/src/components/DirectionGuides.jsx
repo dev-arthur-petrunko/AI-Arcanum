@@ -16,9 +16,9 @@ const COPE = {
     en: "Six resource channels — the frame of the COPE deck (O. Ayalon, OH Cards Institute).",
   },
   caveat: {
-    ru: "Честно: в COPE нет готовых «значений» 88 карт, как в Таро. Есть 6 категорий, к которым терапевт относит образ в работе.",
-    uk: "Чесно: у COPE нема готових «значень» 88 карт, як у Таро. Є 6 категорій, до яких терапевт відносить образ у роботі.",
-    en: "Honest note: COPE has no ready-made “meanings” for its 88 cards like Tarot does. There are 6 categories a therapist maps an image to.",
+    ru: "Честно: у методики COPE нет готовых «значений» образов, как в Таро. Есть 6 каналов, к которым терапевт относит образ в работе, — они вошли в объединённую терапевтическую колоду.",
+    uk: "Чесно: у методики COPE нема готових «значень» образів, як у Таро. Є 6 каналів, до яких терапевт відносить образ у роботі, — вони увійшли в об'єднану терапевтичну колоду.",
+    en: "Honest note: the COPE method has no ready-made “meanings” for images like Tarot does. There are 6 channels a therapist maps an image to — they are part of the combined therapeutic deck.",
   },
   srcDocs: { ru: "Официальные источники методики", uk: "Офіційні джерела методики", en: "Official method sources" },
   pdfLabel: {
@@ -26,7 +26,7 @@ const COPE = {
     uk: "Методичка О. Аялон (PDF, OH Institute)",
     en: "O. Ayalon manual (PDF, OH Institute)",
   },
-  openDeck: { ru: "Открыть колоду COPE →", uk: "Відкрити колоду COPE →", en: "Open the COPE deck →" },
+  openDeck: { ru: "Открыть объединённую колоду →", uk: "Відкрити об'єднану колоду →", en: "Open the combined deck →" },
   links: [
     { href: "https://www.oh-cards-institute.org/wp-content/uploads/2012/06/Ofra-Ayalon-Healing-Trauma-with-Metaphoric-Cards.pdf", label: null },
     { href: "https://oh-cards.com/cope/", label: "oh-cards.com/cope" },
@@ -71,7 +71,7 @@ export default function DirectionGuides({ direction, decks, initialArticles }) {
   }
 
   const mine = (articles || []).filter((a) => articleBelongs(a, direction));
-  const copeDeck = (decks || []).find((d) => (d.name || "").includes("COPE"));
+  const copeDeck = (decks || []).find((d) => (d.name || "").includes("Терапевтична колода"));
   const showCope = direction.slug === "therapeutic";
 
   return (

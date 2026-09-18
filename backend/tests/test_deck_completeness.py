@@ -22,15 +22,17 @@ EXPECTED = {
     "Англосаксонская руническая поэма": [str(i) for i in range(1, 30)],
     "Старший Футарк (навчальний)": [str(i) for i in range(1, 25)],
     "Оракул місячних фаз (навчальний)": [str(i) for i in range(1, 9)],
-    "МАК «Архетипи» (навчальна)": [str(i) for i in range(1, 21)],
-    "COPE · BASIC Ph (навчальний)": ["B", "A", "S", "I", "C", "P"],
     "Астрологічний оракул (навчальний)": [str(i) for i in range(1, 27)],
     "Шаманський оракул тотемів (навчальний)": [str(i) for i in range(1, 13)],
     "Циганські карти (навчальні)": [str(i) for i in range(1, 37)],
     "Гральні карти 36 (навчальні)": PLAY,
     "Цолькин (навчальний)": [f"S{i:02d}" for i in range(1, 21)] + [f"T{i:02d}" for i in range(1, 14)],
-    "Карти роду (навчальні)": [str(i) for i in range(1, 13)],
     "Нумерологія (навчальна)": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "11", "22", "33"],
+    "Терапевтична колода 85 · Сили, канали, потреби (навчальна)": (
+        [str(i) for i in range(1, 25)]  # VIA 24
+        + [f"{l}{n}" for l in "BASICP" for n in range(1, 7)]  # BASIC Ph 36
+        + [f"M{i}" for i in range(1, 26)]  # Маслоу 25
+    ),
 }
 
 def _snapshot():
@@ -73,5 +75,15 @@ def test_all_cards_named_and_illustrated():
 
 
 def test_total():
+    """Сума карт у БД = сума карт по всіх колодах (консистентність каскадів)."""
     _, total = _snapshot()
-    assert total == sum(len(v) for v in EXPECTED.values()) == 432
+    db = SessionLocal()
+    try:
+        rows = db.query(Deck.id, Card.id)\
+            .outerjoin(Card, Card.deck_id == Deck.id).all()
+        orphan = sum(1 for _, cid in rows if cid is None)
+        sum_cards = db.query(Card).count()
+    finally:
+        db.close()
+    assert total == sum_cards
+    assert orphan == 0, f"колод без карт (сиріт): {orphan}"

@@ -267,6 +267,30 @@ def draw_eclipse(g, cx, cy, color, dim):
     g.text((cx, cy), "☀", font=font(SYM, 96), fill=color, anchor="mm")
 
 
+def draw_maslow_pyramid(g, cx, cy, active, color, dim):
+    """Піраміда Маслоу: 5 сходинок, активний рівень світиться кольором."""
+    import math
+    levels = 5
+    top_w, bot_w = 148, 396
+    step_h = 44
+    total_h = levels * step_h
+    top_y = cy - total_h / 2
+    for i in range(levels):
+        frac = i / (levels - 1)
+        w_i = top_w + (bot_w - top_w) * frac
+        y0 = top_y + i * step_h
+        y1 = top_y + (i + 1) * step_h
+        w_top = w_i + (bot_w - top_w) / (levels - 1) * 0.5
+        w_bot = w_i
+        level_no = levels - i  # нижній = 1 (фізіологія)
+        if level_no == active:
+            g.polygon([(cx - w_bot, y1), (cx + w_bot, y1), (cx + w_top, y0),
+                       (cx - w_top, y0)], fill=color, outline=dim, width=4)
+        else:
+            g.polygon([(cx - w_bot, y1), (cx + w_bot, y1), (cx + w_top, y0),
+                       (cx - w_top, y0)], fill=shade(color, -0.55), outline=dim, width=2)
+
+
 def lenormand_icon(g, num, cx, cy, col):
     """Контурні іконки 36 карт Ленорман (золото на синьому)."""
     s = 90
@@ -564,6 +588,19 @@ CRYSTAL_COLORS = {"amethyst": "#8a4ba8", "rose": "#e8849c", "citrine": "#e0b32a"
                   "labradorite": "#4a6f9e", "fluorite": "#5fbfa9", "tiger": "#c9962e",
                   "moonstone": "#b8c4d8", "malachite": "#1f8a62", "obsidian": "#23232d",
                   "aventurine": "#3f9e5f"}
+
+# Об'єднана терапевтична колода: кольори блоків VIA / BASIC Ph / Маслоу
+THERAPEUTIC_COLORS = {
+    # VIA — 6 доброчесностей
+    "wisdom": "#c9962e", "courage": "#b04e3d", "humanity": "#c96a8b",
+    "justice": "#4f8a5f", "temperance": "#4f7fb0", "transcendence": "#8a6fd0",
+    # BASIC Ph — 6 каналів
+    "belief": "#c9962e", "affect": "#d64a4a", "social": "#4f8a5f",
+    "imagination": "#9a6fd0", "cognition": "#3fa8c9", "physiology": "#b0782f",
+    # Маслоу — 5 рівнів
+    "physiological": "#b04e3d", "safety": "#c9882e", "belonging": "#4f8a5f",
+    "esteem": "#4f7fb0", "selfactualization": "#8a6fd0",
+}
 
 
 def shade(hexc, f):
@@ -1134,6 +1171,55 @@ def render(card, deck):
         g.text((W / 2, 300), letter, font=font(ARIAL, 170), fill=fg, anchor="mm")
         centered_text(g, 520, str(card.category or ""), font(ARIAL, 40), frame)
         title_block(620)
+    elif "терапевт" in dnl or "therapeutic" in dnl:
+        # Терапевтична колода 85: VIA / BASIC Ph / Маслоу — єдина стилістика,
+        # колір блоку за suit_code, великий символ-показник у центрі.
+        sc = str(card.suit_code or "").lower()
+        n = str(num or "")
+        if n.startswith("M"):
+            kind, block = "maslow", n
+        elif len(n) == 2 and n[0].upper() in "BASICPM":
+            kind, block = "basic", n[0].upper()
+        else:
+            kind, block = "via", n
+        col = THERAPEUTIC_COLORS.get(sc, "#4f9ad5")
+        r, g_, b_ = shade(col, -0.6)
+        img, g = base_card("#101a2e", "#eef2e8", col, top="#%02x%02x%02x" % (r, g_, b_))
+        fg, frame = "#eef2e8", col
+        if kind == "via":
+            # VIA: шестикутна зірка сили + назва доброчесності
+            centered_text(g, 150, "VIA · СИЛА ХАРАКТЕРУ", font(ARIAL, 26), frame)
+            pts = star_points(W / 2, 300, 118, 54, n=6)
+            g.polygon(pts, outline=frame, width=6)
+            nx = str(card.number or "")
+            g.text((W / 2, 300), nx, font=font(SERIF_B, 56), fill=fg, anchor="mm")
+            centered_text(g, 470, str(card.category or ""), font(ARIAL, 30), frame)
+            centered_text(g, 618, str(num), font(ARIAL, 40), frame)
+            centered_text(g, 672, name, f_med, fg)
+            centered_text(g, 726, str(card.keywords_upright or "")[:44], font(ARIAL, 20),
+                           "#cdd9ce", max_w=W - 160)
+        elif kind == "basic":
+            letter = block
+            g.ellipse([W / 2 - 120, 180, W / 2 + 120, 420], outline=frame, width=8)
+            g.text((W / 2, 300), letter, font=font(SERIF_B, 170), fill=fg, anchor="mm")
+            centered_text(g, 470, str(card.category or ""), font(ARIAL, 30), frame)
+            centered_text(g, 618, str(num), font(ARIAL, 40), frame)
+            centered_text(g, 672, name, f_med, fg)
+            centered_text(g, 726, str(card.keywords_upright or "")[:44], font(ARIAL, 20),
+                           "#cdd9ce", max_w=W - 160)
+        else:
+            # Маслоу: піраміда з 5 рівнів, активний світиться
+            try:
+                lv = int(n[1:])
+            except ValueError:
+                lv = 1
+            active_level = (lv - 1) // 5 + 1
+            draw_maslow_pyramid(g, W / 2, 300, active_level, frame, "#8a9b8e")
+            centered_text(g, 470, str(card.category or ""), font(ARIAL, 30), frame)
+            centered_text(g, 618, str(num), font(ARIAL, 40), frame)
+            centered_text(g, 672, name, f_med, fg)
+            centered_text(g, 726, str(card.keywords_upright or "")[:44], font(ARIAL, 20),
+                           "#cdd9ce", max_w=W - 160)
     elif "нумеролог" in dnl or "numerolog" in dnl:
         g.text((W / 2, 330), str(num), font=font(ARIAL, 220), fill=fg, anchor="mm")
         title_block(600)
@@ -1224,28 +1310,34 @@ def render(card, deck):
         centered_text(g, 650, name, f_med, fg)
         centered_text(g, 714, str(card.keywords_upright or "")[:46], font(ARIAL, 20), "#7a5a1e")
     elif "сабіан" in dnl or "sabian" in dnl:
-        # знак зодіаку + лента градуса + образ (Сабіан-360)
+        # Сабіан-360: ГОЛОВНИЙ елемент — текст образу (symbolism), а не знак.
+        # Знак зодіаку — дрібний маркер у куті; внизу мелко градус + знак.
         img, g = base_card("#0b0f2e", "#e8c87a", "#8a6b25", top="#04060f")
         fg, frame = "#e8c87a", "#8a6b25"
         sig = SIGN_CODE_INDEX.get(str(card.zodiac_sign_code or "").lower(), 0)
-        g.text((W / 2, 300), ZODIAC[sig], font=font(SYM, 170), fill=fg, anchor="mm")
         try:
             deg = int(str(card.category or 0))
         except ValueError:
             deg = 0
-        g.line([W / 2 - 140, 420, W / 2 + 140, 420], fill="#8a6b25", width=1)
-        g.text((W / 2, 444), f"{deg}°  {name.rsplit(' ', 1)[0].upper() if '°' in name else name}",
-               font=font(ARIAL, 26), fill="#c9a24a", anchor="mm")
+        # дрібний знак у лівому куті + градус ліворуч
+        g.text((76, 100), ZODIAC[sig], font=font(SYM, 64), fill="#a9833f", anchor="mm")
+        g.text((76, 168), f"{deg}°", font=font(ARIAL, 30), fill="#8a6b25", anchor="mm")
+        g.text((W - 76, 100), str(num), font=font(ARIAL, 36), fill="#8a6b25", anchor="mm")
+        # образ-символ — контент усього полотна
         phrase = str(card.symbolism or "")
-        pf = font(SERIF, 20)
-        lines = wrap_lines(g, phrase, pf, W - 140, 5)
-        y = 490
+        pf = font(SERIF_B, 34)
+        while pf.size > 22 and g.textlength(phrase, font=pf) > W - 150:
+            pf = font(SERIF_B, pf.size - 2)
+        lines = wrap_lines(g, phrase, pf, W - 150, 7)
+        y = 300 - (len(lines) - 1) * 18
         for ln in lines:
-            centered_text(g, y, ln, pf, "#e8c87a")
-            y += 28
-        centered_text(g, 668, str(num), font(ARIAL, 34), "#8a6b25")
-        name_face = ((card.translations or {}).get("uk", {}) or {}).get("name") or name
-        centered_text(g, 712, name_face, f_med, fg)
+            centered_text(g, y, ln, pf, fg)
+            y += 44
+        # нижній рядок: градус + знак, афірмація приналежності до системи
+        g.line([W / 2 - 130, 640, W / 2 + 130, 640], fill="#8a6b25", width=1)
+        centered_text(g, 688, f"{deg}° {str(card.zodiac_sign or '')}", font(ARIAL, 30),
+                      "#c9a24a")
+        centered_text(g, 732, "Сабіанський символ · " + str(num), font(ARIAL, 22), frame)
     elif "накшатр" in dnl or "nakshat" in dnl:
         # нічне небо: місячний серп + символ місячної стоянки
         img, g = base_card("#0a1030", "#e8ecf5", "#c0c8e0", top="#02040c")

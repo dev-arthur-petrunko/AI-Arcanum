@@ -25,8 +25,8 @@ export default async function DirectionPage({ params }) {
       const sysIds = new Set(
         allSystems.filter((x) => normCat(x.category) === d.slug).map((x) => x.id),
       );
-      systems = allSystems.filter((x) => sysIds.has(x.id));
-      decks = (Array.isArray(s?.by_deck) ? s.by_deck : []).filter((x) => sysIds.has(x.system_id));
+      systems = allSystems.filter((x) => sysIds.has(x.id) && x.decks > 0);
+      decks = (Array.isArray(s?.by_deck) ? s.by_deck : []).filter((x) => sysIds.has(x.system_id) && x.is_shown_in_directory !== false);
     }
   } catch {}
 

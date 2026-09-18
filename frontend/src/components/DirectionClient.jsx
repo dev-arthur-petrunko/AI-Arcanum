@@ -3,12 +3,13 @@ import { useEffect, useState } from "react";
 import SiteNav from "./SiteNav";
 import Reveal from "./Reveal";
 import Scene3D from "./Scene3D";
-import { getJSON } from "../lib/api";
+import CardDetail from "./CardDetail";
+import { cardName, getJSON } from "../lib/api";
 
 const T = {
   ru: {
     cards: "Значения карт", practice: "Практика", guides: "Гайды",
-    decks: "Колоды направления", decksSub: "Клик ведёт на 3D-витрину колоды.",
+    decks: "Колоды направления", decksSub: "Все карты колод направления — клик открывает значения.",
     showcase: "3D-витрина", showcaseSub: "Первые карты первой колоды направления.",
     systems: "Системы", open: "Открыть →", back: "← Все направления",
     cardsIn: "карт", studyBadge: "навчальна модель", partialBadge: "неполный набор",
@@ -16,7 +17,7 @@ const T = {
   },
   uk: {
     cards: "Значення карт", practice: "Практика", guides: "Гайди",
-    decks: "Колоди напрямку", decksSub: "Клік веде на 3D-вітрину колоди.",
+    decks: "Колоди напрямку", decksSub: "Усі карти колод напрямку — клік відкриває значення.",
     showcase: "3D-вітрина", showcaseSub: "Перші карти першої колоди напрямку.",
     systems: "Системи", open: "Відкрити →", back: "← Усі напрямки",
     cardsIn: "карт", studyBadge: "навчальна модель", partialBadge: "неповний набір",
@@ -24,7 +25,7 @@ const T = {
   },
   en: {
     cards: "Card meanings", practice: "Practice", guides: "Guides",
-    decks: "Direction decks", decksSub: "Click opens the deck's 3D shelf.",
+    decks: "Direction decks", decksSub: "All deck cards at once — click opens the meaning.",
     showcase: "3D showcase", showcaseSub: "First cards of the direction's first deck.",
     systems: "Systems", open: "Open →", back: "← All directions",
     cardsIn: "cards", studyBadge: "study model", partialBadge: "partial set",
@@ -38,6 +39,8 @@ export default function DirectionClient({ direction, systems, decks }) {
   const [theme, setTheme] = useState("dark");
   const [fan, setFan] = useState([]);
   const [fanDeck, setFanDeck] = useState(null);
+  const [allCards, setAllCards] = useState([]);
+  const [selected, setSelected] = useState(null);
   const t = T[lang];
 
   useEffect(() => {
@@ -66,6 +69,19 @@ export default function DirectionClient({ direction, systems, decks }) {
     getJSON(`/cards?deck_id=${first.id}&limit=7`).then((cs) => {
       if (Array.isArray(cs)) setFan(cs);
     }).catch(() => {});
+  }, [decks]);
+
+  // усі карти напрямку одразу (колоди напрямку — картинки без кліку)
+  useEffect(() => {
+    if (!decks?.length) { setAllCards([]); return; }
+    let alive = true;
+    Promise.all((decks || []).map((d) =>
+      getJSON(`/cards?deck_id=${d.id}&limit=200`).catch(() => []),
+    )).then((groups) => {
+      if (!alive) return;
+      setAllCards(groups.flat());
+    });
+    return () => { alive = false; };
   }, [decks]);
 
   const totalCards = (decks || []).reduce((a, d) => a + (d.cards || 0), 0);
@@ -108,7 +124,7 @@ export default function DirectionClient({ direction, systems, decks }) {
                   <p>{t.showcaseSub} — {fanDeck?.name}</p>
                 </div>
               </div>
-              <Scene3D cards={fan} lang={lang} onSelect={() => {}} />
+              <Scene3D cards={fan} lang={lang} theme={theme} onSelect={() => {}} />
             </section>
           </Reveal>
         )}
@@ -122,25 +138,74 @@ export default function DirectionClient({ direction, systems, decks }) {
             {(decks || []).length === 0 ? (
               <p style={{ color: "var(--muted)" }}>{t.empty}</p>
             ) : (
-              <div className="sys-grid">
-                {decks.map((d) => (
-                  <a key={d.id} className="sys-card glow-border" href={`/decks/${d.id}`}
-                    style={{ textDecoration: "none", color: "inherit" }}>
-                    <span className="badge badge-study">{t.studyBadge}</span>
-                    {d.is_partial && <span className="badge badge-partial">{t.partialBadge}</span>}
-                    {d.cover && (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img src={d.cover} alt="" onError={(e) => (e.currentTarget.style.display = "none")}
-                        style={{ width: "100%", borderRadius: 10, marginBottom: 10 }} />
-                    )}
-                    <div className="cat">{d.system}</div>
-                    <b>{d.name}</b>
-                    <div className="n">{d.cards}</div>
-                    <small>{d.cards} · {t.cardsIn} — {t.open}</small>
-                  </a>
-                ))}
-              </div>
+              (() => {
+                // групуємо колоди одного directory_group під спільним підзаголовком
+                const groups = [];
+                const byGroup = new Map();
+                (decks || []).forEach((d) => {
+                  const g = d.directory_group || null;
+                  if (g) {
+                    if (!byGroup.has(g)) {
+                      const entry = { group: g, decks: [] };
+                      byGroup.set(g, entry);
+                      groups.push(entry);
+                    }
+                    byGroup.get(g).decks.push(d);
+                  } else {
+                    groups.push({ group: null, decks: [d] });
+                  }
+                });
+                return groups.map((gr, gi) => {
+                  const inner = (
+                    <>
+                      {gr.group && (
+                        <h3 className="dir-group" style={{ margin: "20px 0 14px", letterSpacing: ".08em" }}>{gr.group}</h3>
+                      )}
+                      {gr.decks.map((d) => {
+                        const dCards = (allCards || []).filter((c) => c.deck_id === d.id);
+                        return (
+                          <div key={d.id} className="deck-block" style={{ marginBottom: 26 }}>
+                            <div className="section-head" style={{ marginBottom: 12 }}>
+                              <span className="num">
+                                {d.cover ? (
+                                  // eslint-disable-next-line @next/next/no-img-element
+                                  <img src={d.cover} alt="" style={{ width: 46, height: 46, objectFit: "cover", borderRadius: 8, verticalAlign: "middle" }} />
+                                ) : "✦"}
+                              </span>
+                              <div>
+                                <h3 style={{ margin: 0 }}>{d.name}</h3>
+                                <p style={{ margin: 0, color: "var(--muted)" }}>{dCards.length} · {t.cardsIn}</p>
+                              </div>
+                            </div>
+                            {dCards.length === 0 ? (
+                              <p style={{ color: "var(--muted)" }}>{t.empty}</p>
+                            ) : (
+                              <div className="grid-cards">
+                                {dCards.map((c) => (
+                                  <div key={c.id} className="mini-card" onClick={() => setSelected(c)}>
+                                    {c.image_path && (
+                                      // eslint-disable-next-line @next/next/no-img-element
+                                      <img src={c.image_path} alt="" onError={(e) => (e.currentTarget.style.display = "none")}
+                                        style={{ width: "100%", borderRadius: 8, marginBottom: 8 }} />
+                                    )}
+                                    <b>{cardName(c, lang)}</b>
+                                    <span>{c.number} · {c.arcana_type || c.category || ""}</span>
+                                  </div>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </>
+                  );
+                  return <div key={gi}>{inner}</div>;
+                });
+              })()
             )}
+            <div style={{ marginTop: 14 }}>
+              <CardDetail card={selected} lang={lang} emptyText={t.cardsIn + ": " + (allCards || []).length} />
+            </div>
           </section>
         </Reveal>
 

@@ -44,6 +44,9 @@ class DeckOut(LocalizedMixin):
     buy_url: str | None = None
     composition: str | None = None
     gallery: list | None = None
+    is_shown_in_directory: bool = True
+    directory_group: str | None = None
+    related_deck_id: int | None = None
 
 
 class CardOut(LocalizedMixin):

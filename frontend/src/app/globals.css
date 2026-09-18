@@ -300,6 +300,7 @@ body.side-open .side-drawer { transform: translateX(0); }
   --bg2: #e9dcc3;
   --panel: rgba(255, 253, 247, 0.85);
   --panel-solid: #fffdf7;
+  --panel-glass: linear-gradient(160deg, rgba(255, 253, 247, 0.92), rgba(239, 228, 205, 0.7));
   --line: rgba(168, 127, 46, 0.3);
   --gold: #a87f2e;
   --gold-soft: #7a5c1c;
@@ -323,10 +324,25 @@ body.side-open .side-drawer { transform: translateX(0); }
 [data-theme="light"] .spread-card, [data-theme="light"] .article-card {
   background: linear-gradient(180deg, #ffffff, #edf5fc);
 }
+[data-theme="light"] .side-drawer {
+  background: linear-gradient(180deg, #fffdf7, #f1e7d2);
+  border-right-color: var(--line);
+  box-shadow: 24px 0 60px rgba(90, 66, 20, 0.2), inset -1px 0 0 rgba(212, 169, 78, 0.25);
+}
+[data-theme="light"] .side-list a, [data-theme="light"] .side-nav a, [data-theme="light"] .side-home {
+  color: var(--ivory);
+}
+[data-theme="light"] .drop-menu {
+  background: linear-gradient(180deg, #fffdf7, #f2e9d4);
+  box-shadow: 0 24px 60px rgba(90, 66, 20, 0.25), 0 0 0 1px rgba(212, 169, 78, 0.2);
+}
+[data-theme="light"] .scene-frame {
+  background: radial-gradient(80% 90% at 50% 0%, #fdf8ee 0%, #f1e6cf 72%);
+  box-shadow: 0 30px 80px rgba(47, 90, 140, 0.22);
+}
 [data-theme="light"] .search-row input { background: #ffffff; }
 [data-theme="light"] .btn-gold { color: #ffffff; }
 [data-theme="light"] .chip.active { color: #ffffff; }
-[data-theme="light"] .scene-frame { box-shadow: 0 30px 80px rgba(47, 90, 140, 0.22); }
 
 /* --- новые компоненты --- */
 .theme-btn {

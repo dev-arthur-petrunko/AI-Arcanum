@@ -9,19 +9,22 @@ const T = {
   ru: {
     back: "← Все колоды", searchPh: "Поиск по колоде…", found: "Найдено", pick: "Кликни карту в 3D или в списке ↓",
     lucky: "🎲 Случайная карта колоды", studyBadge: "навчальна модель", partialBadge: "неполный набор",
-    tab3d: "3D-витрина", tabValues: "Значения карт",
+    tab3d: "3D-витрина", tabValues: "Значение карт", cardsIn: "карт",
+    relatedBlock: "Из чего состоят гексаграммы",
     suits: { wands: "Жезлы", cups: "Кубки", swords: "Мечи", pentacles: "Пентакли" },
   },
   uk: {
     back: "← Усі колоди", searchPh: "Пошук по колоді…", found: "Знайдено", pick: "Клікни карту в 3D або в списку ↓",
     lucky: "🎲 Випадкова карта колоди", studyBadge: "навчальна модель", partialBadge: "неповний набір",
-    tab3d: "3D-вітрина", tabValues: "Значення карт",
+    tab3d: "3D-вітрина", tabValues: "Значення карт", cardsIn: "карт",
+    relatedBlock: "Із чого складаються гексаграми",
     suits: { wands: "Жезли", cups: "Кубки", swords: "Мечі", pentacles: "Пентаклі" },
   },
   en: {
     back: "← All decks", searchPh: "Search this deck…", found: "Found", pick: "Click a card in 3D or in the list ↓",
     lucky: "🎲 Random card of this deck", studyBadge: "study model", partialBadge: "partial set",
-    tab3d: "3D showcase", tabValues: "Card meanings",
+    tab3d: "3D showcase", tabValues: "Card meanings", cardsIn: "cards",
+    relatedBlock: "What hexagrams are made of",
     suits: { wands: "Wands", cups: "Cups", swords: "Swords", pentacles: "Pentacles" },
   },
 };
@@ -50,8 +53,9 @@ function groupByArcana(cards) {
   return { majors, suits };
 }
 
-/** Клієнт сторінки колоди: 3D-віяло або сітка значень арканів, пошук, розбір, ?card=підсвітка. */
-export default function DeckClient({ deck, initialCards, lang, setLang }) {
+/** Клієнт сторінки колоди: 3D-віяло або сітка значень арканів, пошук, розбір, ?card=підсвітка.
+ *  relatedDeck/relatedCards — «будівельна» колода (напр. Багуа → триграми на сторінці І-Цзин). */
+export default function DeckClient({ deck, initialCards, relatedDeck, relatedCards, lang, setLang, theme = "dark" }) {
   const t = T[lang];
   const params = useSearchParams();
   const [cards, setCards] = useState(initialCards);
@@ -61,6 +65,7 @@ export default function DeckClient({ deck, initialCards, lang, setLang }) {
 
   const hasMajors = useMemo(() => cards.some((c) => /Старш/i.test(c.arcana_type || "")), [cards]);
   const groups = useMemo(() => groupByArcana(cards), [cards]);
+  const flat = !hasMajors; // колоди без Старших/мастей — показуємо усі карти сіткою одразу
 
   // ?card=<id> — прямий вхід на карту (кнопка «Мені пощастить»)
   useEffect(() => {
@@ -122,12 +127,10 @@ export default function DeckClient({ deck, initialCards, lang, setLang }) {
           {deckDesc && <p style={{ maxWidth: 720 }}>{deckDesc}</p>}
         </div>
       </div>
-      {hasMajors && (
-        <div className="tabs" style={{ marginBottom: 18 }}>
-          <button className={`tab${tab === "values" ? " active" : ""}`} onClick={() => setTab("values")}>{t.tabValues}</button>
-          <button className={`tab${tab === "3d" ? " active" : ""}`} onClick={() => setTab("3d")}>{t.tab3d}</button>
-        </div>
-      )}
+      <div className="tabs" style={{ marginBottom: 18 }}>
+        <button className={`tab${tab === "values" ? " active" : ""}`} onClick={() => setTab("values")}>{t.tabValues}</button>
+        <button className={`tab${tab === "3d" ? " active" : ""}`} onClick={() => setTab("3d")}>{t.tab3d}</button>
+      </div>
       <div style={{ display: "flex", gap: 10, marginBottom: 14, flexWrap: "wrap" }}>
         <form onSubmit={search} className="search-row" style={{ flex: 1, minWidth: 240, margin: 0 }}>
           <input value={q} onChange={(e) => setQ(e.target.value)} placeholder={t.searchPh} />
@@ -136,7 +139,24 @@ export default function DeckClient({ deck, initialCards, lang, setLang }) {
         <button className="btn btn-gold" onClick={luckyDeck}>{t.lucky}</button>
       </div>
 
-      {tab === "values" && hasMajors ? (
+      {flat ? (
+        <>
+          <p className="arc-title"><b>{t.tabValues}</b> <span className="arc-count">{cards.length}</span></p>
+          <div className="grid-cards">
+            {cards.map((c) => (
+              <div key={c.id} className="mini-card" onClick={() => pickCard(c)}>
+                {c.image_path && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={c.image_path} alt="" onError={(e) => (e.currentTarget.style.display = "none")}
+                    style={{ width: "100%", borderRadius: 8, marginBottom: 8 }} />
+                )}
+                <b>{cardName(c, lang)}</b>
+                {shortKey(c, lang) && <span className="arc-key">{shortKey(c, lang)}</span>}
+              </div>
+            ))}
+          </div>
+        </>
+      ) : tab === "values" ? (
         <>
           {groups.majors.length > 0 && (
             <>
@@ -178,7 +198,7 @@ export default function DeckClient({ deck, initialCards, lang, setLang }) {
         </>
       ) : (
         <>
-          <Scene3D cards={cards} lang={lang} onSelect={setSelected} />
+          <Scene3D cards={cards} lang={lang} theme={theme} onSelect={setSelected} />
           <p style={{ color: "var(--muted)", fontSize: 13, marginBottom: 14 }}>{t.pick}</p>
         </>
       )}
@@ -186,20 +206,49 @@ export default function DeckClient({ deck, initialCards, lang, setLang }) {
       <div style={{ marginTop: 18 }}>
         <CardDetail card={selected} lang={lang} emptyText={t.pick} />
       </div>
-      <p style={{ color: "var(--muted)", fontSize: 13, marginTop: 16 }}>{t.found}: {cards.length}</p>
-      <div className="grid-cards" style={{ marginBottom: 10 }}>
-        {cards.map((c) => (
-          <div key={c.id} className="mini-card" onClick={() => pickCard(c)}>
-            {c.image_path && (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img src={c.image_path} alt="" onError={(e) => (e.currentTarget.style.display = "none")}
-                style={{ width: "100%", borderRadius: 8, marginBottom: 8 }} />
-            )}
-            <b>{cardName(c, lang)}</b>
-            <span>{c.number} · {c.arcana_type}</span>
+      {relatedDeck?.id && relatedCards?.length > 0 && (
+        <section className="section" style={{ marginTop: 30, paddingTop: 0 }}>
+          <div className="divider">✦ ✦ ✦</div>
+          <div className="section-head">
+            <span className="num">☰</span>
+            <div>
+              <h2>{t.relatedBlock}</h2>
+              <p>{relatedDeck.name} · {relatedCards.length} {t.cardsIn || ""}</p>
+            </div>
           </div>
-        ))}
-      </div>
+          <div className="grid-cards">
+            {relatedCards.map((c) => (
+              <div key={c.id} className="mini-card" onClick={() => setSelected(c)}>
+                {c.image_path && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={c.image_path} alt="" onError={(e) => (e.currentTarget.style.display = "none")}
+                    style={{ width: "100%", borderRadius: 8, marginBottom: 8 }} />
+                )}
+                <b>{cardName(c, lang)}</b>
+                <span>{c.number} · {c.arcana_type || c.category || ""}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+      {!flat && (
+        <>
+          <p style={{ color: "var(--muted)", fontSize: 13, marginTop: 16 }}>{t.found}: {cards.length}</p>
+          <div className="grid-cards" style={{ marginBottom: 10 }}>
+            {cards.map((c) => (
+              <div key={c.id} className="mini-card" onClick={() => pickCard(c)}>
+                {c.image_path && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={c.image_path} alt="" onError={(e) => (e.currentTarget.style.display = "none")}
+                    style={{ width: "100%", borderRadius: 8, marginBottom: 8 }} />
+                )}
+                <b>{cardName(c, lang)}</b>
+                <span>{c.number} · {c.arcana_type}</span>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
     </>
   );
 }

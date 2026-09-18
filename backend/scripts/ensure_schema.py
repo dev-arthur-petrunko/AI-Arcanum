@@ -24,6 +24,9 @@ COLUMNS = {
 DECK_COLUMNS = {
     "is_reference_only": "BOOLEAN DEFAULT 0",
     "is_partial": "BOOLEAN DEFAULT 0",
+    "is_shown_in_directory": "BOOLEAN DEFAULT 1",
+    "directory_group": "VARCHAR(128)",
+    "related_deck_id": "INTEGER",
     "source_url": "VARCHAR(512)",
     "buy_url": "VARCHAR(512)",
     "composition": "TEXT",

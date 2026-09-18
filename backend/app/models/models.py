@@ -36,6 +36,15 @@ class Deck(Base):
     is_reference_only: Mapped[bool] = mapped_column(default=False)
     # Умовна/часткова колода: БД містить не повний еталонний набір (наприклад, 36 із 360 сабіанських символів)
     is_partial: Mapped[bool] = mapped_column(default=False)
+    # Розділ-«конструктор» системи (наприклад, Багуа як будівельний блок І-Цзин):
+    # не показується на вітрині напрямку як самостійна колода, але лишається в БД
+    is_shown_in_directory: Mapped[bool] = mapped_column(default=True)
+    # Необов'язкова назва групи для вітрини напрямку (наприклад, «Руни та Огам»):
+    # колоди з однаковим значенням виводяться під спільним підзаголовком
+    directory_group: Mapped[str | None] = mapped_column(String(128), nullable=True)
+    # Дочірня/будівельна колода цієї колоди (наприклад, І-Цзин → Багуа):
+    # картки цієї колоди показуються окремим блоком на сторінці «батьківської»
+    related_deck_id: Mapped[int | None] = mapped_column(Integer, nullable=True)
     source_url: Mapped[str | None] = mapped_column(String(512), nullable=True)
     buy_url: Mapped[str | None] = mapped_column(String(512), nullable=True)
     composition: Mapped[str | None] = mapped_column(Text, nullable=True)

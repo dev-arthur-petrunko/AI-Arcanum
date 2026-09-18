@@ -34,15 +34,18 @@ def timeline():
 
 @router.get("/stats")
 def stats(db: Session = Depends(get_db)):
-    """Живі лічильники для hero-секції фронтенду + розбивка по системах."""
+    """Живі лічильники для hero-секції фронтенду + розбивка по системах.
+    Колоди з is_shown_in_directory=False (наприклад, Багуа) на вітрині не показуються
+    і не враховуються в картках систем, але лишаються в базі."""
     systems = []
     deck_rows = []
     for s in db.scalars(select(System).order_by(System.id)).all():
-        decks = db.scalars(select(Deck).where(Deck.system_id == s.id)).all()
-        deck_ids = [d.id for d in decks]
+        all_decks = db.scalars(select(Deck).where(Deck.system_id == s.id)).all()
+        visible = [d for d in all_decks if getattr(d, "is_shown_in_directory", True)]
+        deck_ids = [d.id for d in visible]
         n_cards = db.scalar(select(func.count()).select_from(Card).where(Card.deck_id.in_(deck_ids))) if deck_ids else 0
         nm = s.translations.get("uk", {}).get("name") if isinstance(s.translations, dict) else None
-        for d in decks:
+        for d in visible:
             dn = d.translations.get("uk", {}).get("name") if isinstance(d.translations, dict) else None
             dd = d.translations.get("uk", {}).get("description") if isinstance(d.translations, dict) else None
             dnote = d.translations.get("uk", {}).get("note") if isinstance(d.translations, dict) else None
@@ -53,6 +56,9 @@ def stats(db: Session = Depends(get_db)):
                               "description": dd or d.description,
                               "is_reference_only": bool(d.is_reference_only),
                               "is_partial": bool(getattr(d, "is_partial", False)),
+                              "is_shown_in_directory": bool(getattr(d, "is_shown_in_directory", True)),
+                              "directory_group": d.directory_group,
+                              "related_deck_id": d.related_deck_id,
                               "note": dnote,
                               "source_url": d.source_url, "buy_url": d.buy_url,
                               "composition": d.composition, "gallery": d.gallery or [],

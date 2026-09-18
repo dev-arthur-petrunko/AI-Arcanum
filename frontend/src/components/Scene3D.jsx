@@ -56,7 +56,8 @@ const FALLBACK = [
 ];
 
 /** Просунута сцена: місяць, стіл з кільцями, віяло карт, зорі, пил, bloom. */
-export default function Scene3D({ cards, lang, onSelect }) {
+export default function Scene3D({ cards, lang, onSelect, theme = "dark" }) {
+  const bg = theme === "light" ? "#f4ecdc" : "#070912";
   const fan = (cards?.length ? cards : FALLBACK).slice(0, 7);
   const layout = useMemo(() => {
     const n = fan.length;
@@ -75,8 +76,8 @@ export default function Scene3D({ cards, lang, onSelect }) {
     <div className="scene-frame">
       <div style={{ height: 560 }}>
         <Canvas camera={{ position: [0, 2.1, 8.2], fov: 40 }} dpr={[1, 2]} gl={{ antialias: true }}>
-          <color attach="background" args={["#070912"]} />
-          <fog attach="fog" args={["#070912", 12, 30]} />
+          <color attach="background" args={[bg]} />
+          <fog attach="fog" args={[bg, 12, 30]} />
           <ambientLight intensity={0.55} />
           <directionalLight position={[4, 7, 5]} intensity={1.15} color="#fff3d6" />
           <pointLight position={[0, 3.4, 2.5]} intensity={14} distance={16} color="#b9a7ff" />

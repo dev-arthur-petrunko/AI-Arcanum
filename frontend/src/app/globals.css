@@ -289,6 +289,9 @@ body.modal-open { overflow: hidden; }
 .daily h2 { margin: 0 0 6px; font-size: 36px; }
 .daily .big { font-family: "Cormorant Garamond", serif; font-size: 30px; color: var(--gold-soft); }
 
+/* Reveal: контент видимий за замовчуванням, анімація лише прикрашає (fallback, якщо GSAP не встиг/зламався) */
+.reveal-fb { opacity: 1 !important; transform: none !important; }
+
 .timeline { display: flex; gap: 14px; overflow-x: auto; padding-bottom: 14px; }
 .tl-item {
   min-width: 230px; border: 1px solid var(--line); border-radius: 16px; padding: 18px;

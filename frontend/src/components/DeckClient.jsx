@@ -67,8 +67,10 @@ export default function DeckClient({ deck, initialCards, relatedDeck, relatedCar
   const groups = useMemo(() => groupByArcana(cards), [cards]);
   const flat = !hasMajors; // колоди без Старших/мастей — показуємо усі карти сіткою одразу
 
-  // ?card=<id> — прямий вхід на карту (кнопка «Мені пощастить»)
+  // ?card=<id> — прямий вхід на карту (кнопка «Мені пощастить»); ?tab=3d — одразу 3D-вітрина
   useEffect(() => {
+    const t3d = params.get("tab");
+    if (t3d === "3d") setTab("3d");
     const id = params.get("card");
     if (!id) return;
     if (isDivination) {

@@ -124,7 +124,7 @@ export default function DirectionClient({ direction, systems, decks }) {
           <a href={`/directions/${direction.slug}/guides`}>{t.guides}</a>
         </nav>
 
-        {fan.length > 0 && (
+        {direction.slug !== "divination" && fan.length > 0 && (
           <Reveal>
             <section className="section" style={{ paddingTop: 20 }}>
               <div className="section-head">
@@ -183,16 +183,26 @@ export default function DirectionClient({ direction, systems, decks }) {
                         // «Гадальні»: кожна колода — на власній сторінці /decks/<id>
                         <div className="grid-decks" key={gr.group || gi}>
                           {gr.decks.map((d) => (
-                            <a key={d.id} href={`/decks/${d.id}`} className="deck-card">
+                            <div key={d.id} className="deck-card">
                               {d.cover ? (
                                 // eslint-disable-next-line @next/next/no-img-element
-                                <img src={d.cover} alt={d.name} className="dd-cover" />
+                                <a href={`/decks/${d.id}`} style={{ display: "block" }}>
+                                  <img src={d.cover} alt={d.name} className="dd-cover" />
+                                </a>
                               ) : (
-                                <div className="dd-fallback">✦</div>
+                                <a href={`/decks/${d.id}`} style={{ display: "block" }}>
+                                  <div className="dd-fallback">✦</div>
+                                </a>
                               )}
-                              <b>{d.name}</b>
-                              <span>{d.cards} · {t.cardsIn}</span>
-                            </a>
+                              <a href={`/decks/${d.id}`} style={{ color: "inherit", textDecoration: "none" }}>
+                                <b>{d.name}</b>
+                              </a>
+                              <span style={{ display: "block", margin: "4px 0 10px" }}>{d.cards} · {t.cardsIn}</span>
+                              <div style={{ display: "flex", gap: 8 }}>
+                                <a className="btn btn-ghost" href={`/decks/${d.id}`} style={{ flex: 1, padding: "7px 10px", fontSize: 13, textAlign: "center" }}>{t.cards}</a>
+                                <a className="btn btn-ghost" href={`/decks/${d.id}?tab=3d`} style={{ flex: 1, padding: "7px 10px", fontSize: 13, textAlign: "center" }}>{t.showcase}</a>
+                              </div>
+                            </div>
                           ))}
                         </div>
                       ) : (

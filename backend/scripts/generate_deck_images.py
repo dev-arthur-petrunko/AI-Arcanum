@@ -79,6 +79,70 @@ DREAM_EMOJI = {"Вода": "💧", "Змія": "🐍", "Будинок": "🏠",
                "Гроза": "🌩", "Море": "🌊", "Гора": "⛰", "Дорога": "🛤", "Ключ": "🗝",
                "Дзеркало": "🪞", "Міст": "🌉", "Золото": "💰", "Крила": "🕊", "Дерево": "🌳"}
 
+# Циганські карти (навчальні), 36 символів: гліф у EMOJI + фолбек у SYM.
+GYPSY_GLYPH = {
+    "1": ("❤", "♥"),  # Кохання
+    "2": ("💍", "◈"),  # Вірність
+    "3": ("😠", "▲"),  # Ревнощі
+    "4": ("🛤", "✶"),  # Дорога
+    "5": ("🌅", "☀"),  # Далечінь
+    "6": ("💌", "✉"),  # Лист
+    "7": ("💰", "¤"),  # Гроші
+    "8": ("🎁", "❖"),  # Подарунок
+    "9": ("🏠", "⌂"),  # Дім
+    "10": ("💒", "♡"),  # Весілля
+    "11": ("👶", "◍"),  # Дитина
+    "12": ("🏥", "✚"),  # Хвороба
+    "13": ("☠", "✠"),  # Ворог
+    "14": ("🤝", "☞"),  # Друг
+    "15": ("🍀", "★"),  # Удача
+    "16": ("💔", "✕"),  # Невдача
+    "17": ("⚖", "☽"),  # Суд
+    "18": ("👑", "♛"),  # Влада
+    "19": ("⛪", "☩"),  # Церква
+    "20": ("🎉", "☼"),  # Свято
+    "21": ("💧", "☁"),  # Сльози
+    "22": ("😊", "☺"),  # Радість
+    "23": ("🔥", "▲"),  # Вогонь
+    "24": ("🌊", "≈"),  # Вода
+    "25": ("🍞", "☗"),  # Хліб
+    "26": ("🍷", "☉"),  # Вино
+    "27": ("🐎", "♞"),  # Кінь
+    "28": ("🐦", "☊"),  # Пташка
+    "29": ("🌸", "✿"),  # Квітка
+    "30": ("🪞", "◇"),  # Дзеркало
+    "31": ("🗝", "☞"),  # Ключ
+    "32": ("🔒", "☒"),  # Замок
+    "33": ("☀", "☀"),  # Сонце
+    "34": ("🌙", "☾"),  # Місяць
+    "35": ("⭐", "✦"),  # Зірка
+    "36": ("✝", "✚"),  # Хрест
+}
+
+# Тасеографія · Чайні листки (навчальна): 20 знаків чаші за suit (англ.).
+TASEO_GLYPH = {
+    "Anchor": ("⚓", "⚓"),
+    "Bird": ("🐦", "☊"),
+    "Book": ("📖", "☖"),
+    "Bridge": ("🌉", "≋"),
+    "Butterfly": ("🦋", "❄"),
+    "Cross": ("✝", "✚"),
+    "Dog": ("🐕", "☉"),
+    "Fish": ("🐟", "Ω"),
+    "Flower": ("🌸", "✿"),
+    "Heart": ("❤", "♥"),
+    "Key": ("🔑", "☞"),
+    "Ladder": ("🪜", "◫"),
+    "Moon": ("🌙", "☾"),
+    "Mountain": ("⛰", "▲"),
+    "Ring": ("💍", "◈"),
+    "Ship": ("⛵", "⚓"),
+    "Snake": ("🐍", "≈"),
+    "Star": ("⭐", "✦"),
+    "Tree": ("🌳", "⌘"),
+    "Umbrella": ("☂", "☂"),
+}
+
 # Гральні 36: блок еmoji Playing Cards (U+1F0A1...) з SYM.
 _SUIT_BASE = {"S": 0x1F0A0, "H": 0x1F0B0, "D": 0x1F0C0, "C": 0x1F0D0}
 _RANK_OFF = {"A": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8,
@@ -1225,8 +1289,12 @@ def render(card, deck):
         title_block(600)
     elif "гральн" in dnl or "игральн" in dnl or "playing" in dnl:
         # гральні 36: справжні символи Playing Cards (U+1F0A1...) або ранг+масть
+        # на світлому картуші — щоб піки/трефи (чорні) були чітко видимі
+        img, g = base_card("#f2e9d8", "#1c1a16", "#8a6b25")
+        fg, frame = "#1c1a16", "#8a6b25"
         suit = card.suit or ""
-        col = SUIT_COLOR.get(suit, fg)
+        col = {"Чирва": "#a02222", "Бубна": "#a02222", "Трефа": "#1c1a16",
+               "Піка": "#1c1a16"}.get(suit, "#1c1a16")
         rank = str(num or "").split("-")[-1]
         sl = str(num or "").split("-")[0] if "-" in str(num or "") else ""
         gpc = font(SYM, 250)
@@ -1609,17 +1677,22 @@ def render(card, deck):
                        frame, max_w=W - 160)
         centered_text(g, 660, "Число-ангел · " + str(num), font(ARIAL, 26), frame)
     elif "тасеограф" in dnl or "tealeaf" in dnl or "чай" in dnl:
-        # тасеографія: чашка для кави/чаю + символ
+        # тасеографія: чашка для кави/чаю + символ знака (гліф у/над чашкою)
         img, g = base_card("#efe3cb", "#3a2c14", "#8a6b25")
         fg, frame = "#3a2c14", "#8a6b25"
-        draw_teacup(g, W / 2, 300, "#7a5a1e", "#8a6b25")
-        centered_text(g, 150, "СИМВОЛ У ЧАШЦІ", font(ARIAL, 24), "#8a6b25")
-        centered_text(g, 500, name, font(SERIF_B, 40), fg)
-        centered_text(g, 560, str(card.suit or ""), font(ARIAL, 26), "#7a5a1e")
-        centered_text(g, 618, str(card.keywords_upright or "")[:48], font(ARIAL, 22), "#6b5330",
+        draw_teacup(g, W / 2, 470, "#7a5a1e", "#8a6b25")
+        em, fb = TASEO_GLYPH.get(str(card.suit or ""), ("✦", "✦"))
+        sf = font(EMOJI, 170)
+        if has_glyph(sf, em):
+            g.text((W / 2, 470), em, font=sf, fill="#7a5a1e", anchor="mm")
+        else:
+            g.text((W / 2, 470), fb, font=font(SYM, 150), fill="#7a5a1e", anchor="mm")
+        centered_text(g, 140, "СИМВОЛ У ЧАШЦІ", font(ARIAL, 24), "#8a6b25")
+        centered_text(g, 620, name, font(SERIF_B, 40), fg)
+        centered_text(g, 680, str(card.suit or ""), font(ARIAL, 26), "#7a5a1e")
+        centered_text(g, 732, str(card.keywords_upright or "")[:48], font(ARIAL, 22), "#6b5330",
                        max_w=W - 160)
-        centered_text(g, 672, "Знак " + str(num), font(ARIAL, 34), "#8a6b25")
-        centered_text(g, 720, "Тасеографія · чайні листки", font(ARIAL, 20), "#8a6b25")
+        centered_text(g, 790, "Знак " + str(num) + " · Тасеографія", font(ARIAL, 22), "#8a6b25")
     elif "кристал" in dnl or "crystal" in dnl:
         # кристали: кольоровий самоцвіт + властивості
         basec = CRYSTAL_COLORS.get(str(card.element_code or "").lower(), "#9a6fd0")
@@ -1678,6 +1751,41 @@ def render(card, deck):
             centered_text(g, 708, str(card.suit or "") + " · " + str(rank),
                           font(ARIAL, 28), frame)
             centered_text(g, 748, "Таро · процедурна вправа", font(ARIAL, 18), frame)
+    elif "циган" in dnl or "gypsy" in dnl or "цыган" in dnl:
+        # Циганські (навчальні): пергамент + символ-гліф (значення карти)
+        img, g = base_card("#efe3cb", "#3a2c14", "#8a6b25")
+        fg, frame = "#3a2c14", "#8a6b25"
+        em, fb = GYPSY_GLYPH.get(str(num), ("✦", "✦"))
+        gf = font(EMOJI, 230)
+        if has_glyph(gf, em):
+            g.text((W / 2, 300), em, font=gf, fill="#7a5a1e", anchor="mm")
+        else:
+            g.text((W / 2, 300), fb, font=font(SYM, 200), fill="#7a5a1e", anchor="mm")
+        centered_text(g, 490, str(num), font(ARIAL, 40), frame)
+        centered_text(g, 545, name, f_med, fg)
+        centered_text(g, 610, str(card.keywords_upright or "")[:46], font(ARIAL, 22),
+                      "#6b5330", max_w=W - 160)
+        centered_text(g, 676, "Циганська карта · " + str(num), font(ARIAL, 22), frame)
+        centered_text(g, 726, str(card.symbolism or "")[:60], font(ARIAL, 20), "#8a6b25",
+                      max_w=W - 120)
+    elif "сонник" in dnl or "сонник" in dnl or "dream dict" in dnl:
+        # Сонник (навчальний): нічне небо + емоji-символ сновидіння
+        img, g = base_card("#0a0d22", "#e8ecf5", "#c0c8e0", top="#02030a")
+        fg, frame = "#e8ecf5", "#c0c8e0"
+        em = str(card.theme or "🌙").split()[0]
+        ef = font(EMOJI, 220)
+        if has_glyph(ef, em):
+            g.text((W / 2, 250), em, font=ef, fill="#d8c65e", anchor="mm")
+        else:
+            fb = str(card.symbolism or "✦")
+            g.text((W / 2, 250), fb, font=font(SYM, 150), fill="#d8c65e", anchor="mm")
+        centered_text(g, 120, "СОННИК", font(ARIAL, 26), frame)
+        centered_text(g, 400, str(card.arcana_type or "Символ сну"), font(ARIAL, 24), "#cdd6f4")
+        centered_text(g, 470, str(num), font(ARIAL, 40), frame)
+        centered_text(g, 530, name, f_med, fg)
+        centered_text(g, 586, str(card.keywords_upright or ""), font(ARIAL, 22), "#a9b4d6",
+                       max_w=W - 160)
+        centered_text(g, 700, "Сонник · символ сновидіння", font(ARIAL, 22), frame)
     else:
         g.text((W / 2, 300), "✦", font=font(SYM, 170), fill=fg, anchor="mm")
         title_block(560)

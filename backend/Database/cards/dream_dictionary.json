@@ -1,0 +1,2415 @@
+{
+ "system": {
+  "name": "Сонник",
+  "category": "сонники",
+  "description": "Навчальний сонник: 113 символів сновидінь простими словами по всій абетці — від «Автобуса» до «Ящірки». Коротке значення, ключові слова й переклад трьома мовами — щоб легко згадати зміст сну й побачити, про що говорить підсвідомість.",
+  "history": "Тлумачення снів — давня практика багатьох культур: від храмових сонників античності до психології XX століття. Ця збірка — сучасний навчальний переказ популярної символіки, без містичних обіцянок: сон найчастіше говорить про почуття й стан сновидця.",
+  "origin_country": "Україна",
+  "approx_year": 2026,
+  "translations": {
+   "ru": {
+    "name": "Сонник",
+    "description": "Учебный сонник: 113 символов сновидений простыми словами по всей азбуке — от «Автобуса» до «Ящерицы». Короткое значение, ключевые слова и перевод на трёх языках — чтобы легко вспомнить сон и увидеть, о чём говорит подсознание.",
+    "history": "Толкование снов — древняя практика многих культур: от храмовых сонников античности до психологии XX века. Эта подборка — современный учебный пересказ популярной символики, без мистических обещаний: сон чаще всего говорит о чувствах и состоянии сновидца."
+   },
+   "en": {
+    "name": "Dream Dictionary",
+    "description": "Educational dream dictionary: 113 dream symbols in plain words across the whole alphabet, from 'Bus' to 'Lizard'. A short meaning, keywords and a three-language translation — so it is easy to recall a dream and see what the subconscious is saying.",
+    "history": "Dream interpretation is an ancient practice of many cultures: from temple dream books of antiquity to 20th-century psychology. This collection is a modern educational retelling of popular symbolism, without mystical promises: a dream most often speaks about the dreamer's feelings and state."
+   }
+  }
+ },
+ "deck": {
+  "name": "Сонник · символи сновидінь (навчальний)",
+  "author": "AI-Arcanum",
+  "publisher": "AI-Arcanum",
+  "year": 2026,
+  "card_count": 113,
+  "description": "113 карт-символів сновидінь по всій абетці: вода, вогонь, змія, дім, гроші, політ, погоня тощо. Кожна карта — коротке, добре зрозуміле значення українською з перекладом російською й англійською.",
+  "translations": {
+   "ru": {
+    "name": "Сонник · символы сновидений (учебный)",
+    "description": "113 карт-символов сновидений по всей азбуке: вода, огонь, змея, дом, деньги, полёт, погоня и другие. Каждая карта — короткое, понятное значение на русском и украинском, плюс английский."
+   },
+   "en": {
+    "name": "Dream Dictionary · dream symbols (educational)",
+    "description": "113 dream-symbol cards across the whole alphabet: water, fire, snake, house, money, flying, being chased and more. Each card — a short, clear meaning in English plus Ukrainian and Russian."
+   }
+  }
+ },
+ "cards": [
+  {
+   "number": "1",
+   "name": "Автобус",
+   "arcana_type": "Символ сну",
+   "theme": "🚌 Автобус",
+   "keywords_upright": "рух, колектив, маршрут",
+   "meaning_general": "Автобус — дорога, якою ти їдеш не сам, а з іншими. Він показує твій маршрут у житті: чи зручно тобі в колективі, чи «не на своїй зупинці» ти виходиш. Якщо запізнюєшся — боїшся не встигнути за своїми планами.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Автобус",
+     "keywords_upright": "движение, коллектив, маршрут",
+     "meaning_general": "Автобус — дорога, которой ты едешь не один, а с другими. Он показывает твой маршрут в жизни: комфортно ли тебе в коллективе, не на «чужой остановке» ли ты выходишь. Если опаздываешь — боишься не успеть за своими планами."
+    },
+    "en": {
+     "name": "Bus",
+     "keywords_upright": "movement, group, route",
+     "meaning_general": "A bus is a journey you take with others, not alone. It reflects your route in life: whether you are comfortable in a group or getting off at the wrong stop. Being late signals a fear of missing your plans."
+    }
+   }
+  },
+  {
+   "number": "2",
+   "name": "Автомобіль",
+   "arcana_type": "Символ сну",
+   "theme": "🚗 Автомобіль",
+   "keywords_upright": "шлях, контроль, рух, відповідальність",
+   "meaning_general": "Автомобіль — твій шлях і спосіб ним керувати: ти сам за кермом свого життя. Несправна машина — знак, що час «сервісу»: подбати про себе.",
+   "symbolism": "▣",
+   "translations": {
+    "ru": {
+     "name": "Автомобиль",
+     "keywords_upright": "путь, контроль, движение, ответственность",
+     "meaning_general": "Автомобиль — твой путь и способ им управлять: ты сам сидишь за рулём своей жизни. Неисправная машина — знак, что пора «сервис» — позаботиться о себе."
+    },
+    "en": {
+     "name": "Car",
+     "keywords_upright": "path, control, movement, responsibility",
+     "meaning_general": "A car is your path and how you steer it: you drive your own life. A broken car — a sign it is time for a 'service': take care of yourself."
+    }
+   }
+  },
+  {
+   "number": "3",
+   "name": "Аеропорт",
+   "arcana_type": "Символ сну",
+   "theme": "🛫 Аеропорт",
+   "keywords_upright": "старт, зміни, очікування",
+   "meaning_general": "Аеропорт — місце між «тут» і «там»: ти готовий до змін, але ще чекаєш свого часу. Сон каже: твій політ уже скоро, лишається зібратися в дорогу й не боятися нового.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Аэропорт",
+     "keywords_upright": "старт, перемены, ожидание",
+     "meaning_general": "Аэропорт — место между «здесь» и «там»: ты готов к переменам, но ещё ждёшь своего часа. Сон говорит: твой полёт уже скоро, остаётся собраться в дорогу и не бояться нового."
+    },
+    "en": {
+     "name": "Airport",
+     "keywords_upright": "departure, change, waiting",
+     "meaning_general": "An airport is the place between 'here' and 'there': you are ready for change but still waiting for your moment. The dream says your flight is coming soon — all that remains is to pack and not fear the new."
+    }
+   }
+  },
+  {
+   "number": "4",
+   "name": "Акула",
+   "arcana_type": "Символ сну",
+   "theme": "🦈 Акула",
+   "keywords_upright": "сила, загроза, конкуренція",
+   "meaning_general": "Акула — велика й сильна сила, яка може лякати: тиск, конкуренція або щось небезпечне, що насувається. Якщо ти не тікаєш і бачиш її здалеку — в тебе досить сміливості зустріти виклик.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Акула",
+     "keywords_upright": "сила, угроза, конкуренция",
+     "meaning_general": "Акула — большая и сильная сила, которая может пугать: давление, конкуренция или что-то опасное, что надвигается. Если ты не убегаешь и видишь её издалека — в тебе достаточно смелости встретить вызов."
+    },
+    "en": {
+     "name": "Shark",
+     "keywords_upright": "power, threat, competition",
+     "meaning_general": "A shark is a large, powerful force that may frighten you: pressure, competition, or something threatening approaching. Watching it from a distance without fleeing means you have enough courage to meet the challenge."
+    }
+   }
+  },
+  {
+   "number": "5",
+   "name": "Ангел",
+   "arcana_type": "Символ сну",
+   "theme": "😇 Ангел",
+   "keywords_upright": "захист, підтримка, надія",
+   "meaning_general": "Ангел уві сні — відчуття, що ти не сам: хтось або щось тебе береже. Це заклик довіритися, дозволити допомозі прийти і памʼятати: навіть у складний час ти під опікою.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Ангел",
+     "keywords_upright": "защита, поддержка, надежда",
+     "meaning_general": "Ангел во сне — ощущение, что ты не один: кто-то или что-то тебя бережёт. Это приглашение довериться, позволить помощи прийти и помнить: даже в трудное время ты под защитой."
+    },
+    "en": {
+     "name": "Angel",
+     "keywords_upright": "protection, support, hope",
+     "meaning_general": "An angel is the feeling that you are not alone — someone or something is watching over you. It invites you to trust, allow help to arrive, and remember you are protected even in hard times."
+    }
+   }
+  },
+  {
+   "number": "6",
+   "name": "Бабуся",
+   "arcana_type": "Символ сну",
+   "theme": "👵 Бабуся",
+   "keywords_upright": "мудрість, рід, підтримка",
+   "meaning_general": "Бабуся — досвід і тепло попередніх поколінь. Вона зʼявляється, коли потрібна підтримка чи відповідь: поруч є сила, якою ти вже давно «успадковано» володієш.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Бабушка",
+     "keywords_upright": "мудрость, род, поддержка",
+     "meaning_general": "Бабушка — опыт и тепло предыдущих поколений. Она появляется, когда нужна поддержка или ответ: рядом есть сила, которой ты уже давно «по наследству» владеешь."
+    },
+    "en": {
+     "name": "Grandmother",
+     "keywords_upright": "wisdom, family, support",
+     "meaning_general": "A grandmother is the wisdom and warmth of earlier generations. She appears when you need support or an answer: a strength you have long 'inherited' is close at hand."
+    }
+   }
+  },
+  {
+   "number": "7",
+   "name": "Блискавка",
+   "arcana_type": "Символ сну",
+   "theme": "⚡ Блискавка",
+   "keywords_upright": "осяяння, раптовість, зміна",
+   "meaning_general": "Блискавка — раптове бачення: відповідь, що «вдарила» чітко й ясно. Вона лякає й водночас освітлює всю картину — сон про момент, який миттєво змінює погляд на речі.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Молния",
+     "keywords_upright": "озарение, внезапность, перемена",
+     "meaning_general": "Молния — внезапное прозрение: ответ, который «ударил» чётко и ясно. Она пугает и одновременно освещает всю картину — сон о моменте, который мгновенно меняет взгляд на вещи."
+    },
+    "en": {
+     "name": "Lightning",
+     "keywords_upright": "insight, suddenness, change",
+     "meaning_general": "Lightning is sudden insight: an answer that strikes sharp and clear. It frightens yet illuminates the whole scene — a dream about a moment that instantly changes how you see things."
+    }
+   }
+  },
+  {
+   "number": "8",
+   "name": "Вагітність",
+   "arcana_type": "Символ сну",
+   "theme": "🤰 Вагітність",
+   "keywords_upright": "нове, дозрівання, очікування, потенціал",
+   "meaning_general": "Вагітність — дозрівання чогось нового: ідея, проєкт чи почуття зріють усередині й одного дня зʼявляться на світ. Час терпіння й турботи.",
+   "symbolism": "◌",
+   "translations": {
+    "ru": {
+     "name": "Беременность",
+     "keywords_upright": "новое, созревание, ожидание, потенциал",
+     "meaning_general": "Беременность — созревание чего-то нового: идея, проект или чувство зреют внутри и однажды появятся на свет. Время набраться терпения и заботы."
+    },
+    "en": {
+     "name": "Pregnancy",
+     "keywords_upright": "new, maturing, waiting, potential",
+     "meaning_general": "Pregnancy is the maturing of something new: an idea, a project or a feeling grows inside and one day comes to light. Time for patience and care."
+    }
+   }
+  },
+  {
+   "number": "9",
+   "name": "Ведмідь",
+   "arcana_type": "Символ сну",
+   "theme": "🐻 Ведмідь",
+   "keywords_upright": "сила, захист, спокій, усамітнення",
+   "meaning_general": "Ведмідь — сила й опора: ти міцніший, ніж здається, і маєш право зайняти своє місце. Його сон — про те, щоб відстояти межі, піти в «берлогу» відновитись і прокинутися впевненішим.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Медведь",
+     "keywords_upright": "сила, защита, покой, уединение",
+     "meaning_general": "Медведь — сила и опора: ты крепче, чем кажешься, и имеешь право занять своё место. Этот сон — про то, чтобы отстоять границы, уйти в «берлогу» восстановиться и проснуться увереннее."
+    },
+    "en": {
+     "name": "Bear",
+     "keywords_upright": "strength, protection, calm, solitude",
+     "meaning_general": "A bear is strength and grounding: you are stronger than you think and have the right to take your space. The dream is about defending your boundaries, retreating to your 'den' to recover, and waking more confident."
+    }
+   }
+  },
+  {
+   "number": "10",
+   "name": "Верба",
+   "arcana_type": "Символ сну",
+   "theme": "🌿 Верба",
+   "keywords_upright": "гнучкість, весна, оновлення",
+   "meaning_general": "Верба — гнучкість, яка переживає будь-який вітер: нахилиться, але не зламається. Сон нагадує, що мʼякість — не слабкість, а вміння оновлюватися з настанням «весни» твого життя.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Верба",
+     "keywords_upright": "гибкость, весна, обновление",
+     "meaning_general": "Верба — гибкость, которая переживает любой ветер: наклонится, но не сломается. Сон напоминает, что мягкость — не слабость, а умение обновляться с наступлением «весны» твоей жизни."
+    },
+    "en": {
+     "name": "Willow",
+     "keywords_upright": "flexibility, spring, renewal",
+     "meaning_general": "A willow is flexibility that survives any wind: it bends yet never breaks. The dream reminds you that softness is not weakness, but the ability to renew when your life's 'spring' arrives."
+    }
+   }
+  },
+  {
+   "number": "11",
+   "name": "Весілля",
+   "arcana_type": "Символ сну",
+   "theme": "💒 Весілля",
+   "keywords_upright": "союз, гармонія, любов, обʼєднання",
+   "meaning_general": "Весілля — союз і обʼєднання: усередині ти зʼєднуєш протилежні сторони або готовий до близького союзу. Символізує злиття, радість і новий етап.",
+   "symbolism": "♡",
+   "translations": {
+    "ru": {
+     "name": "Свадьба",
+     "keywords_upright": "союз, гармония, любовь, объединение",
+     "meaning_general": "Свадьба — союз и объединение: внутри себя ты соединяешь противоположные стороны или готов к близкому союзу. Это слияние, радость и новый этап."
+    },
+    "en": {
+     "name": "Wedding",
+     "keywords_upright": "union, harmony, love, joining",
+     "meaning_general": "A wedding is union and joining: within yourself you connect opposing sides, or you are ready for a close bond. It is merging, joy and a new stage."
+    }
+   }
+  },
+  {
+   "number": "12",
+   "name": "Відьма",
+   "arcana_type": "Символ сну",
+   "theme": "🧙‍♀️ Відьма",
+   "keywords_upright": "інтуїція, тінь, жіноча сила",
+   "meaning_general": "Відьма — твоя інтуїція й ті сторони тебе, що «незручні» або приховані. Сон запрошує не лякатися власної сили: те, що ти вважаєш «чарами», часто — просто вміння бачити глибше.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Ведьма",
+     "keywords_upright": "интуиция, тень, женская сила",
+     "meaning_general": "Ведьма — твоя интуиция и те стороны тебя, которые «неудобны» или скрыты. Сон приглашает не бояться собственной силы: то, что ты считаешь «чарами», часто — просто умение видеть глубже."
+    },
+    "en": {
+     "name": "Witch",
+     "keywords_upright": "intuition, shadow, feminine power",
+     "meaning_general": "A witch is your intuition and the parts of yourself that feel 'inconvenient' or hidden. The dream invites you to stop fearing your own power: what seems like 'magic' is often just seeing deeper."
+    }
+   }
+  },
+  {
+   "number": "13",
+   "name": "Вікно",
+   "arcana_type": "Символ сну",
+   "theme": "🪟 Вікно",
+   "keywords_upright": "погляд, можливість, межа",
+   "meaning_general": "Вікно — погляд зі свого простору назовні: можливості, що чекають, або світ, на який ти дивишся, не виходячи з дому. Відчинене — запрошення стати ближче до того, що бачиш.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Окно",
+     "keywords_upright": "взгляд, возможность, граница",
+     "meaning_general": "Окно — взгляд из своего пространства наружу: возможности, что ждут, или мир, на который ты смотришь, не выходя из дома. Открытое — приглашение стать ближе к тому, что видишь."
+    },
+    "en": {
+     "name": "Window",
+     "keywords_upright": "view, opportunity, boundary",
+     "meaning_general": "A window is a view from your own space outward: opportunities waiting, or a world you watch without leaving home. An open window invites you closer to what you see."
+    }
+   }
+  },
+  {
+   "number": "14",
+   "name": "Вовк",
+   "arcana_type": "Символ сну",
+   "theme": "🐺 Вовк",
+   "keywords_upright": "інстинкти, свобода, згуртованість",
+   "meaning_general": "Вовк — дика, вільна частина тебе, що вміє бути сильною і водночас належати зграї. Сон закликає слухати інстинкти й не приручати себе заради чужих правил.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Волк",
+     "keywords_upright": "инстинкты, свобода, единство",
+     "meaning_general": "Волк — дикая, свободная часть тебя, что умеет быть сильной и при этом принадлежать стае. Сон зовёт слушать инстинкты и не приручать себя ради чужих правил."
+    },
+    "en": {
+     "name": "Wolf",
+     "keywords_upright": "instinct, freedom, belonging",
+     "meaning_general": "A wolf is the wild, free part of you that knows how to be strong and still belong. The dream calls you to trust your instincts and not tame yourself for others' rules."
+    }
+   }
+  },
+  {
+   "number": "15",
+   "name": "Вогонь",
+   "arcana_type": "Символ сну",
+   "theme": "🔥 Вогонь",
+   "keywords_upright": "енергія, пристрасть, очищення",
+   "meaning_general": "Вогонь — сила, що зігріває або знищує, залежно від того, як із нею поводитися. Він про твою енергію: живить вона чи випалює? Вогонь очищає старе, аби звільнити місце новому.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Огонь",
+     "keywords_upright": "энергия, страсть, очищение",
+     "meaning_general": "Огонь — сила, что согревает или уничтожает, в зависимости от того, как с ним обращаться. Он о твоей энергии: питает она или выжигает? Огонь очищает старое, чтобы освободить место новому."
+    },
+    "en": {
+     "name": "Fire",
+     "keywords_upright": "energy, passion, cleansing",
+     "meaning_general": "Fire is a force that warms or destroys, depending on how you tend it. It is about your energy: does it nourish or burn? Fire clears the old to make room for the new."
+    }
+   }
+  },
+  {
+   "number": "16",
+   "name": "Вода",
+   "arcana_type": "Символ сну",
+   "theme": "💧 Вода",
+   "keywords_upright": "почуття, гнучкість, очищення",
+   "meaning_general": "Вода — те, як ти проживаєш почуття. Чиста й спокійна — внутрішній світ у порядку, ти вільно «пливеш» життям. Каламутна чи бурхлива — емоції накопичились і просять уваги.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Вода",
+     "keywords_upright": "чувства, гибкость, очищение",
+     "meaning_general": "Вода — то, как ты переживаешь чувства. Чистая и спокойная — внутренний мир в порядке, ты свободно «плывёшь» по жизни. Мутная или бурная — эмоции накопились и просят внимания."
+    },
+    "en": {
+     "name": "Water",
+     "keywords_upright": "emotions, flexibility, cleansing",
+     "meaning_general": "Water is how you experience feelings. Calm and clear — your inner world is in order and you move through life freely. Murky or rough — emotions have piled up and ask for attention."
+    }
+   }
+  },
+  {
+   "number": "17",
+   "name": "Вокзал",
+   "arcana_type": "Символ сну",
+   "theme": "🚉 Вокзал",
+   "keywords_upright": "роздоріжжя, вибір, очікування",
+   "meaning_general": "Вокзал — місце, де сходяться всі дороги: ти стоїш перед вибором і думаєш, куди далі. Сон каже: тобі не обовʼязково сідати в перший потяг — є час обрати свій.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Вокзал",
+     "keywords_upright": "перепутье, выбор, ожидание",
+     "meaning_general": "Вокзал — место, где сходятся все дороги: ты стоишь перед выбором и думаешь, куда дальше. Сон говорит: тебе не обязательно садиться в первый поезд — есть время выбрать свой."
+    },
+    "en": {
+     "name": "Railway station",
+     "keywords_upright": "crossroads, choice, waiting",
+     "meaning_general": "A station is where all roads meet: you stand at a choice, wondering where to go next. The dream says you do not have to board the first train — there is time to choose your own."
+    }
+   }
+  },
+  {
+   "number": "18",
+   "name": "Ворота",
+   "arcana_type": "Символ сну",
+   "theme": "⛩️ Ворота",
+   "keywords_upright": "перехід, межа, запрошення",
+   "meaning_general": "Ворота — межа між звичним і новим. Відчинені — запрошують увійти в наступний етап; зачинені — підказують: поки не час, або ключ ще треба знайти.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Ворота",
+     "keywords_upright": "переход, граница, приглашение",
+     "meaning_general": "Ворота — граница между привычным и новым. Открытые — приглашают войти в следующий этап; закрытые — подсказывают: пока не время, или ключ ещё нужно найти."
+    },
+    "en": {
+     "name": "Gate",
+     "keywords_upright": "passage, boundary, invitation",
+     "meaning_general": "A gate is the boundary between the familiar and the new. Open gates invite you to the next stage; closed ones suggest it is not time yet, or a key still needs to be found."
+    }
+   }
+  },
+  {
+   "number": "19",
+   "name": "Втеча",
+   "arcana_type": "Символ сну",
+   "theme": "🏃 Втеча",
+   "keywords_upright": "уникнення, пошук свободи, двері",
+   "meaning_general": "Втеча — потреба віддалитися: від тиску, очікувань чи від самого себе. Вона показує, що тобі важливо «вийти за двері» — щоправда, варто запитати: від чого саме ти втікаєш і куди хочеш прийти?",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Побег",
+     "keywords_upright": "избегание, поиск свободы, выход",
+     "meaning_general": "Побег — потребность отдалиться: от давления, ожиданий или от самого себя. Он показывает, что тебе важно «выйти за дверь» — правда, стоит спросить: от чего именно ты убегаешь и куда хочешь прийти?"
+    },
+    "en": {
+     "name": "Escape",
+     "keywords_upright": "avoidance, search for freedom, exit",
+     "meaning_general": "Escape is a need to get away: from pressure, expectations, or yourself. It shows a need to 'go out the door' — though it is worth asking what exactly you flee and where you want to arrive."
+    }
+   }
+  },
+  {
+   "number": "20",
+   "name": "Вулиця",
+   "arcana_type": "Символ сну",
+   "theme": "🛤️ Вулиця",
+   "keywords_upright": "напрям, рух, людей",
+   "meaning_general": "Вулиця — загальний рух, у якому ти живеш щодня: робота, справи, люди поруч. Обрати напрям свій — це зробити вулицю не просто перехрестям чужих шляхів, а своїм маршрутом.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Улица",
+     "keywords_upright": "направление, движение, люди",
+     "meaning_general": "Улица — общее движение, в котором ты живёшь каждый день: работа, дела, люди рядом. Выбрать своё направление — это сделать улицу не просто перекрёстком чужих путей, а своим маршрутом."
+    },
+    "en": {
+     "name": "Street",
+     "keywords_upright": "direction, movement, people",
+     "meaning_general": "A street is the shared movement of daily life: work, errands, people around. Choosing your own direction turns the street from a crossroad of others' paths into your own route."
+    }
+   }
+  },
+  {
+   "number": "21",
+   "name": "Гірчиця",
+   "arcana_type": "Символ сну",
+   "theme": "🥗 Гірчиця",
+   "keywords_upright": "гострота, очищення, енергія",
+   "meaning_general": "Гірчиця — гостра добавка, що «вмикає» смак і бадьорість: іноді саме напруги чи пікантності бракує, щоб відчути себе жваво. Сон про те, що не все в житті має бути солодким і спокійним.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Горчица",
+     "keywords_upright": "острота, очищение, энергия",
+     "meaning_general": "Горчица — острая добавка, что «включает» вкус и бодрость: иногда именно остроты или пикантности не хватает, чтобы почувствовать себя живо. Сон о том, что не всё в жизни должно быть сладким и спокойным."
+    },
+    "en": {
+     "name": "Mustard",
+     "keywords_upright": "sharpness, cleansing, energy",
+     "meaning_general": "Mustard is a sharp addition that 'switches on' flavor and vigor: sometimes a little heat or piquancy is what you lack to feel alive. The dream notes that not everything needs to be sweet and serene."
+    }
+   }
+  },
+  {
+   "number": "22",
+   "name": "Голова",
+   "arcana_type": "Символ сну",
+   "theme": "🧠 Голова",
+   "keywords_upright": "думки, розум, тиск",
+   "meaning_general": "Голова — твої думки й внутрішній шум. Важка, болить чи «гуде» — надто багато обмірковуєш і мало відпочиваєш. Сон просить дати розуму паузу й не «крутити» одне й те саме.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Голова",
+     "keywords_upright": "мысли, разум, давление",
+     "meaning_general": "Голова — твои мысли и внутренний шум. Тяжёлая, болит или «гудит» — слишком много обдумываешь и мало отдыхаешь. Сон просит дать разуму паузу и не «крутить» одно и то же."
+    },
+    "en": {
+     "name": "Head",
+     "keywords_upright": "thoughts, mind, pressure",
+     "meaning_general": "The head is your thoughts and inner noise. Heavy, aching, or buzzing means you overthink and under-rest. The dream asks you to give your mind a pause and stop replaying the same thing."
+    }
+   }
+  },
+  {
+   "number": "23",
+   "name": "Гора",
+   "arcana_type": "Символ сну",
+   "theme": "⛰️ Гора",
+   "keywords_upright": "ціль, виклик, висота",
+   "meaning_general": "Гора — велика ціль і виклик: вона кличе вгору, а шлях на вершину — напруження заради важливого. Підйом означає, що ти зростаєш.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Гора",
+     "keywords_upright": "цель, вызов, высота",
+     "meaning_general": "Гора — большая цель и вызов: она зовёт вверх, а путь на вершину — напряжение ради чего-то важного. Подъём означает, що ты растёшь."
+    },
+    "en": {
+     "name": "Mountain",
+     "keywords_upright": "goal, challenge, height",
+     "meaning_general": "A mountain is a big goal and a challenge: it calls upward, and the climb is effort for something important. Ascending means you are growing."
+    }
+   }
+  },
+  {
+   "number": "24",
+   "name": "Горлиця",
+   "arcana_type": "Символ сну",
+   "theme": "🕊️ Горлиця",
+   "keywords_upright": "мир, ніжність, надія",
+   "meaning_general": "Горлиця — мир і тиха радість: після складнощів настає спокій. Сон говорить, що в тебе досить ніжності й довіри, аби помиритися зі світом і з собою.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Горлица",
+     "keywords_upright": "мир, нежность, надежда",
+     "meaning_general": "Горлица — мир и тихая радость: после сложностей наступает покой. Сон говорит, что в тебе достаточно нежности и доверия, чтобы помириться с миром и с собой."
+    },
+    "en": {
+     "name": "Dove",
+     "keywords_upright": "peace, tenderness, hope",
+     "meaning_general": "A dove is peace and quiet joy: calm returns after difficulties. The dream says you have enough tenderness and trust to make peace with the world and with yourself."
+    }
+   }
+  },
+  {
+   "number": "25",
+   "name": "Гроза",
+   "arcana_type": "Символ сну",
+   "theme": "⛈️ Гроза",
+   "keywords_upright": "напруження, розрядка, очищення",
+   "meaning_general": "Гроза — накопичене напруження, яке шукає розрядки. Після неї стає легше, а повітря чистіше: підказка випустити емоції й почати заново.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Гроза",
+     "keywords_upright": "напряжение, разрядка, очищение",
+     "meaning_general": "Гроза — накопившееся напряжение, которое ищет разрядки. После неё становится легче, а воздух чище: подсказка выпустить эмоции и начать заново."
+    },
+    "en": {
+     "name": "Storm",
+     "keywords_upright": "tension, release, cleansing",
+     "meaning_general": "A storm is accumulated tension seeking release. After it comes relief and cleaner air: a hint to let emotions out and begin afresh."
+    }
+   }
+  },
+  {
+   "number": "26",
+   "name": "Гроші",
+   "arcana_type": "Символ сну",
+   "theme": "💰 Гроші",
+   "keywords_upright": "самоцінність, достаток, щедрість, впевненість",
+   "meaning_general": "Гроші уві сні — не про багатство, а про самоцінність: скільки ти «вартий» у власних очах, чи почуваєшся гідним успіху й достатку.",
+   "symbolism": "¤",
+   "translations": {
+    "ru": {
+     "name": "Деньги",
+     "keywords_upright": "самоценность, достаток, щедрость, уверенность",
+     "meaning_general": "Деньги во сне — не про богатство, а про самоценность: сколько ты «стоишь» в своих глазах, чувствуешь ли себя достойным успеха и обилия."
+    },
+    "en": {
+     "name": "Money",
+     "keywords_upright": "self-worth, abundance, generosity, confidence",
+     "meaning_general": "Money in a dream is not about wealth but self-worth: how much you are 'worth' in your own eyes, whether you feel deserving of success and abundance."
+    }
+   }
+  },
+  {
+   "number": "27",
+   "name": "Двері",
+   "arcana_type": "Символ сну",
+   "theme": "🚪 Двері",
+   "keywords_upright": "перехід, можливості, вибір, новий етап",
+   "meaning_general": "Двері — межа між «зараз» і «далі». Відчинені — запрошують крокувати в нове; зачинені — момент вибору: постукати, знайти інший вхід чи зачекати.",
+   "symbolism": "▣",
+   "translations": {
+    "ru": {
+     "name": "Дверь",
+     "keywords_upright": "переход, возможности, выбор, новый этап",
+     "meaning_general": "Дверь — граница между «сейчас» и «дальше»: открытая — приглашение шагнуть в новое; закрытая — момент выбрать: постучаться, найти другой вход или подождать."
+    },
+    "en": {
+     "name": "Door",
+     "keywords_upright": "transition, opportunity, choice, new stage",
+     "meaning_general": "The door is the border between 'now' and 'next': open — an invitation to step into the new; closed — a moment to choose: knock, find another entrance, or wait."
+    }
+   }
+  },
+  {
+   "number": "28",
+   "name": "Дерево",
+   "arcana_type": "Символ сну",
+   "theme": "🌳 Дерево",
+   "keywords_upright": "коріння, рід, ріст, стійкість",
+   "meaning_general": "Дерево — коріння, рід і ріст: твоя сила й опора, звʼязок з історією сімʼї та власним розвитком. Квітуче дерево — життя у розквіті.",
+   "symbolism": "⌘",
+   "translations": {
+    "ru": {
+     "name": "Дерево",
+     "keywords_upright": "корни, род, рост, устойчивость",
+     "meaning_general": "Дерево — корни, род и рост: твоя сила и опора, связь с историей семьи и с собственным развитием. Цветущее дерево — жизнь в расцвете."
+    },
+    "en": {
+     "name": "Tree",
+     "keywords_upright": "roots, kin, growth, stability",
+     "meaning_general": "The tree is roots, kin and growth: your strength and support, the link to family history and your own development. A blooming tree — life in full bloom."
+    }
+   }
+  },
+  {
+   "number": "29",
+   "name": "Дзеркало",
+   "arcana_type": "Символ сну",
+   "theme": "🪞 Дзеркало",
+   "keywords_upright": "самопізнання, чесність, самоприйняття, двоїстість",
+   "meaning_general": "Дзеркало — погляд на себе справжнього: те, що бачиш, — так себе сприймаєш. Прохання прийняти всі свої відображення, включно з тими, які ховаєш від інших.",
+   "symbolism": "◇",
+   "translations": {
+    "ru": {
+     "name": "Зеркало",
+     "keywords_upright": "самопонимание, честность, самопринятие, двойственность",
+     "meaning_general": "Зеркало — взгляд на себя настоящего: что видишь — так себя воспринимаешь. Просьба принять свои отражения, включая те, что прячешь от других."
+    },
+    "en": {
+     "name": "Mirror",
+     "keywords_upright": "self-knowledge, honesty, self-acceptance, duality",
+     "meaning_general": "The mirror is a look at your true self: what you see is how you perceive yourself. A request to accept your reflections, including those you hide from others."
+    }
+   }
+  },
+  {
+   "number": "30",
+   "name": "Дитина",
+   "arcana_type": "Символ сну",
+   "theme": "👶 Дитина",
+   "keywords_upright": "початок, чистота, біль прийняття",
+   "meaning_general": "Дитина — нове, що народжується в тобі: ідея, проєкт, частина тебе. Сон про піклування про дитину — про піклування про молодий і вразливий початок.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Ребёнок",
+     "keywords_upright": "начало, чистота, принятие",
+     "meaning_general": "Ребёнок — новое, что рождается в тебе: идея, проект, часть тебя. Сон об уходе за ребёнком — об уходе за молодым и уязвимым началом."
+    },
+    "en": {
+     "name": "Child",
+     "keywords_upright": "beginning, innocence, acceptance",
+     "meaning_general": "A child is something new being born in you: an idea, a project, a part of yourself. Caring for a child in a dream is about caring for a young, vulnerable beginning."
+    }
+   }
+  },
+  {
+   "number": "31",
+   "name": "Дідусь",
+   "arcana_type": "Символ сну",
+   "theme": "👴 Дідусь",
+   "keywords_upright": "коріння, опора, усталеність",
+   "meaning_general": "Дідусь — коріння, на яких стоїть твоє життя: традиція, порядок, спокійна впевненість. Сон нагадує, що в тебе є опора, яка не залежить від хитких днів.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Дедушка",
+     "keywords_upright": "корни, опора, устоев",
+     "meaning_general": "Дедушка — корни, на которых стоит твоя жизнь: традиция, порядок, спокойная уверенность. Сон напоминает, что у тебя есть опора, которая не зависит от шатких дней."
+    },
+    "en": {
+     "name": "Grandfather",
+     "keywords_upright": "roots, anchor, stability",
+     "meaning_general": "A grandfather is the roots your life stands on: tradition, order, quiet confidence. The dream reminds you that you have an anchor not shaken by unsteady days."
+    }
+   }
+  },
+  {
+   "number": "32",
+   "name": "Дім",
+   "arcana_type": "Символ сну",
+   "theme": "🏠 Дім",
+   "keywords_upright": "внутрішній світ, безпека, затишок",
+   "meaning_general": "Дім — образ тебе самого: кімнати — різні сторони життя, дах — захист, двері — межі. Затишно вдома — ти у злагоді з собою; хаос чи ремонт — зміни в тому, як ти облаштовуєш свій внутрішній простір.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Дом",
+     "keywords_upright": "внутренний мир, безопасность, уют",
+     "meaning_general": "Дом — образ тебя самого: комнаты — разные стороны жизни, крыша — защита, двери — границы. Уютно дома — ты в ладу с собой; хаос или ремонт — перемены в том, как ты обустраиваешь своё внутреннее пространство."
+    },
+    "en": {
+     "name": "House",
+     "keywords_upright": "inner world, safety, comfort",
+     "meaning_general": "A house is an image of yourself: rooms are life's different sides, the roof is protection, doors are boundaries. Feeling cozy means you are at peace; chaos or renovation points to how you rearrange your inner space."
+    }
+   }
+  },
+  {
+   "number": "33",
+   "name": "Дорога",
+   "arcana_type": "Символ сну",
+   "theme": "🛤 Дорога",
+   "keywords_upright": "шлях, вибір, напрямок, рух",
+   "meaning_general": "Дорога — твій життєвий шлях: широка й світла — впевнений рух, звивиста — багато поворотів і виборів. Важливо просто йти в обрану сторону.",
+   "symbolism": "☰",
+   "translations": {
+    "ru": {
+     "name": "Дорога",
+     "keywords_upright": "путь, выбор, направление, движение",
+     "meaning_general": "Дорога — твой жизненный путь: широкая и светлая — уверенное движение, извилистая — много поворотов и выборов. Важно просто идти в выбранную сторону."
+    },
+    "en": {
+     "name": "Road",
+     "keywords_upright": "path, choice, direction, movement",
+     "meaning_general": "The road is your life path: wide and bright — confident movement, winding — many turns and choices. What matters is to simply walk your chosen way."
+    }
+   }
+  },
+  {
+   "number": "34",
+   "name": "Дощ",
+   "arcana_type": "Символ сну",
+   "theme": "🌧 Дощ",
+   "keywords_upright": "очищення, оновлення, сльози-полегшення, ріст",
+   "meaning_general": "Дощ — очищення і свіжість: він «змиває» старий біль і втому, даючи ріст. Після зливи завжди прояснюється — так і в житті.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Дождь",
+     "keywords_upright": "очищение, обновление, слёзы-облегчение, рост",
+     "meaning_general": "Дождь — очищение и свежесть: он «смывает» старую боль и усталость, давая рост; после ливня всегда проясняется, как и в жизни."
+    },
+    "en": {
+     "name": "Rain",
+     "keywords_upright": "cleansing, renewal, relief, growth",
+     "meaning_general": "Rain is cleansing and freshness: it 'washes away' old pain and tiredness, allowing growth. After a downpour the sky always clears — so it is in life."
+    }
+   }
+  },
+  {
+   "number": "35",
+   "name": "Душ",
+   "arcana_type": "Символ сну",
+   "theme": "🚿 Душ",
+   "keywords_upright": "очищення, змиття, новий початок",
+   "meaning_general": "Душ — те, що змиває втому дня й лишає тільки свіже: перезавантаження. Сон про потребу «вимкнути шум», очиститися й почати чисто — з нової сторінки, без старого пилу.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Душ",
+     "keywords_upright": "очищение, смыть, новое начало",
+     "meaning_general": "Душ — то, что смывает усталость дня и оставляет только свежее: перезагрузка. Сон о потребности «выключить шум», очиститься и начать начисто — с новой страницы, без старой пыли."
+    },
+    "en": {
+     "name": "Shower",
+     "keywords_upright": "cleansing, washing off, fresh start",
+     "meaning_general": "A shower washes off the day's fatigue and leaves only freshness: a reset. The dream is about a need to 'switch off the noise', cleanse, and start clean — on a new page, without old dust."
+    }
+   }
+  },
+  {
+   "number": "36",
+   "name": "Екзамен",
+   "arcana_type": "Символ сну",
+   "theme": "📝 Екзамен",
+   "keywords_upright": "перевірка, сумнів, готовність, зібраність",
+   "meaning_general": "Екзамен чи запізнення — перевірка себе і страх не встигнути: у підсвідомості зріє сумнів «чи готовий я». Відповідь — зібратися, підготуватись і довіритися силам.",
+   "symbolism": "❓",
+   "translations": {
+    "ru": {
+     "name": "Экзамен",
+     "keywords_upright": "проверка, сомнение, готовность, собранность",
+     "meaning_general": "Экзамен или опоздание — проверка себя и страх не успеть: в подсознании зреет сомнение «достаточно ли я готов». Ответ — собраться, подготовиться и довериться своим силам."
+    },
+    "en": {
+     "name": "Exam",
+     "keywords_upright": "test, doubt, readiness, composure",
+     "meaning_general": "An exam or being late is a self-test and fear of missing out: a doubt 'am I ready enough' ripens inside. The answer — gather yourself, prepare and trust your strength."
+    }
+   }
+  },
+  {
+   "number": "37",
+   "name": "Жар",
+   "arcana_type": "Символ сну",
+   "theme": "🎗️ Жар",
+   "keywords_upright": "пристрасть, напруження, інтенсивність",
+   "meaning_general": "Жар — проявлений інтерес або розжарення почуттів: щось у тобі «горить». Приємно гаряче — життя цікаве й насичене; занадто гаряче — час додати охолодження, тверезого погляду, паузи.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Жар",
+     "keywords_upright": "страсть, напряжение, интенсивность",
+     "meaning_general": "Жар — проявленный интерес или накал чувств: что-то в тебе «горит». Приятно горячо — жизнь интересна и насыщена; слишком горячо — время добавить охлаждение, трезвый взгляд, паузу."
+    },
+    "en": {
+     "name": "Heat",
+     "keywords_upright": "passion, tension, intensity",
+     "meaning_general": "Heat is expressed interest or the intensity of feelings: something in you 'burns'. Pleasant warmth means life is interesting and full; too hot signals it is time for cooling, a sober view, a pause."
+    }
+   }
+  },
+  {
+   "number": "38",
+   "name": "Жінка",
+   "arcana_type": "Символ сну",
+   "theme": "👩 Жінка",
+   "keywords_upright": "прийняття, інтуїція, стосунки",
+   "meaning_general": "Жінка уві сні — образ прийняття й чутливості: як ти ставишся до мʼякості в собі та в інших. Вона може вказувати на важливі стосунки або на частину тебе, якій потрібна турбота.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Женщина",
+     "keywords_upright": "принятие, интуиция, отношения",
+     "meaning_general": "Женщина во сне — образ принятия и чуткости: как ты относишься к мягкости в себе и в других. Она может указывать на важные отношения или на часть тебя, которой нужна забота."
+    },
+    "en": {
+     "name": "Woman",
+     "keywords_upright": "acceptance, intuition, relationships",
+     "meaning_general": "A woman in a dream is an image of acceptance and sensitivity: how you relate to gentleness in yourself and others. She may point to important relationships or to the part of you that needs care."
+    }
+   }
+  },
+  {
+   "number": "39",
+   "name": "Жук",
+   "arcana_type": "Символ сну",
+   "theme": "🪲 Жук",
+   "keywords_upright": "намистина, наполегливість, терпіння",
+   "meaning_general": "Жук — наполегливість маленьких «непомітних» діл, які врешті дають великий результат. Сон заохочує йти крок за кроком, не здаватися й не боятися бути непомітним під час шляху.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Жук",
+     "keywords_upright": "настойчивость, упорство, терпение",
+     "meaning_general": "Жук — настойчивость маленьких «незаметных» дел, которые в итоге дают большой результат. Сон побуждает идти шаг за шагом, не сдаваться и не бояться быть незаметным в пути."
+    },
+    "en": {
+     "name": "Beetle",
+     "keywords_upright": "persistence, patience, small steps",
+     "meaning_general": "A beetle is the persistence of small, barely noticed efforts that eventually bring a big result. The dream encourages step-by-step progress, not giving up, and being fine with going unnoticed along the way."
+    }
+   }
+  },
+  {
+   "number": "40",
+   "name": "Загубити",
+   "arcana_type": "Символ сну",
+   "theme": "🔍 Загубити",
+   "keywords_upright": "втрата, самоцінність, пошук, пріоритети",
+   "meaning_general": "Загубити річ — втрата звʼязку з собою: щось цінне для тебе «загубилося» — увага, відпочинок чи сенс. Підказка зупинитись і знайти, що важливе.",
+   "symbolism": "✕",
+   "translations": {
+    "ru": {
+     "name": "Потерять",
+     "keywords_upright": "потеря, самоценность, поиск, расстановка приоритетов",
+     "meaning_general": "Потерять вещи — потеря связи с собой: что-то ценное для тебя «потерялось» — внимание, отдых, смысл. Подсказка остановиться и найти, что для тебя важно."
+    },
+    "en": {
+     "name": "Losing things",
+     "keywords_upright": "loss, self-worth, search, priorities",
+     "meaning_general": "Losing something is losing touch with yourself: something valuable is 'lost' — attention, rest or meaning. Stop and find what matters to you."
+    }
+   }
+  },
+  {
+   "number": "41",
+   "name": "Земля",
+   "arcana_type": "Символ сну",
+   "theme": "🌍 Земля",
+   "keywords_upright": "опора, матеріальне, життєдайність",
+   "meaning_general": "Земля — опора й те, на чому стоїть життя: дім, достаток, здоровʼя. Мʼяка та плодюча — хороший ґрунт для задумів; тверда й неприступна — час обирати, куди і як вкопувати коріння.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Земля",
+     "keywords_upright": "опора, материальное, жизнедательность",
+     "meaning_general": "Земля — опора и то, на чём стоит жизнь: дом, достаток, здоровье. Мягкая и плодородная — хорошая почва для замыслов; твёрдая и неприступная — время решать, куда и как впускать корни."
+    },
+    "en": {
+     "name": "Earth",
+     "keywords_upright": "ground, material life, nourishment",
+     "meaning_general": "Earth is ground and what life stands on: home, abundance, health. Soft and fertile — good soil for your plans; hard and impenetrable — time to decide where and how to put down roots."
+    }
+   }
+  },
+  {
+   "number": "42",
+   "name": "Зірка",
+   "arcana_type": "Символ сну",
+   "theme": "⭐ Зірка",
+   "keywords_upright": "надія, мета, керунок",
+   "meaning_general": "Зірка — орієнтир у темряві: те, заради чого варто рухатися. Сон нагадує, що навіть у непевні часи в тебе є напрям — і світло, яке ти сам можеш нести.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Звезда",
+     "keywords_upright": "надежда, цель, направление",
+     "meaning_general": "Звезда — ориентир в темноте: то, ради чего стоит двигаться. Сон напоминает, что даже в неопределённые времена у тебя есть направление — и свет, который ты сам можешь нести."
+    },
+    "en": {
+     "name": "Star",
+     "keywords_upright": "hope, goal, direction",
+     "meaning_general": "A star is a guide in the dark: something worth moving toward. The dream reminds you that even in uncertain times you have a direction — and a light you can carry yourself."
+    }
+   }
+  },
+  {
+   "number": "43",
+   "name": "Зірки",
+   "arcana_type": "Символ сну",
+   "theme": "⭐ Зірки",
+   "keywords_upright": "надія, мрії, орієнтир, удача",
+   "meaning_general": "Зірки — надія й орієнтир: навіть у темряві є світло, яке веде. Знак, що мрії досяжні й у тебе є шлях, що веде.",
+   "symbolism": "✦",
+   "translations": {
+    "ru": {
+     "name": "Звёзды",
+     "keywords_upright": "надежда, мечты, ориентир, удача",
+     "meaning_general": "Звёзды — надежда и ориентир: даже в темноте есть свет, который ведёт. Знак, что мечты достижимы и у тебя есть путеводное направление."
+    },
+    "en": {
+     "name": "Stars",
+     "keywords_upright": "hope, dreams, guidance, luck",
+     "meaning_general": "Stars are hope and guidance: even in the dark there is light that leads. A sign that dreams are reachable and you have a guiding course."
+    }
+   }
+  },
+  {
+   "number": "44",
+   "name": "Злодій",
+   "arcana_type": "Символ сну",
+   "theme": "🥷 Злодій",
+   "keywords_upright": "втрата, страх, межа",
+   "meaning_general": "Злодій — страх утратити щось цінне: час, увагу, стосунки, себе. Сон питає: хто чи що «краде» твої сили, і де варто зачинити двері міцніше.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Вор",
+     "keywords_upright": "потеря, страх, граница",
+     "meaning_general": "Вор — страх потерять что-то ценное: время, внимание, отношения, себя. Сон спрашивает: кто или что «крадёт» твои силы, и где стоит закрыть двери крепче."
+    },
+    "en": {
+     "name": "Thief",
+     "keywords_upright": "loss, fear, boundary",
+     "meaning_general": "A thief is the fear of losing something valuable: time, attention, relationships, yourself. The dream asks who or what is 'stealing' your energy, and where you should lock the doors tighter."
+    }
+   }
+  },
+  {
+   "number": "45",
+   "name": "Змія",
+   "arcana_type": "Символ сну",
+   "theme": "🐍 Змія",
+   "keywords_upright": "мудрість, зміни, тривога",
+   "meaning_general": "Змія — гнучкість, уміння «скидати шкуру» старих форм і оновлюватися. Вона нагадує про тривогу або про глибинну мудрість — залежно від того, як ти почуваєшся поруч із нею.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Змея",
+     "keywords_upright": "мудрость, перемены, тревога",
+     "meaning_general": "Змея — гибкость, умение «сбрасывать кожу» старых форм и обновляться. Она напоминает о тревоге или о глубинной мудрости — в зависимости от того, как ты себя чувствуешь рядом с ней."
+    },
+    "en": {
+     "name": "Snake",
+     "keywords_upright": "wisdom, change, anxiety",
+     "meaning_general": "A snake is flexibility and the ability to shed old forms like skin and renew. It points to anxiety or to deep wisdom, depending on how you feel near it."
+    }
+   }
+  },
+  {
+   "number": "46",
+   "name": "Змія кусає",
+   "arcana_type": "Символ сну",
+   "theme": "🐍 Змія кусає",
+   "keywords_upright": "пробудження, попередження, зцілення, зміни",
+   "meaning_general": "Укус змії — пробудження: він «підштовхує» звернути увагу, будить, лікує чи попереджає. Знак, що прийшов час щось змінити.",
+   "symbolism": "✷",
+   "translations": {
+    "ru": {
+     "name": "Змея кусает",
+     "keywords_upright": "пробуждение, предупреждение, исцеление, перемены",
+     "meaning_general": "Змея кусает — пробуждение: укус «побуждает» обратить внимание — толчок, который будит, лечит или предупреждает. Знак, что пришло время что-то изменить."
+    },
+    "en": {
+     "name": "Snake bite",
+     "keywords_upright": "awakening, warning, healing, change",
+     "meaning_general": "A snake bite is awakening: it 'pushes' you to notice — a jolt that wakes, heals or warns. A sign that the time has come to change something."
+    }
+   }
+  },
+  {
+   "number": "47",
+   "name": "Золото",
+   "arcana_type": "Символ сну",
+   "theme": "🪙 Золото",
+   "keywords_upright": "цінність, достаток, таланти, самооцінка",
+   "meaning_general": "Золото й монети — цінне в тобі й навколо: не лише гроші, а самоцінність, таланти й накопичений досвід. Знак достатку й уміння цінувати себе.",
+   "symbolism": "¤",
+   "translations": {
+    "ru": {
+     "name": "Золото / монеты",
+     "keywords_upright": "ценность, достаток, таланты, самооценка",
+     "meaning_general": "Золото и монеты — ценное в себе и вокруг: не только деньги, а самоценность, таланты и накопленный опыт. Знак достатка и умения ценить себя."
+    },
+    "en": {
+     "name": "Gold",
+     "keywords_upright": "value, abundance, talents, self-esteem",
+     "meaning_general": "Gold and coins are what is valuable in and around you: not only money but self-worth, talents and gathered experience. A sign of abundance and valuing yourself."
+    }
+   }
+  },
+  {
+   "number": "48",
+   "name": "Зуби",
+   "arcana_type": "Символ сну",
+   "theme": "🦷 Зуби",
+   "keywords_upright": "впевненість, контроль, перехід",
+   "meaning_general": "Зуби — укус, слово, впевненість: як ти «тримаєш» розмову й межі. Випадають чи крошаться — відчуття втрати міцності в житті; лікуються — відновлення впевненості й порядку.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Зубы",
+     "keywords_upright": "уверенность, контроль, переход",
+     "meaning_general": "Зубы — укус, слово, уверенность: как ты «держишь» разговор и границы. Выпадают или крошатся — ощущение потери прочности в жизни; лечатся — восстановление уверенности и порядка."
+    },
+    "en": {
+     "name": "Teeth",
+     "keywords_upright": "confidence, control, transition",
+     "meaning_general": "Teeth are bite, speech, and confidence: how you 'hold' conversation and boundaries. Falling or crumbling signals a sense of lost strength; being treated signals the return of confidence and order."
+    }
+   }
+  },
+  {
+   "number": "49",
+   "name": "Інший світ",
+   "arcana_type": "Символ сну",
+   "theme": "🌌 Інший світ",
+   "keywords_upright": "таємниця, кордони, запитання",
+   "meaning_general": "Інший світ уві сні — не про проживання «там», а про межу, за якою починається невідоме. Це запитання до тебе: що лежить за межами твоєї звичної картини, і чим ти готовий розширити її?",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Иной мир",
+     "keywords_upright": "тайна, границы, вопрос",
+     "meaning_general": "Иной мир во сне — не про проживание «там», а о границе, за которой начинается неизведанное. Это вопрос к тебе: что лежит за пределами твоей привычной картины, и чем ты готов её расширить?"
+    },
+    "en": {
+     "name": "The otherworld",
+     "keywords_upright": "mystery, boundaries, question",
+     "meaning_general": "The otherworld in a dream is not about living 'there' but about a boundary beyond which the unknown begins. It poses a question: what lies beyond your familiar picture, and how willing are you to widen it?"
+    }
+   }
+  },
+  {
+   "number": "50",
+   "name": "Іскра",
+   "arcana_type": "Символ сну",
+   "theme": "✨ Іскра",
+   "keywords_upright": "запал, початок, натхнення",
+   "meaning_general": "Іскра — маленький запал великої справи: натхнення, яким поки що легко знехтувати. Сон закликає помітити те, що «заіскрилося», і не залишити його згаснути.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Искра",
+     "keywords_upright": "запал, начало, вдохновение",
+     "meaning_general": "Искра — маленький запал большого дела: вдохновение, которым пока легко пренебречь. Сон призывает заметить то, что «заискрилось», и не дать ему погаснуть."
+    },
+    "en": {
+     "name": "Spark",
+     "keywords_upright": "spark, beginning, inspiration",
+     "meaning_general": "A spark is the small ignition of a big thing: inspiration it is still easy to overlook. The dream urges you to notice what has 'sparkled' and not let it die out."
+    }
+   }
+  },
+  {
+   "number": "51",
+   "name": "Їжак",
+   "arcana_type": "Символ сну",
+   "theme": "🦔 Їжак",
+   "keywords_upright": "захист, колючість, самостійність",
+   "meaning_general": "Їжак — уміння захиститися, «виставити голки», коли потрібно. Він мирний, поки його не турбують: сон про те, як ти тримаєш дистанцію й обороняєш свій внутрішній простір.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Ёжик",
+     "keywords_upright": "защита, колючесть, самостоятельность",
+     "meaning_general": "Ёжик — умение защититься, «выставить иголки», когда нужно. Он мирный, пока его не тревожат: сон о том, как ты держишь дистанцию и защищаешь своё внутреннее пространство."
+    },
+    "en": {
+     "name": "Hedgehog",
+     "keywords_upright": "protection, prickliness, self-reliance",
+     "meaning_general": "A hedgehog is the ability to defend yourself, to 'raise your quills' when needed. He is peaceful while unbothered: the dream is about keeping distance and guarding your inner space."
+    }
+   }
+  },
+  {
+   "number": "52",
+   "name": "Кавун",
+   "arcana_type": "Символ сну",
+   "theme": "🍉 Кавун",
+   "keywords_upright": "насолода, соковитість, щедрість",
+   "meaning_general": "Кавун — щось солодке й соковите, що дарує життя: радість, щедрість, нагорода за працю. Стиглий — усе дозріло й час насолоджуватися; порожній — пошук смаку в тому, що вже втратило сенс.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Арбуз",
+     "keywords_upright": "удовольствие, сочность, щедрость",
+     "meaning_general": "Арбуз — что-то сладкое и сочное, что дарит жизнь: радость, щедрость, награда за труд. Спелый — всё созрело и пора наслаждаться; пустой — поиск вкуса в том, что уже потеряло смысл."
+    },
+    "en": {
+     "name": "Watermelon",
+     "keywords_upright": "pleasure, juiciness, generosity",
+     "meaning_general": "A watermelon is something sweet and juicy that life gives you: joy, generosity, a reward for your work. Ripe — all has matured and it is time to enjoy; hollow — looking for taste in what has already lost its meaning."
+    }
+   }
+  },
+  {
+   "number": "53",
+   "name": "Камінь",
+   "arcana_type": "Символ сну",
+   "theme": "🪨 Камінь",
+   "keywords_upright": "опора, тягар, сталість",
+   "meaning_general": "Камінь — і опора, і тягар: усе залежить від того, як ти з ним поводишся. Узяти в руки основу для будівництва — будувати міцне; нести щось неможливе — час скласти частину ноші.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Камень",
+     "keywords_upright": "опора, тяжесть, постоянство",
+     "meaning_general": "Камень — и опора, и тяжесть: всё зависит от того, как ты с ним обращаешься. Взять в руки основу для строительства — строить прочное; нести неподъёмное — время сбросить часть ноши."
+    },
+    "en": {
+     "name": "Stone",
+     "keywords_upright": "support, weight, steadiness",
+     "meaning_general": "A stone is both support and weight — it depends on how you handle it. Taking it as a foundation means building something solid; carrying impossible weight means it is time to put part of it down."
+    }
+   }
+  },
+  {
+   "number": "54",
+   "name": "Карусель",
+   "arcana_type": "Символ сну",
+   "theme": "🎠 Карусель",
+   "keywords_upright": "повторення, дитинство, ритм",
+   "meaning_general": "Карусель — коло, що крутиться на одному місці: знайомі повтори, улюблені або засвоєні звички. Вона нагадує про радість упізнавання, але й питає: ти готовий вийти на новий атракціон?",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Карусель",
+     "keywords_upright": "повторение, детство, ритм",
+     "meaning_general": "Карусель — круг, что крутится на одном месте: знакомые повторы, любимые или усвоенные привычки. Она напоминает о радости узнавания, но и спрашивает: готов ли ты выйти на новый аттракцион?"
+    },
+    "en": {
+     "name": "Carousel",
+     "keywords_upright": "repetition, childhood, rhythm",
+     "meaning_general": "A carousel is a wheel spinning in place: familiar repetitions, beloved or learned habits. It recalls the joy of recognition, yet asks whether you are ready for a new ride."
+    }
+   }
+  },
+  {
+   "number": "55",
+   "name": "Квіти",
+   "arcana_type": "Символ сну",
+   "theme": "🌸 Квіти",
+   "keywords_upright": "краса, ріст, любов, плоди турботи",
+   "meaning_general": "Квіти та сад — краса, любов і розквіт: усе хороше в тобі росте й зріє. Сад, що доглядають, — нагадування бережно піклуватися про цінне.",
+   "symbolism": "✿",
+   "translations": {
+    "ru": {
+     "name": "Цветы",
+     "keywords_upright": "красота, рост, любовь, плоды заботы",
+     "meaning_general": "Цветы и сад — красота, любовь и расцвет: всё хорошее в тебе растёт и зреет. Сад в уходе — напоминание бережно заботиться о том, что для тебя ценно."
+    },
+    "en": {
+     "name": "Flowers",
+     "keywords_upright": "beauty, growth, love, fruit of care",
+     "meaning_general": "Flowers and a garden are beauty, love and blooming: all the good in you is growing and ripening. A tended garden is a reminder to care for what you value."
+    }
+   }
+  },
+  {
+   "number": "56",
+   "name": "Кінь",
+   "arcana_type": "Символ сну",
+   "theme": "🐎 Кінь",
+   "keywords_upright": "сила, свобода, рух, енергія",
+   "meaning_general": "Кінь — сила і рух уперед: твоя внутрішня енергія, пристрасть і прагнення свободи. Керувати конем — означає самому вести своє життя.",
+   "symbolism": "♞",
+   "translations": {
+    "ru": {
+     "name": "Лошадь",
+     "keywords_upright": "сила, свобода, движение, энергия",
+     "meaning_general": "Лошадь — сила и движение вперёд: твоя внутренняя энергия, страсть и стремление к свободе. Управлять конём — значит самому вести свою жизнь."
+    },
+    "en": {
+     "name": "Horse",
+     "keywords_upright": "strength, freedom, movement, energy",
+     "meaning_general": "The horse is strength and forward motion: your inner energy, passion and urge for freedom. Steering the horse means leading your own life."
+    }
+   }
+  },
+  {
+   "number": "57",
+   "name": "Кіт",
+   "arcana_type": "Символ сну",
+   "theme": "🐱 Кіт",
+   "keywords_upright": "незалежність, інтуїція, гнучкість",
+   "meaning_general": "Кіт — незалежність і вміння «приземлятися на лапи» за будь-яких обставин. Він закликає довіряти інтуїції та тому, що тобі зараз насправді потрібно, а не чужим очікуванням.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Кошка",
+     "keywords_upright": "независимость, интуиция, гибкость",
+     "meaning_general": "Кошка — независимость и умение «приземляться на лапы» при любых обстоятельствах. Она призывает доверять интуиции и тому, что тебе сейчас на самом деле нужно, а не чужим ожиданиям."
+    },
+    "en": {
+     "name": "Cat",
+     "keywords_upright": "independence, intuition, grace",
+     "meaning_general": "A cat is independence and the grace to 'land on its feet' in any circumstances. It calls you to trust your intuition and what you truly need now, not others' expectations."
+    }
+   }
+  },
+  {
+   "number": "58",
+   "name": "Кішка",
+   "arcana_type": "Символ сну",
+   "theme": "🐈 Кішка",
+   "keywords_upright": "незалежність, інтуїція, гнучкість, загадка",
+   "meaning_general": "Кішка — незалежна й граціозна частина тебе, що йде своїм шляхом. Підказка довіритися інстинктам і мʼякості.",
+   "symbolism": "◈",
+   "translations": {
+    "ru": {
+     "name": "Кошка",
+     "keywords_upright": "независимость, интуиция, гибкость, загадка",
+     "meaning_general": "Кошка — независимость и интуиция: свободная и грациозная часть тебя, которая идёт своим путём. Подсказка — довериться инстинктам и мягкости."
+    },
+    "en": {
+     "name": "Cat",
+     "keywords_upright": "independence, intuition, flexibility, mystery",
+     "meaning_general": "The cat is independence and intuition: the free, graceful part of you that walks its own path. Trust your instincts and softness."
+    }
+   }
+  },
+  {
+   "number": "59",
+   "name": "Кладовище",
+   "arcana_type": "Символ сну",
+   "theme": "⚰ Кладовище",
+   "keywords_upright": "памʼять, минуле, спокій, оновлення",
+   "meaning_general": "Кладовище — памʼять і повага до минулого: його можна шанувати, але не жити там. Образ «залишити старі тривоги позаду».",
+   "symbolism": "☓",
+   "translations": {
+    "ru": {
+     "name": "Кладбище",
+     "keywords_upright": "память, прошлое, покой, обновление",
+     "meaning_general": "Кладбище — память и уважение к прошлому: его можно чтить, но не жить там. Образ «оставить старые тревоги в прошлом»."
+    },
+    "en": {
+     "name": "Cemetery",
+     "keywords_upright": "memory, past, peace, renewal",
+     "meaning_general": "A cemetery is memory and respect for the past: you can honour it but not live there. An image of 'leaving old worries behind'."
+    }
+   }
+  },
+  {
+   "number": "60",
+   "name": "Ключ",
+   "arcana_type": "Символ сну",
+   "theme": "🔑 Ключ",
+   "keywords_upright": "відповідь, доступ, рішення",
+   "meaning_general": "Ключ — відповідь чи доступ до чогось зачиненого: рішення, якого ти шукаєш, або вихід, що вже в тебе в руках. Сон каже: можливо, ти ближче до розвʼязку, ніж думаєш.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Ключ",
+     "keywords_upright": "ответ, доступ, решение",
+     "meaning_general": "Ключ — ответ или доступ к чему-то закрытому: решение, которое ты ищешь, или выход, что уже в твоих руках. Сон говорит: возможно, ты ближе к разгадке, чем думаешь."
+    },
+    "en": {
+     "name": "Key",
+     "keywords_upright": "answer, access, solution",
+     "meaning_general": "A key is an answer or access to something locked: the solution you seek, or an exit already in your hands. The dream says you may be closer to the answer than you think."
+    }
+   }
+  },
+  {
+   "number": "61",
+   "name": "Кров",
+   "arcana_type": "Символ сну",
+   "theme": "🩸 Кров",
+   "keywords_upright": "життєва сила, енергія, рід, пристрасть",
+   "meaning_general": "Кров — життєва сила й енергія. Втрачати її уві сні — почуватися спустошеним; бачити кров — міцні звʼязки, рід, пристрасть, життя бʼє ключем.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Кровь",
+     "keywords_upright": "жизненная сила, энергия, родство, страсть",
+     "meaning_general": "Кровь — жизненная сила и энергия: потерять её во сне — ощущать себя опустошённым; видеть кровь — прочные связи, род, страсть, жизнь бьёт ключом."
+    },
+    "en": {
+     "name": "Blood",
+     "keywords_upright": "vitality, energy, kinship, passion",
+     "meaning_general": "Blood is vitality and energy: losing it in a dream feels like emptiness; seeing it — strong bonds, kin, passion, life at full flow."
+    }
+   }
+  },
+  {
+   "number": "62",
+   "name": "Лазня",
+   "arcana_type": "Символ сну",
+   "theme": "🧖 Лазня",
+   "keywords_upright": "очищення, відпочинок, відновлення",
+   "meaning_general": "Лазня — очищення тіла й душі: зняти зайве, відпустити напругу й вийти «новим». Якщо жар лякає — час розібратися з тим, що ти довго тримав усередині.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Баня",
+     "keywords_upright": "очищение, отдых, восстановление",
+     "meaning_general": "Баня — очищение тела и души: снять лишнее, отпустить напряжение и выйти «новым». Если жар пугает — время разобраться с тем, что ты долго держал внутри."
+    },
+    "en": {
+     "name": "Bathhouse",
+     "keywords_upright": "cleansing, rest, renewal",
+     "meaning_general": "A bathhouse is cleansing for body and soul: shed the excess, release tension, and step out renewed. If the heat frightens you, it is time to face what you have long kept inside."
+    }
+   }
+  },
+  {
+   "number": "63",
+   "name": "Лисиця",
+   "arcana_type": "Символ сну",
+   "theme": "🦊 Лисиця",
+   "keywords_upright": "хитрість, гнучкість, пильність",
+   "meaning_general": "Лисиця — кмітливість і вміння бачити, що справді стоїть за словами. Сон підказує: обставини можна обійти, а не лише «пробивати лобом» — головне не плутати хитрість з оманою себе.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Лиса",
+     "keywords_upright": "хитрость, гибкость, зоркость",
+     "meaning_general": "Лиса — смекалка и умение видеть, что на самом деле стоит за словами. Сон подсказывает: обстоятельства можно обойти, а не только «пробивать лбом» — главное не путать хитрость с самообманом."
+    },
+    "en": {
+     "name": "Fox",
+     "keywords_upright": "wit, adaptability, alertness",
+     "meaning_general": "A fox is cleverness and the ability to see what really stands behind words. The dream hints that circumstances can be outsmarted rather than only 'bumped through' — just do not confuse cleverness with self-deception."
+    }
+   }
+  },
+  {
+   "number": "64",
+   "name": "Ліжко",
+   "arcana_type": "Символ сну",
+   "theme": "🛏️ Ліжко",
+   "keywords_upright": "відпочинок, довіра, близькість",
+   "meaning_general": "Ліжко — місце, де ти нібито «без оборони»: відпочинок, довіра, близькість. Неспокій на ліжку — недосказане в стосунках чи невміння дозволити собі справді відпочити.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Кровать",
+     "keywords_upright": "отдых, доверие, близость",
+     "meaning_general": "Кровать — место, где ты как будто «без обороны»: отдых, доверие, близость. Беспокойство в кровати — невысказанное в отношениях или неумение позволить себе по-настоящему отдохнуть."
+    },
+    "en": {
+     "name": "Bed",
+     "keywords_upright": "rest, trust, intimacy",
+     "meaning_general": "A bed is where you are, as it were, 'unguarded': rest, trust, intimacy. Restlessness there points to the unspoken in relationships or an inability to really allow yourself to rest."
+    }
+   }
+  },
+  {
+   "number": "65",
+   "name": "Ліс",
+   "arcana_type": "Символ сну",
+   "theme": "🌲 Ліс",
+   "keywords_upright": "безумовність, глибина, відкриття",
+   "meaning_general": "Ліс — місце, де життя йде за своїми законами: туди можна піти, щоб зустрітися з собою. Він показує, що не все в тобі «причесане», і це нормально: саме в гущавині росте найбільше.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Лес",
+     "keywords_upright": "глушь, глубина, открытия",
+     "meaning_general": "Лес — место, где жизнь идёт по своим законам: туда можно уйти, чтобы встретиться с собой. Он показывает, что не всё в тебе «причесано», и это нормально: именно в чаще растёт больше всего."
+    },
+    "en": {
+     "name": "Forest",
+     "keywords_upright": "wilderness, depth, discovery",
+     "meaning_general": "A forest is where life runs on its own rules: you can go there to meet yourself. It shows that not everything in you is 'tamed', and that is fine: the most growth happens in the thicket."
+    }
+   }
+  },
+  {
+   "number": "66",
+   "name": "Літак",
+   "arcana_type": "Символ сну",
+   "theme": "✈ Літак",
+   "keywords_upright": "мрія, швидкість, зміни, зліт",
+   "meaning_general": "Літак — швидкі зміни й висота мрії: ти прагнеш більшого і «літаєш» над буденністю. Зліт — сміливий старт у нове.",
+   "symbolism": "☁",
+   "translations": {
+    "ru": {
+     "name": "Самолёт",
+     "keywords_upright": "мечта, скорость, перемены, взлёт",
+     "meaning_general": "Самолёт — быстрые перемены и высота мечты: ты стремишься к большему и «летаешь» над обыденностью. Взлёт — смелый старт в новое."
+    },
+    "en": {
+     "name": "Plane",
+     "keywords_upright": "dream, speed, change, takeoff",
+     "meaning_general": "A plane is rapid change and the height of a dream: you aim higher and 'fly' above the everyday. Takeoff — a bold start into the new."
+    }
+   }
+  },
+  {
+   "number": "67",
+   "name": "Метелик",
+   "arcana_type": "Символ сну",
+   "theme": "🦋 Метелик",
+   "keywords_upright": "легкість, перетворення, краса",
+   "meaning_general": "Метелик — легкість і перетворення: гусінь стає крилатою, і ти теж виростаєш у щось нове. Сон нагадує про красу змін і про те, що не все важливе має бути «важким».",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Бабочка",
+     "keywords_upright": "лёгкость, преображение, красота",
+     "meaning_general": "Бабочка — лёгкость и преображение: гусеница становится крылатой, и ты тоже вырастаешь во что-то новое. Сон напоминает о красоте перемен и о том, что не всё важное должно быть «тяжёлым»."
+    },
+    "en": {
+     "name": "Butterfly",
+     "keywords_upright": "lightness, transformation, beauty",
+     "meaning_general": "A butterfly is lightness and transformation: a caterpillar grows wings, and so do you become something new. The dream reminds you that change can be beautiful and that not everything important has to be heavy."
+    }
+   }
+  },
+  {
+   "number": "68",
+   "name": "Міст",
+   "arcana_type": "Символ сну",
+   "theme": "🌉 Міст",
+   "keywords_upright": "зʼєднання, перехід, рішення",
+   "meaning_general": "Міст — спосіб потрапити на інший бік: зʼєднання людей, світів, етапів життя. Переходиш — готовий до переходу; вагаєшся — питання не в мосту, а в готовності зробити крок.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Мост",
+     "keywords_upright": "соединение, переход, решение",
+     "meaning_general": "Мост — способ попасть на другую сторону: соединение людей, миров, этапов жизни. Переходишь — готов к переходу; колебаешься — вопрос не в мосту, а в готовности сделать шаг."
+    },
+    "en": {
+     "name": "Bridge",
+     "keywords_upright": "connection, crossing, decision",
+     "meaning_general": "A bridge is how you get to the other side: it connects people, worlds, and stages of life. Crossing means you are ready; hesitating is not about the bridge but about readiness to step."
+    }
+   }
+  },
+  {
+   "number": "69",
+   "name": "Місяць",
+   "arcana_type": "Символ сну",
+   "theme": "🌙 Місяць",
+   "keywords_upright": "інтуїція, ніч, цикл",
+   "meaning_general": "Місяць — частина тебе, що бачить у темряві: відчуття, передчуття, тихі знання. Місяць росте чи спадає — нагадування, що все має цикл, і зараз ти десь на його колі.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Луна",
+     "keywords_upright": "интуиция, ночь, цикл",
+     "meaning_general": "Луна — часть тебя, что видит в темноте: чувства, предчувствия, тихие знания. Луна растёт или убывает — напоминание, что у всего есть цикл, и сейчас ты где-то на его круге."
+    },
+    "en": {
+     "name": "Moon",
+     "keywords_upright": "intuition, night, cycle",
+     "meaning_general": "The moon is the part of you that can see in the dark: feelings, hunches, quiet knowing. Whether it waxes or wanes, the moon reminds you that everything has a cycle — and you are somewhere on its wheel."
+    }
+   }
+  },
+  {
+   "number": "70",
+   "name": "Молоко",
+   "arcana_type": "Символ сну",
+   "theme": "🥛 Молоко",
+   "keywords_upright": "живлення, турбота, чистота",
+   "meaning_general": "Молоко — те, що живить і гріє: турбота про себе й про інших. Воно нагадує про просту «дитячу» щедрість — давати й приймати з легкістю, без умов.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Молоко",
+     "keywords_upright": "питание, забота, чистота",
+     "meaning_general": "Молоко — то, что питает и согревает: забота о себе и о других. Оно напоминает о простой «детской» щедрости — давать и принимать легко, без условий."
+    },
+    "en": {
+     "name": "Milk",
+     "keywords_upright": "nourishment, care, purity",
+     "meaning_general": "Milk is what nourishes and warms: care for yourself and others. It recalls the simple, 'childlike' generosity of giving and receiving easily, without conditions."
+    }
+   }
+  },
+  {
+   "number": "71",
+   "name": "Море",
+   "arcana_type": "Символ сну",
+   "theme": "🌊 Море",
+   "keywords_upright": "багато почуттів, глибина, діапазон",
+   "meaning_general": "Море — великий простір почуттів: усе, що ти проживаєш, має глибину й розмах. Спокійне море — внутрішня згода; бурхливе — великі хвилі емоцій, з якими можна «переплисти» разом із хвилями.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Море",
+     "keywords_upright": "много чувств, глубина, размах",
+     "meaning_general": "Море — большое пространство чувств: всё, что ты переживаешь, имеет глубину и размах. Спокойное море — внутреннее согласие; бурное — большие волны эмоций, с которыми можно «переплыть» вместе с волнами."
+    },
+    "en": {
+     "name": "Sea",
+     "keywords_upright": "depth of feeling, vastness, scope",
+     "meaning_general": "The sea is a vast space of feeling: all you experience has depth and scope. A calm sea is inner agreement; a rough one is great emotional waves you can cross by moving with them."
+    }
+   }
+  },
+  {
+   "number": "72",
+   "name": "Музей",
+   "arcana_type": "Символ сну",
+   "theme": "🏛️ Музей",
+   "keywords_upright": "памʼять, цінність, минуле",
+   "meaning_general": "Музей — те, що тобі цінно зберегти: спогади, досвід, особисту історію. Він показує, що дещо з минулого варто лишити «на полиці», а дещо — дістати і згадати, ким ти вже був.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Музей",
+     "keywords_upright": "память, ценность, прошлое",
+     "meaning_general": "Музей — то, что тебе ценно сохранить: воспоминания, опыт, личную историю. Он показывает, что кое-что из прошлого стоит оставить «на полке», а кое-что — достать и вспомнить, кем ты уже был."
+    },
+    "en": {
+     "name": "Museum",
+     "keywords_upright": "memory, value, past",
+     "meaning_general": "A museum is what you value preserving: memories, experience, personal history. It shows that some of the past belongs 'on the shelf', while some deserves to be taken out and remembered — who you have already been."
+    }
+   }
+  },
+  {
+   "number": "73",
+   "name": "Народження",
+   "arcana_type": "Символ сну",
+   "theme": "🚼 Народження",
+   "keywords_upright": "перехід, новий етап, сила",
+   "meaning_general": "Народження — початок нового етапу не тільки зовні, а й усередині. Це завершення «вагітності» думки чи справи: те, що зріло, нарешті виходить на світ.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Рождение",
+     "keywords_upright": "переход, новый этап, сила",
+     "meaning_general": "Рождение — начало нового этапа не только снаружи, но и внутри. Это завершение «беременности» мысли или дела: то, что созревало, наконец выходит на свет."
+    },
+    "en": {
+     "name": "Birth",
+     "keywords_upright": "transition, new stage, strength",
+     "meaning_general": "Birth is the beginning of a new stage, both outside and within. It completes the 'pregnancy' of a thought or undertaking: what has been maturing finally comes into the light."
+    }
+   }
+  },
+  {
+   "number": "74",
+   "name": "Небо",
+   "arcana_type": "Символ сну",
+   "theme": "🌤️ Небо",
+   "keywords_upright": "простір, перспектива, прагнення",
+   "meaning_general": "Небо — твій внутрішній простір: як там, чисто чи хмарно, — так тобі зараз «дихається». Воно запрошує підняти погляд вище й побачити можливість, що була всюди навколо.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Небо",
+     "keywords_upright": "простор, перспектива, устремление",
+     "meaning_general": "Небо — твоё внутреннее пространство: чисто там или облачно, так тебе сейчас «дышится». Оно приглашает поднять взгляд выше и увидеть возможность, которая была всё это время вокруг."
+    },
+    "en": {
+     "name": "Sky",
+     "keywords_upright": "space, perspective, aspiration",
+     "meaning_general": "The sky is your inner space: whether it is clear or cloudy is how you 'breathe' right now. It invites you to lift your gaze and see a possibility that was around you all along."
+    }
+   }
+  },
+  {
+   "number": "75",
+   "name": "Нитка",
+   "arcana_type": "Символ сну",
+   "theme": "🧵 Нитка",
+   "keywords_upright": "звʼязок, шлях, плетіння",
+   "meaning_general": "Нитка — те, що зшиває твоє життя: звʼязки, лінія долі, наступність. Розмотав клубок — розмотуєш власну історію й дивишся, куди вона веде.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Нитка",
+     "keywords_upright": "связь, путь, плетение",
+     "meaning_general": "Нитка — то, что сшивает твою жизнь: связи, линия судьбы, преемственность. Размотал клубок — распутываешь собственную историю и смотришь, куда она ведёт."
+    },
+    "en": {
+     "name": "Thread",
+     "keywords_upright": "connection, path, weaving",
+     "meaning_general": "A thread is what stitches your life together: bonds, a life-line, continuity. Unwinding a ball means unraveling your own story and seeing where it leads."
+    }
+   }
+  },
+  {
+   "number": "76",
+   "name": "Нігті",
+   "arcana_type": "Символ сну",
+   "theme": "💅 Нігті",
+   "keywords_upright": "догляд, образ, захист",
+   "meaning_general": "Нігті — дрібна увага до себе: як ти «прибираєш краї», так тримаєш образ і межі. Рівні, доглянуті — порядок навколо тебе; ламаються — дрібні подразнення, що просять уваги.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Ногти",
+     "keywords_upright": "уход, образ, защита",
+     "meaning_general": "Ногти — мелкая забота о себе: как ты «убираешь края», так держишь образ и границы. Ровные, ухоженные — порядок вокруг тебя; ломаются — мелкие раздражения, что просят внимания."
+    },
+    "en": {
+     "name": "Nails",
+     "keywords_upright": "care, image, defense",
+     "meaning_general": "Nails are small care for yourself: how you 'trim the edges' mirrors how you keep your image and boundaries. Neat and groomed — order around you; breaking — small irritations asking for attention."
+    }
+   }
+  },
+  {
+   "number": "77",
+   "name": "Ніж",
+   "arcana_type": "Символ сну",
+   "theme": "🔪 Ніж",
+   "keywords_upright": "різкість, межа, вибір",
+   "meaning_general": "Ніж — здатність розділяти, відсікати, захищатися: іноді треба «відрізати» зайве, щоб зберегти ціле. Сон питає: що варто нарешті відпустити гострим і чесним жестом?",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Нож",
+     "keywords_upright": "резкость, граница, выбор",
+     "meaning_general": "Нож — способность разделять, отсекать, защищаться: иногда нужно «отрезать» лишнее, чтобы сохранить целое. Сон спрашивает: что стоит наконец отпустить острым и честным жестом?"
+    },
+    "en": {
+     "name": "Knife",
+     "keywords_upright": "sharpness, boundary, choice",
+     "meaning_general": "A knife is the ability to divide, cut away, and defend: sometimes you must 'cut off' the excess to keep the whole. The dream asks what is finally worth letting go with a sharp, honest gesture."
+    }
+   }
+  },
+  {
+   "number": "78",
+   "name": "Одяг",
+   "arcana_type": "Символ сну",
+   "theme": "🧥 Одяг",
+   "keywords_upright": "образ, роль, соціальна шкіра",
+   "meaning_general": "Одяг — те, як ти показуєш себе світу: ролі, образ, «броня». Новий і зручний — ти впевнено приміряєш своє; чужий або не по тобі — час бути щирішим у тому, ким «одягаєшся» щодня.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Одежда",
+     "keywords_upright": "образ, роль, социальная кожа",
+     "meaning_general": "Одежда — то, как ты показываешь себя миру: роли, образ, «броня». Новая и удобная — ты уверенно примеряешь своё; чужая или не по размеру — время быть искреннее в том, кем «одеваешься» каждый день."
+    },
+    "en": {
+     "name": "Clothes",
+     "keywords_upright": "image, role, social skin",
+     "meaning_general": "Clothes are how you present yourself to the world: roles, image, 'armor'. New and comfortable — you confidently wear what is yours; ill-fitting or borrowed — it is time to be more honest about 'who you put on' daily."
+    }
+   }
+  },
+  {
+   "number": "79",
+   "name": "Океан",
+   "arcana_type": "Символ сну",
+   "theme": "🌐 Океан",
+   "keywords_upright": "неосяжність, безодня, спільність",
+   "meaning_general": "Океан — надто великий простір, щоб його контролювати: він про звʼязок з усім і про те, що є речі могутніші за нас. Пливи разом із рухами, а не проти всього океану.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Океан",
+     "keywords_upright": "необъятность, бездна, общность",
+     "meaning_general": "Океан — слишком большой простор, чтобы его контролировать: он о связи со всем и о том, что есть вещи могущественнее нас. Плыви вместе с движениями, а не против всего океана."
+    },
+    "en": {
+     "name": "Ocean",
+     "keywords_upright": "vastness, depth, belonging",
+     "meaning_general": "The ocean is too vast to control: it is about connection to everything and about forces greater than us. Swim with its movements, not against the whole ocean."
+    }
+   }
+  },
+  {
+   "number": "80",
+   "name": "Олень",
+   "arcana_type": "Символ сну",
+   "theme": "🦌 Олень",
+   "keywords_upright": "грація, пильність, тиха сила",
+   "meaning_general": "Олень — тиха сила, що вміє бути і ніжною, і рішучою: він виглядає спокійно, але весь увага. Сон про вміння тримати внутрішню грацію, попри те, що навколо може бути неспокій.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Олень",
+     "keywords_upright": "грация, внимательность, тихая сила",
+     "meaning_general": "Олень — тихая сила, что умеет быть и нежной, и решительной: он выглядит спокойно, но весь во внимании. Сон об умении сохранять внутреннюю грацию, даже когда вокруг неспокойно."
+    },
+    "en": {
+     "name": "Deer",
+     "keywords_upright": "grace, alertness, quiet strength",
+     "meaning_general": "A deer is quiet strength that is both gentle and decisive: it looks calm yet is fully alert. The dream is about keeping inner grace even when the world around is restless."
+    }
+   }
+  },
+  {
+   "number": "81",
+   "name": "Острів",
+   "arcana_type": "Символ сну",
+   "theme": "🏝️ Острів",
+   "keywords_upright": "усамітнення, самодостатність, тиша",
+   "meaning_general": "Острів — місце, де є тільки ти й твоя територія: перепочинок або ізоляція — залежить від почуттів. Сон питає: тобі добре наодинці чи бракує мосту назад до людей?",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Остров",
+     "keywords_upright": "уединение, самодостаточность, тишина",
+     "meaning_general": "Остров — место, где есть только ты и твоя территория: передышка или изоляция — зависит от чувств. Сон спрашивает: тебе хорошо наедине или не хватает моста обратно к людям?"
+    },
+    "en": {
+     "name": "Island",
+     "keywords_upright": "solitude, self-sufficiency, silence",
+     "meaning_general": "An island is a place with only you and your territory: rest or isolation, depending on how it feels. The dream asks whether you enjoy being alone or miss a bridge back to people."
+    }
+   }
+  },
+  {
+   "number": "82",
+   "name": "Павук",
+   "arcana_type": "Символ сну",
+   "theme": "🕷 Павук",
+   "keywords_upright": "творчість, терпіння, устройство життя, майстерність",
+   "meaning_general": "Павук — творчість і терпіння: ти «плетеш» своє життя з ниток, які сам обираєш. Нагадує, що прилежна праця принесе плоди.",
+   "symbolism": "✶",
+   "translations": {
+    "ru": {
+     "name": "Паук",
+     "keywords_upright": "творчество, терпение, устройство жизни, мастерство",
+     "meaning_general": "Паук — творчество и терпение: ты «плетёшь» свою жизнь из нитей, которые сам выбираешь. Он напоминает, что прилежная работа принесёт плоды."
+    },
+    "en": {
+     "name": "Spider",
+     "keywords_upright": "creativity, patience, life design, mastery",
+     "meaning_general": "The spider is creativity and patience: you 'weave' your life from the threads you choose. It reminds that diligent work brings fruit."
+    }
+   }
+  },
+  {
+   "number": "83",
+   "name": "Павутиння",
+   "arcana_type": "Символ сну",
+   "theme": "🕸️ Павутиння",
+   "keywords_upright": "сплетіння, тонка праця, звʼязки",
+   "meaning_general": "Павутиння — мережа того, що ти тихо й довго створював: звʼязки, плани, звички. Подивись, звідки воно росте: що ти плечеш і чи в цю мережу хочеш ловити свою «здобич»?",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Паутина",
+     "keywords_upright": "сплетение, тонкая работа, связи",
+     "meaning_general": "Паутина — сеть того, что ты тихо и долго создавал: связей, планов, привычек. Посмотри, откуда она растёт: что ты плетёшь и туда ли хочешь ловить свою «добычу»?"
+    },
+    "en": {
+     "name": "Spider web",
+     "keywords_upright": "weaving, fine work, connections",
+     "meaning_general": "A spider web is the net of what you have quietly built for a long time: bonds, plans, habits. Look at where it grows: what are you weaving, and what 'prey' do you actually want to catch?"
+    }
+   }
+  },
+  {
+   "number": "84",
+   "name": "Падіння",
+   "arcana_type": "Символ сну",
+   "theme": "🪂 Падіння",
+   "keywords_upright": "втрата контролю, страх, приземлення",
+   "meaning_general": "Падіння — відчуття, що ґрунт «йде з-під ніг»: перевантаженість, втома, страх не впоратися. Сон часто зʼявляється, коли ти тримаєш надто багато на собі, і нагадує: падіння не вічне, земля завжди є.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Падение",
+     "keywords_upright": "потеря контроля, страх, приземление",
+     "meaning_general": "Падение — ощущение, что земля «уходит из-под ног»: перегрузка, усталость, страх не справиться. Сон часто появляется, когда ты держишь слишком много на себе, и напоминает: падение не вечно, земля всегда есть."
+    },
+    "en": {
+     "name": "Falling",
+     "keywords_upright": "loss of control, fear, landing",
+     "meaning_general": "Falling is the feeling that the ground is giving way: overload, fatigue, fear of failing. It often comes when you carry too much and reminds you that falling is not eternal — the ground is always there."
+    }
+   }
+  },
+  {
+   "number": "85",
+   "name": "Парасолька",
+   "arcana_type": "Символ сну",
+   "theme": "🖼️ Парасолька",
+   "keywords_upright": "захист, турбота, тимчасовість",
+   "meaning_general": "Парасолька — захист, який тримаєш у власних руках: вона не зупиняє дощи, але прикриває тебе від нього. Сон про те, що ти вмієш подбати про себе, і про те, що будь-який захист — тимчасовий помічник, а не постійна стіна.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Зонт",
+     "keywords_upright": "защита, забота, скоротечность",
+     "meaning_general": "Зонт — защита, которую держишь в собственных руках: он не останавливает дождь, но укрывает тебя от него. Сон о том, что ты умеешь позаботиться о себе, и о том, что любая защита — временный помощник, а не постоянная стена."
+    },
+    "en": {
+     "name": "Umbrella",
+     "keywords_upright": "protection, care, temporary shelter",
+     "meaning_general": "An umbrella is protection held in your own hands: it does not stop the rain, but shelters you from it. The dream is about your ability to care for yourself — and that all protection is a temporary helper, not a permanent wall."
+    }
+   }
+  },
+  {
+   "number": "86",
+   "name": "Первісна стежка",
+   "arcana_type": "Символ сну",
+   "theme": "🚶 Первісна стежка",
+   "keywords_upright": "вибір шляху, слід, повернення",
+   "meaning_general": "Стежка — напрям, яким ти вже ходив і який досі тебе кличе: звички, знайомі місця, «протоптані» рішення. Іти нею легше, але чи веде вона туди, куди ти насправді прагнеш?",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Первозданная тропа",
+     "keywords_upright": "выбор пути, след, возвращение",
+     "meaning_general": "Тропа — направление, по которому ты уже ходил и которое до сих пор зовёт: привычки, знакомые места, «протоптанные» решения. Идти по ней легче, но ведёт ли она туда, куда ты на самом деле хочешь?"
+    },
+    "en": {
+     "name": "Bygone trail",
+     "keywords_upright": "path choice, trace, return",
+     "meaning_general": "A trail is a direction you have walked before and which still calls you: habits, familiar places, well-worn decisions. It is easier to follow, but does it lead where you truly want to go?"
+    }
+   }
+  },
+  {
+   "number": "87",
+   "name": "Перлина",
+   "arcana_type": "Символ сну",
+   "theme": "🦪 Перлина",
+   "keywords_upright": "рідкісність, винятковість, пошук",
+   "meaning_general": "Перлина — цінність, яку не здобувають поспіхом: вона росте всередині раковини. Сон про рідкісне в тобі — те, що потребувало терпіння й тепер може бути твоєю опорою.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Жемчуг",
+     "keywords_upright": "редкость, исключительность, поиск",
+     "meaning_general": "Жемчуг — ценность, которую не добывают второпях: она растёт внутри раковины. Сон о редком в тебе — том, что требовало терпения и теперь может стать твоей опорой."
+    },
+    "en": {
+     "name": "Pearl",
+     "keywords_upright": "rarity, uniqueness, search",
+     "meaning_general": "A pearl is a value not gathered in haste: it grows inside a shell. The dream speaks of the rare in you — what has taken patience and can now become your anchor."
+    }
+   }
+  },
+  {
+   "number": "88",
+   "name": "Півень",
+   "arcana_type": "Символ сну",
+   "theme": "🐓 Півень",
+   "keywords_upright": "сприйняття, голос, ранок",
+   "meaning_general": "Півень — той, хто будить і заявляє про себе: голос, який не боїться бути почутим. Спів півня — початок нового дня, заклик недовго лишитися в темряві, а вийти у світло.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Петух",
+     "keywords_upright": "восприятие, голос, утро",
+     "meaning_general": "Петух — тот, кто будит и заявляет о себе: голос, который не боится быть услышанным. Крик петуха — начало нового дня, призыв недолго оставаться в темноте, а выйти на свет."
+    },
+    "en": {
+     "name": "Rooster",
+     "keywords_upright": "awareness, voice, morning",
+     "meaning_general": "A rooster is one who wakes others and announces himself: a voice unafraid to be heard. Its crow marks the start of a new day — an invitation not to linger in the dark but to step into light."
+    }
+   }
+  },
+  {
+   "number": "89",
+   "name": "Плавання",
+   "arcana_type": "Символ сну",
+   "theme": "🏊 Плавання",
+   "keywords_upright": "почуття, потік, витривалість, допомога",
+   "meaning_general": "Плавання — чи справляєшся ти з потоком почуттів: пливеш — справляєшся і рухаєшся; тонеш — тебе «захльостує», час попросити допомоги й виринути до світла.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Плыть / утонуть",
+     "keywords_upright": "чувства, поток, выносливость, помощь",
+     "meaning_general": "Плаванье/утопление — справляешься ли ты с потоком чувств: плывёшь — справляешься и движешься; тонешь — чувствуешь себя захлестнутым, пора попросить помощи и вынырнуть к свету."
+    },
+    "en": {
+     "name": "Swimming",
+     "keywords_upright": "feelings, flow, endurance, help",
+     "meaning_general": "Swimming is whether you cope with the flow of feelings: swimming — you cope and move; drowning — you feel overwhelmed, time to ask for help and rise to the light."
+    }
+   }
+  },
+  {
+   "number": "90",
+   "name": "Погоня",
+   "arcana_type": "Символ сну",
+   "theme": "🏃 Погоня",
+   "keywords_upright": "уникнення, страх, сміливість, зустріч зі страхом",
+   "meaning_general": "Погоня означає: від чогось у житті ти «тікаєш» — страх, обовʼязок чи власні почуття. Підказка — повернутись і розібратись, тоді «переслідувач» ослабне.",
+   "symbolism": "→",
+   "translations": {
+    "ru": {
+     "name": "Погоня",
+     "keywords_upright": "избегание, страх, смелость, встреча со страхом",
+     "meaning_general": "Погоня означает: от чего-то в жизни ты «убегаешь» — страх, обязанность, собственные чувства. Подсказка — повернуться и разобраться, тогда «преследователь» ослабнет."
+    },
+    "en": {
+     "name": "Being chased",
+     "keywords_upright": "avoidance, fear, courage, facing fear",
+     "meaning_general": "Being chased means you are 'running from' something in life — a fear, a duty, or your own feelings. The hint: turn around and sort it out, then the 'pursuer' weakens."
+    }
+   }
+  },
+  {
+   "number": "91",
+   "name": "Політ",
+   "arcana_type": "Символ сну",
+   "theme": "🕊 Політ",
+   "keywords_upright": "свобода, натхнення, висота, зростання",
+   "meaning_general": "Політ — легкість, свобода і погляд на життя «згори»: ти піднявся над проблемами і бачиш перспективу. Підказка — відпустити обмеження і мріяти сміливіше.",
+   "symbolism": "☁",
+   "translations": {
+    "ru": {
+     "name": "Полёт",
+     "keywords_upright": "свобода, вдохновение, высота, рост",
+     "meaning_general": "Полёт — лёгкость, свобода и взгляд на жизнь «свысока»: ты поднялся над проблемами и видишь перспективу. Подсказка — отпустить ограничения и мечтать смелее."
+    },
+    "en": {
+     "name": "Flying",
+     "keywords_upright": "freedom, inspiration, height, growth",
+     "meaning_general": "Flying is lightness, freedom, and a view of life 'from above': you have risen over problems and see the big picture. A hint to drop limits and dream bolder."
+    }
+   }
+  },
+  {
+   "number": "92",
+   "name": "Померлий родич",
+   "arcana_type": "Символ сну",
+   "theme": "🕊 Померлий родич",
+   "keywords_upright": "памʼять, любов, прощання, втіха",
+   "meaning_general": "Померлий близький — зустріч із памʼяттю й любовʼю, а не зі страхом: душа нагадує про звʼязок, що не зникає, і про те, що життя триває й у нас.",
+   "symbolism": "☁",
+   "translations": {
+    "ru": {
+     "name": "Умерший близкий",
+     "keywords_upright": "память, любовь, прощание, утешение",
+     "meaning_general": "Умерший близкий — встреча с памятью и любовью, а не со страхом: душа напоминает о связи, которая не исчезает, и о том, что жизнь продолжается и в нас."
+    },
+    "en": {
+     "name": "Deceased loved one",
+     "keywords_upright": "memory, love, farewell, comfort",
+     "meaning_general": "A deceased loved one is a meeting with memory and love, not with fear: the soul reminds that the bond never fades and that life continues within us."
+    }
+   }
+  },
+  {
+   "number": "93",
+   "name": "Потяг",
+   "arcana_type": "Символ сну",
+   "theme": "🚂 Потяг",
+   "keywords_upright": "шлях, ритм, плани, своєчасність",
+   "meaning_general": "Потяг — рух наміченим шляхом разом з іншими: ритм життя, плани й попутники долі. Встигнути на потяг — бути в потрібний момент на своєму шляху.",
+   "symbolism": "☰",
+   "translations": {
+    "ru": {
+     "name": "Поезд",
+     "keywords_upright": "путь, ритм, планы, своевременность",
+     "meaning_general": "Поезд — движение по намеченной дороге вместе с другими: ритм жизни, планы и пассажиры судьбы. Успеть на поезд — быть в нужный момент на своём пути."
+    },
+    "en": {
+     "name": "Train",
+     "keywords_upright": "path, rhythm, plans, timing",
+     "meaning_general": "A train is movement along a set route with others: the rhythm of life, plans and fellow travellers of fate. Catching the train — being where you need at the right time."
+    }
+   }
+  },
+  {
+   "number": "94",
+   "name": "Похорон",
+   "arcana_type": "Символ сну",
+   "theme": "🕯 Похорон",
+   "keywords_upright": "прощання, відпускання, підсумок, полегшення",
+   "meaning_general": "Похорон — прощання і відпускання: ти «ховаєш» стару главу — звичку, біль чи колишнього себе — заради звільнення і місця для нового.",
+   "symbolism": "✠",
+   "translations": {
+    "ru": {
+     "name": "Похороны",
+     "keywords_upright": "прощание, отпускание, итог, облегчение",
+     "meaning_general": "Похороны — прощание и отпускание: ты хоронишь старую главу — привычку, боль или прежнего себя — ради освобождения и нового места для жизни."
+    },
+    "en": {
+     "name": "Funeral",
+     "keywords_upright": "farewell, letting go, closure, relief",
+     "meaning_general": "A funeral is farewell and letting go: you 'bury' an old chapter — a habit, a pain or a former self — for the sake of freedom and room for the new."
+    }
+   }
+  },
+  {
+   "number": "95",
+   "name": "Птах",
+   "arcana_type": "Символ сну",
+   "theme": "🕊️ Птах",
+   "keywords_upright": "легкість, свобода, новина",
+   "meaning_general": "Птах — свобода й уміння дивитися на світ «з висоти»: злетіти над рутиною. Він приносить звістку — можливо, закодуйся внутрішньо: щось нове вже летить до тебе.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Птица",
+     "keywords_upright": "лёгкость, свобода, весть",
+     "meaning_general": "Птица — свобода и умение смотреть на мир «с высоты»: взлететь над рутиной. Она приносит весть — возможно, прислушайся внутренне: что-то новое уже летит к тебе."
+    },
+    "en": {
+     "name": "Bird",
+     "keywords_upright": "lightness, freedom, news",
+     "meaning_general": "A bird is freedom and the ability to see the world 'from above' — to rise above routine. It carries a message; listen inwardly, something new may already be flying your way."
+    }
+   }
+  },
+  {
+   "number": "96",
+   "name": "Риба",
+   "arcana_type": "Символ сну",
+   "theme": "🐟 Риба",
+   "keywords_upright": "інтуїція, достаток, глибина, почуття",
+   "meaning_general": "Риба — глибинні почуття, інтуїція й достаток: вона живе у «воді» душі, тож сон зве прислухатися до чуття й внутрішніх бажань.",
+   "symbolism": "Ω",
+   "translations": {
+    "ru": {
+     "name": "Рыба",
+     "keywords_upright": "интуиция, изобилие, глубина, чувства",
+     "meaning_general": "Рыба — глубинные чувства, интуиция и достаток: она живёт в «воде» души, поэтому сон зовёт прислушаться к чутью и внутренним желаниям."
+    },
+    "en": {
+     "name": "Fish",
+     "keywords_upright": "intuition, abundance, depth, feelings",
+     "meaning_general": "Fish are deep feelings, intuition and abundance: they live in the 'water' of the soul, so the dream calls to listen to instinct and inner desires."
+    }
+   }
+  },
+  {
+   "number": "97",
+   "name": "Ручник",
+   "arcana_type": "Символ сну",
+   "theme": "🗝️ Ручник",
+   "keywords_upright": "потік, чисті почуття, легкий рух",
+   "meaning_general": "Русло — спокійний потік, який тече собі, не тисне й не зупиняється: так можуть текти твої почуття, якщо їм дати простір. Сон нагадує: життя рухається навіть «неспішно».",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Ручей",
+     "keywords_upright": "поток, чистые чувства, лёгкое движение",
+     "meaning_general": "Ручей — спокойный поток, который течёт себе, не давит и не останавливается: так могут течь твои чувства, если дать им пространство. Сон напоминает: жизнь движется даже «неспешно»."
+    },
+    "en": {
+     "name": "Stream",
+     "keywords_upright": "flow, clear feelings, easy movement",
+     "meaning_general": "A stream is a calm flow that simply runs — it neither pushes nor stops: your feelings can flow the same way when given space. The dream reminds you that life moves even unhurriedly."
+    }
+   }
+  },
+  {
+   "number": "98",
+   "name": "Сад",
+   "arcana_type": "Символ сну",
+   "theme": "🌳 Сад",
+   "keywords_upright": "турбота, зростання, урожай",
+   "meaning_general": "Сад — те, що ти плекаєш у довгостроковій перспективі: стосунки, навички, саму себе. Квітучий сад — твоя турбота повертається; занедбаний — запитання, про що ти хочеш дбати наступним.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Сад",
+     "keywords_upright": "забота, рост, урожай",
+     "meaning_general": "Сад — то, что ты взращиваешь в долгосрочной перспективе: отношения, навыки, саму себя. Цветущий сад — твоя забота возвращается; запущенный — вопрос, о чём ты хочешь заботиться далее."
+    },
+    "en": {
+     "name": "Garden",
+     "keywords_upright": "care, growth, harvest",
+     "meaning_general": "A garden is what you nurture long-term: relationships, skills, yourself. A blooming garden shows your care returning; an overgrown one asks what you want to tend next."
+    }
+   }
+  },
+  {
+   "number": "99",
+   "name": "Свічка",
+   "arcana_type": "Символ сну",
+   "theme": "🕯️ Свічка",
+   "keywords_upright": "світло, памʼять, тиша",
+   "meaning_general": "Свічка — обережне, живе світло в темряві: воно не осліплює, але показує дорогу. Вона про памʼять, тишу й те, що навіть маленьке світло може тримати ніч подалі.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Свеча",
+     "keywords_upright": "свет, память, тишина",
+     "meaning_general": "Свеча — бережное, живое пламя в темноте: оно не ослепляет, но показывает путь. Она о памяти, тишине и о том, что даже маленький свет может держать ночь на расстоянии."
+    },
+    "en": {
+     "name": "Candle",
+     "keywords_upright": "light, memory, stillness",
+     "meaning_general": "A candle is a gentle, living light in the dark: it does not dazzle, yet shows the way. It speaks of memory, stillness, and how even a small flame can hold the night at bay."
+    }
+   }
+  },
+  {
+   "number": "100",
+   "name": "Смерть",
+   "arcana_type": "Символ сну",
+   "theme": "🕰️ Смерть",
+   "keywords_upright": "завершення, зміна, межа",
+   "meaning_general": "Смерть уві сні — майже ніколи не про буквальну подію, а про завершення етапу: старі звички, образи, ролі «вмирають», щоб звільнити місце. Край — це також початок іншого берега.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Смерть",
+     "keywords_upright": "завершение, перемена, грань",
+     "meaning_general": "Смерть во сне — почти никогда не о буквальном событии, а о завершении этапа: старые привычки, обиды, роли «умирают», чтобы освободить место. Край — это также начало другого берега."
+    },
+    "en": {
+     "name": "Death",
+     "keywords_upright": "ending, change, boundary",
+     "meaning_general": "Death in a dream is almost never literal — it marks the end of a stage: old habits, grievances, and roles 'die' to make room. An edge is also the start of another shore."
+    }
+   }
+  },
+  {
+   "number": "101",
+   "name": "Сніг",
+   "arcana_type": "Символ сну",
+   "theme": "❄ Сніг",
+   "keywords_upright": "спокій, чистота, тиша, новий початок",
+   "meaning_general": "Сніг — спокій і чистий аркуш: біле покривало вкриває світ, даючи тишу й паузу, а також можливість почати з нуля.",
+   "symbolism": "❄",
+   "translations": {
+    "ru": {
+     "name": "Снег",
+     "keywords_upright": "покой, чистота, тишина, новое начало",
+     "meaning_general": "Снег — покой и чистый лист: белый покров укрывает мир, давая тишину и паузу, а также возможность начать с чистого листа."
+    },
+    "en": {
+     "name": "Snow",
+     "keywords_upright": "calm, purity, silence, new beginning",
+     "meaning_general": "Snow is calm and a clean slate: the white cover wraps the world, giving silence and a pause, and the chance to start from scratch."
+    }
+   }
+  },
+  {
+   "number": "102",
+   "name": "Сніжинки",
+   "arcana_type": "Символ сну",
+   "theme": "❄️ Сніжинки",
+   "keywords_upright": "легкість, унікальність, сезонність",
+   "meaning_general": "Сніжинки — краса, що прилітає тихо й без попередження: бачити особливе в дрібницях. Кожна з них унікальна, а разом вони вкривають землю ніжністю — як моменти, що складаються в твою зиму.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Снежинки",
+     "keywords_upright": "лёгкость, уникальность, сезонность",
+     "meaning_general": "Снежинки — красота, что прилетает тихо и без предупреждения: видеть особенное в мелочах. Каждая из них уникальна, а вместе они укрывают землю нежностью — как моменты, что складываются в твою зиму."
+    },
+    "en": {
+     "name": "Snowflakes",
+     "keywords_upright": "lightness, uniqueness, seasonality",
+     "meaning_general": "Snowflakes are beauty arriving quietly and unannounced: noticing the special in small things. Each is unique, and together they soften the ground — like the moments composing your winter."
+    }
+   }
+  },
+  {
+   "number": "103",
+   "name": "Собака",
+   "arcana_type": "Символ сну",
+   "theme": "🐕 Собака",
+   "keywords_upright": "вірність, дружба, захист, довіра",
+   "meaning_general": "Собака — вірність і дружба: близькі поруч, і на них можна спертися. Нагадує про відданість собі й своїм людям, про довіру й захист.",
+   "symbolism": "☉",
+   "translations": {
+    "ru": {
+     "name": "Собака",
+     "keywords_upright": "верность, дружба, защита, доверие",
+     "meaning_general": "Собака — верность и дружба: твои близкие рядом и можно на них опереться. Она напоминает про преданность себе и своим людям, доверие и защиту."
+    },
+    "en": {
+     "name": "Dog",
+     "keywords_upright": "loyalty, friendship, protection, trust",
+     "meaning_general": "The dog is loyalty and friendship: your close ones are near and you can lean on them. It recalls devotion to yourself and your people, trust and protection."
+    }
+   }
+  },
+  {
+   "number": "104",
+   "name": "Сонце",
+   "arcana_type": "Символ сну",
+   "theme": "☀️ Сонце",
+   "keywords_upright": "тепло, ясність, життєдайність",
+   "meaning_general": "Сонце — саме життя: тепло, енергія, ясність. Воно вказує на твою здатність «світити» навіть тим, хто поруч; сон нагадує, що твої сили відновлюються з днями, як світло зі сходом.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Солнце",
+     "keywords_upright": "тепло, ясность, жизнедательность",
+     "meaning_general": "Солнце — сама жизнь: тепло, энергия, ясность. Оно указывает на твою способность «освещать» даже тех, кто рядом; сон напоминает, что твои силы восстанавливаются день за днём, как свет на рассвете."
+    },
+    "en": {
+     "name": "Sun",
+     "keywords_upright": "warmth, clarity, vitality",
+     "meaning_general": "The sun is life itself: warmth, energy, clarity. It speaks of your capacity to 'shine' even for those nearby, and reminds you that your strength returns day by day, like light at dawn."
+    }
+   }
+  },
+  {
+   "number": "105",
+   "name": "Схід і Захід",
+   "arcana_type": "Символ сну",
+   "theme": "🧭 Схід і Захід",
+   "keywords_upright": "початок і завершення, шлях",
+   "meaning_general": "Схід — ранковий світ початків, а захід — вечірній спокій завершення. Якщо уві сні ти бачиш напрям, прислухайся: що ще лише «сходить», а що вже «сідає» у твоєму житті.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Восток и Запад",
+     "keywords_upright": "начало и завершение, путь",
+     "meaning_general": "Восток — утренний свет начинаний, а запад — вечерний покой завершения. Если во сне ты видишь направление, прислушайся: что ещё лишь «восходит», а что уже «заходит» в твоей жизни."
+    },
+    "en": {
+     "name": "East and West",
+     "keywords_upright": "beginning and ending, path",
+     "meaning_general": "East carries the morning light of beginnings; west holds the evening calm of endings. If a direction appears in your dream, listen: what is still only 'rising', and what is already 'setting' in your life?"
+    }
+   }
+  },
+  {
+   "number": "106",
+   "name": "Темна кімната",
+   "arcana_type": "Символ сну",
+   "theme": "🌑 Темна кімната",
+   "keywords_upright": "незвідане, страх, самопізнання, внутрішнє світло",
+   "meaning_general": "Темна кімната — непізнана частина тебе, яку не хочеш помічати. У темряві можна боятись, але варто «увімкнути світло» розуміння — і там виявиться щось важливе й рідне.",
+   "symbolism": "●",
+   "translations": {
+    "ru": {
+     "name": "Тёмная комната",
+     "keywords_upright": "неизведанное, страх, самопознание, внутренний свет",
+     "meaning_general": "Тёмная комната — непознанная часть тебя, которую ты не хочешь замечать: в темноте можно бояться, но достаточно «включить свет» понимания — и там окажется что-то важное и родное."
+    },
+    "en": {
+     "name": "Dark room",
+     "keywords_upright": "unknown, fear, self-discovery, inner light",
+     "meaning_general": "A dark room is an unexplored part of you that you ignore: in the dark you may fear, but once you 'turn on' understanding, something important and familiar is there."
+    }
+   }
+  },
+  {
+   "number": "107",
+   "name": "Туман",
+   "arcana_type": "Символ сну",
+   "theme": "🌫️ Туман",
+   "keywords_upright": "непевність, перехід, можливість",
+   "meaning_general": "Туман — непевність, коли не видно далеко наперед: страх перед «наосліп». Він минає, коли робиш крок уперед: те, що близько, завжди видно крізь туман.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Туман",
+     "keywords_upright": "неопределённость, переход, возможность",
+     "meaning_general": "Туман — неопределённость, когда не видно далеко вперёд: страх идти «вслепую». Он рассеивается, когда делаешь шаг вперёд: то, что близко, всегда видно сквозь туман."
+    },
+    "en": {
+     "name": "Fog",
+     "keywords_upright": "uncertainty, transition, chance",
+     "meaning_general": "Fog is uncertainty when you cannot see far ahead: fear of going 'blind'. It lifts once you step forward — the close and near is always visible through fog."
+    }
+   }
+  },
+  {
+   "number": "108",
+   "name": "Хліб",
+   "arcana_type": "Символ сну",
+   "theme": "🍞 Хліб",
+   "keywords_upright": "достаток, основа, щедрість",
+   "meaning_general": "Хліб — основа життя: достаток, праця, що годує. Свіжий тепло хліб — час і діла приносять плоди; черствий — заклик цінувати те, що вже є, поки воно не «засохло».",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Хлеб",
+     "keywords_upright": "достаток, основа, щедрость",
+     "meaning_general": "Хлеб — основа жизни: достаток, труд, что кормит. Свежий тёплый хлеб — время и дела приносят плоды; чёрствый — призыв ценить то, что уже есть, пока оно не «засохло»."
+    },
+    "en": {
+     "name": "Bread",
+     "keywords_upright": "abundance, foundation, generosity",
+     "meaning_general": "Bread is the foundation of life: abundance and labor that feeds. Warm fresh bread means time and effort bear fruit; stale bread urges you to value what you have before it 'dries up'."
+    }
+   }
+  },
+  {
+   "number": "109",
+   "name": "Церква",
+   "arcana_type": "Символ сну",
+   "theme": "⛪ Церква",
+   "keywords_upright": "спокій, віра, захист, сенс",
+   "meaning_general": "Церква — пошук сенсу, спокою й захисту: внутрішній «храм», де можна побути наодинці з собою. Заклик звернутися до душі й того, у що віриш.",
+   "symbolism": "☩",
+   "translations": {
+    "ru": {
+     "name": "Церковь",
+     "keywords_upright": "покой, вера, защита, смысл",
+     "meaning_general": "Церковь — поиск смысла, покоя и защиты: внутренний «храм», где можно побыть наедине с собой. Зов обратиться к душе и тому, во что веришь."
+    },
+    "en": {
+     "name": "Church",
+     "keywords_upright": "peace, faith, protection, meaning",
+     "meaning_general": "A church is the search for meaning, peace and protection: an inner 'temple' where you can be alone with yourself. A call to your soul and what you believe."
+    }
+   }
+  },
+  {
+   "number": "110",
+   "name": "Цирк",
+   "arcana_type": "Символ сну",
+   "theme": "🎪 Цирк",
+   "keywords_upright": "свято, гра, видовище",
+   "meaning_general": "Цирк — місце, де «неможливе» стає звичкою: жонглювання, фокуси, сміливість на канаті. Він каже: уяви в житті — теж навичка, і не соромно бути трохи клоуном, аби зберегти легкість.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Цирк",
+     "keywords_upright": "праздник, игра, зрелище",
+     "meaning_general": "Цирк — место, где «невозможное» становится привычкой: жонглирование, фокусы, смелость на канате. Он говорит: воображение в жизни — тоже навык, и не стыдно быть немного клоуном, чтобы сохранить лёгкость."
+    },
+    "en": {
+     "name": "Circus",
+     "keywords_upright": "festivity, play, spectacle",
+     "meaning_general": "A circus is where the 'impossible' becomes routine: juggling, tricks, daring on the tightrope. It says imagination is also a skill — and there is no shame in being a little clownish to keep lightness."
+    }
+   }
+  },
+  {
+   "number": "111",
+   "name": "Човен",
+   "arcana_type": "Символ сну",
+   "theme": "⛵ Човен",
+   "keywords_upright": "шлях, почуття, самостійність",
+   "meaning_general": "Човен — маленький рух по великій воді: ти сам кермуєш своїм шляхом серед почуттів. Човен тримається на плаву навіть тоді, коли навколо хвилі, — тримайся й ти.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Лодка",
+     "keywords_upright": "путь, чувства, самостоятельность",
+     "meaning_general": "Лодка — маленькое движение по большой воде: ты сам правишь своим путём среди чувств. Лодка держится на плаву даже когда вокруг волны — держись и ты."
+    },
+    "en": {
+     "name": "Boat",
+     "keywords_upright": "journey, emotions, self-reliance",
+     "meaning_general": "A boat is a small craft moving across great water: you steer your own way among feelings. A boat stays afloat even when the waves rise — so do you."
+    }
+   }
+  },
+  {
+   "number": "112",
+   "name": "Яблуко",
+   "arcana_type": "Символ сну",
+   "theme": "🍎 Яблуко",
+   "keywords_upright": "цілісність, зваба, здоровʼя",
+   "meaning_general": "Яблуко — цілісність і проста радість життя: те, чим можна поділитися й насолодитися. Воно поєднує здоровʼя, кохання й вибір — як вміння розпізнати, чи «дозріло» твоє рішення.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Яблоко",
+     "keywords_upright": "целостность, соблазн, здоровье",
+     "meaning_general": "Яблоко — целостность и простая радость жизни: то, чем можно поделиться и насладиться. Оно соединяет здоровье, любовь и выбор — как умение распознать, «созрело» ли твоё решение."
+    },
+    "en": {
+     "name": "Apple",
+     "keywords_upright": "wholeness, temptation, health",
+     "meaning_general": "An apple is wholeness and the simple joy of life: something to share and savor. It links health, love, and choice — the ability to tell whether your decision has 'ripened'."
+    }
+   }
+  },
+  {
+   "number": "113",
+   "name": "Ящірка",
+   "arcana_type": "Символ сну",
+   "theme": "🐍 Ящірка",
+   "keywords_upright": "відновлення, майстерність, тихість",
+   "meaning_general": "Ящірка — вміння відпускати частинки себе, щоб відростити нові: вона не чіпляється за хвіст, який уже не служить. Сон про тихе оновлення — зміни, що відбуваються делікатно, як доглянута шкіра.",
+   "symbolism": "≈",
+   "translations": {
+    "ru": {
+     "name": "Ящерица",
+     "keywords_upright": "восстановление, ловкость, незаметность",
+     "meaning_general": "Ящерица — умение отпускать частицы себя, чтобы отрастить новые: она не держится за хвост, который уже не служит. Сон о тихом обновлении — переменах, что происходят деликатно, как обновлённая кожа."
+    },
+    "en": {
+     "name": "Lizard",
+     "keywords_upright": "renewal, agility, unobtrusiveness",
+     "meaning_general": "A lizard is the ability to release parts of yourself to grow new ones: it does not cling to a tail that no longer serves. The dream speaks of quiet renewal — changes that happen delicately, like fresh skin."
+    }
+   }
+  }
+ ]
+}

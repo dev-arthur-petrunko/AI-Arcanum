@@ -68,7 +68,7 @@ export default function TarotCard({ card, position, rotationY = 0, phase = 0, la
         ref={mesh}
         material={mats}
         rotation={[0, rotationY, 0]}
-        onClick={(e) => { e.stopPropagation(); const n = !flipped; setFlipped(n); if (n) onSelect?.(card); }}
+        onClick={(e) => { e.stopPropagation(); setFlipped(!flipped); onSelect?.(card); }}
         onPointerOver={(e) => { e.stopPropagation(); setHovered(true); document.body.style.cursor = "pointer"; }}
         onPointerOut={() => { setHovered(false); document.body.style.cursor = "auto"; }}
       >

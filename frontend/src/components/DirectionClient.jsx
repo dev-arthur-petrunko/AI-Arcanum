@@ -86,6 +86,10 @@ export default function DirectionClient({ direction, systems, decks }) {
 
   const totalCards = (decks || []).reduce((a, d) => a + (d.cards || 0), 0);
 
+  function pickCard(c) {
+    setSelected(c);
+  }
+
   return (
     <>
       <SiteNav lang={lang} setLang={setLang} theme={theme} toggleTheme={toggleTheme} />
@@ -124,7 +128,7 @@ export default function DirectionClient({ direction, systems, decks }) {
                   <p>{t.showcaseSub} — {fanDeck?.name}</p>
                 </div>
               </div>
-              <Scene3D cards={fan} lang={lang} theme={theme} onSelect={() => {}} />
+              <Scene3D cards={fan} lang={lang} theme={theme} onSelect={pickCard} />
             </section>
           </Reveal>
         )}
@@ -182,7 +186,7 @@ export default function DirectionClient({ direction, systems, decks }) {
                             ) : (
                               <div className="grid-cards">
                                 {dCards.map((c) => (
-                                  <div key={c.id} className="mini-card" onClick={() => setSelected(c)}>
+                                  <div key={c.id} className="mini-card" onClick={() => pickCard(c)}>
                                     {c.image_path && (
                                       // eslint-disable-next-line @next/next/no-img-element
                                       <img src={c.image_path} alt="" onError={(e) => (e.currentTarget.style.display = "none")}
@@ -204,7 +208,7 @@ export default function DirectionClient({ direction, systems, decks }) {
               })()
             )}
             <div style={{ marginTop: 14 }}>
-              <CardDetail card={selected} lang={lang} emptyText={t.cardsIn + ": " + (allCards || []).length} />
+              <CardDetail card={selected} lang={lang} onClose={() => setSelected(null)} />
             </div>
           </section>
         </Reveal>

@@ -72,10 +72,7 @@ export default function DeckClient({ deck, initialCards, relatedDeck, relatedCar
     const id = params.get("card");
     if (!id) return;
     getJSON(`/cards/${id}`).then((c) => {
-      if (c?.id) {
-        setSelected(c);
-        setTimeout(() => document.getElementById("card-detail")?.scrollIntoView({ behavior: "smooth", block: "center" }), 400);
-      }
+      if (c?.id) setSelected(c);
     }).catch(() => {});
   }, [params]);
 
@@ -94,15 +91,13 @@ export default function DeckClient({ deck, initialCards, relatedDeck, relatedCar
       if (c?.id) {
         const full = await getJSON(`/cards/${c.id}?lang=${lang}`);
         setSelected(full);
-        setTimeout(() => document.getElementById("card-detail")?.scrollIntoView({ behavior: "smooth", block: "center" }), 200);
       }
     } catch {}
   }
 
-  /** Клік по карті у сітці значень. */
+  /** Клік по карті: показуємо значення у модальному вікні. */
   function pickCard(c) {
     setSelected(c);
-    setTimeout(() => document.getElementById("card-detail")?.scrollIntoView({ behavior: "smooth", block: "center" }), 100);
   }
 
   const deckName = pick(deck, lang, "name", "description").name || deck.name;
@@ -198,13 +193,13 @@ export default function DeckClient({ deck, initialCards, relatedDeck, relatedCar
         </>
       ) : (
         <>
-          <Scene3D cards={cards} lang={lang} theme={theme} onSelect={setSelected} />
+          <Scene3D cards={cards} lang={lang} theme={theme} onSelect={pickCard} />
           <p style={{ color: "var(--muted)", fontSize: 13, marginBottom: 14 }}>{t.pick}</p>
         </>
       )}
 
       <div style={{ marginTop: 18 }}>
-        <CardDetail card={selected} lang={lang} emptyText={t.pick} />
+        <CardDetail card={selected} lang={lang} onClose={() => setSelected(null)} />
       </div>
       {relatedDeck?.id && relatedCards?.length > 0 && (
         <section className="section" style={{ marginTop: 30, paddingTop: 0 }}>
@@ -218,7 +213,7 @@ export default function DeckClient({ deck, initialCards, relatedDeck, relatedCar
           </div>
           <div className="grid-cards">
             {relatedCards.map((c) => (
-              <div key={c.id} className="mini-card" onClick={() => setSelected(c)}>
+              <div key={c.id} className="mini-card" onClick={() => pickCard(c)}>
                 {c.image_path && (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img src={c.image_path} alt="" onError={(e) => (e.currentTarget.style.display = "none")}

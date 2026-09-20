@@ -13,6 +13,7 @@ export const CAT_ORDER = [
   "calendar",
   "esoteric",
   "numerological",
+  "dreams",
 ];
 
 /** Нормалізує systems.category (ru/uk) до канонічного ключа. */
@@ -26,6 +27,7 @@ export function normCat(c) {
   if (s.includes("календар")) return "calendar";
   if (s.includes("езотер") || s.includes("эзотер")) return "esoteric";
   if (s.includes("нумеролог")) return "numerological";
+  if (s.includes("сонн") || s.includes("снов") || s.includes("сон") || s.includes("dream")) return "dreams";
   return "other";
 }
 
@@ -132,6 +134,19 @@ export const DIRECTIONS = [
     },
     systemsHint: ["Числа-ангели"],
     articleMatch: ["числ", "ангел", "нумеро"],
+    hasSpreads: false,
+  },
+  {
+    slug: "dreams",
+    icon: "💤",
+    title: { ru: "Сонник", uk: "Сонник", en: "Dreams" },
+    desc: {
+      ru: "Символы снов простыми словами: что означают образы из сновидений.",
+      uk: "Символи снів простими словами: що означають образи зі сновидінь.",
+      en: "Dream symbols in plain words: what the images from your dreams mean.",
+    },
+    systemsHint: ["Сонник"],
+    articleMatch: ["сонник", "сновид", "сон", "снов", "dream"],
     hasSpreads: false,
   },
 ];

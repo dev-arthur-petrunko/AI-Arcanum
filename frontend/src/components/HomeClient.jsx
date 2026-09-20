@@ -6,7 +6,7 @@ import SiteNav from "./SiteNav";
 import { cardName, getJSON } from "../lib/api";
 import { DIRECTIONS, normCat } from "../lib/directions";
 
-const MARQ = ["ТАРО", "ЛЕНОРМАН", "І-ЦЗИН", "РУНИ", "ОРАКУЛИ", "МАК", "АСТРОЛОГІЯ", "ШАМАНСЬКІ", "ЦИГАНСЬКІ", "ЦОЛЬКІН", "ОГАМ", "БАГУА", "ІФА", "КАБАЛА", "ЧИСЛА-АНГЕЛИ", "КРИСТАЛИ"];
+const MARQ = ["ТАРО", "ЛЕНОРМАН", "І-ЦЗИН", "РУНИ", "ОРАКУЛИ", "МАК", "АСТРОЛОГІЯ", "ШАМАНСЬКІ", "ЦИГАНСЬКІ", "ЦОЛЬКІН", "ОГАМ", "БАГУА", "ІФА", "КАБАЛА", "ЧИСЛА-АНГЕЛИ", "КРИСТАЛИ", "СОННИК"];
 
 const T = {
   ru: {
@@ -15,7 +15,7 @@ const T = {
     sub: "Актуальная база: {cards} карт и {systems} систем. Выбери направление — дальше витрина колод, практика и гайды.",
     cta1: "Открыть витрину", cta2: "Мне повезёт",
     stats: ["карт в базе", "систем", "направлений"],
-    dirs: "Направления", dirsSub: "Восемь дверей — каждая ведёт на свою страницу: значения карт, практика, гайды.",
+    dirs: "Направления", dirsSub: "Девять дверей — каждая ведёт на свою страницу: значения карт, практика, гайды.",
     daily: "Карта дня",
     history: "История систем", historySub: "От игральных карт XV века до оракулов.", historyGo: "Вся история →",
     hub: "Разделы", hubSub: "Общее для всех направлений.",
@@ -32,7 +32,7 @@ const T = {
     sub: "Актуальна база: {cards} карт і {systems} систем. Обери напрямок — далі вітрина колод, практика й гайди.",
     cta1: "Відкрити вітрину", cta2: "Мені пощастить",
     stats: ["карт у базі", "систем", "напрямків"],
-    dirs: "Напрямки", dirsSub: "Вісім дверей — кожна веде на свою сторінку: значення карт, практика, гайди.",
+    dirs: "Напрямки", dirsSub: "Дев'ять дверей — кожна веде на свою сторінку: значення карт, практика, гайди.",
     daily: "Карта дня",
     history: "Історія систем", historySub: "Від гральних карт XV століття до оракулів.", historyGo: "Уся історія →",
     hub: "Розділи", hubSub: "Спільне для всіх напрямків.",
@@ -49,7 +49,7 @@ const T = {
     sub: "Live DB: {cards} cards, {systems} systems. Pick a direction — then decks, practice and guides.",
     cta1: "Open the shelf", cta2: "Feeling lucky",
     stats: ["cards in DB", "systems", "directions"],
-    dirs: "Directions", dirsSub: "Eight doors — each opens its own page: meanings, practice, guides.",
+    dirs: "Directions", dirsSub: "Nine doors — each opens its own page: meanings, practice, guides.",
     daily: "Card of the day",
     history: "Systems history", historySub: "From 15th-century playing cards to oracles.", historyGo: "Full history →",
     hub: "Sections", hubSub: "Shared across all directions.",
@@ -158,7 +158,7 @@ export default function HomeClient({ initialCounts, initialDecks, initialSystems
           <div className="stats">
             <div className="stat"><b>{counts.cards}</b><span>{t.stats[0]}</span></div>
             <div className="stat"><b>{counts.systems}</b><span>{t.stats[1]}</span></div>
-            <div className="stat"><b>8</b><span>{t.stats[2]}</span></div>
+            <div className="stat"><b>{DIRECTIONS.length}</b><span>{t.stats[2]}</span></div>
           </div>
         </header>
         <div className="marquee" aria-hidden="true">
@@ -183,7 +183,7 @@ export default function HomeClient({ initialCounts, initialDecks, initialSystems
         <Reveal>
           <section id="directions" className="section">
             <div className="section-head">
-              <span className="num">08</span>
+              <span className="num">09</span>
               <div><h2>{t.dirs}</h2><p>{t.dirsSub}</p></div>
             </div>
             <div className="dir-grid">

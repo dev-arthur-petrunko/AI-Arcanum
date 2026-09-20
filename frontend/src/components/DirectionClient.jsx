@@ -179,46 +179,64 @@ export default function DirectionClient({ direction, systems, decks }) {
                           )}
                         </div>
                       )}
-                      {gr.decks.map((d) => {
-                        const dCards = (allCards || []).filter((c) => c.deck_id === d.id);
-                        return (
-                          <div key={d.id} className="deck-block" style={{ marginBottom: 26 }}>
-                            <div className="section-head" style={{ marginBottom: 12 }}>
-                              <span className="num">
-                                {d.cover ? (
-                                  // eslint-disable-next-line @next/next/no-img-element
-                                  <img src={d.cover} alt="" style={{ width: 46, height: 46, objectFit: "cover", borderRadius: 8, verticalAlign: "middle" }} />
-                                ) : "✦"}
-                              </span>
-                              <div>
-                                <h3 style={{ margin: 0 }}>
-                                  <a href={`/decks/${d.id}`} style={{ color: "inherit", textDecoration: "none" }}>
-                                    {d.name} ↗
-                                  </a>
-                                </h3>
-                                <p style={{ margin: 0, color: "var(--muted)" }}>{dCards.length} · {t.cardsIn}</p>
+                      {direction.slug === "divination" ? (
+                        // «Гадальні»: кожна колода — на власній сторінці /decks/<id>
+                        <div className="grid-decks" key={gr.group || gi}>
+                          {gr.decks.map((d) => (
+                            <a key={d.id} href={`/decks/${d.id}`} className="deck-card">
+                              {d.cover ? (
+                                // eslint-disable-next-line @next/next/no-img-element
+                                <img src={d.cover} alt={d.name} className="dd-cover" />
+                              ) : (
+                                <div className="dd-fallback">✦</div>
+                              )}
+                              <b>{d.name}</b>
+                              <span>{d.cards} · {t.cardsIn}</span>
+                            </a>
+                          ))}
+                        </div>
+                      ) : (
+                        gr.decks.map((d) => {
+                          const dCards = (allCards || []).filter((c) => c.deck_id === d.id);
+                          return (
+                            <div key={d.id} className="deck-block" style={{ marginBottom: 26 }}>
+                              <div className="section-head" style={{ marginBottom: 12 }}>
+                                <span className="num">
+                                  {d.cover ? (
+                                    // eslint-disable-next-line @next/next/no-img-element
+                                    <img src={d.cover} alt="" style={{ width: 46, height: 46, objectFit: "cover", borderRadius: 8, verticalAlign: "middle" }} />
+                                  ) : "✦"}
+                                </span>
+                                <div>
+                                  <h3 style={{ margin: 0 }}>
+                                    <a href={`/decks/${d.id}`} style={{ color: "inherit", textDecoration: "none" }}>
+                                      {d.name} ↗
+                                    </a>
+                                  </h3>
+                                  <p style={{ margin: 0, color: "var(--muted)" }}>{dCards.length} · {t.cardsIn}</p>
+                                </div>
                               </div>
+                              {dCards.length === 0 ? (
+                                <p style={{ color: "var(--muted)" }}>{t.empty}</p>
+                              ) : (
+                                <div className="grid-cards">
+                                  {dCards.map((c) => (
+                                    <div key={c.id} className="mini-card" onClick={() => openCard(c)}>
+                                      {c.image_path && (
+                                        // eslint-disable-next-line @next/next/no-img-element
+                                        <img src={c.image_path} alt="" onError={(e) => (e.currentTarget.style.display = "none")}
+                                          style={{ width: "100%", borderRadius: 8, marginBottom: 8 }} />
+                                      )}
+                                      <b>{cardName(c, lang)}</b>
+                                      <span>{c.number} · {c.arcana_type || c.category || ""}</span>
+                                    </div>
+                                  ))}
+                                </div>
+                              )}
                             </div>
-                            {dCards.length === 0 ? (
-                              <p style={{ color: "var(--muted)" }}>{t.empty}</p>
-                            ) : (
-                              <div className="grid-cards">
-                                {dCards.map((c) => (
-                                  <div key={c.id} className="mini-card" onClick={() => openCard(c)}>
-                                    {c.image_path && (
-                                      // eslint-disable-next-line @next/next/no-img-element
-                                      <img src={c.image_path} alt="" onError={(e) => (e.currentTarget.style.display = "none")}
-                                        style={{ width: "100%", borderRadius: 8, marginBottom: 8 }} />
-                                    )}
-                                    <b>{cardName(c, lang)}</b>
-                                    <span>{c.number} · {c.arcana_type || c.category || ""}</span>
-                                  </div>
-                                ))}
-                              </div>
-                            )}
-                          </div>
-                        );
-                      })}
+                          );
+                        })
+                      )}
                     </>
                   );
                   return <div key={gi}>{inner}</div>;

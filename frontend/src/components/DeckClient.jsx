@@ -55,7 +55,7 @@ function groupByArcana(cards) {
 
 /** Клієнт сторінки колоди: 3D-віяло або сітка значень арканів, пошук, розбір, ?card=підсвітка.
  *  relatedDeck/relatedCards — «будівельна» колода (напр. Багуа → триграми на сторінці І-Цзин). */
-export default function DeckClient({ deck, initialCards, relatedDeck, relatedCards, lang, setLang, theme = "dark" }) {
+export default function DeckClient({ deck, initialCards, relatedDeck, relatedCards, lang, setLang, theme = "dark", isDivination }) {
   const t = T[lang];
   const params = useSearchParams();
   const [cards, setCards] = useState(initialCards);
@@ -71,6 +71,10 @@ export default function DeckClient({ deck, initialCards, relatedDeck, relatedCar
   useEffect(() => {
     const id = params.get("card");
     if (!id) return;
+    if (isDivination) {
+      window.location.href = `/directions/divination/card/${id}`;
+      return;
+    }
     getJSON(`/cards/${id}`).then((c) => {
       if (c?.id) setSelected(c);
     }).catch(() => {});
@@ -89,14 +93,22 @@ export default function DeckClient({ deck, initialCards, relatedDeck, relatedCar
     try {
       const c = await getJSON(`/cards/random?deck_id=${deck.id}`);
       if (c?.id) {
+        if (isDivination) {
+          window.location.href = `/directions/divination/card/${c.id}`;
+          return;
+        }
         const full = await getJSON(`/cards/${c.id}?lang=${lang}`);
         setSelected(full);
       }
     } catch {}
   }
 
-  /** Клік по карті: показуємо значення у модальному вікні. */
+  /** Клік по карті: «Гадальні» — окрема сторінка, решта — модальне вікно. */
   function pickCard(c) {
+    if (isDivination) {
+      window.location.href = `/directions/divination/card/${c.id}`;
+      return;
+    }
     setSelected(c);
   }
 

@@ -248,6 +248,22 @@ body.modal-open { overflow: hidden; }
 .chip.active { color: #241a08; background: #e8c87a; border-color: #e8c87a; }
 
 .grid-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+.grid-decks { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+.deck-card {
+  display: block; border: 1px solid var(--line); border-radius: 16px; padding: 16px;
+  background: linear-gradient(180deg, rgba(22, 39, 74, 0.9), rgba(8, 16, 34, 0.9));
+  color: inherit; text-decoration: none;
+  transition: transform 0.15s ease, border-color 0.2s ease;
+}
+.deck-card:hover { transform: translateY(-4px); border-color: var(--gold); box-shadow: 0 12px 30px rgba(212, 169, 78, 0.3); }
+.deck-card .dd-cover { width: 100%; aspect-ratio: 5/7; object-fit: cover; border-radius: 10px; margin-bottom: 12px; background: rgba(212,169,78,.08); }
+.deck-card .dd-fallback {
+  width: 100%; aspect-ratio: 5/7; border-radius: 10px; margin-bottom: 12px;
+  display: flex; align-items: center; justify-content: center; font-size: 52px;
+  background: rgba(212,169,78,.08); border: 1px dashed var(--line); color: var(--gold-soft);
+}
+.deck-card b { display: block; font-size: 17px; line-height: 1.3; }
+.deck-card span { font-size: 13px; color: var(--muted); }
 .mini-card {
   border: 1px solid var(--line); border-radius: 14px; padding: 14px; cursor: pointer;
   background: linear-gradient(180deg, rgba(22, 39, 74, 0.9), rgba(8, 16, 34, 0.9));

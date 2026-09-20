@@ -87,7 +87,12 @@ export default function DirectionClient({ direction, systems, decks }) {
 
   const totalCards = (decks || []).reduce((a, d) => a + (d.cards || 0), 0);
 
-  function pickCard(c) {
+  function openCard(c) {
+    // «Гадальні» ведуть на окрему сторінку карти, решта — модалка
+    if (direction.slug === "divination") {
+      window.location.href = `/directions/divination/card/${c.id}`;
+      return;
+    }
     setSelected(c);
   }
 
@@ -129,7 +134,7 @@ export default function DirectionClient({ direction, systems, decks }) {
                   <p>{t.showcaseSub} — {fanDeck?.name}</p>
                 </div>
               </div>
-              <Scene3D cards={fan} lang={lang} theme={theme} onSelect={pickCard} />
+              <Scene3D cards={fan} lang={lang} theme={theme} onSelect={openCard} />
             </section>
           </Reveal>
         )}
@@ -195,7 +200,7 @@ export default function DirectionClient({ direction, systems, decks }) {
                             ) : (
                               <div className="grid-cards">
                                 {dCards.map((c) => (
-                                  <div key={c.id} className="mini-card" onClick={() => pickCard(c)}>
+                                  <div key={c.id} className="mini-card" onClick={() => openCard(c)}>
                                     {c.image_path && (
                                       // eslint-disable-next-line @next/next/no-img-element
                                       <img src={c.image_path} alt="" onError={(e) => (e.currentTarget.style.display = "none")}

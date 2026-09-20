@@ -4,26 +4,27 @@ import { useSearchParams } from "next/navigation";
 import Scene3D from "./Scene3D";
 import CardDetail from "./CardDetail";
 import { cardName, getJSON, pick } from "../lib/api";
+import { subgroupInfo } from "../lib/subgroups";
 
 const T = {
   ru: {
     back: "← Все колоды", searchPh: "Поиск по колоде…", found: "Найдено", pick: "Кликни карту в 3D или в списке ↓",
     lucky: "🎲 Случайная карта колоды", studyBadge: "навчальна модель", partialBadge: "неполный набор",
-    tab3d: "3D-витрина", tabValues: "Значение карт", cardsIn: "карт",
+    valuesBlock: "Значение карт", showcaseBlock: "3D-витрина", cardsIn: "карт", historyBlock: "История",
     relatedBlock: "Из чего состоят гексаграммы",
     suits: { wands: "Жезлы", cups: "Кубки", swords: "Мечи", pentacles: "Пентакли" },
   },
   uk: {
     back: "← Усі колоди", searchPh: "Пошук по колоді…", found: "Знайдено", pick: "Клікни карту в 3D або в списку ↓",
     lucky: "🎲 Випадкова карта колоди", studyBadge: "навчальна модель", partialBadge: "неповний набір",
-    tab3d: "3D-вітрина", tabValues: "Значення карт", cardsIn: "карт",
+    valuesBlock: "Значення карт", showcaseBlock: "3D-вітрина", cardsIn: "карт", historyBlock: "Історія",
     relatedBlock: "Із чого складаються гексаграми",
     suits: { wands: "Жезли", cups: "Кубки", swords: "Мечі", pentacles: "Пентаклі" },
   },
   en: {
     back: "← All decks", searchPh: "Search this deck…", found: "Found", pick: "Click a card in 3D or in the list ↓",
     lucky: "🎲 Random card of this deck", studyBadge: "study model", partialBadge: "partial set",
-    tab3d: "3D showcase", tabValues: "Card meanings", cardsIn: "cards",
+    valuesBlock: "Card meanings", showcaseBlock: "3D showcase", cardsIn: "cards", historyBlock: "History",
     relatedBlock: "What hexagrams are made of",
     suits: { wands: "Wands", cups: "Cups", swords: "Swords", pentacles: "Pentacles" },
   },
@@ -61,16 +62,13 @@ export default function DeckClient({ deck, initialCards, relatedDeck, relatedCar
   const [cards, setCards] = useState(initialCards);
   const [selected, setSelected] = useState(null);
   const [q, setQ] = useState("");
-  const [tab, setTab] = useState("values");
 
   const hasMajors = useMemo(() => cards.some((c) => /Старш/i.test(c.arcana_type || "")), [cards]);
   const groups = useMemo(() => groupByArcana(cards), [cards]);
   const flat = !hasMajors; // колоди без Старших/мастей — показуємо усі карти сіткою одразу
 
-  // ?card=<id> — прямий вхід на карту (кнопка «Мені пощастить»); ?tab=3d — одразу 3D-вітрина
+  // ?card=<id> — прямий вхід на карту (кнопка «Мені пощастить»)
   useEffect(() => {
-    const t3d = params.get("tab");
-    if (t3d === "3d") setTab("3d");
     const id = params.get("card");
     if (!id) return;
     if (isDivination) {
@@ -117,6 +115,9 @@ export default function DeckClient({ deck, initialCards, relatedDeck, relatedCar
   const deckName = pick(deck, lang, "name", "description").name || deck.name;
   const deckDesc = pick(deck, lang, "description").description || deck.description;
   const deckNote = pick(deck, lang, "note").note || null;
+  const gi = deck?.directory_group
+    ? subgroupInfo(deck.directory_group, lang)
+    : deck?.system?.category || "";
 
   return (
     <>
@@ -136,10 +137,17 @@ export default function DeckClient({ deck, initialCards, relatedDeck, relatedCar
           {deckDesc && <p style={{ maxWidth: 720 }}>{deckDesc}</p>}
         </div>
       </div>
-      <div className="tabs" style={{ marginBottom: 18 }}>
-        <button className={`tab${tab === "values" ? " active" : ""}`} onClick={() => setTab("values")}>{t.tabValues}</button>
-        <button className={`tab${tab === "3d" ? " active" : ""}`} onClick={() => setTab("3d")}>{t.tab3d}</button>
-      </div>
+      {gi && gi.history && (
+        <section className="section" style={{ padding: 0, marginBottom: 22 }}>
+          <div className="section-head" style={{ marginBottom: 8 }}>
+            <span className="num">☯</span>
+            <div>
+              <h3 style={{ margin: 0, fontSize: 20 }}>{t.historyBlock}</h3>
+            </div>
+          </div>
+          <p style={{ maxWidth: 760, color: "var(--muted)", lineHeight: 1.65 }}>{gi.history}</p>
+        </section>
+      )}
       <div style={{ display: "flex", gap: 10, marginBottom: 14, flexWrap: "wrap" }}>
         <form onSubmit={search} className="search-row" style={{ flex: 1, minWidth: 240, margin: 0 }}>
           <input value={q} onChange={(e) => setQ(e.target.value)} placeholder={t.searchPh} />
@@ -148,69 +156,79 @@ export default function DeckClient({ deck, initialCards, relatedDeck, relatedCar
         <button className="btn btn-gold" onClick={luckyDeck}>{t.lucky}</button>
       </div>
 
-      {flat ? (
-        <>
-          <p className="arc-title"><b>{t.tabValues}</b> <span className="arc-count">{cards.length}</span></p>
-          <div className="grid-cards">
-            {cards.map((c) => (
-              <div key={c.id} className="mini-card" onClick={() => pickCard(c)}>
-                {c.image_path && (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={c.image_path} alt="" onError={(e) => (e.currentTarget.style.display = "none")}
-                    style={{ width: "100%", borderRadius: 8, marginBottom: 8 }} />
-                )}
-                <b>{cardName(c, lang)}</b>
-                {shortKey(c, lang) && <span className="arc-key">{shortKey(c, lang)}</span>}
+      <section className="section">
+        <div className="section-head">
+          <span className="num">✦</span>
+          <div>
+            <h3 style={{ margin: 0, fontSize: 24 }}>{t.showcaseBlock}</h3>
+          </div>
+        </div>
+        <Scene3D cards={cards} lang={lang} theme={theme} onSelect={pickCard} />
+        <p style={{ color: "var(--muted)", fontSize: 13, marginBottom: 14 }}>{t.pick}</p>
+      </section>
+
+      <div className="divider">✦ ✦ ✦</div>
+
+      <section className="section" style={{ paddingTop: 0 }}>
+        {flat ? (
+          <>
+            <p className="arc-title"><b>{t.valuesBlock}</b> <span className="arc-count">{cards.length}</span></p>
+            <div className="grid-cards">
+              {cards.map((c) => (
+                <div key={c.id} className="mini-card" onClick={() => pickCard(c)}>
+                  {c.image_path && (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={c.image_path} alt="" onError={(e) => (e.currentTarget.style.display = "none")}
+                      style={{ width: "100%", borderRadius: 8, marginBottom: 8 }} />
+                  )}
+                  <b>{cardName(c, lang)}</b>
+                  {shortKey(c, lang) && <span className="arc-key">{shortKey(c, lang)}</span>}
+                </div>
+              ))}
+            </div>
+          </>
+        ) : (
+          <>
+            {groups.majors.length > 0 && (
+              <>
+                <p className="arc-title"><b>{t.valuesBlock} · 0</b> <span className="arc-count">{groups.majors.length}</span></p>
+                <div className="grid-cards">
+                  {groups.majors.map((c) => (
+                    <div key={c.id} className="mini-card" onClick={() => pickCard(c)}>
+                      {c.image_path && (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img src={c.image_path} alt="" onError={(e) => (e.currentTarget.style.display = "none")}
+                          style={{ width: "100%", borderRadius: 8, marginBottom: 8 }} />
+                      )}
+                      <b className="arc-no">{c.number}</b>
+                      <b>{cardName(c, lang)}</b>
+                      {shortKey(c, lang) && <span className="arc-key">{shortKey(c, lang)}</span>}
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
+            {groups.suits.map((s) => (
+              <div key={s.code} style={{ marginTop: 22 }}>
+                <p className="arc-title"><b>{t.suits[s.code] || s.code}</b> <span className="arc-count">{s.list.length}</span></p>
+                <div className="grid-cards">
+                  {s.list.map((c) => (
+                    <div key={c.id} className="mini-card" onClick={() => pickCard(c)}>
+                      {c.image_path && (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img src={c.image_path} alt="" onError={(e) => (e.currentTarget.style.display = "none")}
+                          style={{ width: "100%", borderRadius: 8, marginBottom: 8 }} />
+                      )}
+                      <b>{cardName(c, lang)}</b>
+                      {shortKey(c, lang) && <span className="arc-key">{shortKey(c, lang)}</span>}
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
-          </div>
-        </>
-      ) : tab === "values" ? (
-        <>
-          {groups.majors.length > 0 && (
-            <>
-              <p className="arc-title"><b>{t.tabValues}</b> <span className="arc-count">{groups.majors.length}</span></p>
-              <div className="grid-cards">
-                {groups.majors.map((c) => (
-                  <div key={c.id} className="mini-card" onClick={() => pickCard(c)}>
-                    {c.image_path && (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img src={c.image_path} alt="" onError={(e) => (e.currentTarget.style.display = "none")}
-                        style={{ width: "100%", borderRadius: 8, marginBottom: 8 }} />
-                    )}
-                    <b className="arc-no">{c.number}</b>
-                    <b>{cardName(c, lang)}</b>
-                    {shortKey(c, lang) && <span className="arc-key">{shortKey(c, lang)}</span>}
-                  </div>
-                ))}
-              </div>
-            </>
-          )}
-          {groups.suits.map((s) => (
-            <div key={s.code} style={{ marginTop: 22 }}>
-              <p className="arc-title"><b>{t.suits[s.code] || s.code}</b> <span className="arc-count">{s.list.length}</span></p>
-              <div className="grid-cards">
-                {s.list.map((c) => (
-                  <div key={c.id} className="mini-card" onClick={() => pickCard(c)}>
-                    {c.image_path && (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img src={c.image_path} alt="" onError={(e) => (e.currentTarget.style.display = "none")}
-                        style={{ width: "100%", borderRadius: 8, marginBottom: 8 }} />
-                    )}
-                    <b>{cardName(c, lang)}</b>
-                    {shortKey(c, lang) && <span className="arc-key">{shortKey(c, lang)}</span>}
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </>
-      ) : (
-        <>
-          <Scene3D cards={cards} lang={lang} theme={theme} onSelect={pickCard} />
-          <p style={{ color: "var(--muted)", fontSize: 13, marginBottom: 14 }}>{t.pick}</p>
-        </>
-      )}
+          </>
+        )}
+      </section>
 
       <div style={{ marginTop: 18 }}>
         <CardDetail card={selected} lang={lang} onClose={() => setSelected(null)} />

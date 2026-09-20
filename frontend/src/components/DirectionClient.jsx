@@ -5,6 +5,7 @@ import Reveal from "./Reveal";
 import Scene3D from "./Scene3D";
 import CardDetail from "./CardDetail";
 import { cardName, getJSON } from "../lib/api";
+import { subgroupInfo } from "../lib/subgroups";
 
 const T = {
   ru: {
@@ -160,10 +161,18 @@ export default function DirectionClient({ direction, systems, decks }) {
                   }
                 });
                 return groups.map((gr, gi) => {
+                  const gi2 = subgroupInfo(gr.group, lang);
                   const inner = (
                     <>
                       {gr.group && (
-                        <h3 className="dir-group" style={{ margin: "20px 0 14px", letterSpacing: ".08em" }}>{gr.group}</h3>
+                        <div style={{ margin: "26px 0 14px" }}>
+                          <h3 className="dir-group" style={{ letterSpacing: ".08em" }}>{gi2?.title || gr.group}</h3>
+                          {gi2?.history && (
+                            <p style={{ margin: "6px 0 0", color: "var(--muted)", fontSize: 14, lineHeight: 1.55, maxWidth: 760 }}>
+                              {gi2.history}
+                            </p>
+                          )}
+                        </div>
                       )}
                       {gr.decks.map((d) => {
                         const dCards = (allCards || []).filter((c) => c.deck_id === d.id);

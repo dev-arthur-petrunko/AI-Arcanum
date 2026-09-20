@@ -191,7 +191,11 @@ export default function DirectionClient({ direction, systems, decks }) {
                                 ) : "✦"}
                               </span>
                               <div>
-                                <h3 style={{ margin: 0 }}>{d.name}</h3>
+                                <h3 style={{ margin: 0 }}>
+                                  <a href={`/decks/${d.id}`} style={{ color: "inherit", textDecoration: "none" }}>
+                                    {d.name} ↗
+                                  </a>
+                                </h3>
                                 <p style={{ margin: 0, color: "var(--muted)" }}>{dCards.length} · {t.cardsIn}</p>
                               </div>
                             </div>

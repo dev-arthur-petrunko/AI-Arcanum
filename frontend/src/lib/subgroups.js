@@ -60,14 +60,6 @@ export const SUBGROUPS = {
       en: "Folk divination with no sacred layer: 36 everyday scenes where each card has a 'direct' meaning, read with an ordinary deck.",
     },
   },
-  "Карти снів": {
-    title: { uk: "Карти снів", ru: "Карты снов", en: "Dream Cards" },
-    history: {
-      uk: "Навчальний словник образів сновидінь: вода, змія, політ, зуби — значення подані простими словами як власний переказ класичної символіки снів.",
-      ru: "Учебный словарь образов сновидений: вода, змея, полёт, зубы — значения даны простыми словами как собственный пересказ классической символики снов.",
-      en: "A study dictionary of dream images: water, snake, flying, teeth — meanings given in plain words as an own retelling of classic dream symbolism.",
-    },
-  },
   "Іфа": {
     title: { uk: "Іфа", ru: "Ифа", en: "Ifa" },
     history: {

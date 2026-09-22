@@ -2,7 +2,9 @@
 import { useEffect, useState } from "react";
 import SiteNav from "./SiteNav";
 import Reveal from "./Reveal";
+import InteractiveCard from "./InteractiveCard";
 import { pick } from "../lib/api";
+import { hasZones } from "../lib/rws";
 
 const T = {
   ru: {
@@ -93,14 +95,20 @@ export default function CardPage({ card, deck, deckCards, direction }) {
         </Reveal>
 
         <div style={{ display: "flex", gap: 26, flexWrap: "wrap", marginTop: 22, alignItems: "flex-start" }}>
-          <div style={{ flex: "0 1 360px", minWidth: 260 }}>
-            {card.image_path && card.id > 0 ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img src={card.image_path} alt={c.name} style={{ width: "100%", borderRadius: 18, border: "1px solid var(--line)", boxShadow: "0 18px 50px rgba(0,0,0,.45)" }} />
-            ) : (
-              <div style={{ fontSize: 120, textAlign: "center", border: "1px solid var(--line)", borderRadius: 18, padding: "60px 0" }}>✦</div>
-            )}
-          </div>
+          {hasZones(String(card.number ?? "")) ? (
+            <div style={{ flex: "1 1 420px" }}>
+              <InteractiveCard card={card} lang={lang} />
+            </div>
+          ) : (
+            <div style={{ flex: "0 1 360px", minWidth: 260 }}>
+              {card.image_path && card.id > 0 ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={card.image_path} alt={c.name} style={{ width: "100%", borderRadius: 18, border: "1px solid var(--line)", boxShadow: "0 18px 50px rgba(0,0,0,.45)" }} />
+              ) : (
+                <div style={{ fontSize: 120, textAlign: "center", border: "1px solid var(--line)", borderRadius: 18, padding: "60px 0" }}>✦</div>
+              )}
+            </div>
+          )}
 
           <div style={{ flex: "1 1 440px", minWidth: 300 }}>
             <div className="meta">{card.number} · {card.arcana_type || card.category || "—"}</div>

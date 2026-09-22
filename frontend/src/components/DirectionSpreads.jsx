@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import SiteNav from "./SiteNav";
 import Reveal from "./Reveal";
 import { cardName, getJSON, pick } from "../lib/api";
+import CardBreakdown from "./CardBreakdown";
 
 const T = {
   ru: {
@@ -71,7 +72,6 @@ export default function DirectionSpreads({ direction, decks, initialSpreads }) {
     }
   };
 
-  const cc = card ? pick(card, lang, "name", "meaning_general", "keywords_upright", "keywords_reversed") : null;
   const rev = card && (card.id ?? 0) % 4 === 0;
 
   return (
@@ -129,15 +129,14 @@ export default function DirectionSpreads({ direction, decks, initialSpreads }) {
               )}
             </div>
             {card && (
-              <div className="drawer drawer-card" style={{ gridTemplateColumns: "140px 1fr" }}>
+              <div className="drawer drawer-card" style={{ gridTemplateColumns: "180px 1fr", alignItems: "start" }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={card.image_path} alt={cc.name} onError={(e) => (e.currentTarget.style.display = "none")} />
-                <div>
+                <img src={card.image_path} alt={cardName(card, lang)} style={{ width: "100%", borderRadius: 12 }}
+                  onError={(e) => (e.currentTarget.style.display = "none")} />
+                <div style={{ minWidth: 0 }}>
                   <div className="meta">{card.number} · {rev ? t.reversed : t.upright}</div>
-                  <h3>{cardName(card, lang)}</h3>
-                  <p><b>{rev && cc.keywords_reversed ? cc.keywords_reversed : cc.keywords_upright}</b></p>
-                  {cc.meaning_general && <p style={{ whiteSpace: "pre-wrap" }}>{cc.meaning_general}</p>}
-                  {card.deck_id && <a href={`/decks/${card.deck_id}?card=${card.id}`} style={{ color: "var(--gold-soft)", fontSize: 13 }}>{t.source}</a>}
+                  <div style={{ height: 4 }} />
+                  <CardBreakdown card={card} lang={lang} reversed={rev} compact />
                 </div>
               </div>
             )}

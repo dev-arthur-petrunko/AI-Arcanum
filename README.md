@@ -223,7 +223,7 @@ Requests to `/api/*` are proxied to the backend in `next.config.js`.
 
 ## Knowledge base
 
-- **28 systems**: Tarot, Lenormand, I-Ching, runes, oracles, MAC, astrology, shamanism, gypsy, playing, Tzolkin, numerology, zodiac, Ogham, Sabian, nakshatras, chakras, dream cards, elements, angels, Kabbalah, Bagua, Ifa, angel numbers, tasseography, crystals, astrological reference, therapeutic cards, dream dictionary.
+- **27 systems**: Tarot, Lenormand, I-Ching, runes, oracles, MAC, astrology, shamanism, gypsy, playing, Tzolkin, numerology, zodiac, Ogham, Sabian, nakshatras, chakras, elements, angels, Kabbalah, Bagua, Ifa, angel numbers, tasseography, crystals, astrological reference, therapeutic cards, dream dictionary.
 - **32 decks**: classics (Waite-Smith 78, Marseille 78, Visconti-Sforza 74, Lenormand 36, I-Ching 64, Futhark 24, rune poem 29) + educational retellings with `source_url`.
 - **1,004 cards** (891 with procedural or public-domain images) — trilingual texts.
 - **Dream dictionary**: 113 symbols sorted by the Ukrainian alphabet, with RU/EN translations.

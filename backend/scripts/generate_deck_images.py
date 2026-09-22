@@ -9,6 +9,7 @@
 Запуск з папки backend/: python scripts/generate_deck_images.py [--only DECK_ID]
 Пише у Database/images/<deck>/ + frontend/public/assets/<deck>/ і оновлює image_path.
 """
+import random
 import re
 import sys
 from pathlib import Path
@@ -74,10 +75,6 @@ MOON_EMOJI = {1: "🌑", 2: "🌒", 3: "🌓", 4: "🌔", 5: "🌕", 6: "🌖", 
 ZODIAC_EMOJI = ["🐀", "🐂", "🐅", "🐇", "🐉", "🐍", "🐎", "🐐", "🐒", "🐓", "🐕", "🐖"]
 PLUTCHIK_EMOJI = {"Радість": "😊", "Сум": "😢", "Довіра": "🤝", "Відраза": "🤢",
                   "Страх": "😨", "Гнів": "😠", "Здивування": "😲", "Очікування": "⏳"}
-DREAM_EMOJI = {"Вода": "💧", "Змія": "🐍", "Будинок": "🏠", "Зуби": "🦷", "Дитя": "👶",
-               "Смерть": "💀", "Політ": "🕊", "Птахи": "🐦", "Вогонь": "🔥", "Квіти": "🌸",
-               "Гроза": "🌩", "Море": "🌊", "Гора": "⛰", "Дорога": "🛤", "Ключ": "🗝",
-               "Дзеркало": "🪞", "Міст": "🌉", "Золото": "💰", "Крила": "🕊", "Дерево": "🌳"}
 
 # Циганські карти (навчальні), 36 символів: гліф у EMOJI + фолбек у SYM.
 GYPSY_GLYPH = {
@@ -817,15 +814,33 @@ def draw_gem(g, cx, cy, s, color, light):
 
 
 def draw_teacup(g, cx, cy, color, dark):
-    """Чашка для тасеографії: пара + пар + блюдце (контурно)."""
-    g.ellipse([cx - 128, cy + 62, cx + 128, cy + 104], outline=dark, width=4)  # блюдце
-    g.arc([cx - 74, cy - 108, cx + 74, cy + 66], 35, 145, fill=dark, width=6)   # ручка (права)
-    g.polygon([(cx - 84, cy - 66), (cx + 76, cy - 66), (cx + 60, cy + 56),
-               (cx - 68, cy + 56)], outline=color, width=5)                      # чашка
-    for i, dy in enumerate((0, -18, -34)):
-        g.arc([cx - 70 - i * 26, cy - 108 + dy, cx + 40 - i * 26, cy - 70 + dy],
-              200, 340, fill=dark, width=5)                                      # пар
-    g.line([cx - 56, cy - 40, cx + 52, cy - 40], fill=color, width=4)            # лінія чаю
+    """Чашка для тасеографії: блюдце, листя на дні, пара, ручка."""
+    # блюдце
+    g.ellipse([cx - 142, cy + 74, cx + 142, cy + 118], fill=shade(dark, 0.8))
+    g.ellipse([cx - 142, cy + 74, cx + 142, cy + 118], outline=dark, width=4)
+    g.ellipse([cx - 96, cy + 82, cx + 96, cy + 108], outline=shade(dark, 0.55), width=3)
+    # тіло чашки (трапеція)
+    g.polygon([(cx - 92, cy - 78), (cx + 84, cy - 78), (cx + 66, cy + 58),
+               (cx - 74, cy + 58)], fill="#f3ecda", outline=color, width=5)
+    g.polygon([(cx - 74, cy + 30), (cx + 60, cy + 30), (cx + 62, cy + 44),
+               (cx - 72, cy + 44)], fill=shade(color, 0.45))
+    # ручка (права)
+    g.arc([cx - 66, cy - 96, cx + 96, cy + 58], 30, 150, fill=color, width=6)
+    # поверхня чаю: овал-«дно»
+    g.ellipse([cx - 74, cy - 30, cx + 72, cy + 26], outline=dark, width=2)
+    # листя чаю на дні: крапки-штрихи
+    seed_ = int(cx * 7 + cy * 13)
+    random.seed(seed_)
+    for _ in range(26):
+        xx = cx + random.randint(-58, 56)
+        yy = cy + random.randint(-22, 18)
+        rr = random.uniform(2.5, 6.5)
+        g.ellipse([xx - rr, yy - rr * 0.6, xx + rr, yy + rr * 0.6],
+                  fill=shade(color, 0.55) if random.random() > 0.45 else color)
+    # пара
+    for i, dx in enumerate((0, -22, 22)):
+        g.arc([cx - 66 + dx, cy - 158, cx + 46 + dx, cy - 96], 200, 340,
+              fill=shade(color, 0.75), width=5)
 
 
 def pip_grid(n, cx, cy, dx=70, dy=80):
@@ -934,19 +949,68 @@ def tree_of_life(g, cx, top, bot, highlight, color, dim, path_hi=None):
             g.text((x, y), str(n), font=font(ARIAL, 16), fill=dim, anchor="mm")
 
 
-def ifa_grid(g, cx, cy, idx, color, dark):
-    """Класична дошка Іфа-опритування: 16 позицій 4×4, активний оду світиться."""
-    for i in range(16):
-        r0, c0 = divmod(i, 4)
-        x = cx - 150 + r0 * 100
-        y = cy - 150 + c0 * 100
-        if i == idx:
-            g.ellipse([x - 30, y - 30, x + 30, y + 30], fill=color, outline="#ffffff", width=4)
-            g.text((x, y), str(idx + 1), font=font(ARIAL, 18), fill="#10173a", anchor="mm")
+def ifa_grid(g, cx, cy, binario, color, dark):
+    """Дошка Іфа у стилі opele (ланцюжок opó oja).
+
+    Перші 4 біти — права колонка, останні 4 — ліва (стандарт опритування Yorùbá:
+    цикл «Eji Ogbe … Oyeku»). Біт '1' — одна активна паличка (I), '0' — дві
+    порожні (II), як у класичному записі «II - II - II - II · I - II - II - I».
+    """
+    code = str(binario or "").strip()
+    if len(code) != 8 or set(code) - {"0", "1"}:
+        code = "00000000"
+    # центральний стовбур ланцюжка
+    g.line([cx, cy - 170, cx, cy + 150], fill=dark, width=10)
+    g.line([cx, cy - 170, cx, cy + 150], fill="#8a9e4f", width=4)
+    for i in range(8):
+        if i < 4:
+            x = cx + 105      # права колонка: біти 0..3 (зверху вниз)
+            y = cy - 150 + i * 88
         else:
-            g.ellipse([x - 26, y - 26, x + 26, y + 26], outline=dark, width=3)
-    # колоподібне обрамлення знаку опритування
-    g.ellipse([cx - 218, cy - 218, cx + 218, cy + 218], outline=dark, width=3)
+            x = cx - 105      # ліва колонка: біти 4..7 (зверху вниз)
+            y = cy - 150 + (i - 4) * 88
+        active = code[i] == "1"
+        if active:
+            # одна товста «паличка» I
+            g.rounded_rectangle([x - 16, y - 42, x + 16, y + 42], radius=8,
+                                fill=color, outline="#0f1c10", width=2)
+            g.line([x - 6, y - 34, x - 6, y + 34], fill="#2b1510", width=3)
+        else:
+            # дві тонкі «палички» II
+            g.rounded_rectangle([x - 34, y - 40, x + 34, y + 40], radius=16,
+                                outline=dark, width=2)
+            for dx in (-13, 13):
+                g.rounded_rectangle([x + dx - 7, y - 30, x + dx + 7, y + 30],
+                                    radius=5, outline="#8a9e4f", width=3)
+    # обрамлення знаку опритування
+    g.ellipse([cx - 235, cy - 235, cx + 235, cy + 235], outline=dark, width=3)
+
+
+def draw_rune_stone(img, g, cx, cy, r, ring, glyph, glyph_color, rune_font):
+    """Рунічний камінь: м'яке сяйво + диск + кільце етиру + руна.
+
+    Конвертує img у RGBA, накладає сяйво і повертає (новий img, новий g).
+    """
+    img = img.convert("RGBA")
+    glow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    gd = ImageDraw.Draw(glow)
+    for rr in range(r + 130, 0, -4):
+        a = int(34 * (1 - (rr / (r + 130)) ** 2.2))
+        if a > 0:
+            gd.ellipse([cx - rr, cy - rr, cx + rr, cy + rr], fill=(200, 170, 80, a))
+    glow = glow.filter(ImageFilter.GaussianBlur(18))
+    img = Image.alpha_composite(img, glow).convert("RGB")
+    g = ImageDraw.Draw(img)
+    # диск каменя
+    g.ellipse([cx - r, cy - r, cx + r, cy + r], fill="#1b2431",
+              outline=shade(ring, 0.45), width=10)
+    g.ellipse([cx - r + 26, cy - r + 26, cx + r - 26, cy + r - 26],
+              outline=shade(ring, 0.6), width=3)
+    # кільце кольору етиру
+    g.ellipse([cx - r + 44, cy - r + 44, cx + r - 44, cy + r - 44],
+              outline=ring, width=6)
+    g.text((cx, cy + 6), glyph, font=rune_font, fill=glyph_color, anchor="mm")
+    return img, g
 
 
 def render(card, deck):
@@ -1036,6 +1100,11 @@ def render(card, deck):
                                 fill="#e8c87a")
                     g.rectangle([CX + 16, y - 13, CX + 130, y + 13],
                                 fill="#e8c87a")
+        if lines:
+            bin_code = "".join("1" if x else "0" for x in lines)
+            bcf = font(ARIAL, 18)
+            g.text((CX, HEX_TOP + 6 * HEX_SP + 30), bin_code, font=bcf,
+                   fill="#8a7440", anchor="mm")
 
         # ── 6. Trigrams in side margins ──
         low = tuple(int(x) for x in (lines[0], lines[1], lines[2])) if lines else None
@@ -1072,25 +1141,45 @@ def render(card, deck):
         while name_f.size > 24 and g.textlength(name_face, font=name_f) > W - 140:
             name_f = font(SERIF_B, name_f.size - 3)
         centered_text(g, 700, name_face, name_f, "#e8c87a")
+        kw_face = str(card.keywords_upright or "")
+        if kw_face:
+            kf = font(ARIAL, 21)
+            while kf.size > 14 and g.textlength(kw_face, font=kf) > W - 200:
+                kf = font(ARIAL, kf.size - 2)
+            centered_text(g, 748, kw_face, kf, "#c9a24a", max_w=W - 200)
     elif "футарк" in dnl or "futhark" in dnl:
         try:
             idx = int(num) - 1
             glyph = FUTHARK[idx] if 0 <= idx < 24 else "ᚠ"
         except ValueError:
             idx, glyph = 0, "ᚠ"
-        # кільце кольору етиру (символи лишаємо як є — прохання користувача)
-        ring = ["#a33327", "#3f7a4e", "#2f5d8a"][idx // 8]
-        g.ellipse([W / 2 - 150, 180, W / 2 + 150, 480], outline=ring, width=10)
-        g.text((W / 2, 330), glyph, font=f_rune, fill=fg, anchor="mm")
-        title_block(600)
+        # рунічний камінь кольору етиру (слава: fehu/feoh, hagal/isa, tiw)
+        ring = ["#a33327", "#3f7a4e", "#2f5d8a"][int(idx // 8) if idx else 0]
+        img, g = base_card("#11161f", "#e8c87a", "#8a7440", top="#060a12")
+        fg, frame = "#e8c87a", "#8a7440"
+        img, g = draw_rune_stone(img, g, W / 2, 345, 165, ring, glyph, "#cfb45c", f_rune)
+        centered_text(g, 585, "РУНА " + str(num), font(ARIAL, 30), frame)
+        centered_text(g, 645, name, f_med, fg)
+        aett = ["Феху · перша етир", "Хагал · друга етир", "Тіваз · третя етир"][int(idx // 8) if idx else 0]
+        centered_text(g, 705, aett, font(ARIAL, 22), "#c9a24a")
+        centered_text(g, 752, str(card.keywords_upright or "")[:44], font(ARIAL, 20),
+                      "#b8a877", max_w=W - 170)
     elif "поем" in dn or "поэм" in dn:
         try:
             idx = int(num) - 1
             glyph = POEM_RUNES[idx] if 0 <= idx < 29 else "ᚠ"
         except ValueError:
-            glyph = "ᚠ"
-        g.text((W / 2, 330), glyph, font=f_rune, fill=fg, anchor="mm")
-        title_block(600)
+            idx, glyph = 0, "ᚠ"
+        # та сама рунічна каменюка, але бронзова (поема = давніший футорк)
+        ring = "#a9833f"
+        img, g = base_card("#13100a", "#e8d9a8", "#9a7a3a", top="#070503")
+        fg, frame = "#e8d9a8", "#9a7a3a"
+        img, g = draw_rune_stone(img, g, W / 2, 345, 165, ring, glyph, "#cfb45c", f_rune)
+        centered_text(g, 585, "РУНА " + str(num), font(ARIAL, 30), frame)
+        centered_text(g, 645, name, f_med, fg)
+        centered_text(g, 705, "Англосаксонський футорк · поема", font(ARIAL, 22), "#c9a24a")
+        centered_text(g, 752, str(card.keywords_upright or "")[:46], font(ARIAL, 20),
+                      "#b8a877", max_w=W - 170)
     elif "місячн" in dnl or "лунн" in dnl or "moon" in dnl:
         # нічне небо: градієнт + зорі + місячна емоji-силует на світлому диску
         import random as _rnd
@@ -1359,24 +1448,43 @@ def render(card, deck):
         centered_text(g, 650, "Китайський зодіак", font(ARIAL, 26), frame)
         centered_text(g, 700, lucky[:52], font(ARIAL, 20), shade("#f6d66a", -0.35))
     elif "огам" in dnl or "ogham" in dnl:
-        # пергамент + СПРАВЖНІ Unicode-гліфи огама (U+1680–169F); риски — фолбек
-        img, g = base_card("#efe3cb", "#3a2c14", "#8a6b25")
-        fg, frame = "#3a2c14", "#8a6b25"
+        # друїдична роща: нічна лісова галявина + стебло-вісь з рисками огама
+        img = Image.new("RGBA", (W, H), (8, 10, 8, 255))
+        glow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        gd = ImageDraw.Draw(glow)
+        for rr in range(200, 0, -4):
+            a = int(40 * (1 - (rr / 200) ** 2.2))
+            if a > 0:
+                gd.ellipse([W / 2 - rr, 330 - rr, W / 2 + rr, 330 + rr],
+                           fill=(70, 100, 60, a))
+        glow = glow.filter(ImageFilter.GaussianBlur(20))
+        img = Image.alpha_composite(img, glow).convert("RGB")
+        g = ImageDraw.Draw(img)
         letter = str(num).upper()
         uni = OGHAM_UNICODE.get(letter, "")
-        og_f = font(HIST, 300)
+        fg, frame = "#e8e2c4", "#5f8a4e"
+        # кельтський орнамент по боках (трилисник-спіральки)
+        for sx in (46, W - 46):
+            for sy in (120, 330, 560):
+                for rr in (26, 14):
+                    g.arc([sx - rr, sy - rr, sx + rr, sy + rr], 0, 300,
+                          fill="#4a6e3d", width=3)
+        og_f = font(HIST, 270)
+        # стебло-вісь по центру
+        g.line([W / 2, 118, W / 2, 500], fill="#c8b27a", width=8)
+        g.line([W / 2, 118, W / 2, 500], fill="#8a9e6b", width=3)
         if uni and has_glyph(og_f, uni):
-            # легка вісь-стебло за гліфом
-            g.line([W / 2, 150, W / 2, 470], fill="#c8b27a", width=3)
-            g.text((W / 2, 318), uni, font=og_f, fill="#7a5a1e", anchor="mm")
+            g.text((W / 2, 318), uni, font=og_f, fill="#e6d8a0", anchor="mm")
         else:
-            draw_ogham(g, letter, W / 2, 168, 512, "#7a5a1e")
-        centered_text(g, 108, letter, font(SERIF_B, 34), "#7a5a1e")
+            draw_ogham(g, letter, W / 2, 168, 500, "#e6d8a0", w=11)
+        # назва літери та дерево (suit)
+        centered_text(g, 565, letter, font(SERIF_B, 30), "#b8c68a")
         tree = str(card.suit or "")
-        centered_text(g, 544, tree, font(SERIF, 36), "#7a5a1e")
-        centered_text(g, 596, str(letter), font(ARIAL, 40), frame)
-        centered_text(g, 650, name, f_med, fg)
-        centered_text(g, 714, str(card.keywords_upright or "")[:46], font(ARIAL, 20), "#7a5a1e")
+        centered_text(g, 615, tree, font(SERIF, 38), "#e8e2c4")
+        centered_text(g, 672, name, f_med, fg)
+        centered_text(g, 738, str(card.keywords_upright or "")[:48], font(ARIAL, 20),
+                      "#9fb67e", max_w=W - 170)
+        centered_text(g, 782, "Огам · " + str(card.category or ""), font(ARIAL, 22), "#5f8a4e")
     elif "сабіан" in dnl or "sabian" in dnl:
         # Сабіан-360: ГОЛОВНИЙ елемент — текст образу (symbolism), а не знак.
         # Знак зодіаку — дрібний маркер у куті; внизу мелко градус + знак.
@@ -1494,23 +1602,6 @@ def render(card, deck):
         centered_text(g, 610, str(num), font(ARIAL, 40), frame)
         centered_text(g, 662, name, f_med, fg)
         centered_text(g, 716, "Карта ресурсів", font(ARIAL, 22), frame)
-    elif "снів" in dnl or "sniv" in dnl:
-        # сни: нічне небо + емоji-символ сновидіння
-        img, g = base_card("#0a1030", "#e8ecf5", "#c0c8e0", top="#02040c")
-        fg, frame = "#e8ecf5", "#c0c8e0"
-        em = DREAM_EMOJI.get(str(card.theme or ""), "🌙")
-        ef = font(EMOJI, 220)
-        if has_glyph(ef, em):
-            g.text((W / 2, 250), em, font=ef, fill="#d8c65e", anchor="mm")
-        else:
-            g.text((W / 2, 250), "✦", font=font(SYM, 150), fill="#d8c65e", anchor="mm")
-        centered_text(g, 130, "СОН", font(ARIAL, 26), frame)
-        centered_text(g, 420, str(card.category or "Символ сновидіння"), font(ARIAL, 24), "#cdd6f4")
-        centered_text(g, 566, str(num), font(ARIAL, 40), frame)
-        centered_text(g, 618, name, f_med, fg)
-        centered_text(g, 672, str(card.keywords_upright or ""), font(ARIAL, 22), "#a9b4d6",
-                       max_w=W - 160)
-        centered_text(g, 726, "Карти снів", font(ARIAL, 22), frame)
     elif "стихі" in dnl or "стихии" in dnl or "стих" in dnl:
         # стихії: алхімічний трикутник/символ у власних кольорах
         colmap = {"fire": "#e0563a", "water": "#3f86c9", "air": "#7cbfe8",
@@ -1644,20 +1735,30 @@ def render(card, deck):
         centered_text(g, 692, str(card.element or ""), font(ARIAL, 24), frame)
         centered_text(g, 732, "Багуа · " + str(num), font(ARIAL, 22), "#a9833f")
     elif "іфа" in dnl or "ifa" in dnl:
-        # Іфа: дошка 16 Оду, активний знак світиться
-        img, g = base_card("#0f1c10", "#e8e6cf", "#8a9e4f", top="#060f07")
-        fg, frame = "#e8e6cf", "#8a9e4f"
-        try:
-            ixi = int(num) - 1
-        except ValueError:
-            ixi = 0
-        ifa_grid(g, W / 2, 350, ixi, frame, "#56643a")
-        centered_text(g, 118, name, font(SERIF_B, 34), fg)
-        centered_text(g, 164, str(card.category or "Оду Іфа"), font(ARIAL, 22), frame)
-        centered_text(g, 592, str(card.theme or ""), font(ARIAL, 24), frame, max_w=W - 160)
-        centered_text(g, 648, str(card.keywords_upright or "")[:44], font(ARIAL, 20), "#b6c08d",
-                       max_w=W - 160)
-        centered_text(g, 706, "Оду " + str(num) + " · Іфа", font(ARIAL, 24), frame)
+        # Іфа: ланцюжок opó oja (палички I/II) у стилі ifa-wisdom.com
+        img, g = base_card("#12200f", "#f0ecd8", "#c9a24a", top="#060f07")
+        fg, frame = "#f0ecd8", "#c9a24a"
+        binario = str(card.suit_code or "00000000")
+        if len(binario) != 8 or set(binario) - {"0", "1"}:
+            binario = "00000000"
+        is_meji = "межі" in str(card.arcana_type or "").lower()
+        # шапка: бінарний код у рамці
+        g.rounded_rectangle([W / 2 - 140, 96, W / 2 + 140, 162], radius=12,
+                            fill="#0b180a", outline="#2c4026", width=2)
+        bf = font(ARIAL, 28)
+        while bf.size > 16 and g.textlength(binario, font=bf) > W - 330:
+            bf = font(ARIAL, bf.size - 2)
+        g.text((W / 2, 122), binario, font=bf, fill="#e6c86a", anchor="mm")
+        centered_text(g, 168, "ОПÓ ОЖА · ОДУ", font(ARIAL, 22), "#7ea25f")
+        ifa_grid(g, W / 2, 370, binario, frame, "#2c4026")
+        epitet = str(card.meaning_spirituality or "")
+        if not epitet and card.translations:
+            epitet = str((card.translations.get("uk") or {}).get("meaning_spirituality") or "")
+        centered_text(g, 622, epitet[:96], font(ARIAL, 22), "#c8c89a", max_w=W - 160)
+        centered_text(g, 664, name, font(SERIF_B, 36), fg)
+        centered_text(g, 712, ("Межі · Оду " if is_meji else "Омо · Оду ") + str(num),
+                      font(ARIAL, 24), frame)
+        centered_text(g, 752, "Іфа · " + str(card.suit or ""), font(ARIAL, 20), "#8ba96f")
     elif "числ-ангел" in dnl or "angel-number" in dnl:
         # числа-ангели: велике число в сяйві
         img, g = base_card("#141423", "#f0ead8", "#c9a24a", top="#07070f")
@@ -1677,22 +1778,22 @@ def render(card, deck):
                        frame, max_w=W - 160)
         centered_text(g, 660, "Число-ангел · " + str(num), font(ARIAL, 26), frame)
     elif "тасеограф" in dnl or "tealeaf" in dnl or "чай" in dnl:
-        # тасеографія: чашка для кави/чаю + символ знака (гліф у/над чашкою)
+        # тасеографія: чашка + листя на дні + символ знака (гліф у чашці)
         img, g = base_card("#efe3cb", "#3a2c14", "#8a6b25")
         fg, frame = "#3a2c14", "#8a6b25"
-        draw_teacup(g, W / 2, 470, "#7a5a1e", "#8a6b25")
+        draw_teacup(g, W / 2, 430, "#7a5a1e", "#8a6b25")
         em, fb = TASEO_GLYPH.get(str(card.suit or ""), ("✦", "✦"))
-        sf = font(EMOJI, 170)
+        sf = font(EMOJI, 110)
         if has_glyph(sf, em):
-            g.text((W / 2, 470), em, font=sf, fill="#7a5a1e", anchor="mm")
+            g.text((W / 2, 452), em, font=sf, fill="#2b1510", anchor="mm")
         else:
-            g.text((W / 2, 470), fb, font=font(SYM, 150), fill="#7a5a1e", anchor="mm")
-        centered_text(g, 140, "СИМВОЛ У ЧАШЦІ", font(ARIAL, 24), "#8a6b25")
-        centered_text(g, 620, name, font(SERIF_B, 40), fg)
-        centered_text(g, 680, str(card.suit or ""), font(ARIAL, 26), "#7a5a1e")
-        centered_text(g, 732, str(card.keywords_upright or "")[:48], font(ARIAL, 22), "#6b5330",
+            g.text((W / 2, 452), fb, font=font(SYM, 105), fill="#2b1510", anchor="mm")
+        centered_text(g, 132, "СИМВОЛ У ЧАШЦІ", font(ARIAL, 24), "#8a6b25")
+        centered_text(g, 610, name, font(SERIF_B, 40), fg)
+        centered_text(g, 670, str(card.suit or ""), font(ARIAL, 26), "#7a5a1e")
+        centered_text(g, 722, str(card.keywords_upright or "")[:48], font(ARIAL, 22), "#6b5330",
                        max_w=W - 160)
-        centered_text(g, 790, "Знак " + str(num) + " · Тасеографія", font(ARIAL, 22), "#8a6b25")
+        centered_text(g, 782, "Знак " + str(num) + " · Тасеографія", font(ARIAL, 22), "#8a6b25")
     elif "кристал" in dnl or "crystal" in dnl:
         # кристали: кольоровий самоцвіт + властивості
         basec = CRYSTAL_COLORS.get(str(card.element_code or "").lower(), "#9a6fd0")

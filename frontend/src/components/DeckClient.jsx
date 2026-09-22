@@ -3,8 +3,11 @@ import { Suspense, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Scene3D from "./Scene3D";
 import CardDetail from "./CardDetail";
+import CatalogClient from "./CatalogClient";
+import InteractiveCardModal from "./InteractiveCardModal";
 import { cardName, getJSON, pick } from "../lib/api";
 import { subgroupInfo } from "../lib/subgroups";
+import { hasZones } from "../lib/rws";
 
 const T = {
   ru: {
@@ -56,11 +59,12 @@ function groupByArcana(cards) {
 
 /** Клієнт сторінки колоди: 3D-віяло або сітка значень арканів, пошук, розбір, ?card=підсвітка.
  *  relatedDeck/relatedCards — «будівельна» колода (напр. Багуа → триграми на сторінці І-Цзин). */
-export default function DeckClient({ deck, initialCards, relatedDeck, relatedCards, lang, setLang, theme = "dark", isDivination }) {
+export default function DeckClient({ deck, initialCards, relatedDeck, relatedCards, lang, setLang, theme = "dark", isDivination, catalogMode }) {
   const t = T[lang];
   const params = useSearchParams();
   const [cards, setCards] = useState(initialCards);
   const [selected, setSelected] = useState(null);
+  const [interactive, setInteractive] = useState(null);
   const [q, setQ] = useState("");
 
   const hasMajors = useMemo(() => cards.some((c) => /Старш/i.test(c.arcana_type || "")), [cards]);
@@ -76,7 +80,10 @@ export default function DeckClient({ deck, initialCards, relatedDeck, relatedCar
       return;
     }
     getJSON(`/cards/${id}`).then((c) => {
-      if (c?.id) setSelected(c);
+      if (c?.id) {
+        if (hasZones(String(c.number ?? ""))) setInteractive(c);
+        else setSelected(c);
+      }
     }).catch(() => {});
   }, [params]);
 
@@ -93,6 +100,10 @@ export default function DeckClient({ deck, initialCards, relatedDeck, relatedCar
     try {
       const c = await getJSON(`/cards/random?deck_id=${deck.id}`);
       if (c?.id) {
+        if (hasZones(String(c.number ?? ""))) {
+          setInteractive(c);
+          return;
+        }
         if (isDivination) {
           window.location.href = `/directions/divination/card/${c.id}`;
           return;
@@ -103,8 +114,12 @@ export default function DeckClient({ deck, initialCards, relatedDeck, relatedCar
     } catch {}
   }
 
-  /** Клік по карті: «Гадальні» — окрема сторінка, решта — модальне вікно. */
+  /** Клік по карті: RWS з зонами — інтерактив; «Гадальні» — окрема сторінка; решта — модальне вікно. */
   function pickCard(c) {
+    if (hasZones(String(c?.number ?? ""))) {
+      setInteractive(c);
+      return;
+    }
     if (isDivination) {
       window.location.href = `/directions/divination/card/${c.id}`;
       return;
@@ -170,7 +185,9 @@ export default function DeckClient({ deck, initialCards, relatedDeck, relatedCar
       <div className="divider">✦ ✦ ✦</div>
 
       <section className="section" style={{ paddingTop: 0 }}>
-        {flat ? (
+        {catalogMode ? (
+          <CatalogClient cards={cards} lang={lang} onOpen={pickCard} />
+        ) : flat ? (
           <>
             <p className="arc-title"><b>{t.valuesBlock}</b> <span className="arc-count">{cards.length}</span></p>
             <div className="grid-cards">
@@ -232,6 +249,7 @@ export default function DeckClient({ deck, initialCards, relatedDeck, relatedCar
 
       <div style={{ marginTop: 18 }}>
         <CardDetail card={selected} lang={lang} onClose={() => setSelected(null)} />
+        <InteractiveCardModal card={interactive} lang={lang} onClose={() => setInteractive(null)} />
       </div>
       {relatedDeck?.id && relatedCards?.length > 0 && (
         <section className="section" style={{ marginTop: 30, paddingTop: 0 }}>

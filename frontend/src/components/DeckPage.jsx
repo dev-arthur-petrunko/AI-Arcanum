@@ -4,7 +4,7 @@ import { DeckClientSuspense } from "./DeckClient";
 import SideMenu from "./SideMenu";
 
 /** Клієнт обгортки сторінки колоди: мова + навігація. Дані — із серверного page.jsx. */
-export default function DeckPage({ deck, initialCards, relatedDeck, relatedCards, isDivination }) {
+export default function DeckPage({ deck, initialCards, relatedDeck, relatedCards, isDivination, catalogMode }) {
   const [lang, setLang] = useState("uk");
   const [theme, setTheme] = useState("dark");
   if (!deck?.id) return <main className="wrap" style={{ paddingTop: 120 }}><p>404 — колоди нема.</p><a href="/">←</a></main>;
@@ -49,7 +49,7 @@ export default function DeckPage({ deck, initialCards, relatedDeck, relatedCards
         </div>
       </nav>
       <main className="wrap" style={{ paddingTop: 110, paddingBottom: 60 }}>
-        <DeckClientSuspense deck={deck} initialCards={initialCards} relatedDeck={relatedDeck} relatedCards={relatedCards} isDivination={isDivination} lang={lang} setLang={setLang} theme={theme} toggleTheme={toggleTheme} />
+        <DeckClientSuspense deck={deck} initialCards={initialCards} relatedDeck={relatedDeck} relatedCards={relatedCards} isDivination={isDivination} catalogMode={catalogMode} lang={lang} setLang={setLang} theme={theme} toggleTheme={toggleTheme} />
       </main>
     </>
   );

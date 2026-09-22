@@ -42,6 +42,7 @@ export default async function DeckRoute({ params }) {
       relatedDeck={relatedDeck}
       relatedCards={Array.isArray(relatedCards) ? relatedCards : []}
       isDivination={isDivination}
+      catalogMode={parseInt(params.id, 10) === 1 && deck?.card_count === 78}
     />
   );
 }

@@ -1,7 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
-import { cardName, getJSON, pick } from "../lib/api";
+import { getJSON, pick } from "../lib/api";
 import SideMenu from "./SideMenu";
+import CardBreakdown from "./CardBreakdown";
 
 const T = {
   ru: {
@@ -262,19 +263,20 @@ export default function SpreadsPage() {
 
           <div className="drawer-grid" style={{ display: "grid", gap: 16, marginTop: 14 }}>
             {cards.map((c, i) => {
-              const cc = pick(c, lang, "name", "meaning_general", "keywords_upright", "keywords_reversed");
               const rev = (c.id ?? 0) % 4 === 0;
               const posName = POS_NAME[lang][spread.posNames[i]] || "—";
               return (
-                <div key={`${c.id}-${i}`} className="drawer" style={{ gridTemplateColumns: "120px 1fr" }}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={c.image_path} alt={cc.name} onError={(e) => (e.currentTarget.style.display = "none")} />
+                <div key={`${c.id}-${i}`} className="drawer" style={{ gridTemplateColumns: "200px 1fr", alignItems: "start" }}>
                   <div>
-                    <div className="meta">{t.pos} {i + 1} · {posName} · {c.number} {rev ? `· ${t.reversed}` : `· ${t.upright}`}</div>
-                    <h3>{cc.name}</h3>
-                    <p><b>{rev && cc.keywords_reversed ? cc.keywords_reversed : cc.keywords_upright}</b></p>
-                    {cc.meaning_general && <p style={{ whiteSpace: "pre-wrap" }}>{cc.meaning_general}</p>}
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={c.image_path} alt={c.name} style={{ width: "100%", borderRadius: 12 }}
+                      onError={(e) => (e.currentTarget.style.display = "none")} />
+                    <div className="meta" style={{ marginTop: 10 }}>{t.pos} {i + 1} · {posName} {rev ? `· ${t.reversed}` : `· ${t.upright}`}</div>
                     {c.deck_id && <a href={`/decks/${c.deck_id}?card=${c.id}`} style={{ color: "var(--gold-soft)", fontSize: 13 }}>{t.source}</a>}
+                  </div>
+                  <div style={{ minWidth: 0 }}>
+                    <div style={{ height: 4 }} />
+                    <CardBreakdown card={c} lang={lang} reversed={rev} compact />
                   </div>
                 </div>
               );
